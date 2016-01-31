@@ -5,8 +5,8 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 09:08:52 -0500</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 09:08:52 -0500</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 16:58:23 -0500</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 16:58:23 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -100,7 +100,7 @@ introducing some equality constraints:&lt;/p&gt;
 \|\mathbf{y}_t -\mathbf{1}w_t\|_2^2 =
 \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2\\
 &amp;\operatorname{subject\ to} &amp;&amp; w_{t+1} - w_{t}=0,\ \ t=1,\ldots, m-1.
-\end{aligned}
+\end{aligned}\tag{3}
 &lt;/script&gt;&lt;/div&gt;
 
 &lt;p&gt;It is then natural to replace hard constraints with e.g. a quadratic
@@ -115,7 +115,7 @@ value of &lt;script type=&quot;math/tex&quot;&gt;\lambda \ge 0&lt;/script&gt;.
 The above can be rewritten in vector notation as:&lt;/p&gt;
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
-\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{3}
+\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{4}
 &lt;/script&gt;&lt;/div&gt;
 &lt;p&gt;Here  &lt;script type=&quot;math/tex&quot;&gt;D^{(1,m)}&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;(m-1) \times m&lt;/script&gt;
 first order finite differences matrix:&lt;/p&gt;
@@ -148,7 +148,7 @@ discretised second and higher derivatives respectively.&lt;/p&gt;
 
 &lt;p&gt;It is important to consider what happens as we obtain data for the
 new time period &lt;script type=&quot;math/tex&quot;&gt;m+1&lt;/script&gt;. Perhaps the cleanest way to approach
-this is to form a new optimisation problem (3) with updated data and obtain a new vector of
+this is to form a new optimisation problem (4) with updated data and obtain a new vector of
 estimates for the entire history of the process &lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}^*=[w_1^*,\ldots,w_m^*,w_{m+1}^*]^T&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;Historically a number of schemes to efficiently compute 
@@ -171,7 +171,7 @@ change over time:&lt;/p&gt;
 p(y\,|\,w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
 &lt;/script&gt;&lt;/div&gt;
 
-&lt;p&gt;We can attain similar results to (3) by solving the
+&lt;p&gt;We can attain similar results to (4) by solving the
 following penalised maximum likelihood problem:&lt;/p&gt;
 
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
@@ -188,7 +188,7 @@ multiple parameters (e.g. heteroscedastic multivariate Gaussian).&lt;/p&gt;
 &lt;p&gt;An interesting alternative is to estimate
 distribution quantiles directly, instead of assuming a parametric form
 and then trying to find the parameters. This can be accomplished by
-replacing quadratic loss in (3) with the &lt;a href=&quot;https://en.wikipedia.org/wiki/Quantile_regression&quot;&gt;quantile
+replacing quadratic loss in (4) with the &lt;a href=&quot;https://en.wikipedia.org/wiki/Quantile_regression&quot;&gt;quantile
 loss&lt;/a&gt;, so that solving the following
 problem estimates the &lt;script type=&quot;math/tex&quot;&gt;\tau&lt;/script&gt;-th quantile of the distribution given
 data up to time &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;:&lt;/p&gt;
@@ -203,6 +203,148 @@ data up to time &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;:&lt;/p&
 
 &lt;p&gt;The figure on the right shows an example of quantile splines applied to estimate
 a time varying distribution (at time &lt;script type=&quot;math/tex&quot;&gt;t=100&lt;/script&gt;)..&lt;label for=&quot;mf-id-5&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-5&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_quantile.png&quot; /&gt;&lt;br /&gt;Quantile splines applied to estimate 20 equally spaced distribution percentiles (denoted by colour gradient) given the information at &lt;script type=&quot;math/tex&quot;&gt;t = 100&lt;/script&gt;.&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;kalman-filter-as-an-optimisation-problem&quot;&gt;Kalman filter as an optimisation problem&lt;/h2&gt;
+&lt;p&gt;Now we can finally discuss the Kalman filter and turns out it can be productively conceptualised as a “dynamic”
+extension of the standard least squares problem (cf. mean estimation):&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y} -
+X\mathbf{w}\|_2^2,\tag{5}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;Following (1) we  partition
+the design matrix &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and the response vector &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}&lt;/script&gt; into &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;
+row blocks (corresponding to time periods):&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+  \begin{array}{ll}
+    X= \left[ \begin{array}{c}
+        X_1\\
+        \cdots\\
+        X_m\end{array} \right],
+    &amp;\ \mathbf{y}= \left[ \begin{array}{c}
+        \mathbf{y}_1\\
+        \cdots\\
+        \mathbf{y}_m\end{array} \right].
+  \end{array}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;The least squares problem (5) can then be transformed into an
+equivalent problem with &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; copies of the parameter vector by
+introducing some equality constraints:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:block}
+  \begin{aligned}
+    &amp;\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} 
+    &amp;&amp;  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\
+    &amp;\operatorname{subject\ to} 
+    &amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
+  \end{aligned}\tag{6}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;The underlying probability model can  be written in the state space form with the
+identity state transition matrix,  no state transition noise and
+i.i.d. Gaussian observation noise &lt;label for=&quot;Five&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;Five&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;We can in fact avoid the
+  Gaussianity assumption by posing a quadratic loss function
+  instead which yields equivalent estimators &lt;/span&gt;, where &lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}_t&lt;/script&gt; is the
+unobserved state vector and &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}_t&lt;/script&gt; are the observations
+associated with time dependent observation matrices &lt;script type=&quot;math/tex&quot;&gt;X_t&lt;/script&gt;:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\begin{array}{ll} 
+  \mathbf{w}_{t+1} = \mathbf{w}_t, \quad&amp;\quad
+  \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    &amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I).
+\end{array}
+&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;By introducing i.i.d. Gaussian state transition noise:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{array}{ll}\label{eq:kalman_state}
+    \mathbf{w}_{t+1} = \mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
+    \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    \boldsymbol{\nu}_t \sim \mathcal{N}(0,I),&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I)
+  \end{array}\tag{7}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;we effectively relax the equality constraints in (6)
+replacing them with a squared &lt;script type=&quot;math/tex&quot;&gt;\ell_2&lt;/script&gt;-norm penalty.  It is then
+possible to perform  estimation by solving the following convex
+optimisation problem:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}\label{eq:kalman}
+    \underset{\mathbf{w_1},\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+    &amp;\ \ \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2
+    +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-\mathbf{w}_{t}\|^2_2,
+  \end{aligned}\tag{8}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;which amounts to substituting  every independent variable in the
+regression model by its interaction with time variable &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; and regularising the
+first order differences in the
+corresponding parameters.
+The estimation problem can be either solved directly or transformed back to the standard least squares form:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:kal_ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y}&#39; -
+X&#39;\mathbf{w}\|_2^2,\tag{9}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;where the design matrix &lt;script type=&quot;math/tex&quot;&gt;X&#39;&lt;/script&gt; and the response vector &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}&#39;&lt;/script&gt; are
+redefined as follows:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\begin{aligned}
+X&#39;=\left[
+ \begin{array}{cccccc}
+X_1&amp;  &amp;&amp;&amp;  \\
+-I&amp;\ \ I &amp;&amp;&amp;  \\
+&amp; &amp; \cdots&amp; &amp;\\
+&amp; &amp;&amp;  -I&amp;I\\
+&amp; &amp; &amp;&amp; X_m \end{array} \right], &amp; \quad &amp;
+\mathbf{y}&#39; = \left[ \begin{array}{l}
+\mathbf{y}_1\\
+0\\
+\cdots \\
+0\\
+\mathbf{y}_m\end{array}\right],&amp; \quad &amp;
+\mathbf{w} = \left[ \begin{array}{l}
+\mathbf{w}_1\\
+\cdots \\
+\mathbf{w}_m
+\end{array}\right].
+\end{aligned}
+&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;The objective  in (8) simultaneously performs both
+“filtering” and &lt;a href=&quot;https://en.wikipedia.org/wiki/Kalman_filter#Rauch.E2.80.93Tung.E2.80.93Striebel&quot;&gt;“smoothing”&lt;/a&gt; conditional on all the observations up
+to time &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;. If new information becomes available the augmented
+optimisation problem should be  solved again to obtain new estimates
+of the entire history of state transitions &lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}^*=[\mathbf{w}^*_1,\ldots,\mathbf{w}^*_m,\mathbf{w}^*_{m+1}]^T&lt;/script&gt;.
+Standard Kalman filter given information up to time &lt;script type=&quot;math/tex&quot;&gt;m + 1&lt;/script&gt;, on the
+other hand, only updates the estimate of the current state
+&lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}^*_{m+1}&lt;/script&gt; and requires a backward ``smoothing’’ pass to
+update estimates of past states &lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}_1,\ldots,\mathbf{w}_m&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Indeed, the Kalman filter followed by a ``smoothing’’ step can be
+viewed as a computationally efficient recursive procedure for solving
+the normal equations of the least squares problem (9)
+which exploits block tri-diagonal structure of the matrix &lt;script type=&quot;math/tex&quot;&gt;X&#39;&lt;/script&gt;.
+With advances in numerical linear algebra routines for sparse matrices
+and increasing computer speeds very large problems of this kind can be
+solved directly.&lt;/p&gt;
+
+&lt;p&gt;So far we focused on the special case with the identity state
+transition matrix and i.i.d noise, however state estimation in the the
+general linear Gaussian state space model:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned} \mathbf{w}_{t+1} =
+    F\mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
+    \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    \boldsymbol{\nu}_t \sim \mathcal{N}(0,\Sigma_\nu),&amp;\quad
+    \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
+  \end{aligned}
+&lt;/script&gt;&lt;/div&gt;
+&lt;p&gt;can also be expressed as a convex optimisation problem.
+Denoting &lt;script type=&quot;math/tex&quot;&gt;\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}&lt;/script&gt;,
+&lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;-quadratic norm for a positive definite matrix &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;, it is:&lt;/p&gt;
+&lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}
+    \underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &amp;
+    \ \ \sum^{m}_{t=1}
+    \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_{\Sigma_\epsilon^{-1}}
+    +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-F\mathbf{w}_{t}\|^2_{\Sigma_\nu^{-1}}.
+  \end{aligned}
+&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;We can easily recover Whittaker graduation (4) as state space models by  choosing  one a dimensional state vector &lt;script type=&quot;math/tex&quot;&gt;w_t&lt;/script&gt;  with
+the observation matrix &lt;script type=&quot;math/tex&quot;&gt;X_t&lt;/script&gt;  a constant vector &lt;script type=&quot;math/tex&quot;&gt;\mathbf{1}&lt;/script&gt;.&lt;/p&gt;
+
 </description>
         <pubDate>Fri, 29 Jan 2016 21:00:00 -0500</pubDate>
         <link>/_site/articles/16/kalman</link>

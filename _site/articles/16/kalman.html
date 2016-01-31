@@ -63,7 +63,7 @@
   	      
   
     </nav>
-    <div style="background-image: url('https://source.unsplash.com/category/nature/2600x500'); height: 300px; padding-right: 5%;" "></div>
+    <div style="background-image: url('https://source.unsplash.com/category/nature/2600x500'); background-size: contain; height: 300px; padding-right: 5%;"></div>
 
 </header>
 
@@ -161,7 +161,7 @@ introducing some equality constraints:</p>
 \|\mathbf{y}_t -\mathbf{1}w_t\|_2^2 =
 \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2\\
 &\operatorname{subject\ to} && w_{t+1} - w_{t}=0,\ \ t=1,\ldots, m-1.
-\end{aligned}
+\end{aligned}\tag{3}
 </script></div>
 
 <p>It is then natural to replace hard constraints with e.g. a quadratic
@@ -176,7 +176,7 @@ value of <script type="math/tex">\lambda \ge 0</script>.
 The above can be rewritten in vector notation as:</p>
 <div class="mathblock"><script type="math/tex; mode=display">
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
-\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{3}
+\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{4}
 </script></div>
 <p>Here  <script type="math/tex">D^{(1,m)}</script> is the <script type="math/tex">(m-1) \times m</script>
 first order finite differences matrix:</p>
@@ -209,7 +209,7 @@ discretised second and higher derivatives respectively.</p>
 
 <p>It is important to consider what happens as we obtain data for the
 new time period <script type="math/tex">m+1</script>. Perhaps the cleanest way to approach
-this is to form a new optimisation problem (3) with updated data and obtain a new vector of
+this is to form a new optimisation problem (4) with updated data and obtain a new vector of
 estimates for the entire history of the process <script type="math/tex">\mathbf{w}^*=[w_1^*,\ldots,w_m^*,w_{m+1}^*]^T</script>.</p>
 
 <p>Historically a number of schemes to efficiently compute 
@@ -232,7 +232,7 @@ change over time:</p>
 p(y\,|\,w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
 </script></div>
 
-<p>We can attain similar results to (3) by solving the
+<p>We can attain similar results to (4) by solving the
 following penalised maximum likelihood problem:</p>
 
 <div class="mathblock"><script type="math/tex; mode=display">
@@ -249,7 +249,7 @@ multiple parameters (e.g. heteroscedastic multivariate Gaussian).</p>
 <p>An interesting alternative is to estimate
 distribution quantiles directly, instead of assuming a parametric form
 and then trying to find the parameters. This can be accomplished by
-replacing quadratic loss in (3) with the <a href="https://en.wikipedia.org/wiki/Quantile_regression">quantile
+replacing quadratic loss in (4) with the <a href="https://en.wikipedia.org/wiki/Quantile_regression">quantile
 loss</a>, so that solving the following
 problem estimates the <script type="math/tex">\tau</script>-th quantile of the distribution given
 data up to time <script type="math/tex">m</script>:</p>
@@ -264,6 +264,148 @@ data up to time <script type="math/tex">m</script>:</p>
 
 <p>The figure on the right shows an example of quantile splines applied to estimate
 a time varying distribution (at time <script type="math/tex">t=100</script>)..<label for="mf-id-5" class="margin-toggle">⊕</label><input type="checkbox" id="mf-id-5" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/_site/assets/img/kalman_quantile.png" /><br />Quantile splines applied to estimate 20 equally spaced distribution percentiles (denoted by colour gradient) given the information at <script type="math/tex">t = 100</script>.</span></p>
+
+<h2 id="kalman-filter-as-an-optimisation-problem">Kalman filter as an optimisation problem</h2>
+<p>Now we can finally discuss the Kalman filter and turns out it can be productively conceptualised as a “dynamic”
+extension of the standard least squares problem (cf. mean estimation):</p>
+<div class="mathblock"><script type="math/tex; mode=display">\label{eq:ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y} -
+X\mathbf{w}\|_2^2,\tag{5}
+</script></div>
+<p>Following (1) we  partition
+the design matrix <script type="math/tex">X</script> and the response vector <script type="math/tex">\mathbf{y}</script> into <script type="math/tex">m</script>
+row blocks (corresponding to time periods):</p>
+<div class="mathblock"><script type="math/tex; mode=display">
+  \begin{array}{ll}
+    X= \left[ \begin{array}{c}
+        X_1\\
+        \cdots\\
+        X_m\end{array} \right],
+    &\ \mathbf{y}= \left[ \begin{array}{c}
+        \mathbf{y}_1\\
+        \cdots\\
+        \mathbf{y}_m\end{array} \right].
+  \end{array}
+</script></div>
+<p>The least squares problem (5) can then be transformed into an
+equivalent problem with <script type="math/tex">m</script> copies of the parameter vector by
+introducing some equality constraints:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\label{eq:block}
+  \begin{aligned}
+    &\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} 
+    &&  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\
+    &\operatorname{subject\ to} 
+    &&  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
+  \end{aligned}\tag{6}
+</script></div>
+<p>The underlying probability model can  be written in the state space form with the
+identity state transition matrix,  no state transition noise and
+i.i.d. Gaussian observation noise <label for="Five" class="margin-toggle sidenote-number"></label><input type="checkbox" id="Five" class="margin-toggle" /><span class="sidenote">We can in fact avoid the
+  Gaussianity assumption by posing a quadratic loss function
+  instead which yields equivalent estimators </span>, where <script type="math/tex">\mathbf{w}_t</script> is the
+unobserved state vector and <script type="math/tex">\mathbf{y}_t</script> are the observations
+associated with time dependent observation matrices <script type="math/tex">X_t</script>:</p>
+<div class="mathblock"><script type="math/tex; mode=display">
+\begin{array}{ll} 
+  \mathbf{w}_{t+1} = \mathbf{w}_t, \quad&\quad
+  \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    &\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I).
+\end{array}
+</script></div>
+
+<p>By introducing i.i.d. Gaussian state transition noise:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\begin{array}{ll}\label{eq:kalman_state}
+    \mathbf{w}_{t+1} = \mathbf{w}_t+\boldsymbol{\nu}_t, \quad&\quad
+    \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    \boldsymbol{\nu}_t \sim \mathcal{N}(0,I),&\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I)
+  \end{array}\tag{7}
+</script></div>
+<p>we effectively relax the equality constraints in (6)
+replacing them with a squared <script type="math/tex">\ell_2</script>-norm penalty.  It is then
+possible to perform  estimation by solving the following convex
+optimisation problem:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\begin{aligned}\label{eq:kalman}
+    \underset{\mathbf{w_1},\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+    &\ \ \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2
+    +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-\mathbf{w}_{t}\|^2_2,
+  \end{aligned}\tag{8}
+</script></div>
+<p>which amounts to substituting  every independent variable in the
+regression model by its interaction with time variable <script type="math/tex">t</script> and regularising the
+first order differences in the
+corresponding parameters.
+The estimation problem can be either solved directly or transformed back to the standard least squares form:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\label{eq:kal_ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y}' -
+X'\mathbf{w}\|_2^2,\tag{9}
+</script></div>
+<p>where the design matrix <script type="math/tex">X'</script> and the response vector <script type="math/tex">\mathbf{y}'</script> are
+redefined as follows:</p>
+<div class="mathblock"><script type="math/tex; mode=display">
+\begin{aligned}
+X'=\left[
+ \begin{array}{cccccc}
+X_1&  &&&  \\
+-I&\ \ I &&&  \\
+& & \cdots& &\\
+& &&  -I&I\\
+& & && X_m \end{array} \right], & \quad &
+\mathbf{y}' = \left[ \begin{array}{l}
+\mathbf{y}_1\\
+0\\
+\cdots \\
+0\\
+\mathbf{y}_m\end{array}\right],& \quad &
+\mathbf{w} = \left[ \begin{array}{l}
+\mathbf{w}_1\\
+\cdots \\
+\mathbf{w}_m
+\end{array}\right].
+\end{aligned}
+</script></div>
+
+<p>The objective  in (8) simultaneously performs both
+“filtering” and <a href="https://en.wikipedia.org/wiki/Kalman_filter#Rauch.E2.80.93Tung.E2.80.93Striebel">“smoothing”</a> conditional on all the observations up
+to time <script type="math/tex">m</script>. If new information becomes available the augmented
+optimisation problem should be  solved again to obtain new estimates
+of the entire history of state transitions <script type="math/tex">\mathbf{w}^*=[\mathbf{w}^*_1,\ldots,\mathbf{w}^*_m,\mathbf{w}^*_{m+1}]^T</script>.
+Standard Kalman filter given information up to time <script type="math/tex">m + 1</script>, on the
+other hand, only updates the estimate of the current state
+<script type="math/tex">\mathbf{w}^*_{m+1}</script> and requires a backward ``smoothing’’ pass to
+update estimates of past states <script type="math/tex">\mathbf{w}_1,\ldots,\mathbf{w}_m</script>.</p>
+
+<p>Indeed, the Kalman filter followed by a ``smoothing’’ step can be
+viewed as a computationally efficient recursive procedure for solving
+the normal equations of the least squares problem (9)
+which exploits block tri-diagonal structure of the matrix <script type="math/tex">X'</script>.
+With advances in numerical linear algebra routines for sparse matrices
+and increasing computer speeds very large problems of this kind can be
+solved directly.</p>
+
+<p>So far we focused on the special case with the identity state
+transition matrix and i.i.d noise, however state estimation in the the
+general linear Gaussian state space model:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\begin{aligned} \mathbf{w}_{t+1} =
+    F\mathbf{w}_t+\boldsymbol{\nu}_t, \quad&\quad
+    \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
+    \boldsymbol{\nu}_t \sim \mathcal{N}(0,\Sigma_\nu),&\quad
+    \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
+  \end{aligned}
+</script></div>
+<p>can also be expressed as a convex optimisation problem.
+Denoting <script type="math/tex">\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}</script>,
+<script type="math/tex">P</script>-quadratic norm for a positive definite matrix <script type="math/tex">P</script>, it is:</p>
+<div class="mathblock"><script type="math/tex; mode=display">\begin{aligned}
+    \underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &
+    \ \ \sum^{m}_{t=1}
+    \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_{\Sigma_\epsilon^{-1}}
+    +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-F\mathbf{w}_{t}\|^2_{\Sigma_\nu^{-1}}.
+  \end{aligned}
+</script></div>
+
+<p>We can easily recover Whittaker graduation (4) as state space models by  choosing  one a dimensional state vector <script type="math/tex">w_t</script>  with
+the observation matrix <script type="math/tex">X_t</script>  a constant vector <script type="math/tex">\mathbf{1}</script>.</p>
+
 
 
 
