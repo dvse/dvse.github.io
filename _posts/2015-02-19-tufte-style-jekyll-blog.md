@@ -3,6 +3,7 @@ layout: post
 title:  "Tufte-style Jekyll blog"
 date:   2015-02-19 21:46:04
 categories: jekyll css
+excerpt: "'The Tufte Jekyll theme' is an attempt to create a website design with the look and feel of Edward Tufte's books and handouts. Tufte’s style is known for its extensive use of sidenotes, tight integration of graphics with text, and well-set typography."
 ---
 ## Introduction
 

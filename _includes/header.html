@@ -1,8 +1,9 @@
 <!--- Header and nav template site-wide -->
 <header>
+  
     <nav class="group">
-	<a href="{{site.baseurl}}/"><img class="badge" src="{{site.baseurl}}/assets/img/badge_1.png" alt="CH"></a>
-	{% for node in site.pages %}
+     <a style="color: #000000;"><b>DS</b></a>
+    {% for node in site.pages %}
 		{% unless node.nav_exclude %}
 		    {% if page.url == node.url %}
 		      <a class="active" href="{{node.url | prepend: site.baseurl}}" class="active">{{node.title}}</a>
@@ -10,6 +11,9 @@
 		      <a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a>
 		    {% endif %}
 	    {% endunless %}
-  	{% endfor %}
-	</nav>
+  	      {% endfor %}
+  
+    </nav>
+    <div style="background-image: url('{{ site.imageurl}}'); height: 300px; padding-right: 5%;" "></div>
+
 </header>
