@@ -6,21 +6,30 @@ date:       2016-01-30 02:00:00
 author:     "Dimitri Semenovich"
 header-img: "img/post-bg-01.jpg"
 ---
+
+## Background
 {% marginfigure 'mf-id-1' 'assets/img/kalman_apollo.jpg' 'The Apollo 17 [Command/Service Module](https://en.wikipedia.org/wiki/Apollo_Command/Service_Module) photographed in lunar orbit from the ascent stage of the [Lunar Module](https://en.wikipedia.org/wiki/Apollo_Lunar_Module).'%}
 {%newthought '[Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter) and related ideas have played  a central role'%} in
 the success of state space methods in engineering control through out
 1960s (culminating in the linear quadratic Gaussian theory).
 Remarkably, the first practical application of the Kalman filter was to
-improve the accuracy of navigation for the Apollo  program{%sidenote 'One' ' McGee, L. and Schmidt, S. (1985). [Discovery of the Kalman filter as a practical tool for aerospace and industry](http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf). Technical Report TM 86847, NASA, Moffett Field, California'%}, quickly
+improve the accuracy of [navigation](https://en.wikipedia.org/wiki/Apollo_PGNCS) for the Apollo  program{%sidenote 'One' 'McGee, L. and Schmidt, S. (1985). [Discovery of the Kalman filter as a practical tool for aerospace and industry](http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf). Technical Report TM 86847, NASA, Moffett Field, California'%}, quickly
 followed by adoption for a wide range of aerospace problems{%sidenote 'Two' 'Grewal, M. and Andrews, A. (2010). Applications of Kalman filtering in aerospace 1960 to
 present. IEEE Control Systems Magazine'%}. In these
-applications the goal is typically to track the ``state'' of a missile or a
+applications the goal is typically to track the "state" of a missile or a
 spacecraft following  Newtonian dynamics. The state vector would
 contain  the  current position, velocity and acceleration
 vectors and the goal would be to repeatedly re-estimate the state using measurements
 coming in from a range of sensors, such as inertial, optical, ground
 based radar etc.
 
+The underlying ideas, while very simple from a certain point of view, are perhaps less well known than they should be, especially considering the broad applicability &mdash; any estimation problem where parameters might drift over time. Indeed in my experience relatively few people in machine learning or statistics even at graduate level are famiilar with this material and those engineering students who have had to suffer through a control theory class are little fond of the memory of trying to memorise the derivation of monstrous update equations. The situation is so bad that "Kalman filter tutorial" {%sidenote 'Three'  'And let us not forget its close relative, the [SLAM tutorial](http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte_Bailey_SLAM-tutorial-I.pdf) &mdash; not to downplay the importance of _simulataneous localisation and mapping_ that is among the central problems of robotics'%} has over the years become something of a genre of its own.
+
+The main difficulty comes from the fact that the Kalman filter is properly viewed as a particular _algorithm_ that efficiently solves a certain optimisation problem but is instead universally taught  as _the solution_ to the underlying inference task (or less charitably just as a behaviour). It is much more productive however to focus on the underlying optimisation problem and its transformations and from this perspective it becomes trivial both to extend the model or to apply more convenient optimisation tools.
+
+If you need more background on optimiastion or linear algebra I can't recommend first 10 lectures or so of [Stanford EE263](http://ee263.stanford.edu/archive/) strongly enough.
+
+## Mean estimation
 
 To illustrate the key points and introduce notation we discuss the
 simple case of mean estimation when the underlying
@@ -30,8 +39,8 @@ efficient. We assume that there are $$m$$ time
 periods and in the time period $$t$$ we obtain $$n$$ new observations, with $$i$$-th
 observation at time $$t$$ denoted as $$y_{ti}$$. 
 
-The simplest approach is to
- compute the sample average, updating it to reflect new data as
+
+One option is to compute the sample average, updating it to reflect new data as
 they come in. It is well known that the sample average:
 
 {%math%}
@@ -42,14 +51,14 @@ w^*= \frac{1}{mn}\sum_{t=1}^m\sum_{i=1}^{n}y_{ti}
 
 {%math%}
 \underset{w}{\operatorname{minimise}} \ \sum_{t=1}^m \|\mathbf{y}_t -
-\mathbf{1}w\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w)^2.
+\mathbf{1}w\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w)^2.\tag{1}
 {%endmath%}
 
 Alternatively we can calculate the sample means of all $$m$$ time periods independently:
 
 {%math%}
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
-\mathbf{1}w_t\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2,
+\mathbf{1}w_t\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2,\tag{2}
 {%endmath%}
 
 with the following analytic solutions:
@@ -64,7 +73,7 @@ sensitivity of the estimate to new observations diminishes as new data
 are acquired, while 
 in the second case the changes in the mean are assumed to be
 uncorrelated and we forgo any sharing of information between adjoining
-time periods.{% marginfigure 'mf-id-2' 'assets/img/kalman_window_2.png' 'F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” *Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice* (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s *Visual Explanations*.'  %}
+time periods.{% marginfigure 'mf-id-2' 'assets/img/kalman_window_2.png' 'Collection of linear models fit locally as new data (denoted by grey dots) becomes available.'  %}
 
 One compromise might be a form of local regression where we fit a linear model
 over a  time window of fixed width $$q+1$$ to form
@@ -75,11 +84,11 @@ the estimate:
 \mathbf{1}(tw + b) \|_2^2 =\sum_{t=m-q\,}^m\sum_{\, i=1}^{n}(y_{ti} -(tw+b))^2,
 {%endmath%}
 
-which, unlike (), provides an indication of the current
+which, unlike (2), provides an indication of the current
 trend.
 
-Another way to approach the problem is to observe that ()
-can be equivalently rewritten in the form similar to () by
+Another way to approach the problem is to observe that (1)
+can be equivalently rewritten in the form similar to (2) by
 introducing some equality constraints:
 
 {%math%}
@@ -92,39 +101,42 @@ introducing some equality constraints:
 {%endmath%}
 
 It is then natural to replace hard constraints with e.g. a quadratic
-penalty term (absolute values or even  maximum of differences etc. can also be
+penalty term (absolute values or even  maximum of differences etc;
 
-$$
+{%math%}
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2 + \lambda\sum_{t=1}^{m-1}(w_{t+1} - w_{t})^2,
+{%endmath%}
+delivering an effective compromise solution, where we can "dial"
+between (1) and (2) by choosing the{% marginfigure 'mf-id-3' 'assets/img/kalman_smoothed_2.png' 'Estimates of the current trend obtained from a dynamic model with second order smoothing. Note that at each time step the entire history is re-estimated.'  %}
+value of $$\lambda \ge 0$$.
+The above can be rewritten in vector notation as:
+{%math%}
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
-\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2=
-\sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2 + \lambda\sum_{t=1}^{m-1}(w_{t+1} - w_{t})^2,
-$$
-
-delivering an effective compromise solution, where we can ``dial''
-between () and () by choosing the
-value of $$\lambda \ge 0$$. Here  $$D^{(1,m)}$$ is the $$(m-1) \times m$$
+\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{3}
+{%endmath%}
+Here  $$D^{(1,m)}$$ is the $$(m-1) \times m$$
 first order finite differences matrix: 
 
-$$
+{%math%}
   D^{(1,n)} =  \left[ \begin{array}{rrrrrr}
       -1& 1  &&\\
       & -1  &1&&  \\
       & & \cdots &\\
       &   &&-1&\ \ 1\end{array} \right]
-$$
+{%endmath%}
 
 and   the $$k$$-th order finite
 differences matrix $$D^{(k,m)} \in \mathbb{R}^{(m-k)\times m}$$  is
 recursively defined  as:
 
-$$
+{%math%}
   D^{(k,m)}=D^{(1,m-k)}D^{(k-1,m)}, \  k=2,3,\dots
-$$
+{%endmath%}
 
-Heuristically, the ``fidelity'' term $$\sum_{t=1}^m \|\mathbf{y}_t -
+Heuristically, the "fidelity" term $$\sum_{t=1}^m \|\mathbf{y}_t -
 \mathbf{1}w_t\|_2^2$$
 encourages the solution $$\mathbf{w}$$ to be close to the original data
-$$\mathbf{y}_t$$ and the smoothness or regularisation term $$\|D^{(1,m)}\mathbf{w}\|_2^2$$
+$$\mathbf{y}_t$$ and the _smoothness_ or _regularisation_ term $$\|D^{(1,m)}\mathbf{w}\|_2^2$$
 penalises non-zero entries of $$D^{(1,m)}\mathbf{w}$$ (the
 discretised first derivative) of $$\mathbf{w}$$. If we would like to
 allow linear or higher order polynomial trends without penalty, we can
@@ -133,56 +145,58 @@ discretised second and higher derivatives respectively.
 
 It is important to consider what happens as we obtain data for the
 new time period $$m+1$$. Perhaps the cleanest way to approach
-this is to form a new optimisation problem (e.g.
-\ref{eq:smooth_mean}) with updated data and obtain a new vector of
+this is to form a new optimisation problem (3) with updated data and obtain a new vector of
 estimates for the entire history of the process $$\mathbf{w}^*=[w_1^*,\ldots,w_m^*,w_{m+1}^*]^T$$.
+
 Historically a number of schemes to efficiently compute 
 $$w^*_{m+1}$$ given the estimates at time $$m$$ have been proposed but
 advances in computing power have rendered them  considerably less relevant.
+.{% marginfigure 'mf-id-4' 'assets/img/kalman_whittaker.jpg' '[E.T. Whittaker](https://en.wikipedia.org/wiki/E._T._Whittaker) who has developed perhaps the first [modern method](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=3140568&fileId=S001309150000359X) for non parametric smoothing in 1923. The associated computational procedure has proven a source of nightmares for generation of actuarial students &mdash; inverting a $$100\times100$$ matrix by hand, even if it is banded, is no mean feat.' %}
 
-Figure () shows the results of running local regression
-() and  mean estimation penalised with second order differences (\ref{eq:smooth_mean}) on some
-syntethic data. 
+The figures on the right show the results of running local regression
+and  mean estimation penalised with second order differences on some
+made up data. 
 
-##Exponential families and quantile splines}
+##Exponential families and quantile splines
 The same idea as in the previous section can also be applied to
 maximum likelihood estimation. For example, consider a single
-parameter exponential family of distributions (see Appendix \ref{app:exp}
-for details on notation) where the parameter can
+parameter [exponential family](https://en.wikipedia.org/wiki/Exponential_family) of distributions
+ where the parameter can
 change over time:
 
-$$
-p(y|w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
-$$
+{%math%}
+p(y\,|\,w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
+{%endmath%}
 
-We can attain similar results to (\ref{eq:smooth_mean}) by solving the
+We can attain similar results to (3) by solving the
 following penalised maximum likelihood problem:
 
-$$
+{%math%}
 \begin{aligned}
 	& \underset{\mathbf{\mathbf{w}}}{\operatorname{minimise}}
 	& & \sum_{t=1}^m\sum_{i=1}^{n} \big(A(w_t) - w_t\phi(y_{ti})
         \big) + \lambda\|D^{(k,m)}\mathbf{w}\|_2^2.
 \end{aligned}
-$$
+{%endmath%}
 
 This formulation can also be extended to exponential families with
-multiple parameters (e.g. heteroscedastic multivariate Gaussian), see \cite{Wahlberg2012} for a recent example.
+multiple parameters (e.g. heteroscedastic multivariate Gaussian).
 
 An interesting alternative is to estimate
 distribution quantiles directly, instead of assuming a parametric form
 and then trying to find the parameters. This can be accomplished by
-replacing quadratic loss in () with the quantile
-loss (), so that solving the following
+replacing quadratic loss in (3) with the [quantile
+loss](https://en.wikipedia.org/wiki/Quantile_regression), so that solving the following
 problem estimates the $$\tau$$-th quantile of the distribution given
 data up to time $$m$$:
 
-$$
+{%math%}
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \
 \sum_{t=1}^m\sum_{i=1}^{n}\rho_\tau(y_{ti} -w_t) +
 \lambda\|D^{(k,m)}\mathbf{w} \|_2^2,
-$$
+{%endmath%}
 
-yielding  a variant of the so called \emph{quantile s\/plines} \cite{Koenker1994}.
-Figure \ref{fig:quantile} shows an example of quantile splines applied to estimate
-a time varying distribution (at time $$t=100$$).
+yielding  a variant of the so called _quantile splines_{%sidenote 'Four' 'Koenker, R., Ng, P., and Portnoy, S. (1994). [Quantile smoothing splines](http://www.econ.uiuc.edu/~roger/NAKE/qss.pdf). Biometrika' %}
+
+The figure on the right shows an example of quantile splines applied to estimate
+a time varying distribution (at time $$t=100$$)..{% marginfigure 'mf-id-5' 'assets/img/kalman_quantile.png' 'Quantile splines applied to estimate 20 equally spaced distribution percentiles (denoted by colour gradient) given the information at $$t = 100$$.' %}
