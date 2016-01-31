@@ -3,10 +3,10 @@
   <channel>
     <title>Certum ex inertis</title>
     <description>Dimitri&#39;s blog</description>
-    <link>/dvse.github.io/_site/</link>
-    <atom:link href="/dvse.github.io/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 05:06:05 -0500</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 05:06:05 -0500</lastBuildDate>
+    <link>/_site/</link>
+    <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 31 Jan 2016 05:14:45 -0500</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 05:14:45 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -171,11 +171,11 @@ Which &lt;em&gt;totally&lt;/em&gt; goofs up the layout CSS.&lt;/p&gt;
 
 &lt;p&gt;This code: &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fullwidth&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;assets/img/rhino.png&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;Tufte pet rhino (via &amp;lt;a href=\&quot;//www.edwardtufte.com/tufte/\&quot;&amp;gt;Edward Tufte&amp;lt;/a&amp;gt;)&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/dvse.github.io/_site/assets/img/rhino.png&quot; /&gt;&lt;figcaption&gt;Tufte&#39;s pet rhino (via &lt;a href=&quot;//www.edwardtufte.com/tufte/&quot;&gt;Edward Tufte&lt;/a&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/_site/assets/img/rhino.png&quot; /&gt;&lt;figcaption&gt;Tufte&#39;s pet rhino (via &lt;a href=&quot;//www.edwardtufte.com/tufte/&quot;&gt;Edward Tufte&lt;/a&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
 </description>
         <pubDate>Sat, 30 Jan 2016 20:04:01 -0500</pubDate>
-        <link>/dvse.github.io/_site/articles/16/Edge-Cases</link>
-        <guid isPermaLink="true">/dvse.github.io/_site/articles/16/Edge-Cases</guid>
+        <link>/_site/articles/16/Edge-Cases</link>
+        <guid isPermaLink="true">/_site/articles/16/Edge-Cases</guid>
         
         
         <category>post</category>
@@ -184,7 +184,7 @@ Which &lt;em&gt;totally&lt;/em&gt; goofs up the layout CSS.&lt;/p&gt;
     
       <item>
         <title>The Kalman filter explained</title>
-        <description>&lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/dvse.github.io/_site/assets/img/kalman_apollo.jpg&quot; /&gt;&lt;br /&gt;The Apollo 17 &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot;&gt;Command/Service Module&lt;/a&gt; photographed in lunar orbit from the ascent stage of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Lunar_Module&quot;&gt;Lunar Module&lt;/a&gt;.&lt;/span&gt;
+        <description>&lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_apollo.jpg&quot; /&gt;&lt;br /&gt;The Apollo 17 &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot;&gt;Command/Service Module&lt;/a&gt; photographed in lunar orbit from the ascent stage of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Lunar_Module&quot;&gt;Lunar Module&lt;/a&gt;.&lt;/span&gt;
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Kalman_filter&quot;&gt;Kalman filter&lt;/a&gt; and related ideas have played  a central role in
 the success of state space methods in engineering control through out
 1960s (culminating in the linear quadratic Gaussian theory).
@@ -241,7 +241,7 @@ sensitivity of the estimate to new observations diminishes as new data
 are acquired, while 
 in the second case the changes in the mean are assumed to be
 uncorrelated and we forgo any sharing of information between adjoining
-time periods.&lt;label for=&quot;mf-id-2&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-2&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/dvse.github.io/_site/assets/img/kalman_window_2.png&quot; /&gt;&lt;br /&gt;F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” &lt;em&gt;Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice&lt;/em&gt; (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s &lt;em&gt;Visual Explanations&lt;/em&gt;.&lt;/span&gt;&lt;/p&gt;
+time periods.&lt;label for=&quot;mf-id-2&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-2&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_window_2.png&quot; /&gt;&lt;br /&gt;F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” &lt;em&gt;Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice&lt;/em&gt; (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s &lt;em&gt;Visual Explanations&lt;/em&gt;.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;One compromise might be a form of local regression where we fit a linear model
 over a  time window of fixed width &lt;script type=&quot;math/tex&quot;&gt;q+1&lt;/script&gt; to form
@@ -355,8 +355,8 @@ Figure \ref{fig:quantile} shows an example of quantile splines applied to estima
 a time varying distribution (at time &lt;script type=&quot;math/tex&quot;&gt;t=100&lt;/script&gt;).&lt;/p&gt;
 </description>
         <pubDate>Fri, 29 Jan 2016 21:00:00 -0500</pubDate>
-        <link>/dvse.github.io/_site/articles/16/kalman</link>
-        <guid isPermaLink="true">/dvse.github.io/_site/articles/16/kalman</guid>
+        <link>/_site/articles/16/kalman</link>
+        <guid isPermaLink="true">/_site/articles/16/kalman</guid>
         
         
       </item>
@@ -451,7 +451,7 @@ Any of these values can be changed in the&lt;/code&gt;_sass/_settings.scss``` fi
 
 &lt;h3 id=&quot;margin-figures&quot;&gt;Margin Figures&lt;/h3&gt;
 
-&lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/dvse.github.io/_site/assets/img/rhino.png&quot; /&gt;&lt;br /&gt;F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” &lt;em&gt;Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice&lt;/em&gt; (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s &lt;em&gt;Visual Explanations&lt;/em&gt;.&lt;/span&gt;Images and graphics play an integral role in Tufte’s work. To place figures in the margin, use the custom margin figure liquid tag included in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_plugins&lt;/code&gt; directory like so:&lt;/p&gt;
+&lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/rhino.png&quot; /&gt;&lt;br /&gt;F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” &lt;em&gt;Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice&lt;/em&gt; (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s &lt;em&gt;Visual Explanations&lt;/em&gt;.&lt;/span&gt;Images and graphics play an integral role in Tufte’s work. To place figures in the margin, use the custom margin figure liquid tag included in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_plugins&lt;/code&gt; directory like so:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;marginfigure&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;mf-id-whatever&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;assets/img/rhino.png&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;F.J.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Cole,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;“The&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;History&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Albrecht&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Dürer’s&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Rhinoceros&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Zoological&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Literature,”&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*Science,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Medicine,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;History:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Essays&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Evolution&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Scientific&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Thought&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Medical&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Practice*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(London,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1953),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ed.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;E.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Ashworth&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Underwood,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;337-356.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Edward&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Tufte’s&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*Visual&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Explanations*.&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
 
@@ -465,7 +465,7 @@ Any of these values can be changed in the&lt;/code&gt;_sass/_settings.scss``` fi
 
 &lt;p&gt;Yields this:&lt;/p&gt;
 
-&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/dvse.github.io/_site/assets/img/napoleons-march.png&quot; /&gt;&lt;figcaption&gt;Napoleon&#39;s March (Edward Tufte’s English translation)&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;fullwidth&quot;&gt;&lt;img src=&quot;/_site/assets/img/napoleons-march.png&quot; /&gt;&lt;figcaption&gt;Napoleon&#39;s March (Edward Tufte’s English translation)&lt;/figcaption&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;main-column-figures&quot;&gt;Main Column Figures&lt;/h3&gt;
 
@@ -475,7 +475,7 @@ Any of these values can be changed in the&lt;/code&gt;_sass/_settings.scss``` fi
 
 &lt;p&gt;yields this:&lt;/p&gt;
 
-&lt;figure&gt;&lt;figcaption&gt;From Edward Tufte, *Visual Display of Quantitative Information*, page 92&lt;/figcaption&gt;&lt;img src=&quot;/dvse.github.io/_site/assets/img/exports-imports.png&quot; /&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;figcaption&gt;From Edward Tufte, *Visual Display of Quantitative Information*, page 92&lt;/figcaption&gt;&lt;img src=&quot;/_site/assets/img/exports-imports.png&quot; /&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;sidenotes-and-margin-notes&quot;&gt;Sidenotes and Margin notes&lt;/h2&gt;
 
@@ -780,8 +780,8 @@ end   end end
 
 </description>
         <pubDate>Thu, 19 Feb 2015 16:46:04 -0500</pubDate>
-        <link>/dvse.github.io/_site/articles/15/tufte-style-jekyll-blog</link>
-        <guid isPermaLink="true">/dvse.github.io/_site/articles/15/tufte-style-jekyll-blog</guid>
+        <link>/_site/articles/15/tufte-style-jekyll-blog</link>
+        <guid isPermaLink="true">/_site/articles/15/tufte-style-jekyll-blog</guid>
         
         
         <category>jekyll</category>
@@ -807,8 +807,8 @@ To add new posts, simply add a file in the &lt;code class=&quot;highlighter-roug
 
 </description>
         <pubDate>Sun, 08 Feb 2015 08:06:04 -0500</pubDate>
-        <link>/dvse.github.io/_site/articles/15/welcome-to-jekyll</link>
-        <guid isPermaLink="true">/dvse.github.io/_site/articles/15/welcome-to-jekyll</guid>
+        <link>/_site/articles/15/welcome-to-jekyll</link>
+        <guid isPermaLink="true">/_site/articles/15/welcome-to-jekyll</guid>
         
         
         <category>jekyll</category>

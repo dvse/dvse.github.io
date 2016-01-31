@@ -9,7 +9,7 @@
   <meta name="description" content="IntroductionThe Tufte Jekyll theme  is an attempt to create a website design with the look and feel of Edward Tufte’s books and handouts. Tufte’s style is kn...">
 
 
-  <link rel="stylesheet" href="/dvse.github.io/_site/css/tufte.css">	
+  <link rel="stylesheet" href="/_site/css/tufte.css">	
   
 
   <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
-  <link rel="canonical" href="/dvse.github.io/_site/articles/15/tufte-style-jekyll-blog">
-  <link rel="alternate" type="application/rss+xml" title="Certum ex inertis" href="/dvse.github.io/_site/feed.xml" />
+  <link rel="canonical" href="/_site/articles/15/tufte-style-jekyll-blog">
+  <link rel="alternate" type="application/rss+xml" title="Certum ex inertis" href="/_site/feed.xml" />
 </head>
 
   <body>
@@ -36,19 +36,19 @@
   	      
 		
 		    
-		      <a href="/dvse.github.io/_site/">blog</a>
+		      <a href="/_site/">blog</a>
 		    
 	    
   	      
 		
 		    
-		      <a href="/dvse.github.io/_site/about/">About</a>
+		      <a href="/_site/about/">About</a>
 		    
 	    
   	      
 		
 		    
-		      <a href="/dvse.github.io/_site/page/">page</a>
+		      <a href="/_site/page/">page</a>
 		    
 	    
   	      
@@ -153,7 +153,7 @@ Any of these values can be changed in the</code>_sass/_settings.scss``` file bef
 
 <h3 id="margin-figures">Margin Figures</h3>
 
-<p><label for="mf-id-1" class="margin-toggle">⊕</label><input type="checkbox" id="mf-id-1" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/dvse.github.io/_site/assets/img/rhino.png" /><br />F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” <em>Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice</em> (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s <em>Visual Explanations</em>.</span>Images and graphics play an integral role in Tufte’s work. To place figures in the margin, use the custom margin figure liquid tag included in the <code class="highlighter-rouge">_plugins</code> directory like so:</p>
+<p><label for="mf-id-1" class="margin-toggle">⊕</label><input type="checkbox" id="mf-id-1" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/_site/assets/img/rhino.png" /><br />F.J. Cole, “The History of Albrecht Dürer’s Rhinoceros in Zoological Literature,” <em>Science, Medicine, and History: Essays on the Evolution of Scientific Thought and Medical Practice</em> (London, 1953), ed. E. Ashworth Underwood, 337-356. From page 71 of Edward Tufte’s <em>Visual Explanations</em>.</span>Images and graphics play an integral role in Tufte’s work. To place figures in the margin, use the custom margin figure liquid tag included in the <code class="highlighter-rouge">_plugins</code> directory like so:</p>
 
 <p><code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">marginfigure</span><span class="w"> </span><span class="err">'mf-id-whatever'</span><span class="w"> </span><span class="err">'assets/img/rhino.png'</span><span class="w"> </span><span class="err">'F.J.</span><span class="w"> </span><span class="err">Cole,</span><span class="w"> </span><span class="err">“The</span><span class="w"> </span><span class="err">History</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Albrecht</span><span class="w"> </span><span class="err">Dürer’s</span><span class="w"> </span><span class="err">Rhinoceros</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">Zoological</span><span class="w"> </span><span class="err">Literature,”</span><span class="w"> </span><span class="err">*Science,</span><span class="w"> </span><span class="err">Medicine,</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">History:</span><span class="w"> </span><span class="err">Essays</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Evolution</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Scientific</span><span class="w"> </span><span class="err">Thought</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">Medical</span><span class="w"> </span><span class="err">Practice*</span><span class="w"> </span><span class="err">(London,</span><span class="w"> </span><span class="err">1953),</span><span class="w"> </span><span class="err">ed.</span><span class="w"> </span><span class="err">E.</span><span class="w"> </span><span class="err">Ashworth</span><span class="w"> </span><span class="err">Underwood,</span><span class="w"> </span><span class="err">337-356.</span><span class="w"> </span><span class="err">From</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">71</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Edward</span><span class="w"> </span><span class="err">Tufte’s</span><span class="w"> </span><span class="err">*Visual</span><span class="w"> </span><span class="err">Explanations*.'</span><span class="w">  </span><span class="err">%</span><span class="p">}</span></code>.</p>
 
@@ -167,7 +167,7 @@ Any of these values can be changed in the</code>_sass/_settings.scss``` file bef
 
 <p>Yields this:</p>
 
-<figure class="fullwidth"><img src="/dvse.github.io/_site/assets/img/napoleons-march.png" /><figcaption>Napoleon's March (Edward Tufte’s English translation)</figcaption></figure>
+<figure class="fullwidth"><img src="/_site/assets/img/napoleons-march.png" /><figcaption>Napoleon's March (Edward Tufte’s English translation)</figcaption></figure>
 
 <h3 id="main-column-figures">Main Column Figures</h3>
 
@@ -177,7 +177,7 @@ Any of these values can be changed in the</code>_sass/_settings.scss``` file bef
 
 <p>yields this:</p>
 
-<figure><figcaption>From Edward Tufte, *Visual Display of Quantitative Information*, page 92</figcaption><img src="/dvse.github.io/_site/assets/img/exports-imports.png" /></figure>
+<figure><figcaption>From Edward Tufte, *Visual Display of Quantitative Information*, page 92</figcaption><img src="/_site/assets/img/exports-imports.png" /></figure>
 
 <h2 id="sidenotes-and-margin-notes">Sidenotes and Margin notes</h2>
 
