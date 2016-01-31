@@ -1,10 +1,10 @@
-baseurl: /tufte-jekyll 
-title: Tufte
+baseurl: /dvse.github.io
+title: Certum ex inertis
 subtitle: Content-centric blogging
-author: clay harmon
+author: Dimitri Semenovich
 simple_search: http://google.com/search
-description: A Jekyll theme for content-rich sites
-name: tufte
+description: Dimitri's blog
+name: DS
 markdown: Kramdown
 kramdown:  
   input: GFM
