@@ -5,8 +5,8 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 09:01:53 -0500</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 09:01:53 -0500</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 09:08:52 -0500</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 09:08:52 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -154,7 +154,7 @@ estimates for the entire history of the process &lt;script type=&quot;math/tex&q
 &lt;p&gt;Historically a number of schemes to efficiently compute 
 &lt;script type=&quot;math/tex&quot;&gt;w^*_{m+1}&lt;/script&gt; given the estimates at time &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; have been proposed but
 advances in computing power have rendered them  considerably less relevant.
-.&lt;label for=&quot;mf-id-4&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-4&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_whittaker.jpg&quot; /&gt;&lt;br /&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/E._T._Whittaker&quot;&gt;E.T. Whittaker&lt;/a&gt; who has developed perhaps the first &lt;a href=&quot;http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;amp;aid=3140568&amp;amp;fileId=S001309150000359X&quot;&gt;modern method&lt;/a&gt; for non parametric smoothing in 1923. The associated computational procedure has proven a source of nightmares for generation of actuarial students — inverting a &lt;script type=&quot;math/tex&quot;&gt;100\times100&lt;/script&gt; matrix by hand, even if it is banded, is no mean feat.&lt;/span&gt;&lt;/p&gt;
+&lt;label for=&quot;mf-id-4&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-4&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_whittaker.jpg&quot; /&gt;&lt;br /&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/E._T._Whittaker&quot;&gt;E.T. Whittaker&lt;/a&gt; who has developed perhaps the first &lt;a href=&quot;http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;amp;aid=3140568&amp;amp;fileId=S001309150000359X&quot;&gt;modern method&lt;/a&gt; for non parametric smoothing in 1923. The associated computational procedure has proven a source of nightmares for generation of actuarial students — inverting a &lt;script type=&quot;math/tex&quot;&gt;100\times100&lt;/script&gt; matrix by hand, even if it is banded, is no mean feat.&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;The figures on the right show the results of running local regression
 and  mean estimation penalised with second order differences on some
