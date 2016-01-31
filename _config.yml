@@ -13,7 +13,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 highlighter: rouge
 permalink: /articles/:short_year/:title
 timezone: America/New_York
-imageurl: "https://source.unsplash.com/category/nature/2600x500"
+imageurl: "https://source.unsplash.com/category/nature/2600x1500"
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
 exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
 post:
