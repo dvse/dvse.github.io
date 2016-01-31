@@ -5,14 +5,14 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jan 2016 05:18:05 -0500</pubDate>
-    <lastBuildDate>Sun, 31 Jan 2016 05:18:05 -0500</lastBuildDate>
+    <pubDate>Sun, 31 Jan 2016 06:11:16 -0500</pubDate>
+    <lastBuildDate>Sun, 31 Jan 2016 06:11:16 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>The Kalman filter explained</title>
         <description>&lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_apollo.jpg&quot; /&gt;&lt;br /&gt;The Apollo 17 &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot;&gt;Command/Service Module&lt;/a&gt; photographed in lunar orbit from the ascent stage of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Lunar_Module&quot;&gt;Lunar Module&lt;/a&gt;.&lt;/span&gt;
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalman_filter&quot;&gt;Kalman filter&lt;/a&gt; and related ideas have played  a central role in
+&lt;span class=&quot;newthought&quot;&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalman_filter&quot;&gt;Kalman filter&lt;/a&gt; and related ideas have played  a central role&lt;/span&gt;  in
 the success of state space methods in engineering control through out
 1960s (culminating in the linear quadratic Gaussian theory).
 Remarkably, the first practical application of the Kalman filter was to

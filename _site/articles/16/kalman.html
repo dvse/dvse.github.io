@@ -19,9 +19,16 @@
   <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
   
     <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
+    <script> MathJax.Hub.Config({
+    'HTML-CSS': {
+      availableFonts: [],
+      webFont: 'TeX'
+      }
+      });</script>
+    
+    
 
-  <link rel="canonical" href="/_site/articles/16/kalman">
+    <link rel="canonical" href="/_site/articles/16/kalman">
   <link rel="alternate" type="application/rss+xml" title="Certum ex inertis" href="/_site/feed.xml" />
 </head>
 
@@ -66,7 +73,7 @@
 
 
 <p><label for="mf-id-1" class="margin-toggle">⊕</label><input type="checkbox" id="mf-id-1" class="margin-toggle" /><span class="marginnote"><img class="fullwidth" src="/_site/assets/img/kalman_apollo.jpg" /><br />The Apollo 17 <a href="https://en.wikipedia.org/wiki/Apollo_Command/Service_Module">Command/Service Module</a> photographed in lunar orbit from the ascent stage of the <a href="https://en.wikipedia.org/wiki/Apollo_Lunar_Module">Lunar Module</a>.</span>
-<a href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a> and related ideas have played  a central role in
+<span class="newthought"><a href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a> and related ideas have played  a central role</span>  in
 the success of state space methods in engineering control through out
 1960s (culminating in the linear quadratic Gaussian theory).
 Remarkably, the first practical application of the Kalman filter was to
