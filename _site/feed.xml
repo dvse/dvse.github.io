@@ -5,8 +5,8 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Feb 2016 18:47:21 -0500</pubDate>
-    <lastBuildDate>Mon, 01 Feb 2016 18:47:21 -0500</lastBuildDate>
+    <pubDate>Mon, 01 Feb 2016 18:51:37 -0500</pubDate>
+    <lastBuildDate>Mon, 01 Feb 2016 18:51:37 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -31,7 +31,7 @@ based radar etc.&lt;/p&gt;
 
 &lt;p&gt;The main difficulty comes from the fact that the Kalman filter is properly viewed as a particular &lt;em&gt;algorithm&lt;/em&gt; that efficiently solves a certain optimisation problem but is instead universally taught  as &lt;em&gt;the solution&lt;/em&gt; to the underlying inference task (or less charitably just as a behaviour). It is much more productive however to focus on the underlying optimisation problem and its transformations and from this perspective it becomes trivial both to extend the model or to apply more convenient optimisation tools.&lt;/p&gt;
 
-&lt;p&gt;If you need more background on optimiastion or linear algebra I can’t recommend first 10 lectures or so of &lt;a href=&quot;http://ee263.stanford.edu/archive/&quot;&gt;Stanford EE263&lt;/a&gt; strongly enough.&lt;/p&gt;
+&lt;p&gt;If you need more background on optimisation or linear algebra I can’t recommend first 10 lectures or so of &lt;a href=&quot;http://ee263.stanford.edu/archive/&quot;&gt;Stanford EE263&lt;/a&gt; strongly enough.&lt;/p&gt;
 
 &lt;h2 id=&quot;mean-estimation&quot;&gt;Mean estimation&lt;/h2&gt;
 
@@ -109,14 +109,17 @@ penalty term (absolute values or even  maximum of differences etc;&lt;/p&gt;
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2 + \lambda\sum_{t=1}^{m-1}(w_{t+1} - w_{t})^2,
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;delivering an effective compromise solution, where we can “dial”
 between (1) and (2) by choosing the&lt;label for=&quot;mf-id-3&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-3&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_smoothed_2.png&quot; /&gt;&lt;br /&gt;Estimates of the current trend obtained from a dynamic model with second order smoothing. Note that at each time step the entire history is re-estimated.&lt;/span&gt;
 value of &lt;script type=&quot;math/tex&quot;&gt;\lambda \ge 0&lt;/script&gt;.
 The above can be rewritten in vector notation as:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
 \mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{4}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;Here  &lt;script type=&quot;math/tex&quot;&gt;D^{(1,m)}&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;(m-1) \times m&lt;/script&gt;
 first order finite differences matrix:&lt;/p&gt;
 
@@ -207,13 +210,16 @@ a time varying distribution (at time &lt;script type=&quot;math/tex&quot;&gt;t=1
 &lt;h2 id=&quot;kalman-filter-as-an-optimisation-problem&quot;&gt;Kalman filter as an optimisation problem&lt;/h2&gt;
 &lt;p&gt;Now we can finally discuss the Kalman filter and turns out it can be productively conceptualised as a “dynamic”
 extension of the standard least squares problem (cf. mean estimation):&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:ls}
 \underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y} -
 X\mathbf{w}\|_2^2,\tag{5}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;Following (1) we  partition
 the design matrix &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and the response vector &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}&lt;/script&gt; into &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;
 row blocks (corresponding to time periods):&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
   \begin{array}{ll}
     X= \left[ \begin{array}{c}
@@ -226,17 +232,20 @@ row blocks (corresponding to time periods):&lt;/p&gt;
         \mathbf{y}_m\end{array} \right].
   \end{array}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;The least squares problem (5) can then be transformed into an
 equivalent problem with &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; copies of the parameter vector by
 introducing some equality constraints:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:block}
-  \begin{aligned}
+\begin{aligned}
     &amp;\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} 
     &amp;&amp;  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\
     &amp;\operatorname{subject\ to} 
     &amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
   \end{aligned}\tag{6}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;The underlying probability model can  be written in the state space form with the
 identity state transition matrix,  no state transition noise and
 i.i.d. Gaussian observation noise &lt;label for=&quot;Five&quot; class=&quot;margin-toggle sidenote-number&quot;&gt;&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;Five&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;sidenote&quot;&gt;We can in fact avoid the
@@ -244,6 +253,7 @@ i.i.d. Gaussian observation noise &lt;label for=&quot;Five&quot; class=&quot;mar
   instead which yields equivalent estimators &lt;/span&gt;, where &lt;script type=&quot;math/tex&quot;&gt;\mathbf{w}_t&lt;/script&gt; is the
 unobserved state vector and &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}_t&lt;/script&gt; are the observations
 associated with time dependent observation matrices &lt;script type=&quot;math/tex&quot;&gt;X_t&lt;/script&gt;:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \begin{array}{ll} 
   \mathbf{w}_{t+1} = \mathbf{w}_t, \quad&amp;\quad
@@ -253,33 +263,40 @@ associated with time dependent observation matrices &lt;script type=&quot;math/t
 &lt;/script&gt;&lt;/div&gt;
 
 &lt;p&gt;By introducing i.i.d. Gaussian state transition noise:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{array}{ll}\label{eq:kalman_state}
     \mathbf{w}_{t+1} = \mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
     \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
     \boldsymbol{\nu}_t \sim \mathcal{N}(0,I),&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I)
   \end{array}\tag{7}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;we effectively relax the equality constraints in (6)
 replacing them with a squared &lt;script type=&quot;math/tex&quot;&gt;\ell_2&lt;/script&gt;-norm penalty.  It is then
 possible to perform  estimation by solving the following convex
 optimisation problem:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}\label{eq:kalman}
     \underset{\mathbf{w_1},\ldots,\mathbf{w}_m}{\operatorname{minimise}}
     &amp;\ \ \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2
     +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-\mathbf{w}_{t}\|^2_2,
   \end{aligned}\tag{8}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;which amounts to substituting  every independent variable in the
 regression model by its interaction with time variable &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; and regularising the
 first order differences in the
 corresponding parameters.
 The estimation problem can be either solved directly or transformed back to the standard least squares form:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\label{eq:kal_ls}
 \underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y}&#39; -
 X&#39;\mathbf{w}\|_2^2,\tag{9}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;where the design matrix &lt;script type=&quot;math/tex&quot;&gt;X&#39;&lt;/script&gt; and the response vector &lt;script type=&quot;math/tex&quot;&gt;\mathbf{y}&#39;&lt;/script&gt; are
 redefined as follows:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \begin{aligned}
 X&#39;=\left[
@@ -324,6 +341,7 @@ solved directly.&lt;/p&gt;
 &lt;p&gt;So far we focused on the special case with the identity state
 transition matrix and i.i.d noise, however state estimation in the the
 general linear Gaussian state space model:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned} \mathbf{w}_{t+1} =
     F\mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
     \mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\
@@ -331,9 +349,11 @@ general linear Gaussian state space model:&lt;/p&gt;
     \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
   \end{aligned}
 &lt;/script&gt;&lt;/div&gt;
+
 &lt;p&gt;can also be expressed as a convex optimisation problem.
 Denoting &lt;script type=&quot;math/tex&quot;&gt;\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}&lt;/script&gt;,
 &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;-quadratic norm for a positive definite matrix &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;, it is:&lt;/p&gt;
+
 &lt;div class=&quot;mathblock&quot;&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{aligned}
     \underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &amp;
     \ \ \sum^{m}_{t=1}
