@@ -190,7 +190,8 @@ html {
   text-align: baseline;
   font-size: 11px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none; }
 
 @media screen and (min-width: 800px) {
   html {
@@ -447,7 +448,7 @@ p, footer, div.table-wrapper, div.mathblock {
 div.table-wrapper {
   overflow-x: auto; }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 730px) {
   p, footer, div.mathblock {
     width: 90%; }
 
