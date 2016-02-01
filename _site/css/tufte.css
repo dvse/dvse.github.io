@@ -497,7 +497,7 @@ label.sidenote-number {
 label.margin-toggle:not(.sidenote-number) {
   display: none; }
 
-@media (max-width: 760px) {
+@media (max-width: 730px) {
   label.margin-toggle:not(.sidenote-number) {
     display: inline;
     color: #cf5300; }
