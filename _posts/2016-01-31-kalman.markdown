@@ -244,6 +244,7 @@ introducing some equality constraints:
   \end{aligned}\tag{6}
 {%endmath%}
 
+
 The underlying probability model can  be written in the state space form with the
 identity state transition matrix,  no state transition noise and
 i.i.d. Gaussian observation noise {%sidenote 'Five' 'We can in fact avoid the
@@ -317,6 +318,7 @@ X_1&  &&&  \\
 \end{array}\right].
 \end{aligned}
 {%endmath%}
+
 
 The objective  in (8) simultaneously performs both
 "filtering" and ["smoothing"](https://en.wikipedia.org/wiki/Kalman_filter#Rauch.E2.80.93Tung.E2.80.93Striebel) conditional on all the observations up
