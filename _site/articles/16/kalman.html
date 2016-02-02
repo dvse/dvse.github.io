@@ -366,13 +366,13 @@ X_1&  &&&  \\
 -I&\ \ I &&&  \\
 & & \cdots& &\\
 & &&  -I&I\\
-& & && X_m \end{array} \right], & \quad &
+& & && X_m \end{array} \right], & \  &
 \mathbf{y}' = \left[ \begin{array}{l}
 \mathbf{y}_1\\
 0\\
 \cdots \\
 0\\
-\mathbf{y}_m\end{array}\right],& \quad &
+\mathbf{y}_m\end{array}\right],& \  &
 \mathbf{w} = \left[ \begin{array}{l}
 \mathbf{w}_1\\
 \cdots \\
@@ -391,7 +391,7 @@ other hand, only updates the estimate of the current state
 <script type="math/tex">\mathbf{w}^*_{m+1}</script> and requires a backward ``smoothing’’ pass to
 update estimates of past states <script type="math/tex">\mathbf{w}_1,\ldots,\mathbf{w}_m</script>.</p>
 
-<p>Indeed, the Kalman filter followed by a ``smoothing’’ step can be
+<p>Indeed, the Kalman filter followed by a “smoothing” step can be
 viewed as a computationally efficient recursive procedure for solving
 the normal equations of the least squares problem (9)
 which exploits block tri-diagonal structure of the matrix <script type="math/tex">X'</script>.
