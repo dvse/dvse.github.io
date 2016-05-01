@@ -1,0 +1,94 @@
+---
+layout:     post
+title:      Data science video lectures
+subtitle:   
+date:       2016-03-10 02:00:00
+author:     "Dimitri Semenovich"
+header-img: "img/post-bg-01.jpg"
+---
+
+{%newthought 'In recent years a large number'%} of graduate and undergraduate course recordings have been made available. It is now  possible to piece together sequences taught by amazing professors that could genuinely help to develop a broad fundamental understanding of computing and mathematical modelling. While the material has in principle existed for decades in textbooks etc, this manner of presentation raises the chances of success from independent study by orders of magnitude.
+
+Mathematical modelling and computing could be argued to be core “data science” skills --- increasing number of business processes and low-level operational decisions being subject to automation.  In compiling these resources I have intentionally stayed away from “flavour of the month” or introductory "data science" offerings that by now unfortunately dominate, focussing instead on those courses where the professors at times provide  unique perspective on fundamental topics.
+
+## Analytics at web companies 
+To get an impression of what the future of insurance analytics might look like, it is worthwhile to review some of the courses offered by people with experience implementing analytics solutions for the leading web companies. Examples include CS281B “Scalable Machine Learning”{%sidenote '25.'	'UC Berkeley CS281B Scalable Machine Learning - 
+ [Slides](http://alex.smola.org/teaching/berkeley2012/), [Videos](http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP)'%}
+ at UC Berkeley by Alex Smola (formerly of Yahoo) and "Big Data, Large Scale Machine Learning"{%sidenote '26.'	'[NYU Big Data, Large Scale Machine Learning](http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start)'
+%} at NYU by Yan LeCunn  (currently at Facebook). In particular the first course offers an interesting insight into the importance of understanding systems, numerical methods and statistics to develop analytics solutions at web scale.
+Prerequisites for this material include linear algebra, basic probability and statistics and, ideally, convex optimisation and an introduction to machine learning, as discussed next. 
+
+## Mathematical background and numerical computing 
+Numerical linear algebra is the most essential tool in applied mathematics. The majority of computational procedures for solving mathematical models ultimately reduce to iteratively solving systems of linear equations. 
+An excellent introductory treatment of linear algebra is given by Gilbert Strang in MIT 18.06{%sidenote '2.'	'[MIT 18.06 Linear Algebra](http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/)'
+%}. The material is further developed in MIT 18.085{%sidenote '3.'	'[MIT 18.085 Computational Science and Engineering I](http://ocw.mit.edu/courses/mathematics/18-085-computational-science-and-engineering-i-fall-2008/)'%} 
+ and 18.086{%sidenote '4.'	'[MIT 18.086 Mathematical Methods for Engineers II](
+http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/)'%}, demonstrating a very broad range of applications across engineering subfields. The observation that the differential operator can be discretised as e.g. a tri-diagonal matrix (the so called "finite differences" method) is the key connection between linear algebra, traditional calculus (in the form of integral and differential equations) and computing. 
+ Another take on the material is given in Stanford EE263 {%sidenote 
+'18.'	'[Stanford EE263 Introduction to Linear Dynamical Systems](https://see.stanford.edu/Course/EE263)'%}
+ taught by Stephen Boyd --- in addition to basic linear algebra, the course gives highly intuitive exposition to least squares regression, regularisation, singular value decomposition and linear dynamical systems (which can be viewed as a generalisation of a wide class of time-series models in the CAS syllabus). The material above should provide sufficient background to appreciate some of the technology behind modern robotics platforms, such as those formerly developed at Boston Dynamics, now part of Google (MIT 6.832 Underactuated Robotics{%sidenote '12.'  '[MIT 6.832 Underactuated Robotics](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-832-underactuated-robotics-spring-2009/)'%}
+). 
+
+Finally, the Fourier transform is one of the most famous special cases of a linear operation– an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in Stanford EE261{%sidenote '17.'	'[Stanford EE261 Fourier Transform and its Applications](https://see.stanford.edu/Course/EE261)'%}.
+
+## Optimisation
+Beyond differential equations, one of the main applications of linear algebra is in mathematical optimisation or "mathematical programming".  Optimisation based models are pervasive in analytics, whether it be maximum likelihood estimation, "empirical risk minimisation", Neyman-Pearson hypothesis testing, optimal control, Markowitz portfolio theory or option pricing. 
+
+Prof. Stephen Boyd's course EE364A Convex Optimization{%sidenote '19.'	'[Stanford EE364A Convex Optimization](https://see.stanford.edu/Course/EE364A),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stanford CVX101 Convex Optimization](https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about) '%} not only gives a solid grounding in the theory but also considers many of the above-mentioned examples. Convex optimisation is widely seen as the foundation of modern statistics, machine learning and signal processing. Familiarity with theory and algorithms will enable the practitioner to identify and implement solutions to a very wide range of problems across industries. 
+
+There is also an interesting connection between mathematical optimisation and classical algorithms studied in undergraduate computer science courses --- many of the problems such as sorting, shortest path, max flow etc turn out to be special cases of linear programming (itself a special case of convex optimisation). 
+
+The follow up course EE364B{%sidenote '22.'	'[Stanford EE364B Convex Optimization II](https://see.stanford.edu/Course/EE364B)'%} provides more detailed background on scalable and distributed optimization as well as the clearest introduction to the General Equilibrium theory of microeconomics you are likely to find.
+The background for these courses is limited to linear algebra and basics of multivariable calculus (gradient, Hessian){%sidenote '1.'	'[MIT 18.02 Multivariate Calculus](http://ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010/)'%}.
+
+## Probability, statistics, machine learning, information theory. 
+
+There are few unequivocally great introductory probability and statistics courses publically available, at least at the moment. MIT 6.041{%sidenote
+'9.'	'[MIT 6.041 Probabilistic Systems Analysis and Applied Probability](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/)'%} is a useful probability refresher. A worthwhile follow up is MIT 6.262 "Discrete Stochastic Processes"{%sidenote
+'10.'	'[MIT 6.262 Discrete Stochastic Processes](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/)'%}. 
+
+When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, Stanford Statistical Learning{%sidenote '21.'	'[Stanford Statistical Learning](
+https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about)'%} is a solid introduction from the authors of the well-known book. A closely related subject area is machine learning, with the introductory course by Andrew Ng{%sidenote '23.'	'[Stanford CS229 Machine Learning](https://see.stanford.edu/Course/CS229)'
+%} and a much more in depth treatment by Alex Smola{%sidenote '24.'	'[CMU 10-701 Introduction to Machine Learning](http://alex.smola.org/teaching/cmu2013-10-701/)'%}. So called “deep networks”{%sidenote '27.' '[NYU Deep Learning](http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start)'%} are a recent “hot” topic in machine learning, providing state of the art performance for many recognition tasks.
+
+Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation).  MIT 6.450 "Principles of Digital Commucations I"{%sidenote '11.'	'[MIT 6.450 Principles of Digital Communactions I](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/)'%} is an excellent course by the pioneer of digital communications Rob Gallager, who invented one of the most effective known coding schemes and was a founding engineer at Qualcomm where he designed the first 9600 baud modem. Information theory is an essential foundation of all digital information processing technology. 
+
+Another superb discussion of information theory is given in the course taught by David MacKay at Cambridge{%sidenote '36.'	'[Cambridge Information Theory, Pattern Recognition and Neural Networks](http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml)'%}, bringing together topics from coding theory, statistics and machine learning.
+
+Convex optimization provides a very helpful background for the courses in this section even if it is not explicitly alluded to.
+
+## Programming 
+
+There exists a very wide range of high quality introductory programming courses.  Perhaps the Stanford sequence{%sidenote '14.'	'[Stanford CS106A Programming Methodology](https://see.stanford.edu/Course/CS106A)'%}
+{%sidenote '15.'	'[Stanford CS106B Programming Abstractions](https://see.stanford.edu/Course/CS106B)'%}
+deserves a particular mention.  Alternatives include the introductory courses at MIT{%sidenote '5.'	'[MIT 6.00 Introduction to Computer Science and Programming](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/)'%}
+{%sidenote '17.' '[MIT 6.01  Introduction to Electrical Engineering and Computer Science](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/)'%}.
+
+MIT 6.001{%sidenote '6.'	'[MIT 6.001 Structure and Interpretation of Computer Programs](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/)'%} (now superseded) is the most celebrated  introductory programming course of all, with the textbook "Structure and Interpretation of Computer Programs" used in dozens of top universities. While Scheme, the language that it uses for teaching programming concepts, has for long time been considered less than practical, over the recent years there has been a dramatic resurgence of popularity of the related body of ideas called “functional programming”, underpinning many of the latest "big data" technologies. 
+
+Beyond the introductory courses, "Programming Paradigms"{%sidenote '16.' '[Stanford CS107 Programming Paradigms](https://see.stanford.edu/Course/CS107)'%} gives a useful overview of design choices behind a variety of programming languages and the course{%sidenote '31.'	'[Coursera - University of Washington - Programming Languages](https://www.coursera.org/course/proglang)'%} offered on Coursera by the University of Washington, provides a more advanced grounding in the functional programming paradigm.
+
+An introduction to Scala, an increasingly popular compatible replacement of Java, is also available from its creator on Coursera{%sidenote '32.'	'[Coursera - EPFL -Prinsiples of Functional Programming in Scala](https://www.coursera.org/course/progfun)'%}.
+
+No such list would be complete without an algorithms class{%sidenote '7.'	'[MIT 6.06 Introduction to Algorithms](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)'
+%}. Conceptual links with optimisation or “mathematical programming” offer a connection back to the material in the earlier sections. 
+
+## Finance, economics and social science. 
+
+While the exact relation between “actuarial” pricing and financial economics is not clearly set out in popular introductory textbooks, it has been understood in the academic literature for some time as the so called “incomplete markets” setting. An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane’s (University of Chicago) class “Asset Pricing” on Coursera{%sidenote '30.'	'[Coursera - University of Chicago - Asset Pricing](http://www.coursera.org/course/assetpricing)'%}.
+
+A useful generalisation of the concept of an optimization problem (see e.g. Stanford EE364A) is offered by game theory. Instead of considering a “central planning” problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes{%sidenote '28.'	'[Coursera - Stanford/UBC - Game Theory](https://www.coursera.org/course/gametheory)'%} {%sidenote '29.'	'[Coursera - Stanford/UBC - Game Theory II: Advanced Applications](https://www.coursera.org/course/gametheory2)'%} provide an introduction to a range of topics, including auctions and mechanism design. Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course “Public Economics”{%sidenote '34.'	'[Harvard Econ 2450a](http://obs.rc.fas.harvard.edu/chetty/public_lecs.html)'%}.
+
+Problems addressed by "business analytics" are not dissimilar to those found in the social sciences, especially when it comes to identifying  what is sometimes called "actionable insights" --- a social scientist may instead talk about "policy targets". While causal attribution is often times not necessary, it is important to be aware of limitations of analyses carried out purely on observational data. One example in social science where large-scale experiments have been possible is “development economics”. The MIT course 14.73{%sidenote '35.'	'[MIT 14.73 The Challenge of World Poverty](http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/)'%} offers an in depth discussion of considerations that go into designing a convincing experimental study. A broad introduction to the design of quantitative methods that are directly applicable to the question being studied is given in Gary King’s excellent methodology course at Harvard{%sidenote '33.' '[Harvard Gov 2001 Quantitative Research Methodology](http://projects.iq.harvard.edu/gov2001/home)'%}.
+
+{%marginnote '1' 'Course dependency graph that could be used to construct a possible curriculum. Grey arrows are suggested starting points depending on background.'  %}
+{% maincolumn 'assets/img/curriculum.png' %}
+
+
+
+
+
+
+
+
