@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Defining "data science"
+title:      Defining "Data Science"
 subtitle:   Will this be a lasting name or fade like "big data"?
 date:       2016-02-29 02:00:00
 author:     "Dimitri Semenovich"
