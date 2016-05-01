@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Data Science Video Lectures
+title:      Data science video lectures
 subtitle:   
 date:       2016-03-10 02:00:00
 author:     "Dimitri Semenovich"

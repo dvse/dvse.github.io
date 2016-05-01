@@ -5,12 +5,12 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 May 2016 11:45:12 -0400</pubDate>
-    <lastBuildDate>Sun, 01 May 2016 11:45:12 -0400</lastBuildDate>
+    <pubDate>Sun, 01 May 2016 11:47:29 -0400</pubDate>
+    <lastBuildDate>Sun, 01 May 2016 11:47:29 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Data Science Video Lectures</title>
+        <title>Data science video lectures</title>
         <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;In recent years a large number&lt;/span&gt;  of graduate and undergraduate course recordings have been made available. It is now  possible to piece together sequences taught by amazing professors that could genuinely help to develop a broad fundamental understanding of computing and mathematical modelling. While the material has in principle existed for decades in textbooks etc, this manner of presentation raises the chances of success from independent study by orders of magnitude.&lt;/p&gt;
 
 &lt;p&gt;Mathematical modelling and computing could be argued to be core “data science” skills — increasing number of business processes and low-level operational decisions being subject to automation.  In compiling these resources I have intentionally stayed away from “flavour of the month” or introductory “data science” offerings that by now unfortunately dominate, focussing instead on those courses where the professors at times provide  unique perspective on fundamental topics.&lt;/p&gt;
@@ -89,7 +89,7 @@ deserves a particular mention.  Alternatives include the introductory courses at
       </item>
     
       <item>
-        <title>Defining &quot;Data Science&quot;</title>
+        <title>Defining &quot;data science&quot;</title>
         <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;Increasing number of industries&lt;/span&gt;  is being affected by “digital transformation – new business models facilitated by the ubiquitous availability of computing and telecommunication technologies. This “digital transformation” is to a large degree carried out by engineering / software centric “web” companies following technology practices that have little overlap with traditional enterprise IT.&lt;/p&gt;
 
 &lt;p&gt;“Data science” then roughly amounts to “analytics at web companies”. The particular setting of course has an impact on how the “analytics” are produced and consumed (primarily manifesting as greater degree of automation due to volumes of data and timescales to generate results ), yet due to the wide front of “digital transformation”, only some high level patterns can be discerned.&lt;/p&gt;
@@ -139,7 +139,7 @@ deserves a particular mention.  Alternatives include the introductory courses at
       </item>
     
       <item>
-        <title>The Kalman filter explained</title>
+        <title>A Kalman Filter tutorial that might finally make sense</title>
         <description>&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
 &lt;p&gt;&lt;label for=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;mf-id-1&quot; class=&quot;margin-toggle&quot; /&gt;&lt;span class=&quot;marginnote&quot;&gt;&lt;img class=&quot;fullwidth&quot; src=&quot;/_site/assets/img/kalman_apollo.jpg&quot; /&gt;&lt;br /&gt;The Apollo 17 &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Command/Service_Module&quot;&gt;Command/Service Module&lt;/a&gt; photographed in lunar orbit from the ascent stage of the &lt;a href=&quot;https://en.wikipedia.org/wiki/Apollo_Lunar_Module&quot;&gt;Lunar Module&lt;/a&gt;.&lt;/span&gt;
 &lt;span class=&quot;newthought&quot;&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kalman_filter&quot;&gt;Kalman filter&lt;/a&gt; and related ideas have played  a central role&lt;/span&gt;  in
