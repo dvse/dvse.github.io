@@ -5,12 +5,12 @@
     <description>Dimitri&#39;s blog</description>
     <link>/_site/</link>
     <atom:link href="/_site/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 May 2016 11:38:20 -0400</pubDate>
-    <lastBuildDate>Sun, 01 May 2016 11:38:20 -0400</lastBuildDate>
+    <pubDate>Sun, 01 May 2016 11:45:12 -0400</pubDate>
+    <lastBuildDate>Sun, 01 May 2016 11:45:12 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
-        <title>Data science video lectures</title>
+        <title>Data Science Video Lectures</title>
         <description>&lt;p&gt;&lt;span class=&quot;newthought&quot;&gt;In recent years a large number&lt;/span&gt;  of graduate and undergraduate course recordings have been made available. It is now  possible to piece together sequences taught by amazing professors that could genuinely help to develop a broad fundamental understanding of computing and mathematical modelling. While the material has in principle existed for decades in textbooks etc, this manner of presentation raises the chances of success from independent study by orders of magnitude.&lt;/p&gt;
 
 &lt;p&gt;Mathematical modelling and computing could be argued to be core “data science” skills — increasing number of business processes and low-level operational decisions being subject to automation.  In compiling these resources I have intentionally stayed away from “flavour of the month” or introductory “data science” offerings that by now unfortunately dominate, focussing instead on those courses where the professors at times provide  unique perspective on fundamental topics.&lt;/p&gt;
