@@ -10,12 +10,11 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-highlighter: rouge
 permalink: /articles/:short_year/:title
 timezone: America/New_York
 imageurl: "https://source.unsplash.com/category/nature/2600x1500"
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md']
 post:
   template: _post.txt
   extension: md

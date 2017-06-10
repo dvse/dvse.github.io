@@ -270,7 +270,7 @@ blockquote .sidenote, blockquote .marginnote { margin-right: -79% }
                    color: $contrast-color;
                    top: 0rem; } //removed superscripting for numerical reference in sidenote
 
-p, footer, div.table-wrapper, div.mathblock { width: 62.5%; }
+np, footer, div.table-wrapper, div.mathblock { width: 62.5%; }
 
 div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' so scroll bars appear only as needed
 
@@ -464,11 +464,15 @@ hr.slender {
 
 //printing stuff
 @media print {
+
+    * {
+    -webkit-transition: none !important;
+    transition: none !important;
+    }
     *,
     *:before,
     *:after {
         background: transparent !important;
-        color: #000 !important; // Black prints faster:http://www.sanbeiji.com/archives/953
         box-shadow: none !important;
         text-shadow: none !important;
     }
