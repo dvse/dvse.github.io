@@ -6,111 +6,27 @@
     <description>Recent content in Tags on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Apr 2025 15:30:00 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 30 Dec 2023 11:56:00 +1100</lastBuildDate>
     <atom:link href="https://dvse.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Machine-Learning</title>
-      <link>https://dvse.github.io/tags/machine-learning/</link>
-      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/machine-learning/</guid>
+      <title>State-Space-Models</title>
+      <link>https://dvse.github.io/tags/state-space-models/</link>
+      <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/state-space-models/</guid>
       <description></description>
     </item>
     <item>
-      <title>Monte-Carlo</title>
-      <link>https://dvse.github.io/tags/monte-carlo/</link>
-      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/monte-carlo/</guid>
+      <title>Statistical-Smoothing</title>
+      <link>https://dvse.github.io/tags/statistical-smoothing/</link>
+      <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/statistical-smoothing/</guid>
       <description></description>
     </item>
     <item>
-      <title>Optimisation</title>
-      <link>https://dvse.github.io/tags/optimisation/</link>
-      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/optimisation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Statistics</title>
-      <link>https://dvse.github.io/tags/statistics/</link>
-      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/statistics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Betting-Markets</title>
-      <link>https://dvse.github.io/tags/betting-markets/</link>
-      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/betting-markets/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Insurance</title>
-      <link>https://dvse.github.io/tags/insurance/</link>
-      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/insurance/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Probability</title>
-      <link>https://dvse.github.io/tags/probability/</link>
-      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/probability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Risk-Measures</title>
-      <link>https://dvse.github.io/tags/risk-measures/</link>
-      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/risk-measures/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Functional-Analysis</title>
-      <link>https://dvse.github.io/tags/functional-analysis/</link>
-      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/functional-analysis/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Optimization</title>
-      <link>https://dvse.github.io/tags/optimization/</link>
-      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/optimization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pricing</title>
-      <link>https://dvse.github.io/tags/pricing/</link>
-      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/pricing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reserving</title>
-      <link>https://dvse.github.io/tags/reserving/</link>
-      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/reserving/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data-Science</title>
-      <link>https://dvse.github.io/tags/data-science/</link>
-      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/data-science/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Entity-Resolution</title>
-      <link>https://dvse.github.io/tags/entity-resolution/</link>
-      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/entity-resolution/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Record-Linkage</title>
-      <link>https://dvse.github.io/tags/record-linkage/</link>
-      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/record-linkage/</guid>
+      <title>Tutorial</title>
+      <link>https://dvse.github.io/tags/tutorial/</link>
+      <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
@@ -135,17 +51,101 @@
       <description></description>
     </item>
     <item>
-      <title>State-Space-Models</title>
-      <link>https://dvse.github.io/tags/state-space-models/</link>
-      <pubDate>Sun, 30 Dec 2018 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/state-space-models/</guid>
+      <title>Pricing</title>
+      <link>https://dvse.github.io/tags/pricing/</link>
+      <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/pricing/</guid>
       <description></description>
     </item>
     <item>
-      <title>Statistical-Smoothing</title>
-      <link>https://dvse.github.io/tags/statistical-smoothing/</link>
-      <pubDate>Sun, 30 Dec 2018 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/statistical-smoothing/</guid>
+      <title>Connections</title>
+      <link>https://dvse.github.io/tags/connections/</link>
+      <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/connections/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data-Science</title>
+      <link>https://dvse.github.io/tags/data-science/</link>
+      <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rant</title>
+      <link>https://dvse.github.io/tags/rant/</link>
+      <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/rant/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Entity-Resolution</title>
+      <link>https://dvse.github.io/tags/entity-resolution/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/entity-resolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Record-Linkage</title>
+      <link>https://dvse.github.io/tags/record-linkage/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/record-linkage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>https://dvse.github.io/tags/statistics/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Analytics</title>
+      <link>https://dvse.github.io/tags/analytics/</link>
+      <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/analytics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Education</title>
+      <link>https://dvse.github.io/tags/education/</link>
+      <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/education/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Moocs</title>
+      <link>https://dvse.github.io/tags/moocs/</link>
+      <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/moocs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Betting-Markets</title>
+      <link>https://dvse.github.io/tags/betting-markets/</link>
+      <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/betting-markets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Insurance</title>
+      <link>https://dvse.github.io/tags/insurance/</link>
+      <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/insurance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>https://dvse.github.io/tags/probability/</link>
+      <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/probability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Risk-Measures</title>
+      <link>https://dvse.github.io/tags/risk-measures/</link>
+      <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/risk-measures/</guid>
       <description></description>
     </item>
   </channel>

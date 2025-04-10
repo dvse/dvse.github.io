@@ -6,21 +6,21 @@
     <description>Recent content in Statistics on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Apr 2025 15:30:00 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 10 Apr 2017 11:00:00 +1100</lastBuildDate>
     <atom:link href="https://dvse.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Stochastic Optimisation</title>
-      <link>https://dvse.github.io/2025/stochastic-optimisation/</link>
-      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2025/stochastic-optimisation/</guid>
-      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
+      <title>Basic Theory of Entity Resolution</title>
+      <link>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</link>
+      <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
+      <guid>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</guid>
+      <description>&lt;p&gt;In this post I&amp;rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-model-for-independent-decisions&#34;&gt;A model for independent decisions&lt;/h2&gt;&#xA;&lt;p&gt;Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.&lt;/p&gt;&#xA;&lt;p&gt;Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Basic Theory of Entity Resolution</title>
-      <link>https://dvse.github.io/2023/basic-theory-of-entity-resolution/</link>
-      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2023/basic-theory-of-entity-resolution/</guid>
-      <description>&lt;p&gt;In this post I&amp;rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-model-for-independent-decisions&#34;&gt;A model for independent decisions&lt;/h2&gt;&#xA;&lt;p&gt;Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.&lt;/p&gt;&#xA;&lt;p&gt;Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.&lt;/p&gt;</description>
+      <title>Stochastic Optimisation</title>
+      <link>https://dvse.github.io/2012/stochastic-optimisation/</link>
+      <pubDate>Tue, 10 Apr 2012 15:30:00 +1100</pubDate>
+      <guid>https://dvse.github.io/2012/stochastic-optimisation/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

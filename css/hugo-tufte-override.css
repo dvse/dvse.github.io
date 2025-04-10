@@ -6,3 +6,71 @@ li .marginnote {
   text-align: left; /* Override text-align: -webkit-match-parent from user agent */
   list-style-type: none; /* Remove bullet inherit */
 }
+
+/* Override Tufte CSS background and font settings */
+html, body {
+  background-color: #ffffff !important;
+  font-family: "EB Garamond", serif !important;
+  font-weight: 400 !important;
+  font-optical-sizing: auto !important;
+}
+
+body {
+  background-color: #ffffff !important;
+  font-family: "EB Garamond", serif !important;
+  font-weight: 400 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+.content {
+  background-color: #ffffff !important;
+}
+
+p, li {
+  font-family: "EB Garamond", serif !important;
+  font-weight: 400 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "EB Garamond", serif !important;
+  font-weight: 500 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+/* Override any default background colors */
+.page, .page-content, .page-footer, .index-content, article {
+  background-color: #ffffff !important;
+}
+
+/* Override specific Tufte elements */
+.numeral {
+  font-family: "EB Garamond", serif !important;
+  font-weight: 400 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+.newthought {
+  font-family: "EB Garamond", serif !important;
+  font-variant: small-caps;
+  font-weight: 500 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+.sidenote, .marginnote {
+  font-family: "EB Garamond", serif !important;
+  font-weight: 400 !important;
+  font-optical-sizing: auto !important;
+  color: #333333 !important;
+}
+
+/* Ensure appropriate font for code elements */
+code, pre {
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  background-color: #f8f8f8;
+}

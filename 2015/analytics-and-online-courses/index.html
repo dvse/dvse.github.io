@@ -12,7 +12,6 @@
 <meta name="generator" content="Hugo 0.145.0">
 
     
-    
 
   <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -65,8 +64,10 @@ MathJax.Hub.Config({
 <link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
 
     
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div id="layout" class="pure-g">
         <article class="pure-u-1">
@@ -132,12 +133,14 @@ MathJax.Hub.Config({
 required to understand these systems from first principles. White papers talk about &ldquo;automated audit&rdquo;, &ldquo;unprecedented financial services innovation&rdquo;, &ldquo;sales disruption&rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle"/>
 <span class="marginnote"> You can download the <a href="/talks/analytics_moocs.pdf">complete slides</a> for this post. </span></p>
+<blockquote cite="">
 <p>&ldquo;Analytics&rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.</p>
-<p>The same theme is repeated with variations across a wide gamut of loosely associated disciplines. Exact definitions have proven notoriously elusive (consider operations research or actuarial science), with few convincing distinctions from the classical notions of rational or scientific inquiry other than through the domain of application. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-2" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-2" class="margin-toggle"/>
+  <footer>A working definition</footer>
+</blockquote>
+<p>The same theme is repeated with variations across a wide gamut of loosely associated disciplines. Exact definitions have proven notoriously elusive (consider operations research or actuarial science), with few convincing distinctions from the classical notions of rational or scientific inquiry other than through the domain of application. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle"/>
 <span class="marginnote"> <img src="/img/deMoivre003.png" alt=""> Perhaps the first modern work on commercial mathematics.</span></p>
-<p>Analytics landscape is not easy to survey as many movements have overlapped in time and areas of practice, resulting in a layering of ideologies and ideas perhaps impossible to decisively disentangle.
-achine learning in terms of both objectives and methodologies.</p>
+<p>Analytics landscape is not easy to survey as many movements have overlapped in time and areas of practice, resulting in a layering of ideologies and ideas perhaps impossible to decisively disentangle.</p>
 <h2 id="analytics-self-education">Analytics (self) education</h2>
 <p>Mathematical modelling and computing could be argued to be core &ldquo;data science&rdquo; skills – increasing number of business processes and low-level operational decisions being subject to automation.</p>
 <p>Here I tried to stay away from &ldquo;flavour of the month&rdquo; or introductory &ldquo;data science&rdquo; offerings that by now unfortunately dominate, focussing instead on those courses where the professors, at times, provide unique perspective on fundamental topics across mathematical modelling and computing.</p>
@@ -175,122 +178,124 @@ achine learning in terms of both objectives and methodologies.</p>
 <p>It is generally a useful heuristic to seek out graduate level courses from reputable North American universities. Video or audio recordings of good lectures can significantly lower the (still considerable) effort required to become familiar with the material compared to self study from textbooks.</p>
 <h2 id="analytics-at-web-companies">Analytics at web companies</h2>
 <p>To get an impression of what the future of insurance analytics might look like, it is worthwhile to review some of the courses offered by people with experience implementing analytics solutions for the leading web companies.</p>
-<p>Examples include CS281B &ldquo;Scalable Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-4" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-4" class="margin-toggle"/>
-<span class="sidenote"><a href="http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP">http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP</a></span>
-at UC Berkeley by Alex Smola (formerly of Yahoo) and &ldquo;Big Data, Large Scale Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle sidenote-number"></label>
+<p>Examples include CS281B &ldquo;Scalable Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle"/>
+<span class="sidenote"><a href="http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP">http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP</a></span>
+at UC Berkeley by Alex Smola (formerly of Yahoo) and &ldquo;Big Data, Large Scale Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle"/>
 <span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start</a></span>
 at NYU by Yan LeCunn (currently at Facebook). In particular the first course offers an interesting insight into the importance of understanding systems, numerical methods and statistics to develop analytics solutions at web scale.</p>
 <p>Prerequisites for this material include linear algebra, basic probability and statistics and, ideally, convex optimisation and an introduction to machine learning, as discussed next.</p>
 <h2 id="linear-algebra-and-numerical-computing">Linear algebra and numerical computing</h2>
 <p>Numerical linear algebra is the most essential tool in applied mathematics. The majority of computational procedures for solving mathematical models ultimately reduce to iteratively solving systems of linear equations.</p>
-<p>An excellent introductory treatment of linear algebra is given by Gilbert Strang in MIT 18.06 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a></span>
-. The material is further developed in MIT 18.085 and 18.086 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle sidenote-number"></label>
+<p>An excellent introductory treatment of linear algebra is given by Gilbert Strang in MIT 18.06 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a></span>
+. The material is further developed in MIT 18.085 and 18.086 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/">http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/</a></span>
 , demonstrating a very broad range of applications across engineering subfields.</p>
-<p>Another take on the material is given in Stanford EE263 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle"/>
+<p>Another take on the material is given in Stanford EE263 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle"/>
 <span class="sidenote"><a href="https://see.stanford.edu/Course/EE263">https://see.stanford.edu/Course/EE263</a></span>
 taught by Stephen Boyd – in addition to basic linear algebra, the course gives highly intuitive exposition to least squares regression, regularisation, singular value decomposition and linear dynamical systems (which can be viewed as a generalisation of a wide class of time-series models in the actuarial syllabus).</p>
-<p>The Fourier transform is one of the most famous special cases of a linear operation – an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in Stanford EE261 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle"/>
+<p>The Fourier transform is one of the most famous special cases of a linear operation – an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in Stanford EE261 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle"/>
 <span class="sidenote"><a href="https://see.stanford.edu/Course/EE261">https://see.stanford.edu/Course/EE261</a></span>
 .</p>
 <h2 id="optimisation">Optimisation</h2>
 <p>Optimisation based models are pervasive in analytics, whether it be maximum likelihood estimation, &ldquo;empirical risk minimisation&rdquo;, Neyman-Pearson hypothesis testing, optimal control, Markowitz portfolio theory or option pricing.</p>
-<p>Prof. Stephen Boyd&rsquo;s course EE364A Convex Optimization <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle"/>
+<p>Prof. Stephen Boyd&rsquo;s course EE364A Convex Optimization <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle"/>
 <span class="sidenote"><a href="https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about">https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about</a></span>
 not only gives a solid grounding in the theory but also considers many of the above-mentioned examples. Convex optimisation is widely seen as the foundation of modern statistics, machine learning and signal processing.</p>
 <p>There is also an interesting connection between mathematical optimisation and classical algorithms studied in undergraduate computer science courses – many of the problems such as sorting, shortest path, max flow etc turn out to be special cases of linear programming (itself a special case of convex optimisation).</p>
-<p>The follow up course EE364B <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle"/>
+<p>The follow up course EE364B <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle"/>
 <span class="sidenote"><a href="https://see.stanford.edu/Course/EE364B">https://see.stanford.edu/Course/EE364B</a></span>
 provides more detailed background on scalable and distributed optimization as well as the clearest introduction to the General Equilibrium theory of microeconomics you are likely to find.</p>
 <h2 id="machine-learning-information-theory-etc">Machine learning, information theory etc.</h2>
-<p>There are few unequivocally great introductory probability and statistics courses publically available, at least at the moment. MIT 6.041 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></span>
-is a useful probability refresher. A worthwhile follow up is MIT 6.262 &ldquo;Discrete Stochastic Processes&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle sidenote-number"></label>
+<p>There are few unequivocally great introductory probability and statistics courses publically available, at least at the moment. MIT 6.041 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></span>
+is a useful probability refresher. A worthwhile follow up is MIT 6.262 &ldquo;Discrete Stochastic Processes&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/</a></span>
 .</p>
-<p>When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, Stanford Statistical Learning <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle"/>
+<p>When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, Stanford Statistical Learning <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle"/>
 <span class="sidenote"><a href="https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about">https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about</a></span>
 is a solid introduction from the authors of the well-known book.</p>
-<p>A closely related subject area is machine learning, with the introductory course by Andrew Ng <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS229">https://see.stanford.edu/Course/CS229</a></span>
-and a much more in depth treatment by Alex Smola <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle sidenote-number"></label>
+<p>A closely related subject area is machine learning, with the introductory course by Andrew Ng <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle"/>
-<span class="sidenote"><a href="http://alex.smola.org/teaching/cmu2013-10-701/">http://alex.smola.org/teaching/cmu2013-10-701/</a></span>
-. So called &ldquo;deep networks&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle sidenote-number"></label>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS229">https://see.stanford.edu/Course/CS229</a></span>
+and a much more in depth treatment by Alex Smola <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle"/>
+<span class="sidenote"><a href="http://alex.smola.org/teaching/cmu2013-10-701/">http://alex.smola.org/teaching/cmu2013-10-701/</a></span>
+. So called &ldquo;deep networks&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle"/>
 <span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start</a></span>
 are a recent &ldquo;hot&rdquo; topic in machine learning, providing state of the art performance for many recognition tasks.</p>
-<p>Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation). MIT 6.450 &ldquo;Principles of Digital Commucations I&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle"/>
+<p>Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation). MIT 6.450 &ldquo;Principles of Digital Commucations I&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/</a></span>
 is an excellent course. Information theory is an essential foundation of all digital information processing technology.</p>
-<p>Another superb discussion of information theory is given in the course taught by the late David MacKay at Cambridge <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle"/>
+<p>Another superb discussion of information theory is given in the course taught by the late David MacKay at Cambridge <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle"/>
 <span class="sidenote"><a href="http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml">http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml</a></span>
 , bringing together topics from coding theory, statistics and machine learning.</p>
 <h2 id="programming">Programming</h2>
-<p>There exists a very wide range of high quality introductory programming courses. Perhaps the Stanford sequence <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106A">https://see.stanford.edu/Course/CS106A</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle sidenote-number"></label>
+<p>There exists a very wide range of high quality introductory programming courses. Perhaps the Stanford sequence <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106B">https://see.stanford.edu/Course/CS106B</a></span>
-deserves a particular mention. Alternatives include the introductory courses at MIT <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle sidenote-number"></label>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106A">https://see.stanford.edu/Course/CS106A</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle sidenote-number"></label>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106B">https://see.stanford.edu/Course/CS106B</a></span>
+deserves a particular mention. Alternatives include the introductory courses at MIT <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/</a></span>
 .</p>
-<p>MIT 6.001 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle"/>
+<p>MIT 6.001 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/</a></span>
 is the most celebrated introductory programming course of all, with the textbook &ldquo;Structure and Interpretation of Computer Programs&rdquo; used in dozens of top universities.</p>
 <p>While Scheme, the language that it uses for teaching programming concepts, has for long time been considered less than practical, over the recent years there has been a dramatic resurgence of popularity of the related body of ideas called &ldquo;functional programming&rdquo;, underpinning many of the latest &ldquo;big data&rdquo; technologies.</p>
-<p>Beyond the introductory courses, &ldquo;Programming Paradigms&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS107">https://see.stanford.edu/Course/CS107</a></span>
-gives a useful overview of design choices behind a variety of programming languages. Finally, no such list would be complete without an algorithms class <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle sidenote-number"></label>
+<p>Beyond the introductory courses, &ldquo;Programming Paradigms&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS107">https://see.stanford.edu/Course/CS107</a></span>
+gives a useful overview of design choices behind a variety of programming languages. Finally, no such list would be complete without an algorithms class <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/</a></span>
 .</p>
 <h2 id="finance-economics-and-social-science">Finance, Economics and social science</h2>
 <p>While the exact relation between &ldquo;actuarial&rdquo; pricing and financial economics is not clearly set out in popular introductory textbooks, it has been understood in the academic literature for some time as the so called &ldquo;incomplete markets&rdquo; setting.</p>
-<p>An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane&rsquo;s (University of Chicago) class &ldquo;Asset Pricing&rdquo; on Coursera <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle"/>
+<p>An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane&rsquo;s (University of Chicago) class &ldquo;Asset Pricing&rdquo; on Coursera <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle"/>
 <span class="sidenote"><a href="http://www.coursera.org/course/assetpricing">http://www.coursera.org/course/assetpricing</a></span>
 .</p>
-<p>A useful generalisation of the concept of an optimisation problem is offered by game theory. Instead of considering a &ldquo;central planning&rdquo; problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle"/>
-<span class="sidenote"><a href="https://www.coursera.org/course/gametheory">https://www.coursera.org/course/gametheory</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle sidenote-number"></label>
+<p>A useful generalisation of the concept of an optimisation problem is offered by game theory. Instead of considering a &ldquo;central planning&rdquo; problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle"/>
+<span class="sidenote"><a href="https://www.coursera.org/course/gametheory">https://www.coursera.org/course/gametheory</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle"/>
 <span class="sidenote"><a href="https://www.coursera.org/course/gametheory2">https://www.coursera.org/course/gametheory2</a></span>
 provide an introduction to a range of topics, including auctions and mechanism design.</p>
-<p>Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course &ldquo;Public Economics&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle"/>
+<p>Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course &ldquo;Public Economics&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle"/>
 <span class="sidenote"><a href="http://obs.rc.fas.harvard.edu/chetty/public_lecs.html">http://obs.rc.fas.harvard.edu/chetty/public_lecs.html</a></span>
 .</p>
-<p>One example in social science where large-scale experiments have been possible is &ldquo;development economics&rdquo;. The MIT course 14.73 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle"/>
+<p>One example in social science where large-scale experiments have been possible is &ldquo;development economics&rdquo;. The MIT course 14.73 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-32" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-32" class="margin-toggle"/>
 <span class="sidenote"><a href="http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/">http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/</a></span>
 offers an in depth discussion of considerations that go into designing a convincing experimental study.</p>
 <h2 id="but-will-this-be-useful-to-me">But will this be useful to me?</h2>
-<p><em>&ldquo;You have to keep a dozen of your favorite problems constantly present in your mind, although by and large they will lay in a dormant state. Every time you hear or read a new trick or a new result, test it against each of your twelve problems to see whether it helps. Every once in a while there will be a hit, and people will say: &lsquo;How did he do it? He must be a genius!&rsquo;&rdquo;</em></p>
-<p>R. Feynman via G-C. Rota</p>
+<blockquote cite="">
+<p>You have to keep a dozen of your favorite problems constantly present in your mind, although by and large they will lay in a dormant state. Every time you hear or read a new trick or a new result, test it against each of your twelve problems to see whether it helps. Every once in a while there will be a hit, and people will say: &lsquo;How did he do it? He must be a genius!&rsquo;</p>
+  <footer>Richard Feynman via Gian-Carlo Rota</footer>
+</blockquote>
 </section>
             <section>
                 <nav class="menu" style="margin-top:0rem">
@@ -298,13 +303,11 @@ offers an in depth discussion of considerations that go into designing a convinc
                                align-items: stretch;
                                justify-content: space-between;">
                         <li>
-                            
-                            &nbsp;
-                            
+                            <a href="/2015/the-logarithmic-market-scoring-rule/">&larr; Next Post</a>  
                         </li>
                         
                         <li>
-                            <a href="/2018/data-science-10-years-on/">Previous Post &rarr;</a>
+                            <a href="/2017/basic-theory-of-entity-resolution/">Previous Post &rarr;</a>
                         </li>
                         
                     </ul>
@@ -323,7 +326,7 @@ offers an in depth discussion of considerations that go into designing a convinc
 	<p>
     
       &copy; 2025
-    .
+    Dimitri Semenovich.
     All rights reserved.
     
   </p>
