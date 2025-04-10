@@ -139,8 +139,8 @@ of state space methods in engineering control through out 1960s
 filter was to improve the accuracy of <a href="https://en.wikipedia.org/wiki/Apollo%5FPGNCS">navigation</a>
 for the Apollo program<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle"/>
-<span class="sidenote">McGee, L. and Schmidt, S. (1985). <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf">Discovery of the Kalman filter as a practical tool for aerospace and industry</a>. Technical Report TM 86847, NASA, Moffett Field, California </span></p>
-<p>, quickly followed by adoption for a wide range of aerospace problems<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle sidenote-number"></label>
+<span class="sidenote">McGee, L. and Schmidt, S. (1985). <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf">Discovery of the Kalman filter as a practical tool for aerospace and industry</a>. Technical Report TM 86847, NASA, Moffett Field, California </span>
+, quickly followed by adoption for a wide range of aerospace problems<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle"/>
 <span class="sidenote"> Grewal, M. and Andrews, A. (2010). Applications of Kalman  filtering in aerospace 1960 to present. IEEE Control Systems Magazine </span>
 .
@@ -159,8 +159,8 @@ this material and those engineering students who have had to suffer
 through a control theory class are little fond of the memory of trying
 to memorise the derivation of monstrous update equations. Indeed &ldquo;Kalman filter tutorial&rdquo;<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle"/>
-<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simulataneous localisation and mapping</em> that is among the central problems of robotics  </span></p>
-<p>has over the years become something of a genre of its own.</p>
+<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simulataneous localisation and mapping</em> that is among the central problems of robotics  </span>
+has over the years become something of a genre of its own.</p>
 <p>The main difficulty comes from the fact that the Kalman filter is
 properly viewed as a particular <em>algorithm</em> that efficiently solves a
 certain optimisation problem but is instead universally taught as <em>the
@@ -308,9 +308,10 @@ data up to time \(m\):</p>
 \sum_{t=1}^m\sum_{i=1}^{n}\rho_\tau(y_{ti} -w_t) +
 \lambda\|D^{(k,m)}\mathbf{w} \|_2^2,
 \]</p>
-<p>yielding  a variant of the so called <em>quantile splines</em>.<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle sidenote-number"></label>
+<p>yielding  a variant of the so called <em>quantile splines</em><label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle"/>
-<span class="sidenote"> Koenker, R., Ng, P., and Portnoy, S. (1994). <a href="http://www.econ.uiuc.edu/~roger/NAKE/qss.pdf">Quantile smoothing splines</a>. Biometrika </span></p>
+<span class="sidenote"> Koenker, R., Ng, P., and Portnoy, S. (1994). <a href="http://www.econ.uiuc.edu/~roger/NAKE/qss.pdf">Quantile smoothing splines</a>. Biometrika </span>
+.</p>
 <p>The figure on the right shows an example of quantile splines applied to estimate
 a time varying distribution (at time \(t=100\)).<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle"/>

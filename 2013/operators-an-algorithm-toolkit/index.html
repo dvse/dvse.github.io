@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <title>Certum ex Incertis - Operators - an Algorithm Toolkit</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
+
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2013/operators-an-algorithm-toolkit/">Operators - an Algorithm Toolkit</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Mar 12, 2013&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="https://dvse.github.io/tags/functional-analysis">functional-analysis</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/optimization">optimization</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/reserving">reserving</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/pricing">pricing</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p><span class="newthought"> Operator theory provides a unified perspective </span>
+for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.</p>
+<h2 id="nonlinear-functional-analysis">Nonlinear Functional Analysis</h2>
+<p>Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:</p>
+<ul>
+<li>Existence of a solution</li>
+<li>Uniqueness of the solution</li>
+<li>Stability of the solutions under perturbation or noisy measurements</li>
+<li>Construction of approximation methods and estimation of their convergence</li>
+</ul>
+<p>While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.</p>
+<h2 id="fixed-point-iterations">Fixed Point Iterations</h2>
+<p>Fixed point iterations are the main technique for devising numerical solution methods for operator equations. Some possibilities for $T(x)=0$ include:</p>
+<ul>
+<li>Basic iteration: $x=(I - T)(x)$</li>
+<li>Damped iteration: $x=(I - \lambda T)(x)$</li>
+<li>Newton&rsquo;s method: $x=\Big(I - \big(DT(x)\big)^{-1}\circ T\Big)(x)$</li>
+<li>Operator splitting: $x=F^{-1}\circ(T-G)(x)$ where $F + G = T$</li>
+</ul>
+<p>Key properties that guarantee convergence of these schemes and uniqueness of the solution are (local) <em>non-expansiveness</em> / <em>contractivity</em> of the iteration and <em>monotonicity</em> of $T$ respectively, the latter being essentially the operator version of convexity.</p>
+<h2 id="convex-optimization">Convex Optimization</h2>
+<p>Assume $f(x)=g(x)+h(x)$ is a convex function, then the subgradient $\partial f$ is a monotone operator. Some basic fixed point iterations for the operator equation $\partial f \ni 0$ include:</p>
+<ul>
+<li>Subgradient descent: $x\in(I-\lambda\partial f)x$</li>
+<li>Proximal point method: $x=(I+\lambda\partial f)^{-1}x$ (provided $h(x)$ is smooth)</li>
+<li>Proximal gradient algorithm: $x=(I+\lambda\partial g)^{-1}(I-\lambda\nabla h)x$</li>
+<li>Peaceman-Rachford splitting:</li>
+</ul>
+<p>$$
+\begin{aligned}
+z &amp;= \Big(2(I+\lambda\partial g)^{-1}-I\Big)\Big(2(I+\lambda\partial h)^{-1}-I\Big)z \\
+x &amp;= (I+\lambda\partial h)^{-1}z
+\end{aligned}
+$$</p>
+<h2 id="neural-networks">Neural Networks</h2>
+<p><label for="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/operator/operator_nn.png" alt=""> Neural networks can be viewed as a specific instance of operator iterations. </span></p>
+<p>Consider the $\ell_1$-norm regularized least squares regression and the corresponding proximal gradient fixed point iteration:</p>
+<p>$$
+\underset{\mathbf{x}}{\text{minimise}}\ \ |b - Ax|_2^2 + \alpha|x|_1\  = \ f(x) + g(x)
+$$</p>
+<p>$$
+\begin{aligned}
+x^{(k+1)} &amp;= \Big(I+\frac{\alpha}{\lambda}\partial g\Big)^{-1}\Big(I - \frac{1}{\lambda}\nabla_x f\Big)\Big(x^{(k)}\Big)\\
+&amp;= h_{\frac{\alpha}{\lambda}}\Big((I-\frac{1}{\lambda}A^TA)x^{(k)} + A^Tb\Big)
+\end{aligned}
+$$</p>
+<p>where $[h_{\frac{\alpha}{\lambda}}(x)]_i=\text{sign}(x_i)\big(|x_i|-\frac{\alpha}{\lambda}\big)_{+}$</p>
+<h2 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h2>
+<p>MCMC algorithms to generate samples from the target distribution $p^\star$ can be viewed as constructing an ergodic Markov chain transition operator $T$ which has $p^\star$ as the stationary distribution:</p>
+<p>$$
+p^\star=Tp^\star
+$$</p>
+<p>Popular schemes such as M-H are heuristics (i.e., the <em>detailed balance</em> condition is sufficient but not necessary) to build specific instances of such operators.</p>
+<p>We can arbitrarily split the operator $T$, where $T_1,\ldots,T_n$ need not be ergodic individually:</p>
+<p>$$
+p^\star=T_1\circ T_2\circ \ldots\circ T_np^\star
+$$</p>
+<p>This recovers e.g. Gibbs sampling.</p>
+<p>In summary:</p>
+<ul>
+<li>Operator notation can help to think about a large range of machine learning problems in a unified way</li>
+<li>Operator splitting in particular can be used to trivially generate custom algorithms that automatically provide certain (admittedly rather basic) guarantees</li>
+<li>Functional analysis perspective helps to find related problems in other fields</li>
+</ul>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2012/stochastic-optimisation/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2015/the-logarithmic-market-scoring-rule/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    Dimitri Semenovich.
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>
