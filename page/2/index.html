@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <title>Certum ex Incertis - Certum ex Incertis</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
+
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2012/stochastic-optimisation/">Stochastic Optimisation</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2012&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/monte-carlo">monte-carlo</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> In real-world optimization problems, </span>
+uncertainty is the rule rather than the exception.  Whether we&rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.</p>
+<h2 id="stochastic-optimisation-fundamentals">Stochastic Optimisation Fundamentals</h2>
+<p>The general stochastic optimization problem can be formulated as:</p>
+<p>$$
+\begin{array}{ll}
+\text{minimise} &amp; \mathbb{E}[f_0(x,\omega)]\\
+\text{subject to} &amp; \mathbb{E}[f_i(x,\omega)] \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>Here, the functions $f_i(x,\omega)$ depend on the random variable $\omega$ with known distribution $p(\omega)$, where:</p>
+<p>$$\mathbb{E}[f_i(x, \omega)] = \int f_i(x,\omega) p(\omega) , d\omega$$</p>
+<p>The variable $\omega$ represents uncertainty in measurement, operation, or manufacturing processes. If $f_i(x,\omega)$ is convex in $x$ for any $\omega$, then the optimization problem is convex (both the objective and constraints are linear combinations of convex functions with non-negative coefficients).</p>
+<h2 id="extended-formulations">Extended Formulations</h2>
+<p>In the original formulation, constraints hold in expectation: $\mathbb{E}[f_i(x,\omega)] \leq 0$. However, we can extend this in several ways while preserving convexity:</p>
+<p>We can compose $f_i(x,\omega)$ with any increasing convex function. For example, expected violation constraints: $\mathbb{E}[\max(f_i(x,\omega),0)] \leq \eta$</p>
+<p>It might also make sense to bound the expected worst violation: $\mathbb{E}[\max_i[\max(f_i(x,\omega),0)]] \leq \eta$</p>
+<p>We can also introduce expected violation penalties into the objective:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \mathbb{E}\left(f_0(x, \omega) +\sum_{i=1}^m \lambda_i \max[f_i(x,\omega),0] \right)
+\end{array}
+$$</p>
+<h2 id="certainty-equivalent-problems">Certainty Equivalent Problems</h2>
+<p>Ignoring parameter variation gives us a &ldquo;certainty equivalent&rdquo; problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; f_0(x, \mathbb{E}[\omega])\\
+\text{subject to} &amp; f_i(x, \mathbb{E}[\omega]) \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>Given $f_i$ convex in $\omega$ for any $x$, $f_i(x,\mathbb{E}[\omega]) \leq \mathbb{E}[f_i(x,\omega)]$ by Jensen&rsquo;s inequality. This provides a lower bound on the optimal value of the stochastic problem.</p>
+<h2 id="robust-optimisation">Robust Optimisation</h2>
+<p>A related approach is robust optimization:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \underset{u\in U}{\sup}\ f_0(x,u)\\
+\text{subject to} &amp; \underset{u\in U}{\sup}\ f_i(x,u) \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>This approach, also known as worst-case analysis, is related to $H_\infty$ methods in control theory and minimax estimators in statistics. The objective and constraint functions $f_i(x,u)$ are evaluated under the least favorable scenario from the uncertainty set $U$. Linear programs with ellipsoid uncertainty sets can be solved efficiently by reformulating them as second-order cone programs.</p>
+<h2 id="closed-form-solutions-ridge-regression-and-lasso">Closed-Form Solutions: Ridge Regression and Lasso</h2>
+<p>Some stochastic optimization problems have elegant closed-form solutions. Consider a least squares problem where $X \in \mathbb{R}^{m\times n}$ is perturbed with a random matrix $U$ such that $U_{ij}$ are uncorrelated random variables with $\mathbb{E}(U_{ij})=0, \text{Var}(U_{ij})=\frac{\lambda}{m}$.</p>
+<p>We want to minimize the expected value of the stochastic objective:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp; \mathbb{E}[|y-(X + U)b|^2_2]
+\end{array}
+$$</p>
+<p>This is equivalent to ridge regression:</p>
+<p>$$
+\begin{array}{ll}
+\mathbb{E}[|y-(X + U)b|^2_2] &amp;= \mathbb{E}[(Xb-y + Ub)^T(Xb-y + Ub)]\\
+&amp;=(Xb-y)^T(Xb-y)+\mathbb{E}[b^TU^TUb]\\
+&amp;=|Xb-y|^2_2+\lambda|b|^2_2\\
+\end{array}
+$$</p>
+<p>Similarly, the lasso has a robust optimization interpretation. Consider uncertainty set $\mathcal{U} \subset \mathbb{R}^{m\times n}$ such that $\mathcal{U}=(u_1, u_2, \ldots,u_n)$, $u_i \in \mathbb{R}^m$ and $|u_i|_2\leq \lambda$ for $i=1,\ldots,n$. Then the robust optimization problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp; \underset{U\in \mathcal{U}}{\sup}\  |y-(X + U)b|_2\\
+\end{array}
+$$</p>
+<p>is equivalent to:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;  |y-Xb|_2 + \lambda |b|_1\
+\end{array}
+$$</p>
+<h2 id="solution-approaches">Solution Approaches</h2>
+<p>There are several approaches to solving stochastic optimization problems:</p>
+<ol>
+<li>Analytical solutions (available in a few special cases)</li>
+<li>Robust formulation (which can sometimes be reduced to a standard problem form)</li>
+<li>Heuristics like regularization</li>
+<li>Monte Carlo sampling methods to approximate the objective and constraints</li>
+<li>Stochastic gradient methods to approximate the gradient</li>
+</ol>
+<h2 id="monte-carlo-sampling">Monte Carlo Sampling</h2>
+<p>With Monte Carlo sampling, we generate $N$ realizations of $\omega$: $\omega_1,\ldots,\omega_N$ (the &ldquo;training data&rdquo;). We then form sample average approximations of $F_i(x) = \mathbb{E}[f_i(x,\omega)]$:</p>
+<p>$$\hat{F}_i(x)=\frac{1}{N}\sum_{j=1}^{N}f_i(x,\omega_j)$$</p>
+<p>And solve the approximate problem:</p>
+<p>$$\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \hat{F}_0(x)\\
+\text{subject to} &amp;\hat{F}_i(x)\leq 0, \quad i=1, \ldots, m
+\end{array}$$</p>
+<p>Under some technical conditions, the approximate solution $x^\star_{\text{train}}$ converges to the solution $x^\star$ of the original problem as $N \rightarrow \infty$. We can also bound the objective: $\mathbb{E}[\hat{F}_0(x^\star_{\text{train}})] \leq \mathbb{E}[F_0(x^\star)]$.</p>
+<h2 id="validation">Validation</h2>
+<p>To evaluate the quality of our solution, we use a second set of $M$ samples (validation) $\omega^{\text{val}}_1,\ldots,\omega^{\text{val}}_M$ with $M\gg N$ and evaluate:</p>
+<p>$$\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) =\frac{1}{M}\sum_{j=1}^{M}f_i(x^\star_{\text{train}},\omega^{\text{val}}_j), \ \ i=0,\ldots,m$$</p>
+<p>We want $\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) \approx \hat{F}_i(x^\star_{\text{train}})$ for $i=0,\ldots,m$; otherwise, we need to increase $N$.</p>
+<h2 id="example-loss-minimization">Example: Loss Minimization</h2>
+<p>In loss minimization, $(x,y) \in \mathbb{R}^n \times \mathbb{R}$ have some joint distribution. We aim to find a weight vector $b \in \mathbb{R}^n$ for which $b^Tx$ is a good estimator of $y$. We choose $b$ to minimize the expected value of a convex <em>loss function</em> $\ell$:</p>
+<p>$$\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]$$</p>
+<p>Given &ldquo;training data&rdquo; or independent samples from the joint distribution $(x_i,y_i), i=1,\ldots,N$, we form an approximate problem and denote its solution by $b^\star_{\text{train}}$:</p>
+<p>$$\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;\hat{\mathcal{L}}(b) = \frac{1}{N}\sum_{i=1}^N \ell(b^Tx_i-y_i)
+\end{array}$$</p>
+<p>We evaluate the average sample loss of the model $y \approx b^{\star T}_{\text{train}}x$ on a new set of $M$ samples:</p>
+<p>$$\hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}}) = \frac{1}{M}\sum_{i=1}^M \ell(b^{\star T}_{\text{train}}x_i-y_i)$$</p>
+<p>If $\hat{\mathcal{L}}(b^\star_{\text{train}}) \approx \hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}})$, our confidence that the model will perform well on other samples improves.</p>
+<h2 id="example-inventory-planning-with-uncertain-demand">Example: Inventory Planning with Uncertain Demand</h2>
+<p><label for="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/stoch_optimisation/expected_pwl_fbest_dist.png" alt="Expected value distribution for inventory optimization"> Distribution of objective values across validation samples for an inventory optimization problem with 20 products. </span></p>
+<p>Consider a retailer who orders quantities $x = (x_1,\ldots,x_m)$ of $m$ different products. Product costs $c=(c_1,\ldots,c_m)$ and prices $p=(p_1,\ldots,p_m)$ are fixed, but product demand $d=(d_1,\ldots,d_m)$ is random with a known distribution. Products that are not sold have salvage value $h=(h_1,\ldots,h_m)$.</p>
+<p>The objective is to maximize revenue subject to a constraint on the total investment in inventory:</p>
+<p>$$\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp;c^Tx - p^T\min(d,x) - h^T\max(x-d,0) \\
+\text{subject to} &amp;c^T x \leq R,\\
+&amp; x_i \geq 0, \quad i=1, \ldots, m\\
+\end{array}$$</p>
+<p>The figure shows the distribution of objective values across validation samples for a problem instance with 20 products, using $N=1000$ (training set size) and $M=1000$ (validation set size).</p>
+<h2 id="approximating-the-gradient">Approximating the Gradient</h2>
+<p>Instead of forming an approximation to the stochastic problem, we can approximate its subgradient directly. Suppose $f(x,\omega)$ is convex in $x$ for each $\omega$ and $g(x,\omega) \in \partial_x f(x,\omega)$. A subgradient of $F(x) = \mathbb{E}[f(x, \omega)]$ at $x$ is $G(x) \in \partial F(x)$:</p>
+<p>$$G(x)=\mathbb{E}[g(x,\omega)] = \int g(x,\omega) p(\omega) , d\omega$$</p>
+<p>We can form $\hat{G}(x)$, an unbiased estimate of $G(x)$ using Monte Carlo, where $\omega_1, \ldots, \omega_M$ are $M$ independent samples of $\omega$:</p>
+<p>$$\hat{G}(x) = \frac{1}{M} \sum_{i=1}^M g(x,\omega_i)$$</p>
+<h2 id="online-learning">&ldquo;Online Learning&rdquo;</h2>
+<p>Consider again the expected convex loss minimization:</p>
+<p>$$\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]
+\end{array}$$</p>
+<p>A noisy unbiased subgradient of $\mathcal{L}$ at $b^{(k)}$, based on sample $(x^{(k+1)},y^{(k+1)})$, where $\ell&rsquo;$ is the subgradient of $\ell$, is:</p>
+<p>$$\hat{G}(b^{(k)}) = \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
+<p>The &ldquo;online&rdquo; algorithm (or simply gradient descent with approximate gradient) becomes:</p>
+<p>$$b^{(k+1)}=b^{(k)}-\alpha_k \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
+<h2 id="practical-considerations">Practical Considerations</h2>
+<p>In many applications of optimization, particularly in finance and insurance, there is significant uncertainty about the data. &ldquo;Overfitting&rdquo; can be a serious problem. Simple validation procedures can increase our confidence in the robustness of a solution before it&rsquo;s implemented in production.</p>
+<p>Monte Carlo methods can start to break down in multistage problems due to the exponential growth in the number of configurations. There is substantial literature on decomposing multistage problems to make them more tractable.</p>
+<p>By embracing uncertainty rather than ignoring it, stochastic optimization provides a powerful framework for making decisions in complex, uncertain environments.</p>
+</section>
+            
+            
+
+
+<nav class="menu" style="margin-top:5rem">
+    <ul style="display: flex;
+               align-items: stretch;
+               justify-content: space-between;">
+    
+        <li>
+            <a href="/">&larr; Newer Posts</a>  
+
+    </li>
+    
+</ul>
+</nav>
+
+
+            <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    Dimitri Semenovich.
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+        </article>
+    </div>
+</body>
+</html>

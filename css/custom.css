@@ -53,12 +53,24 @@ code {
 
 /* Make links more visible with white background */
 a:link, a:visited {
-  color: #0000EE;
+  color: rgba(65, 70, 75, 1);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Style for emphasis to match Tufte link color scheme */
+em {
+  color: rgba(65, 70, 75, 1) !important;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Make sure emphasis works in p and li elements */
+p em, li em {
+  color: rgba(65, 70, 75, 1) !important;
 }
 
 /* Sidenotes and margin notes */

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epistemology on Certum ex Incertis</title>
+    <link>https://dvse.github.io/tags/epistemology/</link>
+    <description>Recent content in Epistemology on Certum ex Incertis</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 07 Jun 2023 13:04:00 +1100</lastBuildDate>
+    <atom:link href="https://dvse.github.io/tags/epistemology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Applied Epistemology in Data Science</title>
+      <link>https://dvse.github.io/2023/applied-epistemology-in-data-science/</link>
+      <pubDate>Wed, 07 Jun 2023 13:04:00 +1100</pubDate>
+      <guid>https://dvse.github.io/2023/applied-epistemology-in-data-science/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt;Epistemology&lt;/span&gt;&#xA;is the branch of philosophy concerned with the nature, sources, limits, and methods of knowledge. It explores fundamental questions such as what constitutes justified and true beliefs.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Applied epistemology&lt;/em&gt; is the practical application of these theories about knowledge to specific domains or real-world situations. In this post, we will examine mathematical modelling and data science through the lens of applied epistemology.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mathematical-modeling-objectives&#34;&gt;Mathematical modeling objectives&lt;/h2&gt;&#xA;&lt;p&gt;We can identify three broad goals of mathematical modeling across many fields:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <title>Certum ex Incertis - Applied Epistemology in Data Science</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
+
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2023/applied-epistemology-in-data-science/">Applied Epistemology in Data Science</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Jun 7, 2023&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/epistemology">epistemology</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/data-science">data-science</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/probability">probability</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/forecasting">forecasting</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p><span class="newthought">Epistemology</span>
+is the branch of philosophy concerned with the nature, sources, limits, and methods of knowledge. It explores fundamental questions such as what constitutes justified and true beliefs.</p>
+<p><em>Applied epistemology</em> is the practical application of these theories about knowledge to specific domains or real-world situations. In this post, we will examine mathematical modelling and data science through the lens of applied epistemology.</p>
+<h2 id="mathematical-modeling-objectives">Mathematical modeling objectives</h2>
+<p>We can identify three broad goals of mathematical modeling across many fields:</p>
+<p>Understanding likely future events or outcomes (<em>Prediction</em> or <em>Forecasting</em>), e.g. credit risk scoring or SKU level demand forecasts.</p>
+<p>Understanding the likely effects of interventions (<em>Causal Discovery</em>), e.g. understanding the impact of a subscription fee increase on lapse rates.</p>
+<p>Determining what is the &ldquo;best&rdquo; way to achieve an objective (<em>Optimal Control</em>), e.g. ordering the timeline to maximise engagement.</p>
+<p>One area where mathematical modeling is relatively uncommon is understanding the <em>contributing causes</em> of a unique past event - this mode of inquiry is more often found in history writing, criminal investigations and legal practice.</p>
+<p><em>Prediction</em> is in some important respect the easiest as it&rsquo;s a constituent part of other two objectives. It can also often use the ambient data about the process.</p>
+<p><em>Causal Discovery</em> generally requires being able to predict the outcome of interest both in the regime with the intervention and in the regime without the intervention. The causal effect is then <em>ceteris paribus</em> the difference between the two. Causal discovery is very significantly constrained by data availability. Heterogeneous treatment effects are both rare and hard to detect.</p>
+<p><em>Optimal Control</em> &ndash; finding the &ldquo;best&rdquo; intervention according to some criteria requires good estimates of the causal impact of each candidate intervention.</p>
+<h2 id="probabilistic-statements">Probabilistic statements</h2>
+<p>It&rsquo;s almost universal to use probabilistic statements. For forecasting questions the answers might look something like this:</p>
+<ul>
+<li>My party is at least 90% likely to win the next election.</li>
+<li>The probability you will survive to age 80 is 60%.</li>
+<li>The coin is 50% likely to land heads.</li>
+<li>There&rsquo;s a 35% chance of rain tomorrow.</li>
+</ul>
+<p>But do these probabilities always mean the same thing? The table below shows the diverse colloquial meanings these statements can have:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Statement</th>
+          <th>Colloquial Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>My party is at least 90% likely to win the next election.</td>
+          <td>I&rsquo;m very confident my party will win</td>
+      </tr>
+      <tr>
+          <td>The probability you will survive to age 80 is 60%.</td>
+          <td>Out of 10,000 insured men forty-one years old living in a given country and not engaged in certain dangerous occupations we expect 6,000 to still be alive in 40 years.</td>
+      </tr>
+      <tr>
+          <td>The coin is 50% likely to land heads.</td>
+          <td>If we were to flip this particular coin over and over, in the very long run it would come up heads exactly half the time</td>
+      </tr>
+      <tr>
+          <td>There&rsquo;s a 35% chance of rain tomorrow</td>
+          <td>Out of 100 days when the forecaster tells us there will be 35% chance of rain, it rains on approximately 35.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="interpreting-probability">Interpreting probability</h2>
+<p><em>Frequentist interpretation</em>: the probability of an event \(A\) in a reference class \(B\) is the relative frequency of realised occurrences of \(A\) within \(B\), i.e. \(\frac{|A|}{|B|}\) as \(|B| \rightarrow \infty\).</p>
+<p><em>Subjective interpretation</em>: your degree of belief in \(A\) is \(p\) if and only if \(p\) units of utility is the price at which you would buy or sell a bet that pays \(1\) unit of utility if \(A\) occurs and 0 if it does not. It is generally required that these bets should be <em>coherent</em> or not admit arbitrage<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle"/>
+<span class="sidenote">Note that it follows immediately that \(p(A,|,B) = \frac{p(A\cap B)}{p(B)}\), where \(p(A,|,B)\) represents a bet that pays \(1\) if \(A\) and \(B\) occur and is called off if \(B\) doesn&rsquo;t occur.</span>
+, i.e. \(p(A \cup B) = p(A) + p(B)\) if \(A \cap B =\emptyset\).</p>
+<p>Subjective probabilities are historically associated with Bayesian updating on evidence, but there is a good argument Bayesian updating is logically independent from coherence<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle"/>
+<span class="sidenote">cf. F. Ramsey&rsquo;s conditionalisation (1931) vs. so called &ldquo;diachronic&rdquo; conditionalisation, e.g. Teller 1973</span>
+.</p>
+<h2 id="we-are-already-both-frequentist-and-subjectivist">We are already both frequentist and subjectivist</h2>
+<p>Our everyday thinking about probabilities reflects both approaches, as shown in this expanded table:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Statement</th>
+          <th>Colloquial Meaning</th>
+          <th>Interpretation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>My party is at least 90% likely to win the next election.</td>
+          <td>I&rsquo;m very confident my party will win.</td>
+          <td>Strict subjectivist</td>
+      </tr>
+      <tr>
+          <td>The probability you will survive to age 80 is 60%</td>
+          <td>Out of 10,000 insured men forty-one years old living in a given country and not engaged in certain dangerous occupations we expect 6,000 to still be alive in 40 years.</td>
+          <td>Frequentist (mostly)</td>
+      </tr>
+      <tr>
+          <td>The coin is 50% likely to land heads.</td>
+          <td>If we were to flip this particular coin over and over, in the very long run it would come up heads exactly half the time.</td>
+          <td>Frequentist</td>
+      </tr>
+      <tr>
+          <td>There&rsquo;s a 35% chance of rain tomorrow</td>
+          <td>Out of 100 days when the forecaster tells us there will be 35% chance of rain, it rains on approximately 35.</td>
+          <td>Subjectivist w/ verification</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="handling-singular-events">Handling singular events</h2>
+<p>Frequentist probabilities make sense for situations when a large reference population exists or it is possible to generate sequences by repeating an experiment with the same initial conditions. They can not be reasonably used for &ldquo;singular&rdquo; events.</p>
+<p><em>Singular events</em> would include specific elections, sports matches or even next day&rsquo;s weather at a particular location. This would naturally include any global events.</p>
+<p>Subjective probabilities deal with individuals&rsquo; beliefs and can be easily stated for singular events. The downside is that the only requirement for these is to be <em>coherent</em>, i.e. admitting no arbitrage in the price structure of the hypothetical bets. They don&rsquo;t need to be &ldquo;true&rdquo;.</p>
+<p>A modern view on subjective probabilities introduces the concept of <em>calibration</em>. One&rsquo;s subjective probabilities \(p\) are calibrated if for all the events where \(p(A) = x\), \(Pr(A,|, p(A) = x) = x\) or the frequentist definition \(\frac{|A|}{|B|}\) where the reference class of events \(B\) corresponds to the events where the subjective probability \(p(A)=x\).</p>
+<p>A weather forecast service would be calibrated at 0.3 if it rains on approximately 30 out of 100 days when the forecast chance of rain is 30%.</p>
+<p>The notion of <em>calibration</em> is not sufficient — a forecaster predicting the long run probability of rain each day (the so called the <em>climatological frequency</em>), regardless of current meteorological conditions, would still be <em>calibrated</em> but only marginally helpful.</p>
+<p>We want the forecaster to vary their forecasts depending on conditions as much as possible (or to be <em>sharp</em>) while maintaining calibration.</p>
+<h2 id="working-with-expert-forecasts">Working with expert forecasts</h2>
+<p>Once we have identified an expert or a model that produces good quality forecasts, we can set our subjective probabilities equal to theirs!</p>
+<p>It would make sense to limit this only to the domain where expert&rsquo;s performance has been objectively verified - a concept of &ldquo;repeated singular events&rdquo; is helpful:</p>
+<ul>
+<li>Today&rsquo;s local weather may be unique, but data can be collected for thousands of dates and locations</li>
+<li>Company performance is sensitive to specific circumstances but there are many companies and many time intervals over which performance can be measured</li>
+<li>Similar policy interventions are attempted at different times in different jurisdictions etc.</li>
+</ul>
+<p>Even if the event in question is truly singular, such as a pandemic, extreme solar storm or climate change, some &ldquo;simpler&rdquo; repeated events can be found or constructed.</p>
+<p>You don&rsquo;t need to commit to just one expert - several methods exist for combining forecasts:</p>
+<ul>
+<li><em>Simple Averaging</em>: each expert&rsquo;s forecast is given equal weight. This method can be effective when there&rsquo;s no basis for assigning different weights to different experts, or when all experts are equally competent.</li>
+<li><em>Weighted Averaging</em>: this approach assigns different weights to different experts based on their past performance, expertise, or other relevant factors.</li>
+<li><em>Prediction Markets</em>: In prediction markets, individuals bet on the outcomes of events. The market prices can then be interpreted as probability estimates for these events.</li>
+<li><em>Extremising</em>: This involves adjusting consensus forecasts towards the extremes and can be beneficial when the combined forecast is overly conservative due to the averaging process.</li>
+<li><em>Structured Discussions</em>: Experts engage in a structured discussion or debate to develop a combined forecast. This process can be facilitated by a neutral moderator.</li>
+</ul>
+<h2 id="analytical-framework">Analytical framework</h2>
+<p>We can use the two dimensions of problem type and event type as our analysis framework. A specific modeling exercise can usually be placed in one of the 9 cells<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-3" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-3" class="margin-toggle"/>
+<span class="sidenote">There could be another column for deterministic systems, e.g. some ODEs, computer systems or formal proofs and another row for &ldquo;causes of effects&rdquo;, such as historical or legal analysis.</span>
+.</p>
+<p>The epistemic status of results for singular events and causal discovery and optimal control problems is always more challenging. Below is a breakdown of different types of problems across our framework:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events / Frequentist</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Predicting the likelihood of a customer churning based on their activity. / Estimating the lifetime value of a customer based on their purchase behavior.</td>
+          <td>Forecasting the overall sales of a retail company. / Forecasting the monthly energy consumption for a city. / Forecasting the total number of passengers to a particular destination over a month</td>
+          <td>Predicting the economic impact of a once-in-a-century recession. / Forecasting the environmental impact of cloud seeding.</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>Understanding the impact of pricing changes on product sales. / Evaluating the effect of a new website design on user engagement.</td>
+          <td>Evaluating the impact of a new product line on the overall profit of a company. / Estimating the effect of regulatory changes on business operations.</td>
+          <td>Evaluating the impact of a major infrastructure project on regional economic growth. / Estimating the effect of a large-scale educational reform on innovation.</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Determining price optimization strategies for individual products. / Developing the &ldquo;optimal&rdquo; customer targeting strategy for a promotional campaign.</td>
+          <td>Deciding on the best overall investment strategy for a company. / Designing the optimal supply chain network to minimize costs and maximize service level.</td>
+          <td>Recommending the best government policy to manage economic fallout during a financial crisis. / Designing optimal strategies to deal with the environmental impact of deforestation.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Different types of problems call for different modeling techniques, as illustrated here:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events / Frequentist</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Regression analysis, supervised learning</td>
+          <td>Regression analysis, qualitative assessment to derive features, prediction markets</td>
+          <td>Monte Carlo simulations and agent-based models / System dynamics models</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>Randomised controlled trials / Quasi-experimental designs such as regression discontinuity</td>
+          <td>Granger causality tests / Difference in difference</td>
+          <td>Structural equation modeling / Path analysis</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Stochastic optimization / Reinforcement learning</td>
+          <td>Scenario Planning</td>
+          <td>Precautionary principle?</td>
+      </tr>
+  </tbody>
+</table>
+<p>Similarly, validation strategies vary across the framework:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Out of sample testing</td>
+          <td>Backtesting / Industry wide studies / Forecast verification / Prediction markets track records</td>
+          <td>Prediction markets track records?</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>RCTs / Bootstrapping / Assumptions validation</td>
+          <td>Assumption validation / Contingent prediction markets</td>
+          <td>Contingent prediction markets</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Inverse propensity weighted estimator / Off-policy policy evaluation</td>
+          <td>?</td>
+          <td>?</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="practical-recommendations">Practical recommendations</h2>
+<p>When approaching a problem in data science or mathematical modeling, consider these suggestions:</p>
+<p>Identify the type of question you are dealing with:</p>
+<ul>
+<li>Prediction would include propensities, demand forecasting, actuarial pricing etc.</li>
+<li>Causal inference would include anything to do with estimating impact of a deliberate intervention.</li>
+<li>Optimal control is trying to identify the &ldquo;best&rdquo; course of action.</li>
+</ul>
+<p>Clearly identify the type of system you are modeling:</p>
+<ul>
+<li>Are you dealing with frequentist or subjective probabilities?</li>
+<li>Is there a reference class of events you can assess how well calibrated the subjective probabilities might be?</li>
+<li>Is there a mechanism to aggregate subjective probabilities?</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have proposed a framework to assess the epistemic status of a broad class of mathematical models. Our knowledge becomes considerably less certain as we move from prediction to causal inference and optimal control and as we try to assess singular events.</p>
+<p>Decoupling of subjective probabilities and Bayesian updating and instead focusing on objective verification is proposed as one path to improving reliability of conclusions.</p>
+<p>Even if we are uncertain about the probability of some very large risks and the efficacy of proposed interventions, we may still have solid ground for action if the downsides are sufficiently large, the so called <em>precautionary principle</em>.</p>
+<h2 id="references">References</h2>
+<p>Semenovich, D., Dolman, C., What Makes a Good Forecast? Lessons for Premium Rating from Meteorology, All Actuaries Summit 2020</p>
+<p>Hacking, I., The Logic of Statistical Inference, Cambridge University Press 1965</p>
+<p>Shimony, A., Scientific Inference, in The Nature and Function of Scientific Theories, R. Colodny (ed.), University of Pittsburgh Press 1970</p>
+<p>Huber, F., A Logical Introduction to Probability and Induction, Oxford University Press 2018</p>
+<p>Teller, P., Conditionalization and Observation, Synthese 1973</p>
+<p>Ramsey, F. P., The Foundations of Mathematics and Other Essays, Humanities Press 1931</p>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2023/the-kalman-filter-tutorial-that-might-at-last-make-sense/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    Dimitri Semenovich.
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>

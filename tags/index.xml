@@ -30,6 +30,34 @@
       <description></description>
     </item>
     <item>
+      <title>Data-Science</title>
+      <link>https://dvse.github.io/tags/data-science/</link>
+      <pubDate>Wed, 07 Jun 2023 13:04:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epistemology</title>
+      <link>https://dvse.github.io/tags/epistemology/</link>
+      <pubDate>Wed, 07 Jun 2023 13:04:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/epistemology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Forecasting</title>
+      <link>https://dvse.github.io/tags/forecasting/</link>
+      <pubDate>Wed, 07 Jun 2023 13:04:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/forecasting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>https://dvse.github.io/tags/probability/</link>
+      <pubDate>Wed, 07 Jun 2023 13:04:00 +1100</pubDate>
+      <guid>https://dvse.github.io/tags/probability/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Actuarial</title>
       <link>https://dvse.github.io/tags/actuarial/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
@@ -62,13 +90,6 @@
       <link>https://dvse.github.io/tags/connections/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
       <guid>https://dvse.github.io/tags/connections/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Data-Science</title>
-      <link>https://dvse.github.io/tags/data-science/</link>
-      <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/data-science/</guid>
       <description></description>
     </item>
     <item>
@@ -125,27 +146,6 @@
       <link>https://dvse.github.io/tags/analytics/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
       <guid>https://dvse.github.io/tags/analytics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Education</title>
-      <link>https://dvse.github.io/tags/education/</link>
-      <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/education/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Moocs</title>
-      <link>https://dvse.github.io/tags/moocs/</link>
-      <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/moocs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Betting-Markets</title>
-      <link>https://dvse.github.io/tags/betting-markets/</link>
-      <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/betting-markets/</guid>
       <description></description>
     </item>
   </channel>

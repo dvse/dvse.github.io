@@ -85,3 +85,9 @@ nav.tags ul {
   width: 100% !important;
   margin-top: 0.5rem !important;
 }
+
+/* Style for emphasis with medium weight */
+em {
+  font-style: italic !important;
+  font-weight: 500 !important;
+}

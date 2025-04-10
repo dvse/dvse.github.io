@@ -449,6 +449,284 @@ the observation matrix \(X_t\)  a constant vector \(\mathbf{1}\).</p>
             <section style="padding-bottom:0px;">
 <h1 class="content-title" style="margin-bottom:0.5rem">
   
+  <a href="/2023/applied-epistemology-in-data-science/">Applied Epistemology in Data Science</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Jun 7, 2023&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/epistemology">epistemology</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/data-science">data-science</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/probability">probability</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/forecasting">forecasting</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought">Epistemology</span>
+is the branch of philosophy concerned with the nature, sources, limits, and methods of knowledge. It explores fundamental questions such as what constitutes justified and true beliefs.</p>
+<p><em>Applied epistemology</em> is the practical application of these theories about knowledge to specific domains or real-world situations. In this post, we will examine mathematical modelling and data science through the lens of applied epistemology.</p>
+<h2 id="mathematical-modeling-objectives">Mathematical modeling objectives</h2>
+<p>We can identify three broad goals of mathematical modeling across many fields:</p>
+<p>Understanding likely future events or outcomes (<em>Prediction</em> or <em>Forecasting</em>), e.g. credit risk scoring or SKU level demand forecasts.</p>
+<p>Understanding the likely effects of interventions (<em>Causal Discovery</em>), e.g. understanding the impact of a subscription fee increase on lapse rates.</p>
+<p>Determining what is the &ldquo;best&rdquo; way to achieve an objective (<em>Optimal Control</em>), e.g. ordering the timeline to maximise engagement.</p>
+<p>One area where mathematical modeling is relatively uncommon is understanding the <em>contributing causes</em> of a unique past event - this mode of inquiry is more often found in history writing, criminal investigations and legal practice.</p>
+<p><em>Prediction</em> is in some important respect the easiest as it&rsquo;s a constituent part of other two objectives. It can also often use the ambient data about the process.</p>
+<p><em>Causal Discovery</em> generally requires being able to predict the outcome of interest both in the regime with the intervention and in the regime without the intervention. The causal effect is then <em>ceteris paribus</em> the difference between the two. Causal discovery is very significantly constrained by data availability. Heterogeneous treatment effects are both rare and hard to detect.</p>
+<p><em>Optimal Control</em> &ndash; finding the &ldquo;best&rdquo; intervention according to some criteria requires good estimates of the causal impact of each candidate intervention.</p>
+<h2 id="probabilistic-statements">Probabilistic statements</h2>
+<p>It&rsquo;s almost universal to use probabilistic statements. For forecasting questions the answers might look something like this:</p>
+<ul>
+<li>My party is at least 90% likely to win the next election.</li>
+<li>The probability you will survive to age 80 is 60%.</li>
+<li>The coin is 50% likely to land heads.</li>
+<li>There&rsquo;s a 35% chance of rain tomorrow.</li>
+</ul>
+<p>But do these probabilities always mean the same thing? The table below shows the diverse colloquial meanings these statements can have:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Statement</th>
+          <th>Colloquial Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>My party is at least 90% likely to win the next election.</td>
+          <td>I&rsquo;m very confident my party will win</td>
+      </tr>
+      <tr>
+          <td>The probability you will survive to age 80 is 60%.</td>
+          <td>Out of 10,000 insured men forty-one years old living in a given country and not engaged in certain dangerous occupations we expect 6,000 to still be alive in 40 years.</td>
+      </tr>
+      <tr>
+          <td>The coin is 50% likely to land heads.</td>
+          <td>If we were to flip this particular coin over and over, in the very long run it would come up heads exactly half the time</td>
+      </tr>
+      <tr>
+          <td>There&rsquo;s a 35% chance of rain tomorrow</td>
+          <td>Out of 100 days when the forecaster tells us there will be 35% chance of rain, it rains on approximately 35.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="interpreting-probability">Interpreting probability</h2>
+<p><em>Frequentist interpretation</em>: the probability of an event \(A\) in a reference class \(B\) is the relative frequency of realised occurrences of \(A\) within \(B\), i.e. \(\frac{|A|}{|B|}\) as \(|B| \rightarrow \infty\).</p>
+<p><em>Subjective interpretation</em>: your degree of belief in \(A\) is \(p\) if and only if \(p\) units of utility is the price at which you would buy or sell a bet that pays \(1\) unit of utility if \(A\) occurs and 0 if it does not. It is generally required that these bets should be <em>coherent</em> or not admit arbitrage<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle"/>
+<span class="sidenote">Note that it follows immediately that \(p(A,|,B) = \frac{p(A\cap B)}{p(B)}\), where \(p(A,|,B)\) represents a bet that pays \(1\) if \(A\) and \(B\) occur and is called off if \(B\) doesn&rsquo;t occur.</span>
+, i.e. \(p(A \cup B) = p(A) + p(B)\) if \(A \cap B =\emptyset\).</p>
+<p>Subjective probabilities are historically associated with Bayesian updating on evidence, but there is a good argument Bayesian updating is logically independent from coherence<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle"/>
+<span class="sidenote">cf. F. Ramsey&rsquo;s conditionalisation (1931) vs. so called &ldquo;diachronic&rdquo; conditionalisation, e.g. Teller 1973</span>
+.</p>
+<h2 id="we-are-already-both-frequentist-and-subjectivist">We are already both frequentist and subjectivist</h2>
+<p>Our everyday thinking about probabilities reflects both approaches, as shown in this expanded table:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Statement</th>
+          <th>Colloquial Meaning</th>
+          <th>Interpretation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>My party is at least 90% likely to win the next election.</td>
+          <td>I&rsquo;m very confident my party will win.</td>
+          <td>Strict subjectivist</td>
+      </tr>
+      <tr>
+          <td>The probability you will survive to age 80 is 60%</td>
+          <td>Out of 10,000 insured men forty-one years old living in a given country and not engaged in certain dangerous occupations we expect 6,000 to still be alive in 40 years.</td>
+          <td>Frequentist (mostly)</td>
+      </tr>
+      <tr>
+          <td>The coin is 50% likely to land heads.</td>
+          <td>If we were to flip this particular coin over and over, in the very long run it would come up heads exactly half the time.</td>
+          <td>Frequentist</td>
+      </tr>
+      <tr>
+          <td>There&rsquo;s a 35% chance of rain tomorrow</td>
+          <td>Out of 100 days when the forecaster tells us there will be 35% chance of rain, it rains on approximately 35.</td>
+          <td>Subjectivist w/ verification</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="handling-singular-events">Handling singular events</h2>
+<p>Frequentist probabilities make sense for situations when a large reference population exists or it is possible to generate sequences by repeating an experiment with the same initial conditions. They can not be reasonably used for &ldquo;singular&rdquo; events.</p>
+<p><em>Singular events</em> would include specific elections, sports matches or even next day&rsquo;s weather at a particular location. This would naturally include any global events.</p>
+<p>Subjective probabilities deal with individuals&rsquo; beliefs and can be easily stated for singular events. The downside is that the only requirement for these is to be <em>coherent</em>, i.e. admitting no arbitrage in the price structure of the hypothetical bets. They don&rsquo;t need to be &ldquo;true&rdquo;.</p>
+<p>A modern view on subjective probabilities introduces the concept of <em>calibration</em>. One&rsquo;s subjective probabilities \(p\) are calibrated if for all the events where \(p(A) = x\), \(Pr(A,|, p(A) = x) = x\) or the frequentist definition \(\frac{|A|}{|B|}\) where the reference class of events \(B\) corresponds to the events where the subjective probability \(p(A)=x\).</p>
+<p>A weather forecast service would be calibrated at 0.3 if it rains on approximately 30 out of 100 days when the forecast chance of rain is 30%.</p>
+<p>The notion of <em>calibration</em> is not sufficient — a forecaster predicting the long run probability of rain each day (the so called the <em>climatological frequency</em>), regardless of current meteorological conditions, would still be <em>calibrated</em> but only marginally helpful.</p>
+<p>We want the forecaster to vary their forecasts depending on conditions as much as possible (or to be <em>sharp</em>) while maintaining calibration.</p>
+<h2 id="working-with-expert-forecasts">Working with expert forecasts</h2>
+<p>Once we have identified an expert or a model that produces good quality forecasts, we can set our subjective probabilities equal to theirs!</p>
+<p>It would make sense to limit this only to the domain where expert&rsquo;s performance has been objectively verified - a concept of &ldquo;repeated singular events&rdquo; is helpful:</p>
+<ul>
+<li>Today&rsquo;s local weather may be unique, but data can be collected for thousands of dates and locations</li>
+<li>Company performance is sensitive to specific circumstances but there are many companies and many time intervals over which performance can be measured</li>
+<li>Similar policy interventions are attempted at different times in different jurisdictions etc.</li>
+</ul>
+<p>Even if the event in question is truly singular, such as a pandemic, extreme solar storm or climate change, some &ldquo;simpler&rdquo; repeated events can be found or constructed.</p>
+<p>You don&rsquo;t need to commit to just one expert - several methods exist for combining forecasts:</p>
+<ul>
+<li><em>Simple Averaging</em>: each expert&rsquo;s forecast is given equal weight. This method can be effective when there&rsquo;s no basis for assigning different weights to different experts, or when all experts are equally competent.</li>
+<li><em>Weighted Averaging</em>: this approach assigns different weights to different experts based on their past performance, expertise, or other relevant factors.</li>
+<li><em>Prediction Markets</em>: In prediction markets, individuals bet on the outcomes of events. The market prices can then be interpreted as probability estimates for these events.</li>
+<li><em>Extremising</em>: This involves adjusting consensus forecasts towards the extremes and can be beneficial when the combined forecast is overly conservative due to the averaging process.</li>
+<li><em>Structured Discussions</em>: Experts engage in a structured discussion or debate to develop a combined forecast. This process can be facilitated by a neutral moderator.</li>
+</ul>
+<h2 id="analytical-framework">Analytical framework</h2>
+<p>We can use the two dimensions of problem type and event type as our analysis framework. A specific modeling exercise can usually be placed in one of the 9 cells<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-3" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-3" class="margin-toggle"/>
+<span class="sidenote">There could be another column for deterministic systems, e.g. some ODEs, computer systems or formal proofs and another row for &ldquo;causes of effects&rdquo;, such as historical or legal analysis.</span>
+.</p>
+<p>The epistemic status of results for singular events and causal discovery and optimal control problems is always more challenging. Below is a breakdown of different types of problems across our framework:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events / Frequentist</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Predicting the likelihood of a customer churning based on their activity. / Estimating the lifetime value of a customer based on their purchase behavior.</td>
+          <td>Forecasting the overall sales of a retail company. / Forecasting the monthly energy consumption for a city. / Forecasting the total number of passengers to a particular destination over a month</td>
+          <td>Predicting the economic impact of a once-in-a-century recession. / Forecasting the environmental impact of cloud seeding.</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>Understanding the impact of pricing changes on product sales. / Evaluating the effect of a new website design on user engagement.</td>
+          <td>Evaluating the impact of a new product line on the overall profit of a company. / Estimating the effect of regulatory changes on business operations.</td>
+          <td>Evaluating the impact of a major infrastructure project on regional economic growth. / Estimating the effect of a large-scale educational reform on innovation.</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Determining price optimization strategies for individual products. / Developing the &ldquo;optimal&rdquo; customer targeting strategy for a promotional campaign.</td>
+          <td>Deciding on the best overall investment strategy for a company. / Designing the optimal supply chain network to minimize costs and maximize service level.</td>
+          <td>Recommending the best government policy to manage economic fallout during a financial crisis. / Designing optimal strategies to deal with the environmental impact of deforestation.</td>
+      </tr>
+  </tbody>
+</table>
+<p>Different types of problems call for different modeling techniques, as illustrated here:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events / Frequentist</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Regression analysis, supervised learning</td>
+          <td>Regression analysis, qualitative assessment to derive features, prediction markets</td>
+          <td>Monte Carlo simulations and agent-based models / System dynamics models</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>Randomised controlled trials / Quasi-experimental designs such as regression discontinuity</td>
+          <td>Granger causality tests / Difference in difference</td>
+          <td>Structural equation modeling / Path analysis</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Stochastic optimization / Reinforcement learning</td>
+          <td>Scenario Planning</td>
+          <td>Precautionary principle?</td>
+      </tr>
+  </tbody>
+</table>
+<p>Similarly, validation strategies vary across the framework:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Independent Events</th>
+          <th>Repeatable Singular Events</th>
+          <th>Singular Events</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prediction / Forecasting</td>
+          <td>Out of sample testing</td>
+          <td>Backtesting / Industry wide studies / Forecast verification / Prediction markets track records</td>
+          <td>Prediction markets track records?</td>
+      </tr>
+      <tr>
+          <td>Causal Discovery</td>
+          <td>RCTs / Bootstrapping / Assumptions validation</td>
+          <td>Assumption validation / Contingent prediction markets</td>
+          <td>Contingent prediction markets</td>
+      </tr>
+      <tr>
+          <td>Optimal Control</td>
+          <td>Inverse propensity weighted estimator / Off-policy policy evaluation</td>
+          <td>?</td>
+          <td>?</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="practical-recommendations">Practical recommendations</h2>
+<p>When approaching a problem in data science or mathematical modeling, consider these suggestions:</p>
+<p>Identify the type of question you are dealing with:</p>
+<ul>
+<li>Prediction would include propensities, demand forecasting, actuarial pricing etc.</li>
+<li>Causal inference would include anything to do with estimating impact of a deliberate intervention.</li>
+<li>Optimal control is trying to identify the &ldquo;best&rdquo; course of action.</li>
+</ul>
+<p>Clearly identify the type of system you are modeling:</p>
+<ul>
+<li>Are you dealing with frequentist or subjective probabilities?</li>
+<li>Is there a reference class of events you can assess how well calibrated the subjective probabilities might be?</li>
+<li>Is there a mechanism to aggregate subjective probabilities?</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have proposed a framework to assess the epistemic status of a broad class of mathematical models. Our knowledge becomes considerably less certain as we move from prediction to causal inference and optimal control and as we try to assess singular events.</p>
+<p>Decoupling of subjective probabilities and Bayesian updating and instead focusing on objective verification is proposed as one path to improving reliability of conclusions.</p>
+<p>Even if we are uncertain about the probability of some very large risks and the efficacy of proposed interventions, we may still have solid ground for action if the downsides are sufficiently large, the so called <em>precautionary principle</em>.</p>
+<h2 id="references">References</h2>
+<p>Semenovich, D., Dolman, C., What Makes a Good Forecast? Lessons for Premium Rating from Meteorology, All Actuaries Summit 2020</p>
+<p>Hacking, I., The Logic of Statistical Inference, Cambridge University Press 1965</p>
+<p>Shimony, A., Scientific Inference, in The Nature and Function of Scientific Theories, R. Colodny (ed.), University of Pittsburgh Press 1970</p>
+<p>Huber, F., A Logical Introduction to Probability and Induction, Oxford University Press 2018</p>
+<p>Teller, P., Conditionalization and Observation, Synthese 1973</p>
+<p>Ramsey, F. P., The Foundations of Mathematics and Other Essays, Humanities Press 1931</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
   <a href="/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/">No Arbitrage, Incomplete Markets and Actuarial Pricing</a>
   
 </h1>
@@ -1523,179 +1801,27 @@ $$</p>
 </ul>
 </section>
             
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2012/stochastic-optimisation/">Stochastic Optimisation</a>
-  
-</h1>
+            
 
 
-
-
-
-<span class="content-meta">
+<nav class="menu" style="margin-top:5rem">
+    <ul style="display: flex;
+               align-items: stretch;
+               justify-content: space-between;">
     
-    
-    Apr 10, 2012&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
+        <li>
             
-            <li><a href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/monte-carlo">monte-carlo</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> In real-world optimization problems, </span>
-uncertainty is the rule rather than the exception.  Whether we&rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.</p>
-<h2 id="stochastic-optimisation-fundamentals">Stochastic Optimisation Fundamentals</h2>
-<p>The general stochastic optimization problem can be formulated as:</p>
-<p>$$
-\begin{array}{ll}
-\text{minimise} &amp; \mathbb{E}[f_0(x,\omega)]\\
-\text{subject to} &amp; \mathbb{E}[f_i(x,\omega)] \leq 0, \quad i=1, \ldots, m
-\end{array}
-$$</p>
-<p>Here, the functions $f_i(x,\omega)$ depend on the random variable $\omega$ with known distribution $p(\omega)$, where:</p>
-<p>$$\mathbb{E}[f_i(x, \omega)] = \int f_i(x,\omega) p(\omega) , d\omega$$</p>
-<p>The variable $\omega$ represents uncertainty in measurement, operation, or manufacturing processes. If $f_i(x,\omega)$ is convex in $x$ for any $\omega$, then the optimization problem is convex (both the objective and constraints are linear combinations of convex functions with non-negative coefficients).</p>
-<h2 id="extended-formulations">Extended Formulations</h2>
-<p>In the original formulation, constraints hold in expectation: $\mathbb{E}[f_i(x,\omega)] \leq 0$. However, we can extend this in several ways while preserving convexity:</p>
-<p>We can compose $f_i(x,\omega)$ with any increasing convex function. For example, expected violation constraints: $\mathbb{E}[\max(f_i(x,\omega),0)] \leq \eta$</p>
-<p>It might also make sense to bound the expected worst violation: $\mathbb{E}[\max_i[\max(f_i(x,\omega),0)]] \leq \eta$</p>
-<p>We can also introduce expected violation penalties into the objective:</p>
-<p>$$
-\begin{array}{ll}
-\underset{x}{\text{minimise}} &amp; \mathbb{E}\left(f_0(x, \omega) +\sum_{i=1}^m \lambda_i \max[f_i(x,\omega),0] \right)
-\end{array}
-$$</p>
-<h2 id="certainty-equivalent-problems">Certainty Equivalent Problems</h2>
-<p>Ignoring parameter variation gives us a &ldquo;certainty equivalent&rdquo; problem:</p>
-<p>$$
-\begin{array}{ll}
-\underset{x}{\text{minimise}} &amp; f_0(x, \mathbb{E}[\omega])\\
-\text{subject to} &amp; f_i(x, \mathbb{E}[\omega]) \leq 0, \quad i=1, \ldots, m
-\end{array}
-$$</p>
-<p>Given $f_i$ convex in $\omega$ for any $x$, $f_i(x,\mathbb{E}[\omega]) \leq \mathbb{E}[f_i(x,\omega)]$ by Jensen&rsquo;s inequality. This provides a lower bound on the optimal value of the stochastic problem.</p>
-<h2 id="robust-optimisation">Robust Optimisation</h2>
-<p>A related approach is robust optimization:</p>
-<p>$$
-\begin{array}{ll}
-\underset{x}{\text{minimise}} &amp; \underset{u\in U}{\sup}\ f_0(x,u)\\
-\text{subject to} &amp; \underset{u\in U}{\sup}\ f_i(x,u) \leq 0, \quad i=1, \ldots, m
-\end{array}
-$$</p>
-<p>This approach, also known as worst-case analysis, is related to $H_\infty$ methods in control theory and minimax estimators in statistics. The objective and constraint functions $f_i(x,u)$ are evaluated under the least favorable scenario from the uncertainty set $U$. Linear programs with ellipsoid uncertainty sets can be solved efficiently by reformulating them as second-order cone programs.</p>
-<h2 id="closed-form-solutions-ridge-regression-and-lasso">Closed-Form Solutions: Ridge Regression and Lasso</h2>
-<p>Some stochastic optimization problems have elegant closed-form solutions. Consider a least squares problem where $X \in \mathbb{R}^{m\times n}$ is perturbed with a random matrix $U$ such that $U_{ij}$ are uncorrelated random variables with $\mathbb{E}(U_{ij})=0, \text{Var}(U_{ij})=\frac{\lambda}{m}$.</p>
-<p>We want to minimize the expected value of the stochastic objective:</p>
-<p>$$
-\begin{array}{ll}
-\underset{b}{\text{minimise}} &amp; \mathbb{E}[|y-(X + U)b|^2_2]
-\end{array}
-$$</p>
-<p>This is equivalent to ridge regression:</p>
-<p>$$
-\begin{array}{ll}
-\mathbb{E}[|y-(X + U)b|^2_2] &amp;= \mathbb{E}[(Xb-y + Ub)^T(Xb-y + Ub)]\\
-&amp;=(Xb-y)^T(Xb-y)+\mathbb{E}[b^TU^TUb]\\
-&amp;=|Xb-y|^2_2+\lambda|b|^2_2\\
-\end{array}
-$$</p>
-<p>Similarly, the lasso has a robust optimization interpretation. Consider uncertainty set $\mathcal{U} \subset \mathbb{R}^{m\times n}$ such that $\mathcal{U}=(u_1, u_2, \ldots,u_n)$, $u_i \in \mathbb{R}^m$ and $|u_i|_2\leq \lambda$ for $i=1,\ldots,n$. Then the robust optimization problem:</p>
-<p>$$
-\begin{array}{ll}
-\underset{b}{\text{minimise}} &amp; \underset{U\in \mathcal{U}}{\sup}\  |y-(X + U)b|_2\\
-\end{array}
-$$</p>
-<p>is equivalent to:</p>
-<p>$$
-\begin{array}{ll}
-\underset{b}{\text{minimise}} &amp;  |y-Xb|_2 + \lambda |b|_1\
-\end{array}
-$$</p>
-<h2 id="solution-approaches">Solution Approaches</h2>
-<p>There are several approaches to solving stochastic optimization problems:</p>
-<ol>
-<li>Analytical solutions (available in a few special cases)</li>
-<li>Robust formulation (which can sometimes be reduced to a standard problem form)</li>
-<li>Heuristics like regularization</li>
-<li>Monte Carlo sampling methods to approximate the objective and constraints</li>
-<li>Stochastic gradient methods to approximate the gradient</li>
-</ol>
-<h2 id="monte-carlo-sampling">Monte Carlo Sampling</h2>
-<p>With Monte Carlo sampling, we generate $N$ realizations of $\omega$: $\omega_1,\ldots,\omega_N$ (the &ldquo;training data&rdquo;). We then form sample average approximations of $F_i(x) = \mathbb{E}[f_i(x,\omega)]$:</p>
-<p>$$\hat{F}_i(x)=\frac{1}{N}\sum_{j=1}^{N}f_i(x,\omega_j)$$</p>
-<p>And solve the approximate problem:</p>
-<p>$$\begin{array}{ll}
-\underset{x}{\text{minimise}} &amp; \hat{F}_0(x)\\
-\text{subject to} &amp;\hat{F}_i(x)\leq 0, \quad i=1, \ldots, m
-\end{array}$$</p>
-<p>Under some technical conditions, the approximate solution $x^\star_{\text{train}}$ converges to the solution $x^\star$ of the original problem as $N \rightarrow \infty$. We can also bound the objective: $\mathbb{E}[\hat{F}_0(x^\star_{\text{train}})] \leq \mathbb{E}[F_0(x^\star)]$.</p>
-<h2 id="validation">Validation</h2>
-<p>To evaluate the quality of our solution, we use a second set of $M$ samples (validation) $\omega^{\text{val}}_1,\ldots,\omega^{\text{val}}_M$ with $M\gg N$ and evaluate:</p>
-<p>$$\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) =\frac{1}{M}\sum_{j=1}^{M}f_i(x^\star_{\text{train}},\omega^{\text{val}}_j), \ \ i=0,\ldots,m$$</p>
-<p>We want $\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) \approx \hat{F}_i(x^\star_{\text{train}})$ for $i=0,\ldots,m$; otherwise, we need to increase $N$.</p>
-<h2 id="example-loss-minimization">Example: Loss Minimization</h2>
-<p>In loss minimization, $(x,y) \in \mathbb{R}^n \times \mathbb{R}$ have some joint distribution. We aim to find a weight vector $b \in \mathbb{R}^n$ for which $b^Tx$ is a good estimator of $y$. We choose $b$ to minimize the expected value of a convex <em>loss function</em> $\ell$:</p>
-<p>$$\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]$$</p>
-<p>Given &ldquo;training data&rdquo; or independent samples from the joint distribution $(x_i,y_i), i=1,\ldots,N$, we form an approximate problem and denote its solution by $b^\star_{\text{train}}$:</p>
-<p>$$\begin{array}{ll}
-\underset{b}{\text{minimise}} &amp;\hat{\mathcal{L}}(b) = \frac{1}{N}\sum_{i=1}^N \ell(b^Tx_i-y_i)
-\end{array}$$</p>
-<p>We evaluate the average sample loss of the model $y \approx b^{\star T}_{\text{train}}x$ on a new set of $M$ samples:</p>
-<p>$$\hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}}) = \frac{1}{M}\sum_{i=1}^M \ell(b^{\star T}_{\text{train}}x_i-y_i)$$</p>
-<p>If $\hat{\mathcal{L}}(b^\star_{\text{train}}) \approx \hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}})$, our confidence that the model will perform well on other samples improves.</p>
-<h2 id="example-inventory-planning-with-uncertain-demand">Example: Inventory Planning with Uncertain Demand</h2>
-<p><label for="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/stoch_optimisation/expected_pwl_fbest_dist.png" alt="Expected value distribution for inventory optimization"> Distribution of objective values across validation samples for an inventory optimization problem with 20 products. </span></p>
-<p>Consider a retailer who orders quantities $x = (x_1,\ldots,x_m)$ of $m$ different products. Product costs $c=(c_1,\ldots,c_m)$ and prices $p=(p_1,\ldots,p_m)$ are fixed, but product demand $d=(d_1,\ldots,d_m)$ is random with a known distribution. Products that are not sold have salvage value $h=(h_1,\ldots,h_m)$.</p>
-<p>The objective is to maximize revenue subject to a constraint on the total investment in inventory:</p>
-<p>$$\begin{array}{ll}
-\underset{x}{\text{minimise}} &amp;c^Tx - p^T\min(d,x) - h^T\max(x-d,0) \\
-\text{subject to} &amp;c^T x \leq R,\\
-&amp; x_i \geq 0, \quad i=1, \ldots, m\\
-\end{array}$$</p>
-<p>The figure shows the distribution of objective values across validation samples for a problem instance with 20 products, using $N=1000$ (training set size) and $M=1000$ (validation set size).</p>
-<h2 id="approximating-the-gradient">Approximating the Gradient</h2>
-<p>Instead of forming an approximation to the stochastic problem, we can approximate its subgradient directly. Suppose $f(x,\omega)$ is convex in $x$ for each $\omega$ and $g(x,\omega) \in \partial_x f(x,\omega)$. A subgradient of $F(x) = \mathbb{E}[f(x, \omega)]$ at $x$ is $G(x) \in \partial F(x)$:</p>
-<p>$$G(x)=\mathbb{E}[g(x,\omega)] = \int g(x,\omega) p(\omega) , d\omega$$</p>
-<p>We can form $\hat{G}(x)$, an unbiased estimate of $G(x)$ using Monte Carlo, where $\omega_1, \ldots, \omega_M$ are $M$ independent samples of $\omega$:</p>
-<p>$$\hat{G}(x) = \frac{1}{M} \sum_{i=1}^M g(x,\omega_i)$$</p>
-<h2 id="online-learning">&ldquo;Online Learning&rdquo;</h2>
-<p>Consider again the expected convex loss minimization:</p>
-<p>$$\begin{array}{ll}
-\underset{b}{\text{minimise}} &amp;\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]
-\end{array}$$</p>
-<p>A noisy unbiased subgradient of $\mathcal{L}$ at $b^{(k)}$, based on sample $(x^{(k+1)},y^{(k+1)})$, where $\ell&rsquo;$ is the subgradient of $\ell$, is:</p>
-<p>$$\hat{G}(b^{(k)}) = \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
-<p>The &ldquo;online&rdquo; algorithm (or simply gradient descent with approximate gradient) becomes:</p>
-<p>$$b^{(k+1)}=b^{(k)}-\alpha_k \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
-<h2 id="practical-considerations">Practical Considerations</h2>
-<p>In many applications of optimization, particularly in finance and insurance, there is significant uncertainty about the data. &ldquo;Overfitting&rdquo; can be a serious problem. Simple validation procedures can increase our confidence in the robustness of a solution before it&rsquo;s implemented in production.</p>
-<p>Monte Carlo methods can start to break down in multistage problems due to the exponential growth in the number of configurations. There is substantial literature on decomposing multistage problems to make them more tractable.</p>
-<p>By embracing uncertainty rather than ignoring it, stochastic optimization provides a powerful framework for making decisions in complex, uncertain environments.</p>
-</section>
-            
+            &nbsp;
             
 
+    </li>
+    
+    <li>
+        <a href="/page/2/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+</nav>
 
 
             <footer class="page-footer">
