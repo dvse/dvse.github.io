@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Finance on Certum ex Incertis</title>
-    <link>http://localhost:1313/tags/finance/</link>
+    <link>https://dvse.github.io/tags/finance/</link>
     <description>Recent content in Finance on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 Mar 2019 11:00:00 +1100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/finance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dvse.github.io/tags/finance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>No Arbitrage, Incomplete Markets and Actuarial Pricing</title>
-      <link>http://localhost:1313/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</link>
+      <link>https://dvse.github.io/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
-      <guid>http://localhost:1313/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</guid>
+      <guid>https://dvse.github.io/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</guid>
       <description>&lt;p&gt;In this post I&amp;rsquo;ll explore the linear pricing model and its connection to actuarial pricing. I&amp;rsquo;ll demystify &amp;ldquo;risk-neutral probabilities&amp;rdquo; - which aren&amp;rsquo;t truly probabilities in any meaningful sense, but rather artifacts of optimal portfolio selection. My aim is to clarify these concepts which often remain poorly explained in standard textbooks, highlighting the surprising equivalence between financial and actuarial approaches to pricing.&lt;/p&gt;&#xA;&lt;h2 id=&#34;two-stage-linear-pricing-model&#34;&gt;Two stage linear pricing model&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s consider a two period model where the state of the world at $t=0$ is assumed known. At time $t=1$ there can be $n$ distinct states, $\omega_1,\omega_2, \ldots, \omega_n$ with an associated probabilities vector $\mathbf{p} \in \mathbb{R}^n$.&lt;/p&gt;</description>
     </item>
   </channel>

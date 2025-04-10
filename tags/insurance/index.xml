@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Insurance on Certum ex Incertis</title>
-    <link>http://localhost:1313/tags/insurance/</link>
+    <link>https://dvse.github.io/tags/insurance/</link>
     <description>Recent content in Insurance on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 10 Apr 2025 11:56:00 +1100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/insurance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dvse.github.io/tags/insurance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Betting Markets and Insurance: The Logarithmic Market Scoring Rule</title>
-      <link>http://localhost:1313/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</link>
+      <link>https://dvse.github.io/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</link>
       <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
-      <guid>http://localhost:1313/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</guid>
+      <guid>https://dvse.github.io/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; The concept of subjective probabilities has deep implications &lt;/span&gt;&#xA;for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &amp;ldquo;real&amp;rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.&lt;/p&gt;&#xA;&lt;blockquote cite=&#34;&#34;&gt;&#xA;&lt;p&gt;PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&amp;hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.&lt;/p&gt;</description>
     </item>
   </channel>

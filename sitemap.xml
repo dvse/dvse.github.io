@@ -2,200 +2,200 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://dvse.github.io/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/machine-learning/</loc>
+    <loc>https://dvse.github.io/tags/machine-learning/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/monte-carlo/</loc>
+    <loc>https://dvse.github.io/tags/monte-carlo/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/optimisation/</loc>
+    <loc>https://dvse.github.io/tags/optimisation/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://dvse.github.io/post/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/statistics/</loc>
+    <loc>https://dvse.github.io/tags/statistics/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2025/stochastic-optimisation/</loc>
+    <loc>https://dvse.github.io/2025/stochastic-optimisation/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://dvse.github.io/tags/</loc>
     <lastmod>2025-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</loc>
+    <loc>https://dvse.github.io/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/</loc>
     <lastmod>2025-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/betting-markets/</loc>
+    <loc>https://dvse.github.io/tags/betting-markets/</loc>
     <lastmod>2025-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/insurance/</loc>
+    <loc>https://dvse.github.io/tags/insurance/</loc>
     <lastmod>2025-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/probability/</loc>
+    <loc>https://dvse.github.io/tags/probability/</loc>
     <lastmod>2025-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/risk-measures/</loc>
+    <loc>https://dvse.github.io/tags/risk-measures/</loc>
     <lastmod>2025-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/functional-analysis/</loc>
+    <loc>https://dvse.github.io/tags/functional-analysis/</loc>
     <lastmod>2025-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2025/operators-in-machine-learning/</loc>
+    <loc>https://dvse.github.io/2025/operators-in-machine-learning/</loc>
     <lastmod>2025-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/optimization/</loc>
+    <loc>https://dvse.github.io/tags/optimization/</loc>
     <lastmod>2025-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/pricing/</loc>
+    <loc>https://dvse.github.io/tags/pricing/</loc>
     <lastmod>2025-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/reserving/</loc>
+    <loc>https://dvse.github.io/tags/reserving/</loc>
     <lastmod>2025-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2023/basic-theory-of-entity-resolution/</loc>
+    <loc>https://dvse.github.io/2023/basic-theory-of-entity-resolution/</loc>
     <lastmod>2023-04-10T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/data-science/</loc>
+    <loc>https://dvse.github.io/tags/data-science/</loc>
     <lastmod>2023-04-10T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/entity-resolution/</loc>
+    <loc>https://dvse.github.io/tags/entity-resolution/</loc>
     <lastmod>2023-04-10T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/record-linkage/</loc>
+    <loc>https://dvse.github.io/tags/record-linkage/</loc>
     <lastmod>2023-04-10T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/actuarial/</loc>
+    <loc>https://dvse.github.io/tags/actuarial/</loc>
     <lastmod>2019-03-15T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/finance/</loc>
+    <loc>https://dvse.github.io/tags/finance/</loc>
     <lastmod>2019-03-15T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/mathematical-optimization/</loc>
+    <loc>https://dvse.github.io/tags/mathematical-optimization/</loc>
     <lastmod>2019-03-15T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</loc>
+    <loc>https://dvse.github.io/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/</loc>
     <lastmod>2019-03-15T11:00:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/state-space-models/</loc>
+    <loc>https://dvse.github.io/tags/state-space-models/</loc>
     <lastmod>2018-12-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/statistical-smoothing/</loc>
+    <loc>https://dvse.github.io/tags/statistical-smoothing/</loc>
     <lastmod>2018-12-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/</loc>
+    <loc>https://dvse.github.io/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/</loc>
     <lastmod>2018-12-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/tutorial/</loc>
+    <loc>https://dvse.github.io/tags/tutorial/</loc>
     <lastmod>2018-12-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/connections/</loc>
+    <loc>https://dvse.github.io/tags/connections/</loc>
     <lastmod>2018-12-28T23:57:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2018/data-science-10-years-on/</loc>
+    <loc>https://dvse.github.io/2018/data-science-10-years-on/</loc>
     <lastmod>2018-12-28T23:57:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/rant/</loc>
+    <loc>https://dvse.github.io/tags/rant/</loc>
     <lastmod>2018-12-28T23:57:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/analytics/</loc>
+    <loc>https://dvse.github.io/tags/analytics/</loc>
     <lastmod>2015-04-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/2015/analytics-and-online-courses/</loc>
+    <loc>https://dvse.github.io/2015/analytics-and-online-courses/</loc>
     <lastmod>2015-04-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/education/</loc>
+    <loc>https://dvse.github.io/tags/education/</loc>
     <lastmod>2015-04-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/moocs/</loc>
+    <loc>https://dvse.github.io/tags/moocs/</loc>
     <lastmod>2015-04-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://dvse.github.io/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/papers/</loc>
+    <loc>https://dvse.github.io/papers/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/talks/</loc>
+    <loc>https://dvse.github.io/talks/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
