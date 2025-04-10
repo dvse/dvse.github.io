@@ -508,8 +508,8 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 <table>
   <thead>
       <tr>
-          <th>Statement</th>
-          <th>Colloquial Meaning</th>
+          <th><em>Statement</em></th>
+          <th><em>Colloquial Meaning</em></th>
       </tr>
   </thead>
   <tbody>
@@ -535,7 +535,7 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 <p><em>Frequentist interpretation</em>: the probability of an event \(A\) in a reference class \(B\) is the relative frequency of realised occurrences of \(A\) within \(B\), i.e. \(\frac{|A|}{|B|}\) as \(|B| \rightarrow \infty\).</p>
 <p><em>Subjective interpretation</em>: your degree of belief in \(A\) is \(p\) if and only if \(p\) units of utility is the price at which you would buy or sell a bet that pays \(1\) unit of utility if \(A\) occurs and 0 if it does not. It is generally required that these bets should be <em>coherent</em> or not admit arbitrage<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-1" class="margin-toggle"/>
-<span class="sidenote">Note that it follows immediately that \(p(A,|,B) = \frac{p(A\cap B)}{p(B)}\), where \(p(A,|,B)\) represents a bet that pays \(1\) if \(A\) and \(B\) occur and is called off if \(B\) doesn&rsquo;t occur.</span>
+<span class="sidenote">Note that it follows immediately that \(p(A\,|\,B) = \frac{p(A\cap B)}{p(B)}\), where \(p(A\,|\,B)\) represents a bet that pays \(1\) if \(A\) and \(B\) occur and is called off if \(B\) doesn&rsquo;t occur.</span>
 , i.e. \(p(A \cup B) = p(A) + p(B)\) if \(A \cap B =\emptyset\).</p>
 <p>Subjective probabilities are historically associated with Bayesian updating on evidence, but there is a good argument Bayesian updating is logically independent from coherence<label for="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-8ef3f0c7d97f33b6dbd9bb5790ad526c-2" class="margin-toggle"/>
@@ -546,9 +546,9 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 <table>
   <thead>
       <tr>
-          <th>Statement</th>
-          <th>Colloquial Meaning</th>
-          <th>Interpretation</th>
+          <th><em>Statement</em></th>
+          <th><em>Colloquial Meaning</em></th>
+          <th><em>Interpretation</em></th>
       </tr>
   </thead>
   <tbody>
@@ -578,7 +578,7 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 <p>Frequentist probabilities make sense for situations when a large reference population exists or it is possible to generate sequences by repeating an experiment with the same initial conditions. They can not be reasonably used for &ldquo;singular&rdquo; events.</p>
 <p><em>Singular events</em> would include specific elections, sports matches or even next day&rsquo;s weather at a particular location. This would naturally include any global events.</p>
 <p>Subjective probabilities deal with individuals&rsquo; beliefs and can be easily stated for singular events. The downside is that the only requirement for these is to be <em>coherent</em>, i.e. admitting no arbitrage in the price structure of the hypothetical bets. They don&rsquo;t need to be &ldquo;true&rdquo;.</p>
-<p>A modern view on subjective probabilities introduces the concept of <em>calibration</em>. One&rsquo;s subjective probabilities \(p\) are calibrated if for all the events where \(p(A) = x\), \(Pr(A,|, p(A) = x) = x\) or the frequentist definition \(\frac{|A|}{|B|}\) where the reference class of events \(B\) corresponds to the events where the subjective probability \(p(A)=x\).</p>
+<p>A modern view on subjective probabilities introduces the concept of <em>calibration</em>. One&rsquo;s subjective probabilities \(p\) are calibrated if for all the events where \(p(A) = x\), \(Pr(A\,|\, p(A) = x) = x\) or the frequentist definition \(\frac{|A|}{|B|}\) where the reference class of events \(B\) corresponds to the events where the subjective probability \(p(A)=x\).</p>
 <p>A weather forecast service would be calibrated at 0.3 if it rains on approximately 30 out of 100 days when the forecast chance of rain is 30%.</p>
 <p>The notion of <em>calibration</em> is not sufficient — a forecaster predicting the long run probability of rain each day (the so called the <em>climatological frequency</em>), regardless of current meteorological conditions, would still be <em>calibrated</em> but only marginally helpful.</p>
 <p>We want the forecaster to vary their forecasts depending on conditions as much as possible (or to be <em>sharp</em>) while maintaining calibration.</p>
@@ -609,26 +609,26 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
   <thead>
       <tr>
           <th></th>
-          <th>Independent Events / Frequentist</th>
-          <th>Repeatable Singular Events</th>
-          <th>Singular Events</th>
+          <th><em>Independent Events / Frequentist</em></th>
+          <th><em>Repeatable Singular Events</em></th>
+          <th><em>Singular Events</em></th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Prediction / Forecasting</td>
+          <td><em>Prediction / Forecasting</em></td>
           <td>Predicting the likelihood of a customer churning based on their activity. / Estimating the lifetime value of a customer based on their purchase behavior.</td>
           <td>Forecasting the overall sales of a retail company. / Forecasting the monthly energy consumption for a city. / Forecasting the total number of passengers to a particular destination over a month</td>
           <td>Predicting the economic impact of a once-in-a-century recession. / Forecasting the environmental impact of cloud seeding.</td>
       </tr>
       <tr>
-          <td>Causal Discovery</td>
+          <td><em>Causal Discovery</em></td>
           <td>Understanding the impact of pricing changes on product sales. / Evaluating the effect of a new website design on user engagement.</td>
           <td>Evaluating the impact of a new product line on the overall profit of a company. / Estimating the effect of regulatory changes on business operations.</td>
           <td>Evaluating the impact of a major infrastructure project on regional economic growth. / Estimating the effect of a large-scale educational reform on innovation.</td>
       </tr>
       <tr>
-          <td>Optimal Control</td>
+          <td><em>Optimal Control</em></td>
           <td>Determining price optimization strategies for individual products. / Developing the &ldquo;optimal&rdquo; customer targeting strategy for a promotional campaign.</td>
           <td>Deciding on the best overall investment strategy for a company. / Designing the optimal supply chain network to minimize costs and maximize service level.</td>
           <td>Recommending the best government policy to manage economic fallout during a financial crisis. / Designing optimal strategies to deal with the environmental impact of deforestation.</td>
@@ -640,26 +640,26 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
   <thead>
       <tr>
           <th></th>
-          <th>Independent Events / Frequentist</th>
-          <th>Repeatable Singular Events</th>
-          <th>Singular Events</th>
+          <th><em>Independent Events / Frequentist</em></th>
+          <th><em>Repeatable Singular Events</em></th>
+          <th><em>Singular Events</em></th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Prediction / Forecasting</td>
+          <td><em>Prediction / Forecasting</em></td>
           <td>Regression analysis, supervised learning</td>
           <td>Regression analysis, qualitative assessment to derive features, prediction markets</td>
           <td>Monte Carlo simulations and agent-based models / System dynamics models</td>
       </tr>
       <tr>
-          <td>Causal Discovery</td>
+          <td><em>Causal Discovery</em></td>
           <td>Randomised controlled trials / Quasi-experimental designs such as regression discontinuity</td>
           <td>Granger causality tests / Difference in difference</td>
           <td>Structural equation modeling / Path analysis</td>
       </tr>
       <tr>
-          <td>Optimal Control</td>
+          <td><em>Optimal Control</em></td>
           <td>Stochastic optimization / Reinforcement learning</td>
           <td>Scenario Planning</td>
           <td>Precautionary principle?</td>
@@ -671,33 +671,33 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
   <thead>
       <tr>
           <th></th>
-          <th>Independent Events</th>
-          <th>Repeatable Singular Events</th>
-          <th>Singular Events</th>
+          <th><em>Independent Events</em></th>
+          <th><em>Repeatable Singular Events</em></th>
+          <th><em>Singular Events</em></th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Prediction / Forecasting</td>
+          <td><em>Prediction / Forecasting</em></td>
           <td>Out of sample testing</td>
           <td>Backtesting / Industry wide studies / Forecast verification / Prediction markets track records</td>
           <td>Prediction markets track records?</td>
       </tr>
       <tr>
-          <td>Causal Discovery</td>
+          <td><em>Causal Discovery</em></td>
           <td>RCTs / Bootstrapping / Assumptions validation</td>
           <td>Assumption validation / Contingent prediction markets</td>
           <td>Contingent prediction markets</td>
       </tr>
       <tr>
-          <td>Optimal Control</td>
+          <td><em>Optimal Control</em></td>
           <td>Inverse propensity weighted estimator / Off-policy policy evaluation</td>
           <td>?</td>
           <td>?</td>
       </tr>
   </tbody>
 </table>
-<h2 id="practical-recommendations">Practical recommendations</h2>
+<h2 id="some-thoughts">Some thoughts</h2>
 <p>When approaching a problem in data science or mathematical modeling, consider these suggestions:</p>
 <p>Identify the type of question you are dealing with:</p>
 <ul>
@@ -711,17 +711,8 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 <li>Is there a reference class of events you can assess how well calibrated the subjective probabilities might be?</li>
 <li>Is there a mechanism to aggregate subjective probabilities?</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>We have proposed a framework to assess the epistemic status of a broad class of mathematical models. Our knowledge becomes considerably less certain as we move from prediction to causal inference and optimal control and as we try to assess singular events.</p>
-<p>Decoupling of subjective probabilities and Bayesian updating and instead focusing on objective verification is proposed as one path to improving reliability of conclusions.</p>
+<p>Decoupling of subjective probabilities and Bayesian updating and instead focusing on objective verification is a path to improving reliability of conclusions.</p>
 <p>Even if we are uncertain about the probability of some very large risks and the efficacy of proposed interventions, we may still have solid ground for action if the downsides are sufficiently large, the so called <em>precautionary principle</em>.</p>
-<h2 id="references">References</h2>
-<p>Semenovich, D., Dolman, C., What Makes a Good Forecast? Lessons for Premium Rating from Meteorology, All Actuaries Summit 2020</p>
-<p>Hacking, I., The Logic of Statistical Inference, Cambridge University Press 1965</p>
-<p>Shimony, A., Scientific Inference, in The Nature and Function of Scientific Theories, R. Colodny (ed.), University of Pittsburgh Press 1970</p>
-<p>Huber, F., A Logical Introduction to Probability and Induction, Oxford University Press 2018</p>
-<p>Teller, P., Conditionalization and Observation, Synthese 1973</p>
-<p>Ramsey, F. P., The Foundations of Mathematics and Other Essays, Humanities Press 1931</p>
 </section>
             
             <section style="padding-bottom:0px;">

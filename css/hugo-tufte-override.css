@@ -86,8 +86,27 @@ nav.tags ul {
   margin-top: 0.5rem !important;
 }
 
-/* Style for emphasis with medium weight */
+/* Style for emphasis with normal weight, just italic */
 em {
   font-style: italic !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
+}
+
+/* Table styling - normal size text with improved spacing */
+table {
+  font-size: 100% !important; /* Same size as normal text */
+  line-height: 1.3 !important; /* Slightly reduced line spacing */
+  margin: 2rem 0 !important; /* More space above and below tables */
+  border-collapse: collapse !important;
+}
+
+td, th {
+  padding: 0.6rem !important; /* Increased padding */
+  vertical-align: top !important;
+  border-bottom: 1px solid #f5f5f5 !important; /* Very light border */
+}
+
+/* Add a bit more space between rows */
+tr + tr {
+  margin-top: 0.2rem !important;
 }
