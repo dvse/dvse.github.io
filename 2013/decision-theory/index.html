@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <title>Certum ex Incertis - Decision Theory</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
+
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2013/decision-theory/">Decision Theory</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2013&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/statistics">statistics</a> </li>
+            
+            <li><a  href="https://dvse.github.io/tags/decision-theory">decision-theory</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p><span class="newthought"> Let&rsquo;s revisit decision theory </span>
+from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.</p>
+<h2 id="stochastic-optimisation">Stochastic optimisation</h2>
+<p>Recall the standard stochastic optimisation problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x\in\mathcal{X}}{\mbox{min}} &amp; \mathbb{E}_{\theta}
+F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega
+\end{array}
+$$</p>
+<p>Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.</p>
+<h2 id="sample-average-approximation">Sample average approximation</h2>
+<p>Generate $n$ realisations $(\omega_1,\ldots,\omega_n)$ of &ldquo;scenarios&rdquo; or &ldquo;training data&rdquo;; we can now form sample average approximations of $\mathbb{E}_{\theta} F(x,\omega)$:</p>
+<p>$$\hat{F}(x,\omega_1,\ldots,\omega_n)=\frac{1}{n}\sum_{j=1}^{n}F(x,\omega_j).$$</p>
+<p>And solve the approximate problem:</p>
+<p>$$\begin{array}{l}
+\hat{x}(\omega_1,\ldots,\omega_n)=\underset{x\in\mathcal{X}}{\mbox{argmin}} \ \hat{F}(x,\omega_1,\ldots,\omega_n)\
+\end{array}$$</p>
+<p>How to evaluate this procedure? Note that we at this point have neither the &ldquo;true solution&rdquo; nor can we evaluate the &ldquo;true&rdquo; objective value $\mathbb{E}_\theta F\big(\hat{x}(\omega_1,\ldots,\omega_n),\omega\big)$.</p>
+<h2 id="decision-theoretic-optimality-criteria-for-estimators">Decision theoretic optimality criteria for &ldquo;estimators&rdquo;</h2>
+<p>$$
+\begin{aligned}R_n(\hat{x},\theta)&amp;=\textstyle\mathbb{E}_{\theta}
+F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})\\
+&amp;=\int_{\omega^{n+1}\in\Omega^{n+1}}
+F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})p(\omega_1,\ldots,\omega_{n+1};\theta);d\omega_1\ldots\omega_{n+1}
+\end{aligned}
+$$</p>
+<p>Also known as &ldquo;frequentist risk&rdquo;, measures &ldquo;average&rdquo; performance when trained on &ldquo;average&rdquo; data; depends on the distribution $p(\omega;\theta)$. Broadly, two ways to reduce this to a number from a function of $\theta$:</p>
+<p>$$R_n^{\text{worst}}(\hat{x},\Theta)=\underset{\theta \in
+\Theta}{\text{max}}\ R_n\ (\hat{x},\theta)
+$$</p>
+<p>$$R_n^{\text{Bayes}}(\hat{x}, \pi)=  \textstyle{\mathbb{E}_\pi} R_n\ (\hat{x},\theta) = \displaystyle\int_{\theta\in\Theta}R_n(\hat{x},\theta)\pi(\theta);d\theta
+$$</p>
+<p>Primarily a tool for analysis (e.g. let $n \rightarrow \infty$), but a few closed form or at least computationally tractable solutions (e.g. LQR theory in control, &ldquo;robust&rdquo; LPs).</p>
+<h2 id="relation-to-the-classical-decision-theory-problem">Relation to the classical decision theory problem</h2>
+<p>Potentially due to historical trajectory, textbook treatments of decision theory focus on the decision variables/parameters. In the stochastic optimisation setting this would look like:</p>
+<p>$$
+R_n(\hat{x},\theta)=\textstyle{\mathbb{E}_{\theta}}
+\ell(\hat{x}(\omega_1,\ldots,\omega_n), x^\star_\theta)
+$$</p>
+<p>With the focus on the differences between the estimates $\hat{x}$ and the &ldquo;true parameters&rdquo; $x^\star_\theta$.</p>
+<h2 id="statistical-learning-theory">Statistical learning theory</h2>
+<p>A way to enrich the basic decision theoretic criteria is to consider &ldquo;regret&rdquo; or &ldquo;excess loss&rdquo; with respect to the &ldquo;true&rdquo; solution over some constraint set $\mathcal{X}$:</p>
+<p>$$R_n^{\text{regret}}(\hat{x},\Theta,\mathcal{X})=\underset{\theta \in
+\Theta}{\text{max}; }\Big( R_n\ (\hat{x},\theta) - \underset{x \in
+\mathcal{X}}{\text{min}}; \textstyle\mathbb{E}_{\theta} F(x,\omega)\Big)
+$$</p>
+<p>Controlling the size/&ldquo;capacity&rdquo; of set $\mathcal{X}$ (complexity of schedules, smoothness of regression functions etc) allows to devise estimators/decision rules $\hat{x}$ that &ldquo;work&rdquo; over larger sets of distributions $\Theta$ with respect to this relativised objective.</p>
+<h2 id="example-regression">Example: regression</h2>
+<p>$(a,b) \in \mathbb{R}^k \times \mathbb{R}$ have some joint distribution $p\big((a,b);\theta\big)$. Find weight vector $x \in \mathbb{R}^k$ for which $x^Ta$ is a good estimator of $b$. Choose $x$ to minimize expected value of the squared loss:</p>
+<p>$$
+\textstyle\mathbb{E}_{\theta} F(x,(a,b)) =  \mathbb{E}_{\theta} (x^Ta-b)^2
+$$</p>
+<p>We have &ldquo;training data&rdquo; or &ldquo;scenarios&rdquo; from the joint distribution $(a_i,b_i),\ i=1,\ldots,n$. Form an approximate problem using &ldquo;training data&rdquo; and denote its solution by $\hat{x}\big((a_1,b_1),\ldots,(a_n,b_n)\big)$:</p>
+<p>$$
+\begin{array}{l}
+\hat{x}= \underset{x}{\mbox{argmin}} \ \displaystyle\frac{1}{n}\sum_{i=1}^n (x^Ta_i-b_i)^2
+\end{array}
+$$</p>
+<p>Evaluate sample average approximation of the objective for the model $\hat{x}$ on a new set of $m$ samples $(a&rsquo;_i,b&rsquo;_i),\ i=1,\ldots,m$:</p>
+<p>$$
+\hat{F}\big(\hat{x}, (a&rsquo;_1,b&rsquo;_1),\ldots,(a&rsquo;_m,b&rsquo;_m)\big) =\frac{1}{m}\sum_{i=1}^m( \hat{x}^T a&rsquo;_i - b&rsquo;_i)^2
+$$</p>
+<p>This is essentially &ldquo;test set&rdquo; error in machine learning.</p>
+<p>It is helpful to attempt to describe the same procedures in different vocabularies, as this can reveal connections and insights not apparent from a single perspective.</p>
+<p>An important question emerges: when can we design &ldquo;optimal&rdquo; procedures by mechanically solving optimisation problems? Such an approach would necessitate explicit specification of (often unverifiable) assumptions, rather than relying on vague appeals to laws of large numbers and other asymptotic results. Another interesting avenue for future work is exploring natural ways to control the &ldquo;capacity&rdquo; of stochastic optimisation problems, analogous to how capacity is managed in statistical learning theory.</p>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2013/operators-an-algorithm-toolkit/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2015/the-logarithmic-market-scoring-rule/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    Dimitri Semenovich.
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>

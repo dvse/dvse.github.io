@@ -37,6 +37,13 @@
       <description>&lt;p&gt;In this post I&amp;rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-model-for-independent-decisions&#34;&gt;A model for independent decisions&lt;/h2&gt;&#xA;&lt;p&gt;Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.&lt;/p&gt;&#xA;&lt;p&gt;Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Blockchain and Smart Contracts in Insurance</title>
+      <link>https://dvse.github.io/2016/blockchain-and-smart-contracts-in-insurance/</link>
+      <pubDate>Sat, 31 Dec 2016 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/2016/blockchain-and-smart-contracts-in-insurance/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; White papers talk about &lt;/span&gt;&#xA;&amp;ldquo;automated audit&amp;rdquo;, &amp;ldquo;unprecedented financial services innovation&amp;rdquo;,  &amp;ldquo;sales disruption&amp;rdquo; and the like, enabled by &amp;ldquo;the blockchain&amp;rdquo; &amp;mdash; claims that are sure to leave a jaded practitioner skeptical.&lt;/p&gt;&#xA;&lt;p&gt;Public blockchain technology actually consists of three relatively independent components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;direct application of public key cryptography and related ideas to the facilitation of financial transaction,&lt;/li&gt;&#xA;&lt;li&gt;a significant innovation in distributed consensus algorithms,&lt;/li&gt;&#xA;&lt;li&gt;smart contracts.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;cryptographic-hash-functions&#34;&gt;Cryptographic hash functions&lt;/h2&gt;&#xA;&lt;p&gt;The basic primitives underlying blockchain system, &lt;em&gt;cryptographic hash functions&lt;/em&gt;, accept a string of characters of any length and return a fixed length output, e.g. $16$ bytes, while satisfying some additional properties:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Analytics and Online Courses</title>
       <link>https://dvse.github.io/2015/analytics-and-online-courses/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
@@ -49,6 +56,13 @@
       <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
       <guid>https://dvse.github.io/2015/the-logarithmic-market-scoring-rule/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; The concept of subjective probabilities has deep implications &lt;/span&gt;&#xA;for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &amp;ldquo;real&amp;rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.&lt;/p&gt;&#xA;&lt;blockquote cite=&#34;&#34;&gt;&#xA;&lt;p&gt;PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&amp;hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Decision Theory</title>
+      <link>https://dvse.github.io/2013/decision-theory/</link>
+      <pubDate>Wed, 10 Apr 2013 11:56:00 +1100</pubDate>
+      <guid>https://dvse.github.io/2013/decision-theory/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Let&amp;rsquo;s revisit decision theory &lt;/span&gt;&#xA;from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation&#34;&gt;Stochastic optimisation&lt;/h2&gt;&#xA;&lt;p&gt;Recall the standard stochastic optimisation problem:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{array}{ll}&#xA;\underset{x\in\mathcal{X}}{\mbox{min}} &amp;amp; \mathbb{E}_{\theta}&#xA;F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega&#xA;\end{array}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Operators - an Algorithm Toolkit</title>

@@ -102,6 +102,26 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://dvse.github.io/tags/blockchain/</loc>
+    <lastmod>2016-12-31T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/2016/blockchain-and-smart-contracts-in-insurance/</loc>
+    <lastmod>2016-12-31T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/tags/insurance/</loc>
+    <lastmod>2016-12-31T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/tags/smart-contracts/</loc>
+    <lastmod>2016-12-31T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://dvse.github.io/tags/analytics/</loc>
     <lastmod>2015-04-30T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -127,11 +147,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dvse.github.io/tags/insurance/</loc>
-    <lastmod>2015-04-10T11:56:00+11:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://dvse.github.io/tags/probability/</loc>
     <lastmod>2015-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -147,12 +162,27 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dvse.github.io/tags/functional-analysis/</loc>
-    <lastmod>2013-03-12T14:30:00+11:00</lastmod>
+    <loc>https://dvse.github.io/2013/decision-theory/</loc>
+    <lastmod>2013-04-10T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/tags/decision-theory/</loc>
+    <lastmod>2013-04-10T11:56:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://dvse.github.io/tags/machine-learning/</loc>
+    <lastmod>2013-04-10T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/tags/optimisation/</loc>
+    <lastmod>2013-04-10T11:56:00+11:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dvse.github.io/tags/functional-analysis/</loc>
     <lastmod>2013-03-12T14:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -173,11 +203,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://dvse.github.io/tags/monte-carlo/</loc>
-    <lastmod>2012-04-10T15:30:00+11:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://dvse.github.io/tags/optimisation/</loc>
     <lastmod>2012-04-10T15:30:00+11:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
