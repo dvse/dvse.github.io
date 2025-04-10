@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Certum ex Incertis</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Certum ex Incertis</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Apr 2025 15:30:00 +1100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine-Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monte-Carlo</title>
+      <link>http://localhost:1313/tags/monte-carlo/</link>
+      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/monte-carlo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimisation</title>
+      <link>http://localhost:1313/tags/optimisation/</link>
+      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/optimisation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistics</title>
+      <link>http://localhost:1313/tags/statistics/</link>
+      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Betting-Markets</title>
+      <link>http://localhost:1313/tags/betting-markets/</link>
+      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/betting-markets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Insurance</title>
+      <link>http://localhost:1313/tags/insurance/</link>
+      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/insurance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>http://localhost:1313/tags/probability/</link>
+      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/probability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Risk-Measures</title>
+      <link>http://localhost:1313/tags/risk-measures/</link>
+      <pubDate>Thu, 10 Apr 2025 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/risk-measures/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Functional-Analysis</title>
+      <link>http://localhost:1313/tags/functional-analysis/</link>
+      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/functional-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>http://localhost:1313/tags/optimization/</link>
+      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pricing</title>
+      <link>http://localhost:1313/tags/pricing/</link>
+      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/pricing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reserving</title>
+      <link>http://localhost:1313/tags/reserving/</link>
+      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/reserving/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data-Science</title>
+      <link>http://localhost:1313/tags/data-science/</link>
+      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/data-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Entity-Resolution</title>
+      <link>http://localhost:1313/tags/entity-resolution/</link>
+      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/entity-resolution/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Record-Linkage</title>
+      <link>http://localhost:1313/tags/record-linkage/</link>
+      <pubDate>Mon, 10 Apr 2023 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/record-linkage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Actuarial</title>
+      <link>http://localhost:1313/tags/actuarial/</link>
+      <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/actuarial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Finance</title>
+      <link>http://localhost:1313/tags/finance/</link>
+      <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/finance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mathematical-Optimization</title>
+      <link>http://localhost:1313/tags/mathematical-optimization/</link>
+      <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/mathematical-optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>State-Space-Models</title>
+      <link>http://localhost:1313/tags/state-space-models/</link>
+      <pubDate>Sun, 30 Dec 2018 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/state-space-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Statistical-Smoothing</title>
+      <link>http://localhost:1313/tags/statistical-smoothing/</link>
+      <pubDate>Sun, 30 Dec 2018 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/tags/statistical-smoothing/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

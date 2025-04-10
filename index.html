@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Certum ex Incertis - Certum ex Incertis</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+
+    
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2025/stochastic-optimisation/">Stochastic Optimisation</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2025&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/optimisation">optimisation</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/statistics">statistics</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/monte-carlo">monte-carlo</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> In real-world optimization problems, </span>
+uncertainty is the rule rather than the exception.  Whether we&rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.</p>
+<h2 id="stochastic-optimisation-fundamentals">Stochastic Optimisation Fundamentals</h2>
+<p>The general stochastic optimization problem can be formulated as:</p>
+<p>$$
+\begin{array}{ll}
+\text{minimise} &amp; \mathbb{E}[f_0(x,\omega)]\\
+\text{subject to} &amp; \mathbb{E}[f_i(x,\omega)] \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>Here, the functions $f_i(x,\omega)$ depend on the random variable $\omega$ with known distribution $p(\omega)$, where:</p>
+<p>$$\mathbb{E}[f_i(x, \omega)] = \int f_i(x,\omega) p(\omega) , d\omega$$</p>
+<p>The variable $\omega$ represents uncertainty in measurement, operation, or manufacturing processes. If $f_i(x,\omega)$ is convex in $x$ for any $\omega$, then the optimization problem is convex (both the objective and constraints are linear combinations of convex functions with non-negative coefficients).</p>
+<h2 id="extended-formulations">Extended Formulations</h2>
+<p>In the original formulation, constraints hold in expectation: $\mathbb{E}[f_i(x,\omega)] \leq 0$. However, we can extend this in several ways while preserving convexity:</p>
+<p>We can compose $f_i(x,\omega)$ with any increasing convex function. For example, expected violation constraints: $\mathbb{E}[\max(f_i(x,\omega),0)] \leq \eta$</p>
+<p>It might also make sense to bound the expected worst violation: $\mathbb{E}[\max_i[\max(f_i(x,\omega),0)]] \leq \eta$</p>
+<p>We can also introduce expected violation penalties into the objective:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \mathbb{E}\left(f_0(x, \omega) +\sum_{i=1}^m \lambda_i \max[f_i(x,\omega),0] \right)
+\end{array}
+$$</p>
+<h2 id="certainty-equivalent-problems">Certainty Equivalent Problems</h2>
+<p>Ignoring parameter variation gives us a &ldquo;certainty equivalent&rdquo; problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; f_0(x, \mathbb{E}[\omega])\\
+\text{subject to} &amp; f_i(x, \mathbb{E}[\omega]) \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>Given $f_i$ convex in $\omega$ for any $x$, $f_i(x,\mathbb{E}[\omega]) \leq \mathbb{E}[f_i(x,\omega)]$ by Jensen&rsquo;s inequality. This provides a lower bound on the optimal value of the stochastic problem.</p>
+<h2 id="robust-optimisation">Robust Optimisation</h2>
+<p>A related approach is robust optimization:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \underset{u\in U}{\sup}\ f_0(x,u)\\
+\text{subject to} &amp; \underset{u\in U}{\sup}\ f_i(x,u) \leq 0, \quad i=1, \ldots, m
+\end{array}
+$$</p>
+<p>This approach, also known as worst-case analysis, is related to $H_\infty$ methods in control theory and minimax estimators in statistics. The objective and constraint functions $f_i(x,u)$ are evaluated under the least favorable scenario from the uncertainty set $U$. Linear programs with ellipsoid uncertainty sets can be solved efficiently by reformulating them as second-order cone programs.</p>
+<h2 id="closed-form-solutions-ridge-regression-and-lasso">Closed-Form Solutions: Ridge Regression and Lasso</h2>
+<p>Some stochastic optimization problems have elegant closed-form solutions. Consider a least squares problem where $X \in \mathbb{R}^{m\times n}$ is perturbed with a random matrix $U$ such that $U_{ij}$ are uncorrelated random variables with $\mathbb{E}(U_{ij})=0, \text{Var}(U_{ij})=\frac{\lambda}{m}$.</p>
+<p>We want to minimize the expected value of the stochastic objective:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp; \mathbb{E}[|y-(X + U)b|^2_2]
+\end{array}
+$$</p>
+<p>This is equivalent to ridge regression:</p>
+<p>$$
+\begin{array}{ll}
+\mathbb{E}[|y-(X + U)b|^2_2] &amp;= \mathbb{E}[(Xb-y + Ub)^T(Xb-y + Ub)]\\
+&amp;=(Xb-y)^T(Xb-y)+\mathbb{E}[b^TU^TUb]\\
+&amp;=|Xb-y|^2_2+\lambda|b|^2_2\\
+\end{array}
+$$</p>
+<p>Similarly, the lasso has a robust optimization interpretation. Consider uncertainty set $\mathcal{U} \subset \mathbb{R}^{m\times n}$ such that $\mathcal{U}=(u_1, u_2, \ldots,u_n)$, $u_i \in \mathbb{R}^m$ and $|u_i|_2\leq \lambda$ for $i=1,\ldots,n$. Then the robust optimization problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp; \underset{U\in \mathcal{U}}{\sup}\  |y-(X + U)b|_2\\
+\end{array}
+$$</p>
+<p>is equivalent to:</p>
+<p>$$
+\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;  |y-Xb|_2 + \lambda |b|_1\
+\end{array}
+$$</p>
+<h2 id="solution-approaches">Solution Approaches</h2>
+<p>There are several approaches to solving stochastic optimization problems:</p>
+<ol>
+<li>Analytical solutions (available in a few special cases)</li>
+<li>Robust formulation (which can sometimes be reduced to a standard problem form)</li>
+<li>Heuristics like regularization</li>
+<li>Monte Carlo sampling methods to approximate the objective and constraints</li>
+<li>Stochastic gradient methods to approximate the gradient</li>
+</ol>
+<h2 id="monte-carlo-sampling">Monte Carlo Sampling</h2>
+<p>With Monte Carlo sampling, we generate $N$ realizations of $\omega$: $\omega_1,\ldots,\omega_N$ (the &ldquo;training data&rdquo;). We then form sample average approximations of $F_i(x) = \mathbb{E}[f_i(x,\omega)]$:</p>
+<p>$$\hat{F}_i(x)=\frac{1}{N}\sum_{j=1}^{N}f_i(x,\omega_j)$$</p>
+<p>And solve the approximate problem:</p>
+<p>$$\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp; \hat{F}_0(x)\\
+\text{subject to} &amp;\hat{F}_i(x)\leq 0, \quad i=1, \ldots, m
+\end{array}$$</p>
+<p>Under some technical conditions, the approximate solution $x^\star_{\text{train}}$ converges to the solution $x^\star$ of the original problem as $N \rightarrow \infty$. We can also bound the objective: $\mathbb{E}[\hat{F}_0(x^\star_{\text{train}})] \leq \mathbb{E}[F_0(x^\star)]$.</p>
+<h2 id="validation">Validation</h2>
+<p>To evaluate the quality of our solution, we use a second set of $M$ samples (validation) $\omega^{\text{val}}_1,\ldots,\omega^{\text{val}}_M$ with $M\gg N$ and evaluate:</p>
+<p>$$\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) =\frac{1}{M}\sum_{j=1}^{M}f_i(x^\star_{\text{train}},\omega^{\text{val}}_j), \ \ i=0,\ldots,m$$</p>
+<p>We want $\hat{F}^{\text{val}}_i(x^\star_{\text{train}}) \approx \hat{F}_i(x^\star_{\text{train}})$ for $i=0,\ldots,m$; otherwise, we need to increase $N$.</p>
+<h2 id="example-loss-minimization">Example: Loss Minimization</h2>
+<p>In loss minimization, $(x,y) \in \mathbb{R}^n \times \mathbb{R}$ have some joint distribution. We aim to find a weight vector $b \in \mathbb{R}^n$ for which $b^Tx$ is a good estimator of $y$. We choose $b$ to minimize the expected value of a convex <em>loss function</em> $\ell$:</p>
+<p>$$\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]$$</p>
+<p>Given &ldquo;training data&rdquo; or independent samples from the joint distribution $(x_i,y_i), i=1,\ldots,N$, we form an approximate problem and denote its solution by $b^\star_{\text{train}}$:</p>
+<p>$$\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;\hat{\mathcal{L}}(b) = \frac{1}{N}\sum_{i=1}^N \ell(b^Tx_i-y_i)
+\end{array}$$</p>
+<p>We evaluate the average sample loss of the model $y \approx b^{\star T}_{\text{train}}x$ on a new set of $M$ samples:</p>
+<p>$$\hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}}) = \frac{1}{M}\sum_{i=1}^M \ell(b^{\star T}_{\text{train}}x_i-y_i)$$</p>
+<p>If $\hat{\mathcal{L}}(b^\star_{\text{train}}) \approx \hat{\mathcal{L}}_{\text{val}}(b^\star_{\text{train}})$, our confidence that the model will perform well on other samples improves.</p>
+<h2 id="example-inventory-planning-with-uncertain-demand">Example: Inventory Planning with Uncertain Demand</h2>
+<p><label for="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-b6667e6def887b944e4b3d6d23f3e787-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/stoch_optimisation/expected_pwl_fbest_dist.png" alt="Expected value distribution for inventory optimization"> Distribution of objective values across validation samples for an inventory optimization problem with 20 products. </span></p>
+<p>Consider a retailer who orders quantities $x = (x_1,\ldots,x_m)$ of $m$ different products. Product costs $c=(c_1,\ldots,c_m)$ and prices $p=(p_1,\ldots,p_m)$ are fixed, but product demand $d=(d_1,\ldots,d_m)$ is random with a known distribution. Products that are not sold have salvage value $h=(h_1,\ldots,h_m)$.</p>
+<p>The objective is to maximize revenue subject to a constraint on the total investment in inventory:</p>
+<p>$$\begin{array}{ll}
+\underset{x}{\text{minimise}} &amp;c^Tx - p^T\min(d,x) - h^T\max(x-d,0) \\
+\text{subject to} &amp;c^T x \leq R,\\
+&amp; x_i \geq 0, \quad i=1, \ldots, m\\
+\end{array}$$</p>
+<p>The figure shows the distribution of objective values across validation samples for a problem instance with 20 products, using $N=1000$ (training set size) and $M=1000$ (validation set size).</p>
+<h2 id="approximating-the-gradient">Approximating the Gradient</h2>
+<p>Instead of forming an approximation to the stochastic problem, we can approximate its subgradient directly. Suppose $f(x,\omega)$ is convex in $x$ for each $\omega$ and $g(x,\omega) \in \partial_x f(x,\omega)$. A subgradient of $F(x) = \mathbb{E}[f(x, \omega)]$ at $x$ is $G(x) \in \partial F(x)$:</p>
+<p>$$G(x)=\mathbb{E}[g(x,\omega)] = \int g(x,\omega) p(\omega) , d\omega$$</p>
+<p>We can form $\hat{G}(x)$, an unbiased estimate of $G(x)$ using Monte Carlo, where $\omega_1, \ldots, \omega_M$ are $M$ independent samples of $\omega$:</p>
+<p>$$\hat{G}(x) = \frac{1}{M} \sum_{i=1}^M g(x,\omega_i)$$</p>
+<h2 id="online-learning">&ldquo;Online Learning&rdquo;</h2>
+<p>Consider again the expected convex loss minimization:</p>
+<p>$$\begin{array}{ll}
+\underset{b}{\text{minimise}} &amp;\mathcal{L}(b) = \mathbb{E}[\ell(b^Tx-y)]
+\end{array}$$</p>
+<p>A noisy unbiased subgradient of $\mathcal{L}$ at $b^{(k)}$, based on sample $(x^{(k+1)},y^{(k+1)})$, where $\ell&rsquo;$ is the subgradient of $\ell$, is:</p>
+<p>$$\hat{G}(b^{(k)}) = \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
+<p>The &ldquo;online&rdquo; algorithm (or simply gradient descent with approximate gradient) becomes:</p>
+<p>$$b^{(k+1)}=b^{(k)}-\alpha_k \ell&rsquo;(b^{(k)T}x^{(k+1)}-y^{(k+1)})x^{(k+1)}$$</p>
+<h2 id="practical-considerations">Practical Considerations</h2>
+<p>In many applications of optimization, particularly in finance and insurance, there is significant uncertainty about the data. &ldquo;Overfitting&rdquo; can be a serious problem. Simple validation procedures can increase our confidence in the robustness of a solution before it&rsquo;s implemented in production.</p>
+<p>Monte Carlo methods can start to break down in multistage problems due to the exponential growth in the number of configurations. There is substantial literature on decomposing multistage problems to make them more tractable.</p>
+<p>By embracing uncertainty rather than ignoring it, stochastic optimization provides a powerful framework for making decisions in complex, uncertain environments.</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/">Betting Markets and Insurance: The Logarithmic Market Scoring Rule</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2025&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/betting-markets">betting-markets</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/insurance">insurance</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/risk-measures">risk-measures</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/probability">probability</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> The concept of subjective probabilities has deep implications </span>
+for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &ldquo;real&rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.</p>
+<blockquote cite="">
+<p>PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.</p>
+  <footer>Bruno de Finetti, Theory of Probability, 1974</footer>
+</blockquote>
+<h2 id="subjective-probabilities">Subjective Probabilities</h2>
+<p>De Finetti proposed defining &ldquo;probabilities&rdquo; as prices one would place on certain lottery tickets. Denote $p(E)$ as the price at which one is indifferent between buying and selling a lottery ticket that pays $\$1$ if the event $E$ occurred and $\$0$ otherwise. Similarly $p(E|F)$ is the indifference price for a ticket paying $\$1$ if $E \cap F$ occurs, $\$0$ if $F$ occurs without $E$ and $\$-1$ if $F$ does not occur.</p>
+<p>The following assumptions make the prices &ldquo;coherent,&rdquo; effectively eliminating arbitrage opportunities:</p>
+<ul>
+<li>$p(E) \ge \$0$</li>
+<li>$p(E) + p(E^C) = \$1$</li>
+<li>$p(E \cup F)=p(E)+p(F)$ if $E\cap F = \emptyset$</li>
+<li>$p(E \cap F) = p(E|F)p(F)$</li>
+</ul>
+<p>This framework is identical to the &ldquo;no arbitrage&rdquo; assumptions in finance.</p>
+<h2 id="betting-or-prediction-markets">Betting or Prediction Markets</h2>
+<p>While subjective probabilities are useful for individual decision-making, neither de Finetti&rsquo;s formalism nor classical Bayesian updating specify how to generate consensus estimates. An appealing approach is to defer to market mechanisms. Most popular mechanisms include:</p>
+<ul>
+<li><strong>Parimutuel betting</strong>: the total pool is allocated to participants betting on the winning outcome in proportion to the size of their original bets.</li>
+<li><strong>Fixed odds betting</strong>: a bookmaker is the counterparty in every transaction and is responsible for updating the odds.</li>
+<li><strong>Continuous double auction</strong>: every market participant can &ldquo;buy&rdquo; and &ldquo;sell&rdquo; bets, with transactions occurring when bid and ask prices overlap.</li>
+</ul>
+<p>Each of these traditional mechanisms has limitations. In parimutuel betting, the odds aren&rsquo;t known until betting concludes, which can discourage sophisticated participants from betting just before closure. Fixed odds betting requires a sophisticated bookmaker who might face unlimited losses. Double auction mechanisms often suffer from low liquidity.</p>
+<h2 id="an-automated-bookmaker">An Automated Bookmaker</h2>
+<p>Interestingly, it&rsquo;s possible to design a mechanism that&rsquo;s no more complicated than parimutuel betting yet both quotes odds at any time and limits worst-case losses.</p>
+<p>Consider a discrete space of events $\Omega$ with $n$ elements and assume that the bookmaker has an exponential utility function $u(x)=1 - e^{-\alpha x}, \alpha &gt;0$ and zero starting endowment. The bookmaker prices any proposed bet $\mathbf{q}\in \mathbb{R}^n$ using the zero utility premium principle by solving for $C$:</p>
+<p>$$\mathbb{E}\big(1-e^{-\alpha(C-\mathbf{q})}\big)=\sum_{i=1}^n p_i \left(1 - e^{-\alpha{C-q_i}}\right)=0$$</p>
+<p>We can rewrite this as:</p>
+<p>$$e^{-\alpha C}\sum_{i=1}^n-p_i e^{\alpha q_i}=-1$$</p>
+<p>And obtain an expression for the price of the bet $\mathbf{q}$ given an empty starting inventory:</p>
+<p>$$C(\mathbf{q})=\frac{1}{\alpha}\log\sum_{i=1}^n p_ie^{\alpha q_i}$$</p>
+<p>It&rsquo;s easy to verify that this cost function is <em>path independent</em>, meaning that the price charged for a bet doesn&rsquo;t depend on how it&rsquo;s split up. Denoting by $C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r})$ the price charged for the bet $\mathbf{q}$ by the bookmaker with inventory $\mathbf{r}\in \mathbb{R}^n$, we get:</p>
+<p>$$C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r}) = C(\mathbf{q+r}) - C(\mathbf{r})$$</p>
+<p>This implies that market participants don&rsquo;t gain by strategically splitting their bets.</p>
+<h2 id="the-logarithmic-market-scoring-rule">The Logarithmic Market Scoring Rule</h2>
+<p>The algorithm employed by the bookmaker following this &ldquo;logarithmic scoring rule&rdquo; is remarkably simple:</p>
+<ol>
+<li>Given the current inventory of bets $\mathbf{r}$, charge (or pay out) $C(\mathbf{q}+\mathbf{r}) - C(\mathbf{r})$ for the proposed bet $\mathbf{q}$.</li>
+<li>If the quote is accepted, update the inventory to be $\mathbf{q}+\mathbf{r}$ and wait for the next request.</li>
+</ol>
+<p>Assuming the relative size of the bet is small, we can approximate the price vector of $n$ bets paying $\$1$ in state $i$ by $\nabla_\mathbf{r} C(\mathbf{r})$:</p>
+<p>$$\frac{\partial C}{\partial r_i} =\frac{p_ie^{\alpha r_i}}{\sum_{j=1}^n p_je^{\alpha r_j}}$$</p>
+<p>This is an exponential family probability distribution with <em>carrier density</em> $\mathbf{p}$ or the Esscher transform of $\mathbf{p}$.</p>
+<h2 id="upper-bound-on-the-bookmakers-loss">Upper Bound on the Bookmaker&rsquo;s Loss</h2>
+<p>What makes this approach particularly interesting is that it guarantees a limit on the bookmaker&rsquo;s potential losses regardless of the bets accepted or the actual outcome $\omega\in \Omega$.</p>
+<p>We can write down the worst possible loss as:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\text{maximise}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0}))$$</p>
+<p>For a fixed $i$, the objective becomes:</p>
+<p>$$\begin{aligned}
+q_i - (C(\mathbf{q}) - C(\mathbf{0})) &amp;= \frac{1}{\alpha}\log p_i e^{\alpha q_i} - \frac{1}{\alpha}\log p_i - \bigg(\frac{1}{\alpha}\log\Big(\sum_{j=1}^np_je^{\alpha q_j}\Big) - C(\mathbf{0})\bigg)\
+&amp;=\frac{1}{\alpha}\log \bigg(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}} \bigg) - \frac{1}{\alpha}\log p_i
+\end{aligned}$$</p>
+<p>It&rsquo;s easy to see that $\frac{1}{\alpha}\log \Big(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}}\Big)$ is bounded from above by $0$ for any $\mathbf{q} \in \mathbb{R}^n$.</p>
+<p>This leaves us with $\max_i \frac{1}{\alpha}\log \frac{1}{p_i}$ as the upper bound on the bookmaker&rsquo;s loss.</p>
+<p>This upper bound is minimized if the bookmaker&rsquo;s subjective distribution $\mathbf{p}$ is uniform, resulting in a bound of $\frac{1}{\alpha}\log n$.</p>
+<h2 id="convex-premium-principles-as-cost-functions">Convex Premium Principles as Cost Functions</h2>
+<p>More generally, we can use any convex premium principle $C$ as the cost function, satisfying these properties:</p>
+<ul>
+<li><strong>Convexity</strong>: $C(\mathbf{q})$ is a convex function of $\mathbf{q}$</li>
+<li><strong>Increasing monotonicity</strong>: for any $\mathbf{q}$ and $\mathbf{r}$ if $\mathbf{q} \ge \mathbf{r}$ (entrywise), then $C(\mathbf{q}) \ge C(\mathbf{r})$</li>
+<li><strong>Translation invariance</strong>: for any $\mathbf{q}$ and $k$, $C(\mathbf{q}+k\mathbf{1}) = C(\mathbf{q})+k$</li>
+</ul>
+<p>This is identical, up to a minus sign, to the definition of <em>convex risk measures</em> (Föllmer and Schied, 2002). We can use their &ldquo;robust representation&rdquo;:</p>
+<p>$$C(\mathbf{r})= \underset{\mathbf{p}\in \boldsymbol{\Delta}}{\sup}\ \mathbf{p}^T\mathbf{r} - R(\mathbf{p})$$</p>
+<p>to derive worst-case loss bounds:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\operatorname{sup}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0})) = \underset{i \in \{1,\ldots,n\}}{\operatorname{max}}\ R(\mathbf{e}_i) + C(\mathbf{0})$$</p>
+<h2 id="implications-for-insurance">Implications for Insurance</h2>
+<p>These concepts have interesting implications for insurance markets. It may be desirable to limit risk concentration at the time premiums are quoted, effectively making pricing dependent on the existing portfolio.</p>
+<p>While the existing literature on premium principles and risk measures conceptually accommodates this, it typically assumes precise knowledge of cumulative loss distributions, making direct application difficult.</p>
+<p>The results from the logarithmic market scoring rule suggest that focusing on losses in a finite number of scenarios makes immunizing the portfolio against worst-case losses more tractable.</p>
+<p>Unlike the betting setting, each new member joining an insurance scheme usually results in the multiplicative growth of the relevant outcome space. However, it&rsquo;s possible to construct automatic safeguards against unanticipated or risky changes in portfolio composition by making quotes dependent on the current &ldquo;inventory,&rdquo; limiting exposure to certain risk cells, analogous to underwriting limits.</p>
+<p>It might also be possible to devise insurance products directly around this idea, especially in situations where diverse groups of agents have &ldquo;insurable interest&rdquo; in certain events (similar to catastrophe bonds).</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2025/operators-in-machine-learning/">Operators in Machine Learning</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Mar 12, 2025&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/functional-analysis">functional-analysis</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/optimization">optimization</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/reserving">reserving</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/pricing">pricing</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> Operator theory provides a unified perspective </span>
+for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.</p>
+<h2 id="nonlinear-functional-analysis">Nonlinear Functional Analysis</h2>
+<p>Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:</p>
+<ul>
+<li>Existence of a solution</li>
+<li>Uniqueness of the solution</li>
+<li>Stability of the solutions under perturbation or noisy measurements</li>
+<li>Construction of approximation methods and estimation of their convergence</li>
+</ul>
+<p>While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.</p>
+<h2 id="fixed-point-iterations">Fixed Point Iterations</h2>
+<p>Fixed point iterations are the main technique for devising numerical solution methods for operator equations. Some possibilities for $T(x)=0$ include:</p>
+<ul>
+<li>Basic iteration: $x=(I - T)(x)$</li>
+<li>Damped iteration: $x=(I - \lambda T)(x)$</li>
+<li>Newton&rsquo;s method: $x=\Big(I - \big(DT(x)\big)^{-1}\circ T\Big)(x)$</li>
+<li>Operator splitting: $x=F^{-1}\circ(T-G)(x)$ where $F + G = T$</li>
+</ul>
+<p>Key properties that guarantee convergence of these schemes and uniqueness of the solution are (local) <em>non-expansiveness</em> / <em>contractivity</em> of the iteration and <em>monotonicity</em> of $T$ respectively, the latter being essentially the operator version of convexity.</p>
+<h2 id="convex-optimization">Convex Optimization</h2>
+<p>Assume $f(x)=g(x)+h(x)$ is a convex function, then the subgradient $\partial f$ is a monotone operator. Some basic fixed point iterations for the operator equation $\partial f \ni 0$ include:</p>
+<ul>
+<li>Subgradient descent: $x\in(I-\lambda\partial f)x$</li>
+<li>Proximal point method: $x=(I+\lambda\partial f)^{-1}x$ (provided $h(x)$ is smooth)</li>
+<li>Proximal gradient algorithm: $x=(I+\lambda\partial g)^{-1}(I-\lambda\nabla h)x$</li>
+<li>Peaceman-Rachford splitting:</li>
+</ul>
+<p>$$
+\begin{aligned}
+z &amp;= \Big(2(I+\lambda\partial g)^{-1}-I\Big)\Big(2(I+\lambda\partial h)^{-1}-I\Big)z \\
+x &amp;= (I+\lambda\partial h)^{-1}z
+\end{aligned}
+$$</p>
+<h2 id="neural-networks">Neural Networks</h2>
+<p><label for="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/operator/operator_nn.png" alt=""> Neural networks can be viewed as a specific instance of operator iterations. </span></p>
+<p>Consider the $\ell_1$-norm regularized least squares regression and the corresponding proximal gradient fixed point iteration:</p>
+<p>$$
+\underset{\mathbf{x}}{\text{minimise}}\ \ |b - Ax|_2^2 + \alpha|x|_1\  = \ f(x) + g(x)
+$$</p>
+<p>$$
+\begin{aligned}
+x^{(k+1)} &amp;= \Big(I+\frac{\alpha}{\lambda}\partial g\Big)^{-1}\Big(I - \frac{1}{\lambda}\nabla_x f\Big)\Big(x^{(k)}\Big)\\
+&amp;= h_{\frac{\alpha}{\lambda}}\Big((I-\frac{1}{\lambda}A^TA)x^{(k)} + A^Tb\Big)
+\end{aligned}
+$$</p>
+<p>where $[h_{\frac{\alpha}{\lambda}}(x)]_i=\text{sign}(x_i)\big(|x_i|-\frac{\alpha}{\lambda}\big)_{+}$</p>
+<h2 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h2>
+<p>MCMC algorithms to generate samples from the target distribution $p^\star$ can be viewed as constructing an ergodic Markov chain transition operator $T$ which has $p^\star$ as the stationary distribution:</p>
+<p>$$
+p^\star=Tp^\star
+$$</p>
+<p>Popular schemes such as M-H are heuristics (i.e., the <em>detailed balance</em> condition is sufficient but not necessary) to build specific instances of such operators.</p>
+<p>We can arbitrarily split the operator $T$, where $T_1,\ldots,T_n$ need not be ergodic individually:</p>
+<p>$$
+p^\star=T_1\circ T_2\circ \ldots\circ T_np^\star
+$$</p>
+<p>This recovers e.g. Gibbs sampling.</p>
+<p>In summary:</p>
+<ul>
+<li>Operator notation can help to think about a large range of machine learning problems in a unified way</li>
+<li>Operator splitting in particular can be used to trivially generate custom algorithms that automatically provide certain (admittedly rather basic) guarantees</li>
+<li>Functional analysis perspective helps to find related problems in other fields</li>
+</ul>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2023/basic-theory-of-entity-resolution/">Basic Theory of Entity Resolution</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2023&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/entity-resolution">entity-resolution</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/record-linkage">record-linkage</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/data-science">data-science</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/statistics">statistics</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p>In this post I&rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.</p>
+<h2 id="a-model-for-independent-decisions">A model for independent decisions</h2>
+<p>Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.</p>
+<p>Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.</p>
+<p>It should be noted that this set-up allows multiple matches between elements of $A$ and $B$ with uncertain interpretation. Further restrictions on the structure of $M$, however, require modifications to the basic &ldquo;theory&rdquo;.</p>
+<p>We denote the vector of &ldquo;agreement codes&rdquo; as:</p>
+<p>$$\gamma(a,b)=\big(\gamma_1(a,b),\gamma_2(a,b),\ldots,\gamma_n(a,b)\big)$$</p>
+<p>where $\gamma_i(a,b)$ might be an indicator corresponding to statements like &ldquo;name is the same&rdquo;, &ldquo;name is the same and is Brown&rdquo;, &ldquo;name disagrees&rdquo;, &ldquo;name missing on one record&rdquo;, &ldquo;agreement on city part of address but not the street&rdquo;.</p>
+<p>All possible realizations of agreement codes form the <em>comparison space</em> $\Gamma$, i.e. $\gamma(a,b) \in \Gamma$ for all $(a,b) \in A\times B$.</p>
+<p>A randomized <em>decision rule</em> or <em>linkage rule</em> is then the mapping:</p>
+<p>$$d\big(\gamma(a,b)\big): \Gamma \rightarrow \big\{ P \big( d_i,|,\gamma(a,b) \big) ,|, i=1,2,3 \big\}$$</p>
+<p>which assigns a distribution, i.e. $\sum_{i=1}^3 P\big(d_i,|,\gamma(a,b)\big)=1$, over three possible decisions ${d_1,d_2,d_3}$ to each element of $\Gamma$.</p>
+<p>Here $d_1$ denotes $(a,b) \in M$ (a <em>positive link</em>), $d_3$ denotes $(a,b) \in U$ (a <em>positive non-link</em>) and $d_2$ is a <em>possible link</em>.</p>
+<p>To reiterate this is not the right formalism if we want to impose restrictions on the structure of match set $M$ (e.g. one to one), as in these cases decisions can no longer be taken for individual pairs $(a,b)$ in isolation.</p>
+<p><label for="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle"/>
+<span class="sidenote">This limitation is significant in applications like identity resolution where one-to-one matching is often required.</span></p>
+<h2 id="constructing-the-optimal-decision-rule">Constructing the optimal decision rule</h2>
+<p>To construct the &ldquo;optimal&rdquo; decision rule we define the probabilities of observing $\gamma$ for a match $(a,b)\in M$:</p>
+<p>$$m\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in M\big)$$</p>
+<p>as well as a non-match $(a,b)\in U$:</p>
+<p>$$u\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in U\big)$$</p>
+<p>It is a straightforward application of Neyman-Pearson theory to show that the &ldquo;optimal&rdquo; decision rule with respect to the usual objectives:</p>
+<p>$$P(d_1,|,U)=\sum_{(a,b)\in A\times B} u\big(\gamma(a,b)\big)P(d_1 ,|,\gamma(a,b)\big) \text{ and}$$</p>
+<p>$$P(d_3,|,M)=\sum_{(a,b)\in A\times B} m\big(\gamma(a,b)\big)P(d_3 ,|,\gamma(a,b)\big)$$</p>
+<p>namely one that generates fewest expected false matches for a given expected number of undetected matches (as we are dealing with a bivariate objective), is a function of the likelihood ratio $\frac{m(\gamma)}{u(\gamma)}$:</p>
+<p>$$d \big(\gamma(a,b)\big)= \left\{
+\begin{array}{ll}
+(1,0,0),&amp;T_1\le \frac{m(\gamma)}{u(\gamma)}\\
+(0,1,0),&amp;T_2 &lt; \frac{m(\gamma)}{u(\gamma)} &lt;T_1\\
+(0,0,1),&amp;\frac{m(\gamma)}{u(\gamma)}\le T_2
+\end{array}\right.
+$$</p>
+<p>This is almost entirely unhelpful as we don&rsquo;t know probabilities $m$ or $u$. The original proposal of Newcombe et al. (1959) was to make some heroic independence assumptions about the structure of $P\big(\gamma(a,b),|,(a,b)\in M\big)$:</p>
+<p>$$m\big(\gamma(a,b)\big)=\prod_{i=1}^n P\big(\gamma_i(a,b),|,(a,b)\in M\big)$$</p>
+<p>where $\gamma_i(a,b)$ are individual components of the agreement vector and similarly for $u(\gamma)$.</p>
+<p><label for="sidenote-65eaa79f518ad6e203a341c755f13c46-9" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-9" class="margin-toggle"/>
+<span class="sidenote">The independence assumption dramatically simplifies calculation but ignores correlations between attributes that often exist in real data.</span></p>
+<p>Notice that the log likelihood ratio can then be written as:</p>
+<p>$$\log\left(\frac{m(\gamma)}{u(\gamma)}\right) = \sum_{i=1}^n\log\big(m_i(\gamma_i(a,b))\big)-\sum_{i=1}^n\log\big(u_i(\gamma_i(a,b))\big)$$</p>
+<p>With some additional hand waving, you can convince yourself that if $\gamma_i$ is the simple agreement indicator for a certain binary attribute $\xi$, such as the presence of particular surname or a given month of birth:</p>
+<p>$$\gamma_i(a,b)= \left\{
+\begin{array}{ll}
+1,&amp;\text{if } \xi(a)=1 \text{ and } \xi(b)=1,\\
+0,&amp;\text{otherwise}
+\end{array}\right.
+$$</p>
+<p>it might be reasonable to expect that when $\gamma_i\big((a,b)\big)=1$:</p>
+<p>$$\log\big(m_i(1)\big)-\log\big(u_i(1)\big)\approx \log \big(\pi_\xi \big) - \log \big(\pi_\xi^2\big) = -\log\big(\pi_\xi\big)$$</p>
+<p>where $\pi_\xi$ is the proportion of the combined population where the attribute is present. This gives us an intuitive scheme to assign weights to different matches, where e.g. rare names would be considered more informative than common ones.</p>
+<h2 id="date-of-birth-distribution-patterns">Date of birth distribution patterns</h2>
+<p>Here is an example what this might mean in a real world dataset:</p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Date of birth frequencies showing lower birth rates on weekends and special dates. Notice particularly how weekends (especially Sundays) consistently show lower birth frequencies, demonstrating non-random patterns in date distributions that record linkage algorithms must account for.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/fellegi_sunter/age_distribution.png" alt="Date of birth log frequencies by day of the week">
+  
+
+
+
+</figure>
+
+<h2 id="connection-to-modern-methods">Connection to modern methods</h2>
+<p>Observe that the likelihood ratio can be approximated <em>directly</em>, i.e.:</p>
+<p>$$\frac{m(\gamma)}{u(\gamma)} \approx \frac{P\big((a,b)\in M,|,\gamma\big)}{P\big((a,b)\in U,|,\gamma\big)}\frac{|U|}{|M|}$$</p>
+<p>where the two components are estimated directly via probabilistic classifiers. Obvious downside of this is the hard requirement for &ldquo;training data&rdquo;.</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/">No Arbitrage, Incomplete Markets and Actuarial Pricing</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Mar 15, 2019&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/finance">finance</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/actuarial">actuarial</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/mathematical-optimization">mathematical-optimization</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/pricing">pricing</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p>In this post I&rsquo;ll explore the linear pricing model and its connection to actuarial pricing. I&rsquo;ll demystify &ldquo;risk-neutral probabilities&rdquo; - which aren&rsquo;t truly probabilities in any meaningful sense, but rather artifacts of optimal portfolio selection. My aim is to clarify these concepts which often remain poorly explained in standard textbooks, highlighting the surprising equivalence between financial and actuarial approaches to pricing.</p>
+<h2 id="two-stage-linear-pricing-model">Two stage linear pricing model</h2>
+<p>Let&rsquo;s consider a two period model where the state of the world at $t=0$ is assumed known. At time $t=1$ there can be $n$ distinct states, $\omega_1,\omega_2, \ldots, \omega_n$ with an associated probabilities vector $\mathbf{p} \in \mathbb{R}^n$.</p>
+<p>We have $m$ available securities where the $i$-th security has a pay-off vector $\mathbf{s}^{(i)} \in \mathbb{R}^n$ at $t=1$ and a price $d^{(i)} \in \mathbb{R}$ at $t=0$.</p>
+<p>We can combine prices into a vector $\mathbf{d} \in \mathbb{R}^m$ with:
+$$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(n)} \right]^T$$</p>
+<p>And pay-off vectors into a matrix $S \in \mathbb{R}^{n \times m}$ such that:
+$$S = \left[\mathbf{s}^{(1)}, \mathbf{s}^{(2)}, \ldots,\mathbf{s}^{(m)}\right]$$</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/linear_pricing.png" alt=""> <strong>Figure 1:</strong> Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states. </span></p>
+<p>Here&rsquo;s how a very simple insurance problem might look in this setting:</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/insurance.png" alt=""> <strong>Figure 2:</strong> Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$. </span></p>
+<p>The key assumption is that the prices are &ldquo;linear&rdquo; i.e. if we purchase $\theta^{(i)}$ of the $i$-th asset at time $t=0$ the pay-off vector $\mathbf{s} \in \mathbb{R}^n$ at $t=1$ will be:
+$$\mathbf{s}=\sum_{i=1}^m \theta^{(i)}\mathbf{s}^{(i)} = S\mathbf{\theta}$$</p>
+<p>This is generally far from true - we can negotiate better unit prices for big orders, it&rsquo;s harder to insure large risks, etc. The assumption works well enough for trades in liquid securities, especially when there are no issues of control or revealing private information.</p>
+<h2 id="betting-arbitrage">Betting arbitrage</h2>
+<p>We can use this set up for &ldquo;riskless&rdquo; arbitrage in the betting market where $e$ is the initial outlay:
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{maximize}} &amp;&amp; E(S\mathbf{\theta}) = \mathbf{p}^TS\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; \mathbf{\theta} \ge \mathbf{0} \nonumber \\
+&amp; &amp;&amp; \mathbf{d}^T \mathbf{\theta} \le e \nonumber \\
+&amp; &amp;&amp; S\mathbf{\theta} &gt; e \nonumber
+\end{eqnarray}$$</p>
+<p>Every feasible point provides a &ldquo;riskless&rdquo; profit and we select the one with highest expected pay-off (using our assessment of probabilities). If there are no arbitrage opportunities, the problem is infeasible.</p>
+<p>If we allow borrowing to finance the bets, we can drive the expected pay off to infinity, which is of course a good thing!</p>
+<p>The main reason people worry about arbitrage is because they want to avoid it in the prices they quote - otherwise they are on the losing end of an &ldquo;infinite&rdquo; expected utility pay off. Arbitrage between <em>different</em> sellers merely helps the market to reach equilibrium prices.</p>
+<h2 id="state-prices">State prices</h2>
+<p>Any pay-off vector $\mathbf{s} \in \mathbb{R}^n$ for which there exist $\mathbf{\theta} \in \mathbb{R}^m$ such that $\mathbf{s}=S\mathbf{\theta}$ is called <em>attainable</em>.</p>
+<p>It&rsquo;s a basic result in linear algebra that if there are at least $n$ securities with linearly independent pay-offs, <em>any</em> new pay-off vector can be represented as a linear combination of existing securities, i.e. become <em>attainable</em>.</p>
+<p>The prices for different &ldquo;portfolios&rdquo; with the same pay-offs needn&rsquo;t be the same. If this is the case and short-selling/borrowing is allowed we can achieve infinite expected return with no chance of loss - &ldquo;arbitrage&rdquo;.</p>
+<p>The &ldquo;fundamental theorem of asset pricing&rdquo; characterizes when arbitrage opportunities exist - by LP duality the first problem is unbounded (i.e. arbitrage exists) if and only if the second problem is infeasible (i.e. there are no $\mathbf{\lambda}$ satisfying the constraints):</p>
+<p>Left problem (primal):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S\mathbf{\theta} \ge \mathbf{0} \nonumber
+\end{eqnarray}$$</p>
+<p>Right problem (dual):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\lambda}}{\text{maximize}} &amp;&amp; \mathbf{0}^T\mathbf{\lambda} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S^T\mathbf{\lambda} = \mathbf{d} \nonumber \\
+&amp; &amp;&amp; \mathbf{\lambda} \ge 0 \nonumber
+\end{eqnarray}$$</p>
+<p>Therefore if we can exhibit $\mathbf{\lambda}^*$ satisfying the constraints of the second problem, we can certify that the structure of prices and pay-offs offers no arbitrage opportunities.</p>
+<p>The vector $\lambda$ has a natural interpretation as a vector of &ldquo;state prices&rdquo; e.g. prices of simple pay-off vectors $\mathbf{e}^{(i)}$ which return 1 in the $i$-th state and $0$ otherwise (these are known as Arrow-Debreu securities).</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/state_prices.png" alt=""> <strong>Figure 3:</strong> State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs. </span></p>
+<p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbf{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
+<p>If there is no arbitrage yet not every pay-off is attainable, there are (infinitely) many sets of state prices $\mathbf{\lambda}$ that satisfy $S^T\mathbf{\lambda} = \mathbf{d}$ - in this case the market is called <em>incomplete</em>.</p>
+<p>State prices are often normalized to sum to one and subsequently referred to as &ldquo;risk neutral probabilities&rdquo; - these do not seem to have a clear economic interpretation.</p>
+<p>Most of the classical results in financial economics concern <em>complete</em> markets, with completeness derived from extraordinarily strong assumptions about price dynamics. The insurance market is so far from being complete that the point is seldom brought up.</p>
+<h2 id="portfolio-optimisation">Portfolio optimisation</h2>
+<p>Many models in financial economics and insurance can be reduced to a control problem maximizing expected utility (or some related objective) subject to a budget constraint $e$ - these include MPT, CAPM, optimal reinsurance, asset liability matching etc.
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{maximize}} &amp;&amp; E\big(u(\mathbf{c})\big) = \sum_{j=1}^n u(c_j) p_j \nonumber \\
+&amp; \text{subject to} &amp;&amp; c_j = \sum_{i=1}^m \theta^{(i)}\left(s^{(i)}_j - d^{(i)}\right), \ \ j=1,2,\ldots,n \nonumber \\
+&amp; &amp;&amp; \mathbf{d}^T \mathbf{\theta} \le e \nonumber
+\end{eqnarray}$$</p>
+<p>The market prices are assumed to be given; it&rsquo;s generally difficult to estimate both the utility function and real world probabilities.</p>
+<p>In complete markets, we can find the optimal consumption profile directly and then determine the corresponding replicating portfolio in a separate step.</p>
+<p>This approach can also be used for &ldquo;marginal&rdquo; pricing of new securities in incomplete markets, i.e. at what price level does a security drop out of the optimal portfolio - this is specific to the agent and does not necessarily correspond to the market prices.</p>
+<p>Marginal pricing only considers acquiring a very small portion of the security whereas often it needs to be purchased in its entirety or not at all.</p>
+<h2 id="incomplete-markets---no-arbitrage-bounds">Incomplete markets - no arbitrage bounds</h2>
+<p>In an incomplete market we can attempt to construct bounds on the price of a new pay-off $\mathbf{x}$, e.g. it needs to be cheaper than the cheapest portfolio of marketed securities that pays as much or more in every state.</p>
+<p>Left problem (primal):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S\mathbf{\theta} \ge \mathbf{x} \nonumber
+\end{eqnarray}$$</p>
+<p>Right problem (dual):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\lambda}}{\text{maximize}} &amp;&amp; \mathbf{x}^T\mathbf{\lambda} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S^T\mathbf{\lambda} = \mathbf{d} \nonumber \\
+&amp; &amp;&amp; \mathbf{\lambda} \ge 0 \nonumber
+\end{eqnarray}$$</p>
+<p>This problem can be expressed in terms of portfolio weights (<em>left</em>) or state prices (<em>right</em>) - the latter searches for the state price vector resulting in the highest price for pay-off $\mathbf{x}$ and yet compatible with prices of marketed securities. The two formulations are related via LP duality.</p>
+<h2 id="indifference-bounds">Indifference bounds</h2>
+<p>No arbitrage bounds are usually far too wide - for the insurance example they would be $0$ and $100$, the maximum possible loss.</p>
+<p>We can construct a tighter bound on price by requiring that the price we charge for a security results in expected utility at least as high as that of the baseline portfolio.
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; E\big(u(S\mathbf{\theta} \text{ - } \mathbf{x})\big) \ge E\big(u(0)\big) \nonumber
+\end{eqnarray}$$</p>
+<p>This is indeed equivalent to the venerable &ldquo;equivalent utility&rdquo; pricing principle from the actuarial literature:
+$$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
+<p>The approach also extends tho the multi-period settings:</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> <strong>Figure 4:</strong> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
+<p>$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}_1, \ldots, \mathbf{\theta}_n}{\text{minimize}} &amp;&amp; S_0\mathbf{\theta}_0 \nonumber \\
+&amp; \text{subject to} &amp;&amp; S_n(\mathbf{\theta}_n - \mathbf{\theta}_{a(n)}) = 0,\ \ n \in \mathcal{N}_t,\ \ t \ge 1 \nonumber \\
+&amp; &amp;&amp; S_n\mathbf{\theta}_n \ge \mathbf{x},\ \ n \in \mathcal{N}_T \nonumber
+\end{eqnarray}$$</p>
+<h2 id="the-unified-approach-to-financial-and-actuarial-pricing">The unified approach to financial and actuarial pricing</h2>
+<p>Essentially all problems studied in financial economics can be reduced to maximizing the utility of consumption under a real world probability measure (see J. Cochrane, &ldquo;Asset Pricing&rdquo;). While financial engineering primarily deals with state prices, &ldquo;risk neutral&rdquo; probabilities, and pricing kernels, actuarial science approaches the same problems directly through utility theory.</p>
+<p>The key insight is that in incomplete markets, these seemingly different methods are formally related through Lagrange duality to the same fundamental problem: selecting expected utility maximizing portfolios under real world probability measures.</p>
+<p>The &ldquo;actuarial&rdquo; approach to pricing risks isn&rsquo;t fundamentally different from the &ldquo;financial engineering approach&rdquo; - it simply focuses explicitly on the more challenging and realistic setting of incomplete markets!</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/">The Kalman Filter Tutorial That Might At Last Make Sense</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Dec 30, 2018&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/state-space-models">state-space-models</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/statistical-smoothing">statistical-smoothing</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/tutorial">tutorial</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> <a href="https://en.wikipedia.org/wiki/Kalman%5Ffilter">Kalman filter</a> and related ideas have played a central role </span>
+in the success
+of state space methods in engineering control through out 1960s
+(culminating in the linear quadratic Gaussian theory). <label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_apollo.jpg" alt="">  The Apollo 17 <a href="https://en.wikipedia.org/wiki/Apollo%5FCommand/Service%5FModule">Command/Service  Module</a> photographed in lunar orbit from the ascent stage of the  <a href="https://en.wikipedia.org/wiki/Apollo%5FLunar%5FModule">Lunar Module</a>.</span></p>
+<p>Remarkably, the  first practical application of the Kalman
+filter was to improve the accuracy of <a href="https://en.wikipedia.org/wiki/Apollo%5FPGNCS">navigation</a>
+for the Apollo program<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle"/>
+<span class="sidenote">McGee, L. and Schmidt, S. (1985). <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf">Discovery of the Kalman filter as a practical tool for aerospace and industry</a>. Technical Report TM 86847, NASA, Moffett Field, California </span></p>
+<p>, quickly followed by adoption for a wide range of aerospace problems<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle"/>
+<span class="sidenote"> Grewal, M. and Andrews, A. (2010). Applications of Kalman  filtering in aerospace 1960 to present. IEEE Control Systems Magazine </span>
+.
+In these applications the goal is typically to track the
+&ldquo;state&rdquo; of a missile or a spacecraft following Newtonian dynamics. The
+state vector would contain the current position, velocity and
+acceleration vectors and the goal would be to repeatedly re-estimate the
+state using measurements coming in from a range of sensors, such as
+inertial, optical, ground based radar etc.</p>
+<p>The underlying ideas, while very simple from a certain point of view,
+are perhaps less well known than they should be, especially considering
+the broad applicability &mdash; any estimation problem where parameters
+might drift over time. Indeed in my experience relatively few people in
+machine learning or statistics even at graduate level are famiilar with
+this material and those engineering students who have had to suffer
+through a control theory class are little fond of the memory of trying
+to memorise the derivation of monstrous update equations. Indeed &ldquo;Kalman filter tutorial&rdquo;<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle"/>
+<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simulataneous localisation and mapping</em> that is among the central problems of robotics  </span></p>
+<p>has over the years become something of a genre of its own.</p>
+<p>The main difficulty comes from the fact that the Kalman filter is
+properly viewed as a particular <em>algorithm</em> that efficiently solves a
+certain optimisation problem but is instead universally taught as <em>the
+solution</em> to the underlying inference task (or less charitably just as a
+behaviour). It is much more productive however to focus on the
+underlying optimisation problem and its transformations and from this
+perspective it becomes trivial both to extend the model or to apply more
+convenient optimisation tools.</p>
+<p>If you need more background on optimisation or linear algebra you can&rsquo;t go  wrong to consult the first 10 lectures of
+Stephen Boyd&rsquo;s <a href="http://ee263.stanford.edu/archive/">EE263</a> course at Stanford.</p>
+<h2 id="mean-estimation">Mean estimation</h2>
+<p>To illustrate the key points and introduce notation we discuss the
+simple case of mean estimation when the underlying
+distribution evolves  over time. Initially we consider only the so called linear estimators, which coincide with maximum likelihood
+estimators for the Gaussian distribution but otherwise may be less
+efficient. We assume that there are \(m\) time
+periods and in the time period \(t\) we obtain \(n\) new observations, with $i$-th
+observation at time \(t\) denoted as \(y_{ti}\).</p>
+<p>One option is to compute the sample average, updating it to reflect new data as
+they come in. It is well known that the sample average:</p>
+<p>\[
+w^*= \frac{1}{mn}\sum_{t=1}^m\sum_{i=1}^{n}y_{ti}
+\]</p>
+<p>solves the following quadratic loss minimisation problem:</p>
+<p>\[
+\underset{w}{\operatorname{minimise}} \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w)^2.\tag{1}
+\]</p>
+<p>Alternatively we can calculate the sample means of all \(m\) time periods independently:</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2,\tag{2}
+\]</p>
+<p>with the following analytic solutions:</p>
+<p>\[
+w^*_t= \frac{1}{n}\sum_{i=1}^{n}y_{ti}.
+\]</p>
+<p>Both methods are clearly somewhat unsatisfying. In the first case
+we effectively assume that the mean stays constant over time and the
+sensitivity of the estimate to new observations diminishes as new data
+are acquired, while
+in the second case the changes in the mean are assumed to be
+uncorrelated and we forgo any sharing of information between adjoining
+time periods.<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-5" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-5" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_window_2.png" alt=""> Collection of linear models fit locally as new data (denoted by grey dots) becomes available. </span></p>
+<p>One compromise might be a form of local regression where we fit a linear model
+over a  time window of fixed width \(q+1\) to form
+the estimate:</p>
+<p>\[
+\underset{w, b}{\operatorname{minimise}} \  \ \sum_{t=m-q\ }^m \|\mathbf{y}_t -
+\mathbf{1}(tw + b) \|_2^2 =\sum_{t=m-q,}^m\sum_{, i=1}^{n}(y_{ti} -(tw+b))^2,
+\]</p>
+<p>which, unlike (2), provides an indication of the current
+trend.</p>
+<p>Another way to approach the problem is to observe that (1)
+can be equivalently rewritten in the form similar to (2) by
+introducing some equality constraints:</p>
+<p>\[
+\begin{aligned}
+&amp;\underset{\mathbf{w}}{\operatorname{minimise}}&amp; &amp; \sum_{t=1}^m
+\|\mathbf{y}_t -\mathbf{1}w_t\|_2^2 =
+\sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2\\\
+&amp;\operatorname{subject\ to} &amp;&amp; w_{t+1} - w_{t}=0,\ \ t=1,\ldots, m-1.
+\end{aligned}\tag{3}
+\]</p>
+<p>It is then natural to replace hard constraints with e.g. a quadratic
+penalty term (absolute values or even  maximum of differences etc;</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2 + \lambda\sum_{t=1}^{m-1}(w_{t+1} - w_{t})^2,
+\]</p>
+<p>delivering an effective compromise solution, where we can &ldquo;dial&rdquo;
+between (1) and (2) by choosing the <label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-6" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-6" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_smoothed_2.png" alt=""> Estimates of the current trend obtained from a dynamic model with second order smoothing. Note that at each time step the entire history is re-estimated. </span></p>
+<p>value of \(\lambda \ge 0\).
+The above can be rewritten in vector notation as:</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{4}
+\]</p>
+<p>Here  \(D^{(1,m)}\) is the \((m-1) \times m\)
+first order finite differences matrix:</p>
+<p>\[
+D^{(1,n)} =  \left[ \begin{array}{rrrrrr}
+-1&amp; 1  &amp;&amp;\\\
+&amp; -1  &amp;1&amp;&amp;  \\\
+&amp; &amp; \cdots &amp;\\\
+&amp;   &amp;&amp;-1&amp;\ \ 1\end{array} \right]
+\]</p>
+<p>and   the $k$-th order finite
+differences matrix \(D^{(k,m)} \in \mathbb{R}^{(m-k)\times m}\)  is
+recursively defined  as:</p>
+<p>\[
+D^{(k,m)}=D^{(1,m-k)}D^{(k-1,m)}, \  k=2,3,\dots
+\]</p>
+<p>Heuristically, the <em>fidelity</em> term \(\sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2\)
+encourages the solution \(\mathbf{w}\) to be close to the original data
+\(\mathbf{y}_t\) and the <em>smoothness</em> or <em>regularisation</em> term \(\|D^{(1,m)}\mathbf{w}\|_2^2\)
+penalises non-zero entries of \(D^{(1,m)}\mathbf{w}\) (the
+discretised first derivative) of \(\mathbf{w}\). If we would like to
+allow linear or higher order polynomial trends without penalty, we can
+instead use \(\|D^{(k,m)}\mathbf{w}\|_2^2\) with \(k=2\) or \(k\ge3\), corresponding to
+discretised second and higher derivatives respectively.</p>
+<p>It is important to consider what happens as we obtain data for the
+new time period \(m+1\). Perhaps the cleanest way to approach
+this is to form a new optimisation problem (4) with updated data and obtain a new vector of
+estimates for the entire history of the process \(\mathbf{w}^*=[w_1^*,\ldots,w_m^*,w_{m+1}^*]^T\).</p>
+<p>Historically a number of schemes to efficiently compute
+\(w^*_{m+1}\) given the estimates at time \(m\) have been proposed but
+advances in computing power have rendered them  considerably less relevant.
+<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-7" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-7" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_whittaker.jpg" alt=""> <a href="https://en.wikipedia.org/wiki/E.%5FT.%5FWhittaker">E.T. Whittaker</a> who has developed perhaps the first <a href="http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;aid=3140568&amp;fileId=S001309150000359X">modern method</a> for non parametric smoothing in 1923. The associated computational procedure has proven a source of nightmares for generation of actuarial students — inverting a \(100\times100\) matrix by hand, even if it is banded, is no mean feat.</span></p>
+<p>The figures on the right show the results of running local regression
+and  mean estimation penalised with second order differences on some
+made up data.</p>
+<h2 id="exponential-families-and-quantile-splines">Exponential families and quantile splines</h2>
+<p>The same idea as in the previous section can also be applied to
+maximum likelihood estimation. For example, consider a single
+parameter <a href="https://en.wikipedia.org/wiki/Exponential%5Ffamily">exponential family</a> of distributions
+where the parameter can
+change over time:</p>
+<p>\[
+p(y,|,w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
+\]</p>
+<p>We can attain similar results to (4) by solving the
+following penalised maximum likelihood problem:</p>
+<p>\begin{aligned}
+&amp; \underset{\mathbf{\mathbf{w}}}{\operatorname{minimise}}
+\ \  \sum_{t=1}^m\sum_{i=1}^{n} \big(A(w_t) - w_t\phi(y_{ti})
+\big) + \lambda\|D^{(k,m)}\mathbf{w}\|_2^2.
+\end{aligned}</p>
+<p>This formulation can also be extended to exponential families with
+multiple parameters (e.g. heteroscedastic multivariate Gaussian).</p>
+<p>An interesting alternative is to estimate
+distribution quantiles directly, instead of assuming a parametric form
+and then trying to find the parameters. This can be accomplished by
+replacing quadratic loss in (4) with the <a href="https://en.wikipedia.org/wiki/Quantile%5Fregression">quantile loss</a>, so that solving the following
+problem estimates the $τ$-th quantile of the distribution given
+data up to time \(m\):</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ <br>
+\sum_{t=1}^m\sum_{i=1}^{n}\rho_\tau(y_{ti} -w_t) +
+\lambda\|D^{(k,m)}\mathbf{w} \|_2^2,
+\]</p>
+<p>yielding  a variant of the so called <em>quantile splines</em>.<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle"/>
+<span class="sidenote"> Koenker, R., Ng, P., and Portnoy, S. (1994). <a href="http://www.econ.uiuc.edu/~roger/NAKE/qss.pdf">Quantile smoothing splines</a>. Biometrika </span></p>
+<p>The figure on the right shows an example of quantile splines applied to estimate
+a time varying distribution (at time \(t=100\)).<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle"/>
+<span class="marginnote">  <img src="/img/kalman_quantile.png" alt=""> Quantile splines applied to estimate 20 equally spaced distribution percentiles (denoted by colour gradient) given the information at \(t = 100\). </span></p>
+<h2 id="kalman-filter-as-an-optimisation-problem">Kalman filter as an optimisation problem</h2>
+<p>Now we can finally discuss the Kalman filter and turns out it can be productively conceptualised as a &ldquo;dynamic&rdquo;
+extension of the standard least squares problem (cf. mean estimation):</p>
+<p>\[\label{eq:ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y} -
+X\mathbf{w}\|_2^2,\tag{5}
+\]</p>
+<p>Following (1) we  partition
+the design matrix \(X\) and the response vector \(\mathbf{y}\) into \(m\)
+row blocks (corresponding to time periods):</p>
+<p>\[\begin{aligned}
+X= \left[ \begin{array}{c}
+X_1\\\
+\cdots\\\
+X_m\end{array} \right],
+&amp;\ \ \mathbf{y}= \left[ \begin{array}{c}
+\mathbf{y}_1\\\
+\cdots\\\
+\mathbf{y}_m\end{array} \right].
+\end{aligned}
+\]</p>
+<p>The least squares problem (5) can then be transformed into an
+equivalent problem with \(m\) copies of the parameter vector by
+introducing some equality constraints:</p>
+<p>\begin{align}
+&amp;\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+&amp;&amp;  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\\
+&amp;\operatorname{subject\ to}
+&amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
+\end{align}</p>
+<p>The underlying probability model can  be written in the state space form with the
+identity state transition matrix,  no state transition noise and
+i.i.d. Gaussian observation noise<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-10" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-10" class="margin-toggle"/>
+<span class="sidenote"> We can in fact avoid the Gaussianity assumption by posing a quadratic loss function instead which yields equivalent estimators </span>
+, where \(\mathbf{w}_t\) is the
+unobserved state vector and \(\mathbf{y}_t\) are the observations
+associated with time dependent observation matrices \(X_t\):</p>
+<p>\[\begin{array}{ll}
+\mathbf{w}_{t+1} = \mathbf{w}_t, \quad&amp;\quad
+\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I).
+\end{array}
+\]</p>
+<p>By introducing i.i.d. Gaussian state transition noise:</p>
+<p>\[\begin{array}{ll}
+\mathbf{w}_{t+1} = \mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
+\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+\boldsymbol{\nu}_t \sim \mathcal{N}(0,I),&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I)
+\end{array}\tag{7}
+\]
+we effectively relax the equality constraints in (6)
+replacing them with a squared $ℓ_2$-norm penalty.  It is then
+possible to perform  estimation by solving the following convex
+optimisation problem:</p>
+<p>\[\begin{aligned}\label{eq:kalman}
+\underset{\mathbf{w_1},\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+&amp;\ \ \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2
++\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-\mathbf{w}_{t}\|^2_2,
+\end{aligned}\tag{8}
+\]</p>
+<p>which amounts to substituting  every independent variable in the
+regression model by its interaction with time variable \(t\) and regularising the
+first order differences in the
+corresponding parameters.
+The estimation problem can be either solved directly or transformed back to the standard least squares form:</p>
+<p>\[\label{eq:kal_ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y}&rsquo; -
+X&rsquo;\mathbf{w}\|_2^2,\tag{9}
+\]</p>
+<p>where the design matrix \(X&rsquo;\) and the response vector \(\mathbf{y}&rsquo;\) are
+redefined as follows:</p>
+<p>\begin{aligned}
+X&rsquo;=\left[
+\begin{array}{cccccc}
+X_1&amp;  &amp;&amp;&amp;  \\\
+-I&amp;\ \ I &amp;&amp;&amp;  \\\
+&amp; &amp; \cdots&amp; &amp;\\\
+&amp; &amp;&amp;  -I&amp;I\\\
+&amp; &amp; &amp;&amp; X_m \end{array} \right], &amp; \  &amp;
+\mathbf{y}&rsquo; = \left[ \begin{array}{l}
+\mathbf{y}_1\\\
+0\\\
+\cdots \\\
+0\\\
+\mathbf{y}_m\end{array}\right],&amp; \  &amp;
+\mathbf{w} = \left[ \begin{array}{l}
+\mathbf{w}_1\\\
+\cdots \\\
+\mathbf{w}_m
+\end{array}\right].
+\end{aligned}</p>
+<p>The objective  in (8) simultaneously performs both
+&ldquo;filtering&rdquo; and <a href="https://en.wikipedia.org/wiki/Kalman%5Ffilter#Rauch.E2.80.93Tung.E2.80.93Striebel">&ldquo;smoothing&rdquo;</a> conditional on all the observations up
+to time \(m\). If new information becomes available the augmented
+optimisation problem should be  solved again to obtain new estimates
+of the entire history of state transitions \(\mathbf{w}^*=[\mathbf{w}^*_1,\ldots,\mathbf{w}^*_m,\mathbf{w}^*_{m+1}]^T\).
+Standard Kalman filter given information up to time \(m + 1\), on the
+other hand, only updates the estimate of the current state
+\(\mathbf{w}^*_{m+1}\) and requires a backward ``smoothing&rsquo;&rsquo; pass to
+update estimates of past states \(\mathbf{w}_1,\ldots,\mathbf{w}_m\).</p>
+<p>Indeed, the Kalman filter followed by a &ldquo;smoothing&rdquo; step can be
+viewed as a computationally efficient recursive procedure for solving
+the normal equations of the least squares problem (9)
+which exploits block tri-diagonal structure of the matrix \(X&rsquo;\).
+With advances in numerical linear algebra routines for sparse matrices
+and increasing computer speeds very large problems of this kind can be
+solved directly.</p>
+<p>So far we focused on the special case with the identity state
+transition matrix and i.i.d noise, however state estimation in the the
+general linear Gaussian state space model:</p>
+<p>\begin{aligned} \mathbf{w}_{t+1} = F\mathbf{w}_t+\boldsymbol{\nu}_t,&amp;\quad\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+\boldsymbol{\nu}_t \sim \mathcal{N}(0,\Sigma_\nu),&amp;\quad\boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
+\end{aligned}</p>
+<p>can also be expressed as a convex optimisation problem.
+Denoting \(\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}\),
+$P$-quadratic norm for a positive definite matrix \(P\), it is:</p>
+<p>\[\begin{aligned}
+\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &amp;
+\ \ \sum^{m}_{t=1}
+\|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_{\Sigma_\epsilon^{-1}}
++\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-F\mathbf{w}_{t}\|^2_{\Sigma_\nu^{-1}}.
+\end{aligned}
+\]</p>
+<p>We can easily recover Whittaker graduation (4) as state space models by  choosing  one a dimensional state vector \(w_t\)  with
+the observation matrix \(X_t\)  a constant vector \(\mathbf{1}\).</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2018/data-science-10-years-on/">Data Science 10 Years On</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Dec 28, 2018&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/data-science">data-science</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/rant">rant</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/connections">connections</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> &ldquo;Data science&rdquo;, in so far as the term is still meaningful today,</span></p>
+<p>roughly amounts to &ldquo;analytics at web companies<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle"/>
+<span class="sidenote"> And of course victims of management fads seeking to emulate said web companies. </span>
+&ldquo;. The
+particular setting of course has an impact on how the &ldquo;analytics&rdquo; are
+produced and consumed (primarily manifesting as greater degree of
+automation due to volumes of data and timescales to generate results).
+As more and more traditional industries adopt the software centric approach, however,
+only some high level patterns can be discerned.</p>
+<p>Specifically, &ldquo;analytics&rdquo; is the process where some manner of systematic
+measurements and observations are used as a presumably objective basis
+for making decisions, delivering process improvements or optimising
+(more or less abstract) performance metrics. The same theme is repeated
+with variations across a wide gamut of loosely associated disciplines.
+Exact definitions have proven notoriously elusive, with few convincing
+distinctions from the classical notions of rational or scientific
+inquiry other than through the domain of application.</p>
+<p>While even a few years ago there seemed to be a a good chance that &ldquo;data science&rdquo; might become an umbrella
+term<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle"/>
+<span class="sidenote"> Donoho, D. (2015). <a href="http://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf">50 Years of Data Science</a>. Tukey Centennial Workshop, Princeton </span></p>
+<p>for a partial rejoining of the many streams of analytics, separated
+in some cases by nearly a century, it appears increasingly unlikely.
+While the assesment is inherently subjective, it is difficult to detect intellectual undercurrents towards consolidation &ndash; certainly the academic world . It&rsquo;s indeed a challenge to figure out just who the intellectual &ldquo;authorities&rdquo; are. out a much stronger
+intellectual undercurrent. With the large influx and no aca. Gian-Carlo Rota rather droll quip comes to mind:</p>
+<blockquote>
+<p><em>&ldquo;When pygmies cast such long shadows, it must be very late in the
+day.&rdquo;</em></p></blockquote>
+<p>What will then remain when the tide of fashion goes out? Below is a very imperfect attempt at grouping together various academic
+sub-disciplines and professions (omitting actuaries) that could be
+broadly said to be involved in analytics or data science and are likely to reamin independent for the forseable future.
+The association is through a subjective assessment of closeness of intellectual tradition.</p>
+<p><strong>Online advertising and website optimisation</strong> &ndash; online advertising has
+grown into a massive ecosystem over the last two decades providing
+revenue for the majority of online services. The nature of the medium is
+eminently accommodating of tracking and analytics, resulting in one of
+the more dramatic applications of &ldquo;data science&rdquo;. Most sophisticated
+solutions (e.g. Adwords) are deployed by inventory providers and
+aggregators, such as Google and Facebook. Live A/B testing is also
+prevalent among online businesses &ndash; something which is still a rarity
+in traditional enterprise. This is at present the biggest area of
+employment for &ldquo;data scientists&rdquo;.</p>
+<p><strong>Manufacturing quality control</strong>, statistical process control, lean
+manufacturing, six sigma &ndash; this is an area of analytics activity
+supporting manufacturing activities and has been progressively developed
+since at least 1930&rsquo;s. Among the main objectives is monitoring and
+elimination of variability in manufacturing processes (e.g. part
+dimensions), ensuring that defect rates are thereby controlled.</p>
+<p><strong>Scientific management</strong>, management consulting, management accounting &ndash;
+the broad idea of application of &ldquo;scientific&rdquo; principles to industrial
+management is well over 100 years old &ndash; ubiquitous proliferation of
+plans, budgets, KPIs and management reports is part of this tradition.
+Very little attention is usually paid to natural statistical variation
+in many metrics. Also while many controlled experimental studies have
+been documented in this setting they have never become a part of the
+standard methodology.</p>
+<p><strong>Operations research</strong>, industrial engineering, revenue management,
+mathematical optimisation, management science. Operations research began
+as scientific study of military operations (e.g. convoy composition,
+bomber interception protocols, logistics) during the second world war
+and the principles have been exported to many other industries in the
+following years. Main tools include mathematical optimisation,
+stochastic processes. Mathematical optimisation is a somewhat standalone
+area of research with many close connections to both computer science
+and statistics.</p>
+<p><strong>Statistics</strong>, - really requires no introduction, perhaps the main focus
+of interest in applications has been analysis of government data, polls
+and surveys and support for evaluation of experimental results in life
+sciences and medicine.</p>
+<p><strong>Engineering control</strong>, control theory, signal processing From
+fly-by-wire systems to cellular networks and synthetic aperture radar.
+Much less ambitious in scope than AI, but this systems work reliably and
+are by now absolutely ubiquitous.</p>
+<p><strong>Econometrics</strong>, mechanism design, causal inference (from observational
+data) &ndash; due to the difficulty and costs of real world experiments in
+economics, econometricians have developed tools and conceptual
+frameworks for causal inference with observational data. Furthermore
+mechanism design and the study of auctions have had significant impact
+on the design of online marketplaces.</p>
+<p><strong>Applied finance</strong>, financial engineering, algorithmic trading, HFT, risk
+management. There are close parallels between data science and
+quantitative finance in the 1980s and 1990s. This is not surprising,
+because in market execution is a key part of any model driven trading
+strategy, placing a premium on &ldquo;hacking skills&rdquo;. At present it is
+perhaps reasonable to view majority of &ldquo;data scientists&rdquo; as &ldquo;quants&rdquo; of
+digital advertising.</p>
+<p><strong>Business intelligence</strong>, database / warehouse design, dashboards
+&ndash;business intelligence is primarily IT vendor driven activity to
+support management reporting in traditional enterprise with perhaps
+strongest intellectual links to the academic databases research
+community. Traditionally little attention has been paid to statistical
+aspects of &ldquo;business intelligence&rdquo; or how it is to be actioned.</p>
+<p><strong>Machine learning</strong>, natural language processing, computer vision, data
+mining &ndash; machine learning is a branch of computer science that
+initially focused on more tractable aspects of artificial intelligence,
+primarily by constructing models from example data using statistical
+methods rather than designing them by hand from general principles. Two
+large application areas are computer vision and natural language
+processing, including machine translation. By now the differences
+between theoretical machine learning and statistics communities is
+largely superficial, amounting to little more than preferences for
+different styles of analysis of statistical procedures. Machine learning
+research has also provided many of the tools used in analytics for
+online advertising and algorithmic trading. Data mining has originated
+from the databases research community and by now has mostly converged
+with machine learning in terms of both objectives and methodologies.</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2015/analytics-and-online-courses/">Analytics and Online Courses</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 30, 2015&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/analytics">analytics</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/education">education</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/moocs">moocs</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> Many popular accounts of analytics and data science leave out the essential concepts </span>
+required to understand these systems from first principles. White papers talk about &ldquo;automated audit&rdquo;, &ldquo;unprecedented financial services innovation&rdquo;, &ldquo;sales disruption&rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle"/>
+<span class="marginnote"> You can download the <a href="/talks/analytics_moocs.pdf">complete slides</a> for this post. </span></p>
+<p>&ldquo;Analytics&rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.</p>
+<p>The same theme is repeated with variations across a wide gamut of loosely associated disciplines. Exact definitions have proven notoriously elusive (consider operations research or actuarial science), with few convincing distinctions from the classical notions of rational or scientific inquiry other than through the domain of application. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-2" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-2" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/deMoivre003.png" alt=""> Perhaps the first modern work on commercial mathematics.</span></p>
+<p>Analytics landscape is not easy to survey as many movements have overlapped in time and areas of practice, resulting in a layering of ideologies and ideas perhaps impossible to decisively disentangle.
+achine learning in terms of both objectives and methodologies.</p>
+<h2 id="analytics-self-education">Analytics (self) education</h2>
+<p>Mathematical modelling and computing could be argued to be core &ldquo;data science&rdquo; skills – increasing number of business processes and low-level operational decisions being subject to automation.</p>
+<p>Here I tried to stay away from &ldquo;flavour of the month&rdquo; or introductory &ldquo;data science&rdquo; offerings that by now unfortunately dominate, focussing instead on those courses where the professors, at times, provide unique perspective on fundamental topics across mathematical modelling and computing.</p>
+
+
+
+  
+    <figure >
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Suggested curriculum for analytics education covering foundations, specializations, and applications.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/curriculum.png" alt="Analytics curriculum">
+  
+
+
+
+</figure>
+
+<p>It is generally a useful heuristic to seek out graduate level courses from reputable North American universities. Video or audio recordings of good lectures can significantly lower the (still considerable) effort required to become familiar with the material compared to self study from textbooks.</p>
+<h2 id="analytics-at-web-companies">Analytics at web companies</h2>
+<p>To get an impression of what the future of insurance analytics might look like, it is worthwhile to review some of the courses offered by people with experience implementing analytics solutions for the leading web companies.</p>
+<p>Examples include CS281B &ldquo;Scalable Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-4" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-4" class="margin-toggle"/>
+<span class="sidenote"><a href="http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP">http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP</a></span>
+at UC Berkeley by Alex Smola (formerly of Yahoo) and &ldquo;Big Data, Large Scale Machine Learning&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle"/>
+<span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start</a></span>
+at NYU by Yan LeCunn (currently at Facebook). In particular the first course offers an interesting insight into the importance of understanding systems, numerical methods and statistics to develop analytics solutions at web scale.</p>
+<p>Prerequisites for this material include linear algebra, basic probability and statistics and, ideally, convex optimisation and an introduction to machine learning, as discussed next.</p>
+<h2 id="linear-algebra-and-numerical-computing">Linear algebra and numerical computing</h2>
+<p>Numerical linear algebra is the most essential tool in applied mathematics. The majority of computational procedures for solving mathematical models ultimately reduce to iteratively solving systems of linear equations.</p>
+<p>An excellent introductory treatment of linear algebra is given by Gilbert Strang in MIT 18.06 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a></span>
+. The material is further developed in MIT 18.085 and 18.086 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/">http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/</a></span>
+, demonstrating a very broad range of applications across engineering subfields.</p>
+<p>Another take on the material is given in Stanford EE263 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/EE263">https://see.stanford.edu/Course/EE263</a></span>
+taught by Stephen Boyd – in addition to basic linear algebra, the course gives highly intuitive exposition to least squares regression, regularisation, singular value decomposition and linear dynamical systems (which can be viewed as a generalisation of a wide class of time-series models in the actuarial syllabus).</p>
+<p>The Fourier transform is one of the most famous special cases of a linear operation – an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in Stanford EE261 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/EE261">https://see.stanford.edu/Course/EE261</a></span>
+.</p>
+<h2 id="optimisation">Optimisation</h2>
+<p>Optimisation based models are pervasive in analytics, whether it be maximum likelihood estimation, &ldquo;empirical risk minimisation&rdquo;, Neyman-Pearson hypothesis testing, optimal control, Markowitz portfolio theory or option pricing.</p>
+<p>Prof. Stephen Boyd&rsquo;s course EE364A Convex Optimization <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle"/>
+<span class="sidenote"><a href="https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about">https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about</a></span>
+not only gives a solid grounding in the theory but also considers many of the above-mentioned examples. Convex optimisation is widely seen as the foundation of modern statistics, machine learning and signal processing.</p>
+<p>There is also an interesting connection between mathematical optimisation and classical algorithms studied in undergraduate computer science courses – many of the problems such as sorting, shortest path, max flow etc turn out to be special cases of linear programming (itself a special case of convex optimisation).</p>
+<p>The follow up course EE364B <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/EE364B">https://see.stanford.edu/Course/EE364B</a></span>
+provides more detailed background on scalable and distributed optimization as well as the clearest introduction to the General Equilibrium theory of microeconomics you are likely to find.</p>
+<h2 id="machine-learning-information-theory-etc">Machine learning, information theory etc.</h2>
+<p>There are few unequivocally great introductory probability and statistics courses publically available, at least at the moment. MIT 6.041 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></span>
+is a useful probability refresher. A worthwhile follow up is MIT 6.262 &ldquo;Discrete Stochastic Processes&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/</a></span>
+.</p>
+<p>When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, Stanford Statistical Learning <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle"/>
+<span class="sidenote"><a href="https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about">https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about</a></span>
+is a solid introduction from the authors of the well-known book.</p>
+<p>A closely related subject area is machine learning, with the introductory course by Andrew Ng <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS229">https://see.stanford.edu/Course/CS229</a></span>
+and a much more in depth treatment by Alex Smola <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle"/>
+<span class="sidenote"><a href="http://alex.smola.org/teaching/cmu2013-10-701/">http://alex.smola.org/teaching/cmu2013-10-701/</a></span>
+. So called &ldquo;deep networks&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle"/>
+<span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start</a></span>
+are a recent &ldquo;hot&rdquo; topic in machine learning, providing state of the art performance for many recognition tasks.</p>
+<p>Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation). MIT 6.450 &ldquo;Principles of Digital Commucations I&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/</a></span>
+is an excellent course. Information theory is an essential foundation of all digital information processing technology.</p>
+<p>Another superb discussion of information theory is given in the course taught by the late David MacKay at Cambridge <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle"/>
+<span class="sidenote"><a href="http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml">http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml</a></span>
+, bringing together topics from coding theory, statistics and machine learning.</p>
+<h2 id="programming">Programming</h2>
+<p>There exists a very wide range of high quality introductory programming courses. Perhaps the Stanford sequence <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106A">https://see.stanford.edu/Course/CS106A</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106B">https://see.stanford.edu/Course/CS106B</a></span>
+deserves a particular mention. Alternatives include the introductory courses at MIT <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/</a></span>
+.</p>
+<p>MIT 6.001 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/</a></span>
+is the most celebrated introductory programming course of all, with the textbook &ldquo;Structure and Interpretation of Computer Programs&rdquo; used in dozens of top universities.</p>
+<p>While Scheme, the language that it uses for teaching programming concepts, has for long time been considered less than practical, over the recent years there has been a dramatic resurgence of popularity of the related body of ideas called &ldquo;functional programming&rdquo;, underpinning many of the latest &ldquo;big data&rdquo; technologies.</p>
+<p>Beyond the introductory courses, &ldquo;Programming Paradigms&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle"/>
+<span class="sidenote"><a href="https://see.stanford.edu/Course/CS107">https://see.stanford.edu/Course/CS107</a></span>
+gives a useful overview of design choices behind a variety of programming languages. Finally, no such list would be complete without an algorithms class <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/</a></span>
+.</p>
+<h2 id="finance-economics-and-social-science">Finance, Economics and social science</h2>
+<p>While the exact relation between &ldquo;actuarial&rdquo; pricing and financial economics is not clearly set out in popular introductory textbooks, it has been understood in the academic literature for some time as the so called &ldquo;incomplete markets&rdquo; setting.</p>
+<p>An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane&rsquo;s (University of Chicago) class &ldquo;Asset Pricing&rdquo; on Coursera <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle"/>
+<span class="sidenote"><a href="http://www.coursera.org/course/assetpricing">http://www.coursera.org/course/assetpricing</a></span>
+.</p>
+<p>A useful generalisation of the concept of an optimisation problem is offered by game theory. Instead of considering a &ldquo;central planning&rdquo; problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle"/>
+<span class="sidenote"><a href="https://www.coursera.org/course/gametheory">https://www.coursera.org/course/gametheory</a></span>
+<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle"/>
+<span class="sidenote"><a href="https://www.coursera.org/course/gametheory2">https://www.coursera.org/course/gametheory2</a></span>
+provide an introduction to a range of topics, including auctions and mechanism design.</p>
+<p>Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course &ldquo;Public Economics&rdquo; <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle"/>
+<span class="sidenote"><a href="http://obs.rc.fas.harvard.edu/chetty/public_lecs.html">http://obs.rc.fas.harvard.edu/chetty/public_lecs.html</a></span>
+.</p>
+<p>One example in social science where large-scale experiments have been possible is &ldquo;development economics&rdquo;. The MIT course 14.73 <label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle"/>
+<span class="sidenote"><a href="http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/">http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/</a></span>
+offers an in depth discussion of considerations that go into designing a convincing experimental study.</p>
+<h2 id="but-will-this-be-useful-to-me">But will this be useful to me?</h2>
+<p><em>&ldquo;You have to keep a dozen of your favorite problems constantly present in your mind, although by and large they will lay in a dormant state. Every time you hear or read a new trick or a new result, test it against each of your twelve problems to see whether it helps. Every once in a while there will be a hit, and people will say: &lsquo;How did he do it? He must be a genius!&rsquo;&rdquo;</em></p>
+<p>R. Feynman via G-C. Rota</p>
+</section>
+            
+            
+
+
+
+            <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+        </article>
+    </div>
+</body>
+</html>

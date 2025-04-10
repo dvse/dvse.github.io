@@ -1,0 +1,8 @@
+/* Override CSS for Tufte theme to fix margin notes in lists */
+
+/* Ensure sidenotes and margin notes don't inherit list styles */
+li .sidenote, 
+li .marginnote {
+  text-align: left; /* Override text-align: -webkit-match-parent from user agent */
+  list-style-type: none; /* Remove bullet inherit */
+}

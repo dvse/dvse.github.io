@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Certum ex Incertis - Data Science 10 Years On</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+
+    
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2018/data-science-10-years-on/">Data Science 10 Years On</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Dec 28, 2018&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/data-science">data-science</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/rant">rant</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/connections">connections</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p><span class="newthought"> &ldquo;Data science&rdquo;, in so far as the term is still meaningful today,</span></p>
+<p>roughly amounts to &ldquo;analytics at web companies<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle"/>
+<span class="sidenote"> And of course victims of management fads seeking to emulate said web companies. </span>
+&ldquo;. The
+particular setting of course has an impact on how the &ldquo;analytics&rdquo; are
+produced and consumed (primarily manifesting as greater degree of
+automation due to volumes of data and timescales to generate results).
+As more and more traditional industries adopt the software centric approach, however,
+only some high level patterns can be discerned.</p>
+<p>Specifically, &ldquo;analytics&rdquo; is the process where some manner of systematic
+measurements and observations are used as a presumably objective basis
+for making decisions, delivering process improvements or optimising
+(more or less abstract) performance metrics. The same theme is repeated
+with variations across a wide gamut of loosely associated disciplines.
+Exact definitions have proven notoriously elusive, with few convincing
+distinctions from the classical notions of rational or scientific
+inquiry other than through the domain of application.</p>
+<p>While even a few years ago there seemed to be a a good chance that &ldquo;data science&rdquo; might become an umbrella
+term<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle"/>
+<span class="sidenote"> Donoho, D. (2015). <a href="http://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf">50 Years of Data Science</a>. Tukey Centennial Workshop, Princeton </span></p>
+<p>for a partial rejoining of the many streams of analytics, separated
+in some cases by nearly a century, it appears increasingly unlikely.
+While the assesment is inherently subjective, it is difficult to detect intellectual undercurrents towards consolidation &ndash; certainly the academic world . It&rsquo;s indeed a challenge to figure out just who the intellectual &ldquo;authorities&rdquo; are. out a much stronger
+intellectual undercurrent. With the large influx and no aca. Gian-Carlo Rota rather droll quip comes to mind:</p>
+<blockquote>
+<p><em>&ldquo;When pygmies cast such long shadows, it must be very late in the
+day.&rdquo;</em></p></blockquote>
+<p>What will then remain when the tide of fashion goes out? Below is a very imperfect attempt at grouping together various academic
+sub-disciplines and professions (omitting actuaries) that could be
+broadly said to be involved in analytics or data science and are likely to reamin independent for the forseable future.
+The association is through a subjective assessment of closeness of intellectual tradition.</p>
+<p><strong>Online advertising and website optimisation</strong> &ndash; online advertising has
+grown into a massive ecosystem over the last two decades providing
+revenue for the majority of online services. The nature of the medium is
+eminently accommodating of tracking and analytics, resulting in one of
+the more dramatic applications of &ldquo;data science&rdquo;. Most sophisticated
+solutions (e.g. Adwords) are deployed by inventory providers and
+aggregators, such as Google and Facebook. Live A/B testing is also
+prevalent among online businesses &ndash; something which is still a rarity
+in traditional enterprise. This is at present the biggest area of
+employment for &ldquo;data scientists&rdquo;.</p>
+<p><strong>Manufacturing quality control</strong>, statistical process control, lean
+manufacturing, six sigma &ndash; this is an area of analytics activity
+supporting manufacturing activities and has been progressively developed
+since at least 1930&rsquo;s. Among the main objectives is monitoring and
+elimination of variability in manufacturing processes (e.g. part
+dimensions), ensuring that defect rates are thereby controlled.</p>
+<p><strong>Scientific management</strong>, management consulting, management accounting &ndash;
+the broad idea of application of &ldquo;scientific&rdquo; principles to industrial
+management is well over 100 years old &ndash; ubiquitous proliferation of
+plans, budgets, KPIs and management reports is part of this tradition.
+Very little attention is usually paid to natural statistical variation
+in many metrics. Also while many controlled experimental studies have
+been documented in this setting they have never become a part of the
+standard methodology.</p>
+<p><strong>Operations research</strong>, industrial engineering, revenue management,
+mathematical optimisation, management science. Operations research began
+as scientific study of military operations (e.g. convoy composition,
+bomber interception protocols, logistics) during the second world war
+and the principles have been exported to many other industries in the
+following years. Main tools include mathematical optimisation,
+stochastic processes. Mathematical optimisation is a somewhat standalone
+area of research with many close connections to both computer science
+and statistics.</p>
+<p><strong>Statistics</strong>, - really requires no introduction, perhaps the main focus
+of interest in applications has been analysis of government data, polls
+and surveys and support for evaluation of experimental results in life
+sciences and medicine.</p>
+<p><strong>Engineering control</strong>, control theory, signal processing From
+fly-by-wire systems to cellular networks and synthetic aperture radar.
+Much less ambitious in scope than AI, but this systems work reliably and
+are by now absolutely ubiquitous.</p>
+<p><strong>Econometrics</strong>, mechanism design, causal inference (from observational
+data) &ndash; due to the difficulty and costs of real world experiments in
+economics, econometricians have developed tools and conceptual
+frameworks for causal inference with observational data. Furthermore
+mechanism design and the study of auctions have had significant impact
+on the design of online marketplaces.</p>
+<p><strong>Applied finance</strong>, financial engineering, algorithmic trading, HFT, risk
+management. There are close parallels between data science and
+quantitative finance in the 1980s and 1990s. This is not surprising,
+because in market execution is a key part of any model driven trading
+strategy, placing a premium on &ldquo;hacking skills&rdquo;. At present it is
+perhaps reasonable to view majority of &ldquo;data scientists&rdquo; as &ldquo;quants&rdquo; of
+digital advertising.</p>
+<p><strong>Business intelligence</strong>, database / warehouse design, dashboards
+&ndash;business intelligence is primarily IT vendor driven activity to
+support management reporting in traditional enterprise with perhaps
+strongest intellectual links to the academic databases research
+community. Traditionally little attention has been paid to statistical
+aspects of &ldquo;business intelligence&rdquo; or how it is to be actioned.</p>
+<p><strong>Machine learning</strong>, natural language processing, computer vision, data
+mining &ndash; machine learning is a branch of computer science that
+initially focused on more tractable aspects of artificial intelligence,
+primarily by constructing models from example data using statistical
+methods rather than designing them by hand from general principles. Two
+large application areas are computer vision and natural language
+processing, including machine translation. By now the differences
+between theoretical machine learning and statistics communities is
+largely superficial, amounting to little more than preferences for
+different styles of analysis of statistical procedures. Machine learning
+research has also provided many of the tools used in analytics for
+online advertising and algorithmic trading. Data mining has originated
+from the databases research community and by now has mostly converged
+with machine learning in terms of both objectives and methodologies.</p>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2015/analytics-and-online-courses/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>

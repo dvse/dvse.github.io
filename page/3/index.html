@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Certum ex Incertis - Certum ex Incertis</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+
+    
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/">No Arbitrage, Incomplete Markets and Actuarial Pricing</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Mar 15, 2019&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/finance">finance</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/actuarial">actuarial</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/mathematical-optimization">mathematical-optimization</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/pricing">pricing</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p>In this post I&rsquo;ll explore the linear pricing model and its connection to actuarial pricing. I&rsquo;ll demystify &ldquo;risk-neutral probabilities&rdquo; - which aren&rsquo;t truly probabilities in any meaningful sense, but rather artifacts of optimal portfolio selection. My aim is to clarify these concepts which often remain poorly explained in standard textbooks, highlighting the surprising equivalence between financial and actuarial approaches to pricing.</p>
+<h2 id="two-stage-linear-pricing-model">Two stage linear pricing model</h2>
+<p>Let&rsquo;s consider a two period model where the state of the world at $t=0$ is assumed known. At time $t=1$ there can be $n$ distinct states, $\omega_1,\omega_2, \ldots, \omega_n$ with an associated probabilities vector $\mathbf{p} \in \mathbb{R}^n$.</p>
+<p>We have $m$ available securities where the $i$-th security has a pay-off vector $\mathbf{s}^{(i)} \in \mathbb{R}^n$ at $t=1$ and a price $d^{(i)} \in \mathbb{R}$ at $t=0$.</p>
+<p>We can combine prices into a vector $\mathbf{d} \in \mathbb{R}^m$ with:
+$$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(n)} \right]^T$$</p>
+<p>And pay-off vectors into a matrix $S \in \mathbb{R}^{n \times m}$ such that:
+$$S = \left[\mathbf{s}^{(1)}, \mathbf{s}^{(2)}, \ldots,\mathbf{s}^{(m)}\right]$$</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/linear_pricing.png" alt=""> <strong>Figure 1:</strong> Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states. </span></p>
+<p>Here&rsquo;s how a very simple insurance problem might look in this setting:</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/insurance.png" alt=""> <strong>Figure 2:</strong> Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$. </span></p>
+<p>The key assumption is that the prices are &ldquo;linear&rdquo; i.e. if we purchase $\theta^{(i)}$ of the $i$-th asset at time $t=0$ the pay-off vector $\mathbf{s} \in \mathbb{R}^n$ at $t=1$ will be:
+$$\mathbf{s}=\sum_{i=1}^m \theta^{(i)}\mathbf{s}^{(i)} = S\mathbf{\theta}$$</p>
+<p>This is generally far from true - we can negotiate better unit prices for big orders, it&rsquo;s harder to insure large risks, etc. The assumption works well enough for trades in liquid securities, especially when there are no issues of control or revealing private information.</p>
+<h2 id="betting-arbitrage">Betting arbitrage</h2>
+<p>We can use this set up for &ldquo;riskless&rdquo; arbitrage in the betting market where $e$ is the initial outlay:
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{maximize}} &amp;&amp; E(S\mathbf{\theta}) = \mathbf{p}^TS\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; \mathbf{\theta} \ge \mathbf{0} \nonumber \\
+&amp; &amp;&amp; \mathbf{d}^T \mathbf{\theta} \le e \nonumber \\
+&amp; &amp;&amp; S\mathbf{\theta} &gt; e \nonumber
+\end{eqnarray}$$</p>
+<p>Every feasible point provides a &ldquo;riskless&rdquo; profit and we select the one with highest expected pay-off (using our assessment of probabilities). If there are no arbitrage opportunities, the problem is infeasible.</p>
+<p>If we allow borrowing to finance the bets, we can drive the expected pay off to infinity, which is of course a good thing!</p>
+<p>The main reason people worry about arbitrage is because they want to avoid it in the prices they quote - otherwise they are on the losing end of an &ldquo;infinite&rdquo; expected utility pay off. Arbitrage between <em>different</em> sellers merely helps the market to reach equilibrium prices.</p>
+<h2 id="state-prices">State prices</h2>
+<p>Any pay-off vector $\mathbf{s} \in \mathbb{R}^n$ for which there exist $\mathbf{\theta} \in \mathbb{R}^m$ such that $\mathbf{s}=S\mathbf{\theta}$ is called <em>attainable</em>.</p>
+<p>It&rsquo;s a basic result in linear algebra that if there are at least $n$ securities with linearly independent pay-offs, <em>any</em> new pay-off vector can be represented as a linear combination of existing securities, i.e. become <em>attainable</em>.</p>
+<p>The prices for different &ldquo;portfolios&rdquo; with the same pay-offs needn&rsquo;t be the same. If this is the case and short-selling/borrowing is allowed we can achieve infinite expected return with no chance of loss - &ldquo;arbitrage&rdquo;.</p>
+<p>The &ldquo;fundamental theorem of asset pricing&rdquo; characterizes when arbitrage opportunities exist - by LP duality the first problem is unbounded (i.e. arbitrage exists) if and only if the second problem is infeasible (i.e. there are no $\mathbf{\lambda}$ satisfying the constraints):</p>
+<p>Left problem (primal):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S\mathbf{\theta} \ge \mathbf{0} \nonumber
+\end{eqnarray}$$</p>
+<p>Right problem (dual):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\lambda}}{\text{maximize}} &amp;&amp; \mathbf{0}^T\mathbf{\lambda} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S^T\mathbf{\lambda} = \mathbf{d} \nonumber \\
+&amp; &amp;&amp; \mathbf{\lambda} \ge 0 \nonumber
+\end{eqnarray}$$</p>
+<p>Therefore if we can exhibit $\mathbf{\lambda}^*$ satisfying the constraints of the second problem, we can certify that the structure of prices and pay-offs offers no arbitrage opportunities.</p>
+<p>The vector $\lambda$ has a natural interpretation as a vector of &ldquo;state prices&rdquo; e.g. prices of simple pay-off vectors $\mathbf{e}^{(i)}$ which return 1 in the $i$-th state and $0$ otherwise (these are known as Arrow-Debreu securities).</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/state_prices.png" alt=""> <strong>Figure 3:</strong> State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs. </span></p>
+<p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbf{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
+<p>If there is no arbitrage yet not every pay-off is attainable, there are (infinitely) many sets of state prices $\mathbf{\lambda}$ that satisfy $S^T\mathbf{\lambda} = \mathbf{d}$ - in this case the market is called <em>incomplete</em>.</p>
+<p>State prices are often normalized to sum to one and subsequently referred to as &ldquo;risk neutral probabilities&rdquo; - these do not seem to have a clear economic interpretation.</p>
+<p>Most of the classical results in financial economics concern <em>complete</em> markets, with completeness derived from extraordinarily strong assumptions about price dynamics. The insurance market is so far from being complete that the point is seldom brought up.</p>
+<h2 id="portfolio-optimisation">Portfolio optimisation</h2>
+<p>Many models in financial economics and insurance can be reduced to a control problem maximizing expected utility (or some related objective) subject to a budget constraint $e$ - these include MPT, CAPM, optimal reinsurance, asset liability matching etc.
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{maximize}} &amp;&amp; E\big(u(\mathbf{c})\big) = \sum_{j=1}^n u(c_j) p_j \nonumber \\
+&amp; \text{subject to} &amp;&amp; c_j = \sum_{i=1}^m \theta^{(i)}\left(s^{(i)}_j - d^{(i)}\right), \ \ j=1,2,\ldots,n \nonumber \\
+&amp; &amp;&amp; \mathbf{d}^T \mathbf{\theta} \le e \nonumber
+\end{eqnarray}$$</p>
+<p>The market prices are assumed to be given; it&rsquo;s generally difficult to estimate both the utility function and real world probabilities.</p>
+<p>In complete markets, we can find the optimal consumption profile directly and then determine the corresponding replicating portfolio in a separate step.</p>
+<p>This approach can also be used for &ldquo;marginal&rdquo; pricing of new securities in incomplete markets, i.e. at what price level does a security drop out of the optimal portfolio - this is specific to the agent and does not necessarily correspond to the market prices.</p>
+<p>Marginal pricing only considers acquiring a very small portion of the security whereas often it needs to be purchased in its entirety or not at all.</p>
+<h2 id="incomplete-markets---no-arbitrage-bounds">Incomplete markets - no arbitrage bounds</h2>
+<p>In an incomplete market we can attempt to construct bounds on the price of a new pay-off $\mathbf{x}$, e.g. it needs to be cheaper than the cheapest portfolio of marketed securities that pays as much or more in every state.</p>
+<p>Left problem (primal):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S\mathbf{\theta} \ge \mathbf{x} \nonumber
+\end{eqnarray}$$</p>
+<p>Right problem (dual):
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\lambda}}{\text{maximize}} &amp;&amp; \mathbf{x}^T\mathbf{\lambda} \nonumber \\
+&amp; \text{subject to} &amp;&amp; S^T\mathbf{\lambda} = \mathbf{d} \nonumber \\
+&amp; &amp;&amp; \mathbf{\lambda} \ge 0 \nonumber
+\end{eqnarray}$$</p>
+<p>This problem can be expressed in terms of portfolio weights (<em>left</em>) or state prices (<em>right</em>) - the latter searches for the state price vector resulting in the highest price for pay-off $\mathbf{x}$ and yet compatible with prices of marketed securities. The two formulations are related via LP duality.</p>
+<h2 id="indifference-bounds">Indifference bounds</h2>
+<p>No arbitrage bounds are usually far too wide - for the insurance example they would be $0$ and $100$, the maximum possible loss.</p>
+<p>We can construct a tighter bound on price by requiring that the price we charge for a security results in expected utility at least as high as that of the baseline portfolio.
+$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}}{\text{minimize}} &amp;&amp; \mathbf{d}^T\mathbf{\theta} \nonumber \\
+&amp; \text{subject to} &amp;&amp; E\big(u(S\mathbf{\theta} \text{ - } \mathbf{x})\big) \ge E\big(u(0)\big) \nonumber
+\end{eqnarray}$$</p>
+<p>This is indeed equivalent to the venerable &ldquo;equivalent utility&rdquo; pricing principle from the actuarial literature:
+$$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
+<p>The approach also extends tho the multi-period settings:</p>
+<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> <strong>Figure 4:</strong> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
+<p>$$\begin{eqnarray}
+&amp; \underset{\mathbf{\theta}_1, \ldots, \mathbf{\theta}_n}{\text{minimize}} &amp;&amp; S_0\mathbf{\theta}_0 \nonumber \\
+&amp; \text{subject to} &amp;&amp; S_n(\mathbf{\theta}_n - \mathbf{\theta}_{a(n)}) = 0,\ \ n \in \mathcal{N}_t,\ \ t \ge 1 \nonumber \\
+&amp; &amp;&amp; S_n\mathbf{\theta}_n \ge \mathbf{x},\ \ n \in \mathcal{N}_T \nonumber
+\end{eqnarray}$$</p>
+<h2 id="the-unified-approach-to-financial-and-actuarial-pricing">The unified approach to financial and actuarial pricing</h2>
+<p>Essentially all problems studied in financial economics can be reduced to maximizing the utility of consumption under a real world probability measure (see J. Cochrane, &ldquo;Asset Pricing&rdquo;). While financial engineering primarily deals with state prices, &ldquo;risk neutral&rdquo; probabilities, and pricing kernels, actuarial science approaches the same problems directly through utility theory.</p>
+<p>The key insight is that in incomplete markets, these seemingly different methods are formally related through Lagrange duality to the same fundamental problem: selecting expected utility maximizing portfolios under real world probability measures.</p>
+<p>The &ldquo;actuarial&rdquo; approach to pricing risks isn&rsquo;t fundamentally different from the &ldquo;financial engineering approach&rdquo; - it simply focuses explicitly on the more challenging and realistic setting of incomplete markets!</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/">The Kalman Filter Tutorial That Might At Last Make Sense</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Dec 30, 2018&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/state-space-models">state-space-models</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/statistical-smoothing">statistical-smoothing</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/tutorial">tutorial</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> <a href="https://en.wikipedia.org/wiki/Kalman%5Ffilter">Kalman filter</a> and related ideas have played a central role </span>
+in the success
+of state space methods in engineering control through out 1960s
+(culminating in the linear quadratic Gaussian theory). <label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_apollo.jpg" alt="">  The Apollo 17 <a href="https://en.wikipedia.org/wiki/Apollo%5FCommand/Service%5FModule">Command/Service  Module</a> photographed in lunar orbit from the ascent stage of the  <a href="https://en.wikipedia.org/wiki/Apollo%5FLunar%5FModule">Lunar Module</a>.</span></p>
+<p>Remarkably, the  first practical application of the Kalman
+filter was to improve the accuracy of <a href="https://en.wikipedia.org/wiki/Apollo%5FPGNCS">navigation</a>
+for the Apollo program<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2" class="margin-toggle"/>
+<span class="sidenote">McGee, L. and Schmidt, S. (1985). <a href="http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf">Discovery of the Kalman filter as a practical tool for aerospace and industry</a>. Technical Report TM 86847, NASA, Moffett Field, California </span></p>
+<p>, quickly followed by adoption for a wide range of aerospace problems<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-3" class="margin-toggle"/>
+<span class="sidenote"> Grewal, M. and Andrews, A. (2010). Applications of Kalman  filtering in aerospace 1960 to present. IEEE Control Systems Magazine </span>
+.
+In these applications the goal is typically to track the
+&ldquo;state&rdquo; of a missile or a spacecraft following Newtonian dynamics. The
+state vector would contain the current position, velocity and
+acceleration vectors and the goal would be to repeatedly re-estimate the
+state using measurements coming in from a range of sensors, such as
+inertial, optical, ground based radar etc.</p>
+<p>The underlying ideas, while very simple from a certain point of view,
+are perhaps less well known than they should be, especially considering
+the broad applicability &mdash; any estimation problem where parameters
+might drift over time. Indeed in my experience relatively few people in
+machine learning or statistics even at graduate level are famiilar with
+this material and those engineering students who have had to suffer
+through a control theory class are little fond of the memory of trying
+to memorise the derivation of monstrous update equations. Indeed &ldquo;Kalman filter tutorial&rdquo;<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle"/>
+<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simulataneous localisation and mapping</em> that is among the central problems of robotics  </span></p>
+<p>has over the years become something of a genre of its own.</p>
+<p>The main difficulty comes from the fact that the Kalman filter is
+properly viewed as a particular <em>algorithm</em> that efficiently solves a
+certain optimisation problem but is instead universally taught as <em>the
+solution</em> to the underlying inference task (or less charitably just as a
+behaviour). It is much more productive however to focus on the
+underlying optimisation problem and its transformations and from this
+perspective it becomes trivial both to extend the model or to apply more
+convenient optimisation tools.</p>
+<p>If you need more background on optimisation or linear algebra you can&rsquo;t go  wrong to consult the first 10 lectures of
+Stephen Boyd&rsquo;s <a href="http://ee263.stanford.edu/archive/">EE263</a> course at Stanford.</p>
+<h2 id="mean-estimation">Mean estimation</h2>
+<p>To illustrate the key points and introduce notation we discuss the
+simple case of mean estimation when the underlying
+distribution evolves  over time. Initially we consider only the so called linear estimators, which coincide with maximum likelihood
+estimators for the Gaussian distribution but otherwise may be less
+efficient. We assume that there are \(m\) time
+periods and in the time period \(t\) we obtain \(n\) new observations, with $i$-th
+observation at time \(t\) denoted as \(y_{ti}\).</p>
+<p>One option is to compute the sample average, updating it to reflect new data as
+they come in. It is well known that the sample average:</p>
+<p>\[
+w^*= \frac{1}{mn}\sum_{t=1}^m\sum_{i=1}^{n}y_{ti}
+\]</p>
+<p>solves the following quadratic loss minimisation problem:</p>
+<p>\[
+\underset{w}{\operatorname{minimise}} \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w)^2.\tag{1}
+\]</p>
+<p>Alternatively we can calculate the sample means of all \(m\) time periods independently:</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2 = \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2,\tag{2}
+\]</p>
+<p>with the following analytic solutions:</p>
+<p>\[
+w^*_t= \frac{1}{n}\sum_{i=1}^{n}y_{ti}.
+\]</p>
+<p>Both methods are clearly somewhat unsatisfying. In the first case
+we effectively assume that the mean stays constant over time and the
+sensitivity of the estimate to new observations diminishes as new data
+are acquired, while
+in the second case the changes in the mean are assumed to be
+uncorrelated and we forgo any sharing of information between adjoining
+time periods.<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-5" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-5" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_window_2.png" alt=""> Collection of linear models fit locally as new data (denoted by grey dots) becomes available. </span></p>
+<p>One compromise might be a form of local regression where we fit a linear model
+over a  time window of fixed width \(q+1\) to form
+the estimate:</p>
+<p>\[
+\underset{w, b}{\operatorname{minimise}} \  \ \sum_{t=m-q\ }^m \|\mathbf{y}_t -
+\mathbf{1}(tw + b) \|_2^2 =\sum_{t=m-q,}^m\sum_{, i=1}^{n}(y_{ti} -(tw+b))^2,
+\]</p>
+<p>which, unlike (2), provides an indication of the current
+trend.</p>
+<p>Another way to approach the problem is to observe that (1)
+can be equivalently rewritten in the form similar to (2) by
+introducing some equality constraints:</p>
+<p>\[
+\begin{aligned}
+&amp;\underset{\mathbf{w}}{\operatorname{minimise}}&amp; &amp; \sum_{t=1}^m
+\|\mathbf{y}_t -\mathbf{1}w_t\|_2^2 =
+\sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2\\\
+&amp;\operatorname{subject\ to} &amp;&amp; w_{t+1} - w_{t}=0,\ \ t=1,\ldots, m-1.
+\end{aligned}\tag{3}
+\]</p>
+<p>It is then natural to replace hard constraints with e.g. a quadratic
+penalty term (absolute values or even  maximum of differences etc;</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m\sum_{i=1}^{n}(y_{ti} -w_t)^2 + \lambda\sum_{t=1}^{m-1}(w_{t+1} - w_{t})^2,
+\]</p>
+<p>delivering an effective compromise solution, where we can &ldquo;dial&rdquo;
+between (1) and (2) by choosing the <label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-6" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-6" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_smoothed_2.png" alt=""> Estimates of the current trend obtained from a dynamic model with second order smoothing. Note that at each time step the entire history is re-estimated. </span></p>
+<p>value of \(\lambda \ge 0\).
+The above can be rewritten in vector notation as:</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ \ \sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2 + \lambda\|D^{(1,m)}\mathbf{w} \|_2^2.\tag{4}
+\]</p>
+<p>Here  \(D^{(1,m)}\) is the \((m-1) \times m\)
+first order finite differences matrix:</p>
+<p>\[
+D^{(1,n)} =  \left[ \begin{array}{rrrrrr}
+-1&amp; 1  &amp;&amp;\\\
+&amp; -1  &amp;1&amp;&amp;  \\\
+&amp; &amp; \cdots &amp;\\\
+&amp;   &amp;&amp;-1&amp;\ \ 1\end{array} \right]
+\]</p>
+<p>and   the $k$-th order finite
+differences matrix \(D^{(k,m)} \in \mathbb{R}^{(m-k)\times m}\)  is
+recursively defined  as:</p>
+<p>\[
+D^{(k,m)}=D^{(1,m-k)}D^{(k-1,m)}, \  k=2,3,\dots
+\]</p>
+<p>Heuristically, the <em>fidelity</em> term \(\sum_{t=1}^m \|\mathbf{y}_t -
+\mathbf{1}w_t\|_2^2\)
+encourages the solution \(\mathbf{w}\) to be close to the original data
+\(\mathbf{y}_t\) and the <em>smoothness</em> or <em>regularisation</em> term \(\|D^{(1,m)}\mathbf{w}\|_2^2\)
+penalises non-zero entries of \(D^{(1,m)}\mathbf{w}\) (the
+discretised first derivative) of \(\mathbf{w}\). If we would like to
+allow linear or higher order polynomial trends without penalty, we can
+instead use \(\|D^{(k,m)}\mathbf{w}\|_2^2\) with \(k=2\) or \(k\ge3\), corresponding to
+discretised second and higher derivatives respectively.</p>
+<p>It is important to consider what happens as we obtain data for the
+new time period \(m+1\). Perhaps the cleanest way to approach
+this is to form a new optimisation problem (4) with updated data and obtain a new vector of
+estimates for the entire history of the process \(\mathbf{w}^*=[w_1^*,\ldots,w_m^*,w_{m+1}^*]^T\).</p>
+<p>Historically a number of schemes to efficiently compute
+\(w^*_{m+1}\) given the estimates at time \(m\) have been proposed but
+advances in computing power have rendered them  considerably less relevant.
+<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-7" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-7" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/kalman_whittaker.jpg" alt=""> <a href="https://en.wikipedia.org/wiki/E.%5FT.%5FWhittaker">E.T. Whittaker</a> who has developed perhaps the first <a href="http://journals.cambridge.org/action/displayAbstract?fromPage=online&amp;aid=3140568&amp;fileId=S001309150000359X">modern method</a> for non parametric smoothing in 1923. The associated computational procedure has proven a source of nightmares for generation of actuarial students — inverting a \(100\times100\) matrix by hand, even if it is banded, is no mean feat.</span></p>
+<p>The figures on the right show the results of running local regression
+and  mean estimation penalised with second order differences on some
+made up data.</p>
+<h2 id="exponential-families-and-quantile-splines">Exponential families and quantile splines</h2>
+<p>The same idea as in the previous section can also be applied to
+maximum likelihood estimation. For example, consider a single
+parameter <a href="https://en.wikipedia.org/wiki/Exponential%5Ffamily">exponential family</a> of distributions
+where the parameter can
+change over time:</p>
+<p>\[
+p(y,|,w_t)=h_0(y)\exp\big(w_t\phi(y) -  A(w_t)\big).
+\]</p>
+<p>We can attain similar results to (4) by solving the
+following penalised maximum likelihood problem:</p>
+<p>\begin{aligned}
+&amp; \underset{\mathbf{\mathbf{w}}}{\operatorname{minimise}}
+\ \  \sum_{t=1}^m\sum_{i=1}^{n} \big(A(w_t) - w_t\phi(y_{ti})
+\big) + \lambda\|D^{(k,m)}\mathbf{w}\|_2^2.
+\end{aligned}</p>
+<p>This formulation can also be extended to exponential families with
+multiple parameters (e.g. heteroscedastic multivariate Gaussian).</p>
+<p>An interesting alternative is to estimate
+distribution quantiles directly, instead of assuming a parametric form
+and then trying to find the parameters. This can be accomplished by
+replacing quadratic loss in (4) with the <a href="https://en.wikipedia.org/wiki/Quantile%5Fregression">quantile loss</a>, so that solving the following
+problem estimates the $τ$-th quantile of the distribution given
+data up to time \(m\):</p>
+<p>\[
+\underset{\mathbf{w}}{\operatorname{minimise}} \ <br>
+\sum_{t=1}^m\sum_{i=1}^{n}\rho_\tau(y_{ti} -w_t) +
+\lambda\|D^{(k,m)}\mathbf{w} \|_2^2,
+\]</p>
+<p>yielding  a variant of the so called <em>quantile splines</em>.<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-8" class="margin-toggle"/>
+<span class="sidenote"> Koenker, R., Ng, P., and Portnoy, S. (1994). <a href="http://www.econ.uiuc.edu/~roger/NAKE/qss.pdf">Quantile smoothing splines</a>. Biometrika </span></p>
+<p>The figure on the right shows an example of quantile splines applied to estimate
+a time varying distribution (at time \(t=100\)).<label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-9" class="margin-toggle"/>
+<span class="marginnote">  <img src="/img/kalman_quantile.png" alt=""> Quantile splines applied to estimate 20 equally spaced distribution percentiles (denoted by colour gradient) given the information at \(t = 100\). </span></p>
+<h2 id="kalman-filter-as-an-optimisation-problem">Kalman filter as an optimisation problem</h2>
+<p>Now we can finally discuss the Kalman filter and turns out it can be productively conceptualised as a &ldquo;dynamic&rdquo;
+extension of the standard least squares problem (cf. mean estimation):</p>
+<p>\[\label{eq:ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y} -
+X\mathbf{w}\|_2^2,\tag{5}
+\]</p>
+<p>Following (1) we  partition
+the design matrix \(X\) and the response vector \(\mathbf{y}\) into \(m\)
+row blocks (corresponding to time periods):</p>
+<p>\[\begin{aligned}
+X= \left[ \begin{array}{c}
+X_1\\\
+\cdots\\\
+X_m\end{array} \right],
+&amp;\ \ \mathbf{y}= \left[ \begin{array}{c}
+\mathbf{y}_1\\\
+\cdots\\\
+\mathbf{y}_m\end{array} \right].
+\end{aligned}
+\]</p>
+<p>The least squares problem (5) can then be transformed into an
+equivalent problem with \(m\) copies of the parameter vector by
+introducing some equality constraints:</p>
+<p>\begin{align}
+&amp;\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+&amp;&amp;  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\\
+&amp;\operatorname{subject\ to}
+&amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
+\end{align}</p>
+<p>The underlying probability model can  be written in the state space form with the
+identity state transition matrix,  no state transition noise and
+i.i.d. Gaussian observation noise<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-10" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-10" class="margin-toggle"/>
+<span class="sidenote"> We can in fact avoid the Gaussianity assumption by posing a quadratic loss function instead which yields equivalent estimators </span>
+, where \(\mathbf{w}_t\) is the
+unobserved state vector and \(\mathbf{y}_t\) are the observations
+associated with time dependent observation matrices \(X_t\):</p>
+<p>\[\begin{array}{ll}
+\mathbf{w}_{t+1} = \mathbf{w}_t, \quad&amp;\quad
+\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I).
+\end{array}
+\]</p>
+<p>By introducing i.i.d. Gaussian state transition noise:</p>
+<p>\[\begin{array}{ll}
+\mathbf{w}_{t+1} = \mathbf{w}_t+\boldsymbol{\nu}_t, \quad&amp;\quad
+\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+\boldsymbol{\nu}_t \sim \mathcal{N}(0,I),&amp;\quad \boldsymbol{\epsilon}_t \sim \mathcal{N}(0,I)
+\end{array}\tag{7}
+\]
+we effectively relax the equality constraints in (6)
+replacing them with a squared $ℓ_2$-norm penalty.  It is then
+possible to perform  estimation by solving the following convex
+optimisation problem:</p>
+<p>\[\begin{aligned}\label{eq:kalman}
+\underset{\mathbf{w_1},\ldots,\mathbf{w}_m}{\operatorname{minimise}}
+&amp;\ \ \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2
++\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-\mathbf{w}_{t}\|^2_2,
+\end{aligned}\tag{8}
+\]</p>
+<p>which amounts to substituting  every independent variable in the
+regression model by its interaction with time variable \(t\) and regularising the
+first order differences in the
+corresponding parameters.
+The estimation problem can be either solved directly or transformed back to the standard least squares form:</p>
+<p>\[\label{eq:kal_ls}
+\underset{\mathbf{w}}{\operatorname{minimise}}\ \ \|\mathbf{y}&rsquo; -
+X&rsquo;\mathbf{w}\|_2^2,\tag{9}
+\]</p>
+<p>where the design matrix \(X&rsquo;\) and the response vector \(\mathbf{y}&rsquo;\) are
+redefined as follows:</p>
+<p>\begin{aligned}
+X&rsquo;=\left[
+\begin{array}{cccccc}
+X_1&amp;  &amp;&amp;&amp;  \\\
+-I&amp;\ \ I &amp;&amp;&amp;  \\\
+&amp; &amp; \cdots&amp; &amp;\\\
+&amp; &amp;&amp;  -I&amp;I\\\
+&amp; &amp; &amp;&amp; X_m \end{array} \right], &amp; \  &amp;
+\mathbf{y}&rsquo; = \left[ \begin{array}{l}
+\mathbf{y}_1\\\
+0\\\
+\cdots \\\
+0\\\
+\mathbf{y}_m\end{array}\right],&amp; \  &amp;
+\mathbf{w} = \left[ \begin{array}{l}
+\mathbf{w}_1\\\
+\cdots \\\
+\mathbf{w}_m
+\end{array}\right].
+\end{aligned}</p>
+<p>The objective  in (8) simultaneously performs both
+&ldquo;filtering&rdquo; and <a href="https://en.wikipedia.org/wiki/Kalman%5Ffilter#Rauch.E2.80.93Tung.E2.80.93Striebel">&ldquo;smoothing&rdquo;</a> conditional on all the observations up
+to time \(m\). If new information becomes available the augmented
+optimisation problem should be  solved again to obtain new estimates
+of the entire history of state transitions \(\mathbf{w}^*=[\mathbf{w}^*_1,\ldots,\mathbf{w}^*_m,\mathbf{w}^*_{m+1}]^T\).
+Standard Kalman filter given information up to time \(m + 1\), on the
+other hand, only updates the estimate of the current state
+\(\mathbf{w}^*_{m+1}\) and requires a backward ``smoothing&rsquo;&rsquo; pass to
+update estimates of past states \(\mathbf{w}_1,\ldots,\mathbf{w}_m\).</p>
+<p>Indeed, the Kalman filter followed by a &ldquo;smoothing&rdquo; step can be
+viewed as a computationally efficient recursive procedure for solving
+the normal equations of the least squares problem (9)
+which exploits block tri-diagonal structure of the matrix \(X&rsquo;\).
+With advances in numerical linear algebra routines for sparse matrices
+and increasing computer speeds very large problems of this kind can be
+solved directly.</p>
+<p>So far we focused on the special case with the identity state
+transition matrix and i.i.d noise, however state estimation in the the
+general linear Gaussian state space model:</p>
+<p>\begin{aligned} \mathbf{w}_{t+1} = F\mathbf{w}_t+\boldsymbol{\nu}_t,&amp;\quad\mathbf{y}_t=X_t\mathbf{w}_t + \boldsymbol{\epsilon}_t,\\\
+\boldsymbol{\nu}_t \sim \mathcal{N}(0,\Sigma_\nu),&amp;\quad\boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
+\end{aligned}</p>
+<p>can also be expressed as a convex optimisation problem.
+Denoting \(\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}\),
+$P$-quadratic norm for a positive definite matrix \(P\), it is:</p>
+<p>\[\begin{aligned}
+\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &amp;
+\ \ \sum^{m}_{t=1}
+\|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_{\Sigma_\epsilon^{-1}}
++\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-F\mathbf{w}_{t}\|^2_{\Sigma_\nu^{-1}}.
+\end{aligned}
+\]</p>
+<p>We can easily recover Whittaker graduation (4) as state space models by  choosing  one a dimensional state vector \(w_t\)  with
+the observation matrix \(X_t\)  a constant vector \(\mathbf{1}\).</p>
+</section>
+            
+            
+
+
+<nav class="menu" style="margin-top:5rem">
+    <ul style="display: flex;
+               align-items: stretch;
+               justify-content: space-between;">
+    
+        <li>
+            <a href="/page/2/">&larr; Newer Posts</a>  
+
+    </li>
+    
+    <li>
+        <a href="/page/4/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+</nav>
+
+
+            <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+        </article>
+    </div>
+</body>
+</html>

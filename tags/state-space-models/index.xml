@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>State-Space-Models on Certum ex Incertis</title>
+    <link>http://localhost:1313/tags/state-space-models/</link>
+    <description>Recent content in State-Space-Models on Certum ex Incertis</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Dec 2018 11:56:00 +1100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/state-space-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Kalman Filter Tutorial That Might At Last Make Sense</title>
+      <link>http://localhost:1313/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/</link>
+      <pubDate>Sun, 30 Dec 2018 11:56:00 +1100</pubDate>
+      <guid>http://localhost:1313/2018/the-kalman-filter-tutorial-that-might-at-last-make-sense/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Kalman%5Ffilter&#34;&gt;Kalman filter&lt;/a&gt; and related ideas have played a central role &lt;/span&gt;&#xA;in the success&#xA;of state space methods in engineering control through out 1960s&#xA;(culminating in the linear quadratic Gaussian theory). &lt;label for=&#34;marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1&#34; class=&#34;margin-toggle&#34;&gt;⊕&lt;/label&gt;&#xA;&lt;input type=&#34;checkbox&#34; id=&#34;marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1&#34; class=&#34;margin-toggle&#34;/&gt;&#xA;&lt;span class=&#34;marginnote&#34;&gt; &lt;img src=&#34;http://localhost:1313/img/kalman_apollo.jpg&#34; alt=&#34;&#34;&gt;  The Apollo 17 &lt;a href=&#34;https://en.wikipedia.org/wiki/Apollo%5FCommand/Service%5FModule&#34;&gt;Command/Service  Module&lt;/a&gt; photographed in lunar orbit from the ascent stage of the  &lt;a href=&#34;https://en.wikipedia.org/wiki/Apollo%5FLunar%5FModule&#34;&gt;Lunar Module&lt;/a&gt;.&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;Remarkably, the  first practical application of the Kalman&#xA;filter was to improve the accuracy of &lt;a href=&#34;https://en.wikipedia.org/wiki/Apollo%5FPGNCS&#34;&gt;navigation&lt;/a&gt;&#xA;for the Apollo program&lt;label for=&#34;sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2&#34; class=&#34;margin-toggle sidenote-number&#34;&gt;&lt;/label&gt;&#xA;&lt;input type=&#34;checkbox&#34; id=&#34;sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-2&#34; class=&#34;margin-toggle&#34;/&gt;&#xA;&lt;span class=&#34;sidenote&#34;&gt;McGee, L. and Schmidt, S. (1985). &lt;a href=&#34;http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19860003843.pdf&#34;&gt;Discovery of the Kalman filter as a practical tool for aerospace and industry&lt;/a&gt;. Technical Report TM 86847, NASA, Moffett Field, California &lt;/span&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

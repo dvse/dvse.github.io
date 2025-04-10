@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine-Learning on Certum ex Incertis</title>
+    <link>http://localhost:1313/tags/machine-learning/</link>
+    <description>Recent content in Machine-Learning on Certum ex Incertis</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Apr 2025 15:30:00 +1100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stochastic Optimisation</title>
+      <link>http://localhost:1313/2025/stochastic-optimisation/</link>
+      <pubDate>Thu, 10 Apr 2025 15:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/2025/stochastic-optimisation/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Operators in Machine Learning</title>
+      <link>http://localhost:1313/2025/operators-in-machine-learning/</link>
+      <pubDate>Wed, 12 Mar 2025 14:30:00 +1100</pubDate>
+      <guid>http://localhost:1313/2025/operators-in-machine-learning/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Operator theory provides a unified perspective &lt;/span&gt;&#xA;for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.&lt;/p&gt;&#xA;&lt;h2 id=&#34;nonlinear-functional-analysis&#34;&gt;Nonlinear Functional Analysis&lt;/h2&gt;&#xA;&lt;p&gt;Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Existence of a solution&lt;/li&gt;&#xA;&lt;li&gt;Uniqueness of the solution&lt;/li&gt;&#xA;&lt;li&gt;Stability of the solutions under perturbation or noisy measurements&lt;/li&gt;&#xA;&lt;li&gt;Construction of approximation methods and estimation of their convergence&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

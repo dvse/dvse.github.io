@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Certum ex Incertis - Betting Markets and Insurance: The Logarithmic Market Scoring Rule</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+
+    
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2025/betting-markets-and-insurance-the-logarithmic-market-scoring-rule/">Betting Markets and Insurance: The Logarithmic Market Scoring Rule</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2025&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/betting-markets">betting-markets</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/insurance">insurance</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/risk-measures">risk-measures</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/probability">probability</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p><span class="newthought"> The concept of subjective probabilities has deep implications </span>
+for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &ldquo;real&rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.</p>
+<blockquote cite="">
+<p>PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.</p>
+  <footer>Bruno de Finetti, Theory of Probability, 1974</footer>
+</blockquote>
+<h2 id="subjective-probabilities">Subjective Probabilities</h2>
+<p>De Finetti proposed defining &ldquo;probabilities&rdquo; as prices one would place on certain lottery tickets. Denote $p(E)$ as the price at which one is indifferent between buying and selling a lottery ticket that pays $\$1$ if the event $E$ occurred and $\$0$ otherwise. Similarly $p(E|F)$ is the indifference price for a ticket paying $\$1$ if $E \cap F$ occurs, $\$0$ if $F$ occurs without $E$ and $\$-1$ if $F$ does not occur.</p>
+<p>The following assumptions make the prices &ldquo;coherent,&rdquo; effectively eliminating arbitrage opportunities:</p>
+<ul>
+<li>$p(E) \ge \$0$</li>
+<li>$p(E) + p(E^C) = \$1$</li>
+<li>$p(E \cup F)=p(E)+p(F)$ if $E\cap F = \emptyset$</li>
+<li>$p(E \cap F) = p(E|F)p(F)$</li>
+</ul>
+<p>This framework is identical to the &ldquo;no arbitrage&rdquo; assumptions in finance.</p>
+<h2 id="betting-or-prediction-markets">Betting or Prediction Markets</h2>
+<p>While subjective probabilities are useful for individual decision-making, neither de Finetti&rsquo;s formalism nor classical Bayesian updating specify how to generate consensus estimates. An appealing approach is to defer to market mechanisms. Most popular mechanisms include:</p>
+<ul>
+<li><strong>Parimutuel betting</strong>: the total pool is allocated to participants betting on the winning outcome in proportion to the size of their original bets.</li>
+<li><strong>Fixed odds betting</strong>: a bookmaker is the counterparty in every transaction and is responsible for updating the odds.</li>
+<li><strong>Continuous double auction</strong>: every market participant can &ldquo;buy&rdquo; and &ldquo;sell&rdquo; bets, with transactions occurring when bid and ask prices overlap.</li>
+</ul>
+<p>Each of these traditional mechanisms has limitations. In parimutuel betting, the odds aren&rsquo;t known until betting concludes, which can discourage sophisticated participants from betting just before closure. Fixed odds betting requires a sophisticated bookmaker who might face unlimited losses. Double auction mechanisms often suffer from low liquidity.</p>
+<h2 id="an-automated-bookmaker">An Automated Bookmaker</h2>
+<p>Interestingly, it&rsquo;s possible to design a mechanism that&rsquo;s no more complicated than parimutuel betting yet both quotes odds at any time and limits worst-case losses.</p>
+<p>Consider a discrete space of events $\Omega$ with $n$ elements and assume that the bookmaker has an exponential utility function $u(x)=1 - e^{-\alpha x}, \alpha &gt;0$ and zero starting endowment. The bookmaker prices any proposed bet $\mathbf{q}\in \mathbb{R}^n$ using the zero utility premium principle by solving for $C$:</p>
+<p>$$\mathbb{E}\big(1-e^{-\alpha(C-\mathbf{q})}\big)=\sum_{i=1}^n p_i \left(1 - e^{-\alpha{C-q_i}}\right)=0$$</p>
+<p>We can rewrite this as:</p>
+<p>$$e^{-\alpha C}\sum_{i=1}^n-p_i e^{\alpha q_i}=-1$$</p>
+<p>And obtain an expression for the price of the bet $\mathbf{q}$ given an empty starting inventory:</p>
+<p>$$C(\mathbf{q})=\frac{1}{\alpha}\log\sum_{i=1}^n p_ie^{\alpha q_i}$$</p>
+<p>It&rsquo;s easy to verify that this cost function is <em>path independent</em>, meaning that the price charged for a bet doesn&rsquo;t depend on how it&rsquo;s split up. Denoting by $C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r})$ the price charged for the bet $\mathbf{q}$ by the bookmaker with inventory $\mathbf{r}\in \mathbb{R}^n$, we get:</p>
+<p>$$C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r}) = C(\mathbf{q+r}) - C(\mathbf{r})$$</p>
+<p>This implies that market participants don&rsquo;t gain by strategically splitting their bets.</p>
+<h2 id="the-logarithmic-market-scoring-rule">The Logarithmic Market Scoring Rule</h2>
+<p>The algorithm employed by the bookmaker following this &ldquo;logarithmic scoring rule&rdquo; is remarkably simple:</p>
+<ol>
+<li>Given the current inventory of bets $\mathbf{r}$, charge (or pay out) $C(\mathbf{q}+\mathbf{r}) - C(\mathbf{r})$ for the proposed bet $\mathbf{q}$.</li>
+<li>If the quote is accepted, update the inventory to be $\mathbf{q}+\mathbf{r}$ and wait for the next request.</li>
+</ol>
+<p>Assuming the relative size of the bet is small, we can approximate the price vector of $n$ bets paying $\$1$ in state $i$ by $\nabla_\mathbf{r} C(\mathbf{r})$:</p>
+<p>$$\frac{\partial C}{\partial r_i} =\frac{p_ie^{\alpha r_i}}{\sum_{j=1}^n p_je^{\alpha r_j}}$$</p>
+<p>This is an exponential family probability distribution with <em>carrier density</em> $\mathbf{p}$ or the Esscher transform of $\mathbf{p}$.</p>
+<h2 id="upper-bound-on-the-bookmakers-loss">Upper Bound on the Bookmaker&rsquo;s Loss</h2>
+<p>What makes this approach particularly interesting is that it guarantees a limit on the bookmaker&rsquo;s potential losses regardless of the bets accepted or the actual outcome $\omega\in \Omega$.</p>
+<p>We can write down the worst possible loss as:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\text{maximise}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0}))$$</p>
+<p>For a fixed $i$, the objective becomes:</p>
+<p>$$\begin{aligned}
+q_i - (C(\mathbf{q}) - C(\mathbf{0})) &amp;= \frac{1}{\alpha}\log p_i e^{\alpha q_i} - \frac{1}{\alpha}\log p_i - \bigg(\frac{1}{\alpha}\log\Big(\sum_{j=1}^np_je^{\alpha q_j}\Big) - C(\mathbf{0})\bigg)\
+&amp;=\frac{1}{\alpha}\log \bigg(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}} \bigg) - \frac{1}{\alpha}\log p_i
+\end{aligned}$$</p>
+<p>It&rsquo;s easy to see that $\frac{1}{\alpha}\log \Big(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}}\Big)$ is bounded from above by $0$ for any $\mathbf{q} \in \mathbb{R}^n$.</p>
+<p>This leaves us with $\max_i \frac{1}{\alpha}\log \frac{1}{p_i}$ as the upper bound on the bookmaker&rsquo;s loss.</p>
+<p>This upper bound is minimized if the bookmaker&rsquo;s subjective distribution $\mathbf{p}$ is uniform, resulting in a bound of $\frac{1}{\alpha}\log n$.</p>
+<h2 id="convex-premium-principles-as-cost-functions">Convex Premium Principles as Cost Functions</h2>
+<p>More generally, we can use any convex premium principle $C$ as the cost function, satisfying these properties:</p>
+<ul>
+<li><strong>Convexity</strong>: $C(\mathbf{q})$ is a convex function of $\mathbf{q}$</li>
+<li><strong>Increasing monotonicity</strong>: for any $\mathbf{q}$ and $\mathbf{r}$ if $\mathbf{q} \ge \mathbf{r}$ (entrywise), then $C(\mathbf{q}) \ge C(\mathbf{r})$</li>
+<li><strong>Translation invariance</strong>: for any $\mathbf{q}$ and $k$, $C(\mathbf{q}+k\mathbf{1}) = C(\mathbf{q})+k$</li>
+</ul>
+<p>This is identical, up to a minus sign, to the definition of <em>convex risk measures</em> (Föllmer and Schied, 2002). We can use their &ldquo;robust representation&rdquo;:</p>
+<p>$$C(\mathbf{r})= \underset{\mathbf{p}\in \boldsymbol{\Delta}}{\sup}\ \mathbf{p}^T\mathbf{r} - R(\mathbf{p})$$</p>
+<p>to derive worst-case loss bounds:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\operatorname{sup}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0})) = \underset{i \in \{1,\ldots,n\}}{\operatorname{max}}\ R(\mathbf{e}_i) + C(\mathbf{0})$$</p>
+<h2 id="implications-for-insurance">Implications for Insurance</h2>
+<p>These concepts have interesting implications for insurance markets. It may be desirable to limit risk concentration at the time premiums are quoted, effectively making pricing dependent on the existing portfolio.</p>
+<p>While the existing literature on premium principles and risk measures conceptually accommodates this, it typically assumes precise knowledge of cumulative loss distributions, making direct application difficult.</p>
+<p>The results from the logarithmic market scoring rule suggest that focusing on losses in a finite number of scenarios makes immunizing the portfolio against worst-case losses more tractable.</p>
+<p>Unlike the betting setting, each new member joining an insurance scheme usually results in the multiplicative growth of the relevant outcome space. However, it&rsquo;s possible to construct automatic safeguards against unanticipated or risky changes in portfolio composition by making quotes dependent on the current &ldquo;inventory,&rdquo; limiting exposure to certain risk cells, analogous to underwriting limits.</p>
+<p>It might also be possible to devise insurance products directly around this idea, especially in situations where diverse groups of agents have &ldquo;insurable interest&rdquo; in certain events (similar to catastrophe bonds).</p>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2025/operators-in-machine-learning/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2025/stochastic-optimisation/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Certum ex Incertis - Basic Theory of Entity Resolution</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
+<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+
+    
+</head>
+
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2023/basic-theory-of-entity-resolution/">Basic Theory of Entity Resolution</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2023&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags" style="display:inline-block; width:80%;">
+        <ul >
+            
+            <li><a  href="http://localhost:1313/tags/entity-resolution">entity-resolution</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/record-linkage">record-linkage</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/data-science">data-science</a> </li>
+            
+            <li><a  href="http://localhost:1313/tags/statistics">statistics</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section style="padding-top:7px;"><p>In this post I&rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.</p>
+<h2 id="a-model-for-independent-decisions">A model for independent decisions</h2>
+<p>Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.</p>
+<p>Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.</p>
+<p>It should be noted that this set-up allows multiple matches between elements of $A$ and $B$ with uncertain interpretation. Further restrictions on the structure of $M$, however, require modifications to the basic &ldquo;theory&rdquo;.</p>
+<p>We denote the vector of &ldquo;agreement codes&rdquo; as:</p>
+<p>$$\gamma(a,b)=\big(\gamma_1(a,b),\gamma_2(a,b),\ldots,\gamma_n(a,b)\big)$$</p>
+<p>where $\gamma_i(a,b)$ might be an indicator corresponding to statements like &ldquo;name is the same&rdquo;, &ldquo;name is the same and is Brown&rdquo;, &ldquo;name disagrees&rdquo;, &ldquo;name missing on one record&rdquo;, &ldquo;agreement on city part of address but not the street&rdquo;.</p>
+<p>All possible realizations of agreement codes form the <em>comparison space</em> $\Gamma$, i.e. $\gamma(a,b) \in \Gamma$ for all $(a,b) \in A\times B$.</p>
+<p>A randomized <em>decision rule</em> or <em>linkage rule</em> is then the mapping:</p>
+<p>$$d\big(\gamma(a,b)\big): \Gamma \rightarrow \big\{ P \big( d_i,|,\gamma(a,b) \big) ,|, i=1,2,3 \big\}$$</p>
+<p>which assigns a distribution, i.e. $\sum_{i=1}^3 P\big(d_i,|,\gamma(a,b)\big)=1$, over three possible decisions ${d_1,d_2,d_3}$ to each element of $\Gamma$.</p>
+<p>Here $d_1$ denotes $(a,b) \in M$ (a <em>positive link</em>), $d_3$ denotes $(a,b) \in U$ (a <em>positive non-link</em>) and $d_2$ is a <em>possible link</em>.</p>
+<p>To reiterate this is not the right formalism if we want to impose restrictions on the structure of match set $M$ (e.g. one to one), as in these cases decisions can no longer be taken for individual pairs $(a,b)$ in isolation.</p>
+<p><label for="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle"/>
+<span class="sidenote">This limitation is significant in applications like identity resolution where one-to-one matching is often required.</span></p>
+<h2 id="constructing-the-optimal-decision-rule">Constructing the optimal decision rule</h2>
+<p>To construct the &ldquo;optimal&rdquo; decision rule we define the probabilities of observing $\gamma$ for a match $(a,b)\in M$:</p>
+<p>$$m\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in M\big)$$</p>
+<p>as well as a non-match $(a,b)\in U$:</p>
+<p>$$u\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in U\big)$$</p>
+<p>It is a straightforward application of Neyman-Pearson theory to show that the &ldquo;optimal&rdquo; decision rule with respect to the usual objectives:</p>
+<p>$$P(d_1,|,U)=\sum_{(a,b)\in A\times B} u\big(\gamma(a,b)\big)P(d_1 ,|,\gamma(a,b)\big) \text{ and}$$</p>
+<p>$$P(d_3,|,M)=\sum_{(a,b)\in A\times B} m\big(\gamma(a,b)\big)P(d_3 ,|,\gamma(a,b)\big)$$</p>
+<p>namely one that generates fewest expected false matches for a given expected number of undetected matches (as we are dealing with a bivariate objective), is a function of the likelihood ratio $\frac{m(\gamma)}{u(\gamma)}$:</p>
+<p>$$d \big(\gamma(a,b)\big)= \left\{
+\begin{array}{ll}
+(1,0,0),&amp;T_1\le \frac{m(\gamma)}{u(\gamma)}\\
+(0,1,0),&amp;T_2 &lt; \frac{m(\gamma)}{u(\gamma)} &lt;T_1\\
+(0,0,1),&amp;\frac{m(\gamma)}{u(\gamma)}\le T_2
+\end{array}\right.
+$$</p>
+<p>This is almost entirely unhelpful as we don&rsquo;t know probabilities $m$ or $u$. The original proposal of Newcombe et al. (1959) was to make some heroic independence assumptions about the structure of $P\big(\gamma(a,b),|,(a,b)\in M\big)$:</p>
+<p>$$m\big(\gamma(a,b)\big)=\prod_{i=1}^n P\big(\gamma_i(a,b),|,(a,b)\in M\big)$$</p>
+<p>where $\gamma_i(a,b)$ are individual components of the agreement vector and similarly for $u(\gamma)$.</p>
+<p><label for="sidenote-65eaa79f518ad6e203a341c755f13c46-9" class="margin-toggle sidenote-number"></label>
+<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-9" class="margin-toggle"/>
+<span class="sidenote">The independence assumption dramatically simplifies calculation but ignores correlations between attributes that often exist in real data.</span></p>
+<p>Notice that the log likelihood ratio can then be written as:</p>
+<p>$$\log\left(\frac{m(\gamma)}{u(\gamma)}\right) = \sum_{i=1}^n\log\big(m_i(\gamma_i(a,b))\big)-\sum_{i=1}^n\log\big(u_i(\gamma_i(a,b))\big)$$</p>
+<p>With some additional hand waving, you can convince yourself that if $\gamma_i$ is the simple agreement indicator for a certain binary attribute $\xi$, such as the presence of particular surname or a given month of birth:</p>
+<p>$$\gamma_i(a,b)= \left\{
+\begin{array}{ll}
+1,&amp;\text{if } \xi(a)=1 \text{ and } \xi(b)=1,\\
+0,&amp;\text{otherwise}
+\end{array}\right.
+$$</p>
+<p>it might be reasonable to expect that when $\gamma_i\big((a,b)\big)=1$:</p>
+<p>$$\log\big(m_i(1)\big)-\log\big(u_i(1)\big)\approx \log \big(\pi_\xi \big) - \log \big(\pi_\xi^2\big) = -\log\big(\pi_\xi\big)$$</p>
+<p>where $\pi_\xi$ is the proportion of the combined population where the attribute is present. This gives us an intuitive scheme to assign weights to different matches, where e.g. rare names would be considered more informative than common ones.</p>
+<h2 id="date-of-birth-distribution-patterns">Date of birth distribution patterns</h2>
+<p>Here is an example what this might mean in a real world dataset:</p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Date of birth frequencies showing lower birth rates on weekends and special dates. Notice particularly how weekends (especially Sundays) consistently show lower birth frequencies, demonstrating non-random patterns in date distributions that record linkage algorithms must account for.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/fellegi_sunter/age_distribution.png" alt="Date of birth log frequencies by day of the week">
+  
+
+
+
+</figure>
+
+<h2 id="connection-to-modern-methods">Connection to modern methods</h2>
+<p>Observe that the likelihood ratio can be approximated <em>directly</em>, i.e.:</p>
+<p>$$\frac{m(\gamma)}{u(\gamma)} \approx \frac{P\big((a,b)\in M,|,\gamma\big)}{P\big((a,b)\in U,|,\gamma\big)}\frac{|U|}{|M|}$$</p>
+<p>where the two components are estimated directly via probabilistic classifiers. Obvious downside of this is the hard requirement for &ldquo;training data&rdquo;.</p>
+</section>
+            <section>
+                <nav class="menu" style="margin-top:0rem">
+                    <ul style="display: flex;
+                               align-items: stretch;
+                               justify-content: space-between;">
+                        <li>
+                            <a href="/2019/no-arbitrage-incomplete-markets-and-actuarial-pricing/">&larr; Next Post</a>  
+                        </li>
+                        
+                        <li>
+                            <a href="/2025/operators-in-machine-learning/">Previous Post &rarr;</a>
+                        </li>
+                        
+                    </ul>
+                </nav>        
+                
+
+                <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    .
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+            </section>
+        </article>
+    </div>
+</body>
+</html>
