@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optimization on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/optimization/</link>
+    <link>http://localhost:1313/tags/optimization/</link>
     <description>Recent content in Optimization on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 12 Mar 2013 14:30:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Operators - an Algorithm Toolkit</title>
-      <link>https://dvse.github.io/2013/operators-an-algorithm-toolkit/</link>
+      <link>http://localhost:1313/2013/operators-an-algorithm-toolkit/</link>
       <pubDate>Tue, 12 Mar 2013 14:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2013/operators-an-algorithm-toolkit/</guid>
+      <guid>http://localhost:1313/2013/operators-an-algorithm-toolkit/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Operator theory provides a unified perspective &lt;/span&gt;&#xA;for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.&lt;/p&gt;&#xA;&lt;h2 id=&#34;nonlinear-functional-analysis&#34;&gt;Nonlinear Functional Analysis&lt;/h2&gt;&#xA;&lt;p&gt;Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Existence of a solution&lt;/li&gt;&#xA;&lt;li&gt;Uniqueness of the solution&lt;/li&gt;&#xA;&lt;li&gt;Stability of the solutions under perturbation or noisy measurements&lt;/li&gt;&#xA;&lt;li&gt;Construction of approximation methods and estimation of their convergence&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.&lt;/p&gt;</description>
     </item>
   </channel>

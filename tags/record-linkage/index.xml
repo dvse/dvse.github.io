@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Record-Linkage on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/record-linkage/</link>
+    <link>http://localhost:1313/tags/record-linkage/</link>
     <description>Recent content in Record-Linkage on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Apr 2017 11:00:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/record-linkage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/record-linkage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Theory of Entity Resolution</title>
-      <link>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</link>
+      <link>http://localhost:1313/2017/basic-theory-of-entity-resolution/</link>
       <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</guid>
+      <guid>http://localhost:1313/2017/basic-theory-of-entity-resolution/</guid>
       <description>&lt;p&gt;In this post I&amp;rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-model-for-independent-decisions&#34;&gt;A model for independent decisions&lt;/h2&gt;&#xA;&lt;p&gt;Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.&lt;/p&gt;&#xA;&lt;p&gt;Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.&lt;/p&gt;</description>
     </item>
   </channel>

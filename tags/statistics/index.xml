@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Statistics on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/statistics/</link>
+    <link>http://localhost:1313/tags/statistics/</link>
     <description>Recent content in Statistics on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Apr 2017 11:00:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Theory of Entity Resolution</title>
-      <link>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</link>
+      <link>http://localhost:1313/2017/basic-theory-of-entity-resolution/</link>
       <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2017/basic-theory-of-entity-resolution/</guid>
+      <guid>http://localhost:1313/2017/basic-theory-of-entity-resolution/</guid>
       <description>&lt;p&gt;In this post I&amp;rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.&lt;/p&gt;&#xA;&lt;h2 id=&#34;a-model-for-independent-decisions&#34;&gt;A model for independent decisions&lt;/h2&gt;&#xA;&lt;p&gt;Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.&lt;/p&gt;&#xA;&lt;p&gt;Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Decision Theory</title>
-      <link>https://dvse.github.io/2013/decision-theory/</link>
+      <link>http://localhost:1313/2013/decision-theory/</link>
       <pubDate>Wed, 10 Apr 2013 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2013/decision-theory/</guid>
+      <guid>http://localhost:1313/2013/decision-theory/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Let&amp;rsquo;s revisit decision theory &lt;/span&gt;&#xA;from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation&#34;&gt;Stochastic optimisation&lt;/h2&gt;&#xA;&lt;p&gt;Recall the standard stochastic optimisation problem:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{array}{ll}&#xA;\underset{x\in\mathcal{X}}{\mbox{min}} &amp;amp; \mathbb{E}_{\theta}&#xA;F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega&#xA;\end{array}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stochastic Optimisation</title>
-      <link>https://dvse.github.io/2012/stochastic-optimisation/</link>
+      <link>http://localhost:1313/2012/stochastic-optimisation/</link>
       <pubDate>Tue, 10 Apr 2012 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2012/stochastic-optimisation/</guid>
+      <guid>http://localhost:1313/2012/stochastic-optimisation/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
     </item>
   </channel>

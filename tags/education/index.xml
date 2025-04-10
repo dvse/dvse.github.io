@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Education on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/education/</link>
+    <link>http://localhost:1313/tags/education/</link>
     <description>Recent content in Education on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Thu, 30 Apr 2015 11:56:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/education/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Analytics and Online Courses</title>
-      <link>https://dvse.github.io/2015/analytics-and-online-courses/</link>
+      <link>http://localhost:1313/2015/analytics-and-online-courses/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2015/analytics-and-online-courses/</guid>
-      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Many popular accounts of analytics and data science leave out the essential concepts &lt;/span&gt;&#xA;required to understand these systems from first principles. White papers talk about &amp;ldquo;automated audit&amp;rdquo;, &amp;ldquo;unprecedented financial services innovation&amp;rdquo;, &amp;ldquo;sales disruption&amp;rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. &lt;label for=&#34;marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1&#34; class=&#34;margin-toggle&#34;&gt;⊕&lt;/label&gt;&#xA;&lt;input type=&#34;checkbox&#34; id=&#34;marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1&#34; class=&#34;margin-toggle&#34;/&gt;&#xA;&lt;span class=&#34;marginnote&#34;&gt; You can download the &lt;a href=&#34;https://dvse.github.io/talks/analytics_moocs.pdf&#34;&gt;complete slides&lt;/a&gt; for this post. &lt;/span&gt;&lt;/p&gt;&#xA;&lt;blockquote cite=&#34;&#34;&gt;&#xA;&lt;p&gt;&amp;ldquo;Analytics&amp;rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/2015/analytics-and-online-courses/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Many popular accounts of analytics and data science leave out the essential concepts &lt;/span&gt;&#xA;required to understand these systems from first principles. White papers talk about &amp;ldquo;automated audit&amp;rdquo;, &amp;ldquo;unprecedented financial services innovation&amp;rdquo;, &amp;ldquo;sales disruption&amp;rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. &lt;label for=&#34;marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1&#34; class=&#34;margin-toggle&#34;&gt;⊕&lt;/label&gt;&#xA;&lt;input type=&#34;checkbox&#34; id=&#34;marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1&#34; class=&#34;margin-toggle&#34;/&gt;&#xA;&lt;span class=&#34;marginnote&#34;&gt; You can download the &lt;a href=&#34;http://localhost:1313/talks/analytics_moocs.pdf&#34;&gt;complete slides&lt;/a&gt; for this post. &lt;/span&gt;&lt;/p&gt;&#xA;&lt;blockquote cite=&#34;&#34;&gt;&#xA;&lt;p&gt;&amp;ldquo;Analytics&amp;rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

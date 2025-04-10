@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Monte-Carlo on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/monte-carlo/</link>
+    <link>http://localhost:1313/tags/monte-carlo/</link>
     <description>Recent content in Monte-Carlo on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 10 Apr 2012 15:30:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/monte-carlo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/monte-carlo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stochastic Optimisation</title>
-      <link>https://dvse.github.io/2012/stochastic-optimisation/</link>
+      <link>http://localhost:1313/2012/stochastic-optimisation/</link>
       <pubDate>Tue, 10 Apr 2012 15:30:00 +1100</pubDate>
-      <guid>https://dvse.github.io/2012/stochastic-optimisation/</guid>
+      <guid>http://localhost:1313/2012/stochastic-optimisation/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -74,3 +74,14 @@ code, pre {
   font-family: Consolas, Monaco, 'Andale Mono', monospace;
   background-color: #f8f8f8;
 }
+
+/* Make tags display at 100% width */
+nav.tags {
+  width: 100% !important;
+  display: block !important;
+}
+
+nav.tags ul {
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+}

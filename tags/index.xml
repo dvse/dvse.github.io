@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Certum ex Incertis</title>
-    <link>https://dvse.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 30 Dec 2023 11:56:00 +1100</lastBuildDate>
-    <atom:link href="https://dvse.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>State-Space-Models</title>
-      <link>https://dvse.github.io/tags/state-space-models/</link>
+      <link>http://localhost:1313/tags/state-space-models/</link>
       <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/state-space-models/</guid>
+      <guid>http://localhost:1313/tags/state-space-models/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistical-Smoothing</title>
-      <link>https://dvse.github.io/tags/statistical-smoothing/</link>
+      <link>http://localhost:1313/tags/statistical-smoothing/</link>
       <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/statistical-smoothing/</guid>
+      <guid>http://localhost:1313/tags/statistical-smoothing/</guid>
       <description></description>
     </item>
     <item>
       <title>Tutorial</title>
-      <link>https://dvse.github.io/tags/tutorial/</link>
+      <link>http://localhost:1313/tags/tutorial/</link>
       <pubDate>Sat, 30 Dec 2023 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/tutorial/</guid>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
       <title>Actuarial</title>
-      <link>https://dvse.github.io/tags/actuarial/</link>
+      <link>http://localhost:1313/tags/actuarial/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/actuarial/</guid>
+      <guid>http://localhost:1313/tags/actuarial/</guid>
       <description></description>
     </item>
     <item>
       <title>Finance</title>
-      <link>https://dvse.github.io/tags/finance/</link>
+      <link>http://localhost:1313/tags/finance/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/finance/</guid>
+      <guid>http://localhost:1313/tags/finance/</guid>
       <description></description>
     </item>
     <item>
       <title>Mathematical-Optimization</title>
-      <link>https://dvse.github.io/tags/mathematical-optimization/</link>
+      <link>http://localhost:1313/tags/mathematical-optimization/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/mathematical-optimization/</guid>
+      <guid>http://localhost:1313/tags/mathematical-optimization/</guid>
       <description></description>
     </item>
     <item>
       <title>Pricing</title>
-      <link>https://dvse.github.io/tags/pricing/</link>
+      <link>http://localhost:1313/tags/pricing/</link>
       <pubDate>Fri, 15 Mar 2019 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/pricing/</guid>
+      <guid>http://localhost:1313/tags/pricing/</guid>
       <description></description>
     </item>
     <item>
       <title>Connections</title>
-      <link>https://dvse.github.io/tags/connections/</link>
+      <link>http://localhost:1313/tags/connections/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/connections/</guid>
+      <guid>http://localhost:1313/tags/connections/</guid>
       <description></description>
     </item>
     <item>
       <title>Data-Science</title>
-      <link>https://dvse.github.io/tags/data-science/</link>
+      <link>http://localhost:1313/tags/data-science/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/data-science/</guid>
+      <guid>http://localhost:1313/tags/data-science/</guid>
       <description></description>
     </item>
     <item>
       <title>Rant</title>
-      <link>https://dvse.github.io/tags/rant/</link>
+      <link>http://localhost:1313/tags/rant/</link>
       <pubDate>Fri, 28 Dec 2018 23:57:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/rant/</guid>
+      <guid>http://localhost:1313/tags/rant/</guid>
       <description></description>
     </item>
     <item>
       <title>Entity-Resolution</title>
-      <link>https://dvse.github.io/tags/entity-resolution/</link>
+      <link>http://localhost:1313/tags/entity-resolution/</link>
       <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/entity-resolution/</guid>
+      <guid>http://localhost:1313/tags/entity-resolution/</guid>
       <description></description>
     </item>
     <item>
       <title>Record-Linkage</title>
-      <link>https://dvse.github.io/tags/record-linkage/</link>
+      <link>http://localhost:1313/tags/record-linkage/</link>
       <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/record-linkage/</guid>
+      <guid>http://localhost:1313/tags/record-linkage/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistics</title>
-      <link>https://dvse.github.io/tags/statistics/</link>
+      <link>http://localhost:1313/tags/statistics/</link>
       <pubDate>Mon, 10 Apr 2017 11:00:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/statistics/</guid>
+      <guid>http://localhost:1313/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Blockchain</title>
-      <link>https://dvse.github.io/tags/blockchain/</link>
+      <link>http://localhost:1313/tags/blockchain/</link>
       <pubDate>Sat, 31 Dec 2016 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/blockchain/</guid>
+      <guid>http://localhost:1313/tags/blockchain/</guid>
       <description></description>
     </item>
     <item>
       <title>Insurance</title>
-      <link>https://dvse.github.io/tags/insurance/</link>
+      <link>http://localhost:1313/tags/insurance/</link>
       <pubDate>Sat, 31 Dec 2016 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/insurance/</guid>
+      <guid>http://localhost:1313/tags/insurance/</guid>
       <description></description>
     </item>
     <item>
       <title>Smart-Contracts</title>
-      <link>https://dvse.github.io/tags/smart-contracts/</link>
+      <link>http://localhost:1313/tags/smart-contracts/</link>
       <pubDate>Sat, 31 Dec 2016 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/smart-contracts/</guid>
+      <guid>http://localhost:1313/tags/smart-contracts/</guid>
       <description></description>
     </item>
     <item>
       <title>Analytics</title>
-      <link>https://dvse.github.io/tags/analytics/</link>
+      <link>http://localhost:1313/tags/analytics/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/analytics/</guid>
+      <guid>http://localhost:1313/tags/analytics/</guid>
       <description></description>
     </item>
     <item>
       <title>Education</title>
-      <link>https://dvse.github.io/tags/education/</link>
+      <link>http://localhost:1313/tags/education/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/education/</guid>
+      <guid>http://localhost:1313/tags/education/</guid>
       <description></description>
     </item>
     <item>
       <title>Moocs</title>
-      <link>https://dvse.github.io/tags/moocs/</link>
+      <link>http://localhost:1313/tags/moocs/</link>
       <pubDate>Thu, 30 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/moocs/</guid>
+      <guid>http://localhost:1313/tags/moocs/</guid>
       <description></description>
     </item>
     <item>
       <title>Betting-Markets</title>
-      <link>https://dvse.github.io/tags/betting-markets/</link>
+      <link>http://localhost:1313/tags/betting-markets/</link>
       <pubDate>Fri, 10 Apr 2015 11:56:00 +1100</pubDate>
-      <guid>https://dvse.github.io/tags/betting-markets/</guid>
+      <guid>http://localhost:1313/tags/betting-markets/</guid>
       <description></description>
     </item>
   </channel>
