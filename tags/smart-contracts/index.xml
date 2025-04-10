@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Smart-Contracts on Certum ex Incertis</title>
-    <link>http://localhost:1313/tags/smart-contracts/</link>
+    <link>https://dvse.github.io/tags/smart-contracts/</link>
     <description>Recent content in Smart-Contracts on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 31 Dec 2016 11:56:00 +1100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/smart-contracts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dvse.github.io/tags/smart-contracts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blockchain and Smart Contracts in Insurance</title>
-      <link>http://localhost:1313/2016/blockchain-and-smart-contracts-in-insurance/</link>
+      <link>https://dvse.github.io/2016/blockchain-and-smart-contracts-in-insurance/</link>
       <pubDate>Sat, 31 Dec 2016 11:56:00 +1100</pubDate>
-      <guid>http://localhost:1313/2016/blockchain-and-smart-contracts-in-insurance/</guid>
+      <guid>https://dvse.github.io/2016/blockchain-and-smart-contracts-in-insurance/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; White papers talk about &lt;/span&gt;&#xA;&amp;ldquo;automated audit&amp;rdquo;, &amp;ldquo;unprecedented financial services innovation&amp;rdquo;,  &amp;ldquo;sales disruption&amp;rdquo; and the like, enabled by &amp;ldquo;the blockchain&amp;rdquo; &amp;mdash; claims that are sure to leave a jaded practitioner skeptical.&lt;/p&gt;&#xA;&lt;p&gt;Public blockchain technology actually consists of three relatively independent components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;direct application of public key cryptography and related ideas to the facilitation of financial transaction,&lt;/li&gt;&#xA;&lt;li&gt;a significant innovation in distributed consensus algorithms,&lt;/li&gt;&#xA;&lt;li&gt;smart contracts.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;cryptographic-hash-functions&#34;&gt;Cryptographic hash functions&lt;/h2&gt;&#xA;&lt;p&gt;The basic primitives underlying blockchain system, &lt;em&gt;cryptographic hash functions&lt;/em&gt;, accept a string of characters of any length and return a fixed length output, e.g. $16$ bytes, while satisfying some additional properties:&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
     <title>Certum ex Incertis - Decision Theory</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -59,9 +59,9 @@ MathJax.Hub.Config({
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
-<link rel="stylesheet" href="http://localhost:1313/css/tufte.css">
-<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte.css">
-<link rel="stylesheet" href="http://localhost:1313/css/hugo-tufte-override.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
 
     
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,13 +114,13 @@ MathJax.Hub.Config({
     <nav class="tags">
         <ul>
             
-            <li><a href="http://localhost:1313/tags/optimisation">optimisation</a> </li>
+            <li><a href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
             
-            <li><a href="http://localhost:1313/tags/machine-learning">machine-learning</a> </li>
+            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
             
-            <li><a href="http://localhost:1313/tags/statistics">statistics</a> </li>
+            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
             
-            <li><a href="http://localhost:1313/tags/decision-theory">decision-theory</a> </li>
+            <li><a href="https://dvse.github.io/tags/decision-theory">decision-theory</a> </li>
             
         </ul>
     </nav>
@@ -151,20 +151,22 @@ $$</p>
 \end{array}$$</p>
 <p>How to evaluate this procedure? Note that we at this point have neither the &ldquo;true solution&rdquo; nor can we evaluate the &ldquo;true&rdquo; objective value $\mathbb{E}_\theta F\big(\hat{x}(\omega_1,\ldots,\omega_n),\omega\big)$.</p>
 <h2 id="decision-theoretic-optimality-criteria-for-estimators">Decision theoretic optimality criteria for &ldquo;estimators&rdquo;</h2>
-<p>$$
+<p>Also known as &ldquo;frequentist risk&rdquo;, $R_n$ measures &ldquo;average&rdquo; performance when trained on &ldquo;average&rdquo; data:
+$$
 \begin{aligned}R_n(\hat{x},\theta)&amp;=\textstyle\mathbb{E}_{\theta}
 F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})\\
 &amp;=\int_{\omega^{n+1}\in\Omega^{n+1}}
 F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})p(\omega_1,\ldots,\omega_{n+1};\theta);d\omega_1\ldots\omega_{n+1}
 \end{aligned}
-$$</p>
-<p>Also known as &ldquo;frequentist risk&rdquo;, measures &ldquo;average&rdquo; performance when trained on &ldquo;average&rdquo; data; depends on the distribution $p(\omega;\theta)$. Broadly, two ways to reduce this to a number from a function of $\theta$:</p>
+$$
+Note that $R_n$ depends on the distribution $p(\omega;\theta)$. Broadly, two ways to reduce this to a number from a function of $\theta$:</p>
 <p>$$R_n^{\text{worst}}(\hat{x},\Theta)=\underset{\theta \in
 \Theta}{\text{max}}\ R_n\ (\hat{x},\theta)
+$$
+or
+$$R_n^{\text{Bayes}}(\hat{x}, \pi)=  \textstyle{\mathbb{E}_\pi} R_n\ (\hat{x},\theta) = \displaystyle\int_{\theta\in\Theta}R_n(\hat{x},\theta)\pi(\theta);d\theta
 $$</p>
-<p>$$R_n^{\text{Bayes}}(\hat{x}, \pi)=  \textstyle{\mathbb{E}_\pi} R_n\ (\hat{x},\theta) = \displaystyle\int_{\theta\in\Theta}R_n(\hat{x},\theta)\pi(\theta);d\theta
-$$</p>
-<p>Primarily a tool for analysis (e.g. let $n \rightarrow \infty$), but a few closed form or at least computationally tractable solutions (e.g. LQR theory in control, &ldquo;robust&rdquo; LPs).</p>
+<p>It is primarily a tool for analysis (e.g. let $n \rightarrow \infty$), but a few closed form or at least computationally tractable solutions exist (e.g. LQR theory in control, &ldquo;robust&rdquo; LPs).</p>
 <h2 id="relation-to-the-classical-decision-theory-problem">Relation to the classical decision theory problem</h2>
 <p>Potentially due to historical trajectory, textbook treatments of decision theory focus on the decision variables/parameters. In the stochastic optimisation setting this would look like:</p>
 <p>$$

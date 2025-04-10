@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine-Learning on Certum ex Incertis</title>
-    <link>http://localhost:1313/tags/machine-learning/</link>
+    <link>https://dvse.github.io/tags/machine-learning/</link>
     <description>Recent content in Machine-Learning on Certum ex Incertis</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 10 Apr 2013 11:56:00 +1100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dvse.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decision Theory</title>
-      <link>http://localhost:1313/2013/decision-theory/</link>
+      <link>https://dvse.github.io/2013/decision-theory/</link>
       <pubDate>Wed, 10 Apr 2013 11:56:00 +1100</pubDate>
-      <guid>http://localhost:1313/2013/decision-theory/</guid>
+      <guid>https://dvse.github.io/2013/decision-theory/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Let&amp;rsquo;s revisit decision theory &lt;/span&gt;&#xA;from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation&#34;&gt;Stochastic optimisation&lt;/h2&gt;&#xA;&lt;p&gt;Recall the standard stochastic optimisation problem:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{array}{ll}&#xA;\underset{x\in\mathcal{X}}{\mbox{min}} &amp;amp; \mathbb{E}_{\theta}&#xA;F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega&#xA;\end{array}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Operators - an Algorithm Toolkit</title>
-      <link>http://localhost:1313/2013/operators-an-algorithm-toolkit/</link>
+      <link>https://dvse.github.io/2013/operators-an-algorithm-toolkit/</link>
       <pubDate>Tue, 12 Mar 2013 14:30:00 +1100</pubDate>
-      <guid>http://localhost:1313/2013/operators-an-algorithm-toolkit/</guid>
+      <guid>https://dvse.github.io/2013/operators-an-algorithm-toolkit/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; Operator theory provides a unified perspective &lt;/span&gt;&#xA;for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.&lt;/p&gt;&#xA;&lt;h2 id=&#34;nonlinear-functional-analysis&#34;&gt;Nonlinear Functional Analysis&lt;/h2&gt;&#xA;&lt;p&gt;Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Existence of a solution&lt;/li&gt;&#xA;&lt;li&gt;Uniqueness of the solution&lt;/li&gt;&#xA;&lt;li&gt;Stability of the solutions under perturbation or noisy measurements&lt;/li&gt;&#xA;&lt;li&gt;Construction of approximation methods and estimation of their convergence&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stochastic Optimisation</title>
-      <link>http://localhost:1313/2012/stochastic-optimisation/</link>
+      <link>https://dvse.github.io/2012/stochastic-optimisation/</link>
       <pubDate>Tue, 10 Apr 2012 15:30:00 +1100</pubDate>
-      <guid>http://localhost:1313/2012/stochastic-optimisation/</guid>
+      <guid>https://dvse.github.io/2012/stochastic-optimisation/</guid>
       <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt; In real-world optimization problems, &lt;/span&gt;&#xA;uncertainty is the rule rather than the exception.  Whether we&amp;rsquo;re dealing with financial markets, weather forecasts, or machine learning models, the parameters and measurements that drive our decisions are rarely known with certainty. Stochastic optimization provides a powerful framework for making decisions under uncertainty, allowing us to find solutions that perform well across a range of possible scenarios.&lt;/p&gt;&#xA;&lt;h2 id=&#34;stochastic-optimisation-fundamentals&#34;&gt;Stochastic Optimisation Fundamentals&lt;/h2&gt;&#xA;&lt;p&gt;The general stochastic optimization problem can be formulated as:&lt;/p&gt;</description>
     </item>
   </channel>
