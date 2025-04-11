@@ -34,6 +34,13 @@ p, li {
   color: #333333 !important;
 }
 
+/* Responsive adjustment for small screens - match paragraph responsive behavior */
+@media screen and (max-width: 760px) {
+  ul, ol {
+    width: 90% !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "EB Garamond", serif !important;
   font-weight: 500 !important;
@@ -104,6 +111,12 @@ td, th {
   padding: 0.6rem !important; /* Increased padding */
   vertical-align: top !important;
   border-bottom: 1px solid #f5f5f5 !important; /* Very light border */
+}
+
+/* Remove bottom border from last row only */
+tbody tr:last-child td,
+tbody tr:last-child th {
+  border-bottom: none !important;
 }
 
 /* Add a bit more space between rows */

@@ -137,7 +137,7 @@ from the point of view of stochastic optimisation. This post explores how the sa
 <p>Recall the standard stochastic optimisation problem:</p>
 <p>$$
 \begin{array}{ll}
-\underset{x\in\mathcal{X}}{\mbox{min}} &amp; \mathbb{E}_{\theta}
+\underset{x\in\mathcal{X}}{\min} &amp; \mathbb{E}_{\theta}
 F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega
 \end{array}
 $$</p>
@@ -147,7 +147,7 @@ $$</p>
 <p>$$\hat{F}(x,\omega_1,\ldots,\omega_n)=\frac{1}{n}\sum_{j=1}^{n}F(x,\omega_j).$$</p>
 <p>And solve the approximate problem:</p>
 <p>$$\begin{array}{l}
-\hat{x}(\omega_1,\ldots,\omega_n)=\underset{x\in\mathcal{X}}{\mbox{argmin}} \ \hat{F}(x,\omega_1,\ldots,\omega_n)\
+\hat{x}(\omega_1,\ldots,\omega_n)=\underset{x\in\mathcal{X}}{\operatorname{argmin}} \ \hat{F}(x,\omega_1,\ldots,\omega_n)\
 \end{array}$$</p>
 <p>How to evaluate this procedure? Note that we at this point have neither the &ldquo;true solution&rdquo; nor can we evaluate the &ldquo;true&rdquo; objective value $\mathbb{E}_\theta F\big(\hat{x}(\omega_1,\ldots,\omega_n),\omega\big)$.</p>
 <h2 id="decision-theoretic-optimality-criteria-for-estimators">Decision theoretic optimality criteria for &ldquo;estimators&rdquo;</h2>
@@ -189,7 +189,7 @@ $$</p>
 <p>We have &ldquo;training data&rdquo; or &ldquo;scenarios&rdquo; from the joint distribution $(a_i,b_i),\ i=1,\ldots,n$. Form an approximate problem using &ldquo;training data&rdquo; and denote its solution by $\hat{x}\big((a_1,b_1),\ldots,(a_n,b_n)\big)$:</p>
 <p>$$
 \begin{array}{l}
-\hat{x}= \underset{x}{\mbox{argmin}} \ \displaystyle\frac{1}{n}\sum_{i=1}^n (x^Ta_i-b_i)^2
+\hat{x}= \underset{x}{\operatorname{argmin}} \ \displaystyle\frac{1}{n}\sum_{i=1}^n (x^Ta_i-b_i)^2
 \end{array}
 $$</p>
 <p>Evaluate sample average approximation of the objective for the model $\hat{x}$ on a new set of $m$ samples $(a&rsquo;_i,b&rsquo;_i),\ i=1,\ldots,m$:</p>

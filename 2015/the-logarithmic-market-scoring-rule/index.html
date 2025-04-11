@@ -160,7 +160,7 @@ for how we think about betting markets, prediction markets, and even insurance. 
 <p>Consider a discrete space of events $\Omega$ with $n$ elements and assume that the bookmaker has an exponential utility function $u(x)=1 - e^{-\alpha x}, \alpha &gt;0$ and zero starting endowment. The bookmaker prices any proposed bet $\mathbf{q}\in \mathbb{R}^n$ using the zero utility premium principle by solving for $C$:</p>
 <p>$$\mathbb{E}\big(1-e^{-\alpha(C-\mathbf{q})}\big)=\sum_{i=1}^n p_i \left(1 - e^{-\alpha{C-q_i}}\right)=0$$</p>
 <p>We can rewrite this as:</p>
-<p>$$e^{-\alpha C}\sum_{i=1}^n-p_i e^{\alpha q_i}=-1$$</p>
+<p>$$e^{-\alpha C}\sum_{i=1}^n p_i e^{\alpha q_i}=1$$</p>
 <p>And obtain an expression for the price of the bet $\mathbf{q}$ given an empty starting inventory:</p>
 <p>$$C(\mathbf{q})=\frac{1}{\alpha}\log\sum_{i=1}^n p_ie^{\alpha q_i}$$</p>
 <p>It&rsquo;s easy to verify that this cost function is <em>path independent</em>, meaning that the price charged for a bet doesn&rsquo;t depend on how it&rsquo;s split up. Denoting by $C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r})$ the price charged for the bet $\mathbf{q}$ by the bookmaker with inventory $\mathbf{r}\in \mathbb{R}^n$, we get:</p>

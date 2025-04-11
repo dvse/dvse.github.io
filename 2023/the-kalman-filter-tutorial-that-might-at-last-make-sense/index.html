@@ -131,7 +131,7 @@ MathJax.Hub.Config({
 
             <section style="padding-top:7px;"><p><span class="newthought"> <a href="https://en.wikipedia.org/wiki/Kalman%5Ffilter">Kalman filter</a> and related ideas have played a central role </span>
 in the success
-of state space methods in engineering control through out 1960s
+of state space methods in engineering control throughout the 1960s
 (culminating in the linear quadratic Gaussian theory). <label for="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-5ffc5ba4bd94acaf0e5ee7a8542922f9-1" class="margin-toggle"/>
 <span class="marginnote"> <img src="/img/kalman_apollo.jpg" alt="">  The Apollo 17 <a href="https://en.wikipedia.org/wiki/Apollo%5FCommand/Service%5FModule">Command/Service  Module</a> photographed in lunar orbit from the ascent stage of the  <a href="https://en.wikipedia.org/wiki/Apollo%5FLunar%5FModule">Lunar Module</a>.</span></p>
@@ -154,12 +154,12 @@ inertial, optical, ground based radar etc.</p>
 are perhaps less well known than they should be, especially considering
 the broad applicability &mdash; any estimation problem where parameters
 might drift over time. Indeed in my experience relatively few people in
-machine learning or statistics even at graduate level are famiilar with
+machine learning or statistics even at graduate level are familiar with
 this material and those engineering students who have had to suffer
 through a control theory class are little fond of the memory of trying
 to memorise the derivation of monstrous update equations. Indeed &ldquo;Kalman filter tutorial&rdquo;<label for="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="sidenote-5ffc5ba4bd94acaf0e5ee7a8542922f9-4" class="margin-toggle"/>
-<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simulataneous localisation and mapping</em> that is among the central problems of robotics  </span>
+<span class="sidenote"> And let us  not forget its close relative, the  <a href="http://www.cs.berkeley.edu/~pabbeel/cs287-fa09/readings/Durrant-Whyte%5FBailey%5FSLAM-tutorial-I.pdf">SLAM tutorial</a> &mdash; not to downplay the importance of <em>simultaneous localization and mapping</em> that is among the central problems of robotics  </span>
 has over the years become something of a genre of its own.</p>
 <p>The main difficulty comes from the fact that the Kalman filter is
 properly viewed as a particular <em>algorithm</em> that efficiently solves a
@@ -245,7 +245,7 @@ The above can be rewritten in vector notation as:</p>
 <p>Here  \(D^{(1,m)}\) is the \((m-1) \times m\)
 first order finite differences matrix:</p>
 <p>\[
-D^{(1,n)} =  \left[ \begin{array}{rrrrrr}
+D^{(1,m)} =  \left[ \begin{array}{rrrrrr}
 -1&amp; 1  &amp;&amp;\\\
 &amp; -1  &amp;1&amp;&amp;  \\\
 &amp; &amp; \cdots &amp;\\\
@@ -255,7 +255,7 @@ D^{(1,n)} =  \left[ \begin{array}{rrrrrr}
 differences matrix \(D^{(k,m)} \in \mathbb{R}^{(m-k)\times m}\)  is
 recursively defined  as:</p>
 <p>\[
-D^{(k,m)}=D^{(1,m-k)}D^{(k-1,m)}, \  k=2,3,\dots
+D^{(k,m)}=D^{(1,m-k+1)}D^{(k-1,m)}, \  k=2,3,\dots
 \]</p>
 <p>Heuristically, the <em>fidelity</em> term \(\sum_{t=1}^m \|\mathbf{y}_t -
 \mathbf{1}w_t\|_2^2\)
@@ -301,7 +301,7 @@ multiple parameters (e.g. heteroscedastic multivariate Gaussian).</p>
 distribution quantiles directly, instead of assuming a parametric form
 and then trying to find the parameters. This can be accomplished by
 replacing quadratic loss in (4) with the <a href="https://en.wikipedia.org/wiki/Quantile%5Fregression">quantile loss</a>, so that solving the following
-problem estimates the $τ$-th quantile of the distribution given
+problem estimates the $\tau$-th quantile of the distribution given
 data up to time \(m\):</p>
 <p>\[
 \underset{\mathbf{w}}{\operatorname{minimise}} \ <br>
@@ -344,7 +344,7 @@ introducing some equality constraints:</p>
 &amp;\underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}}
 &amp;&amp;  \sum^{m}_{t=1} \|\mathbf{y}_t-X_t\mathbf{w}_t\|^2_2\\\
 &amp;\operatorname{subject\ to}
-&amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t+1}=\mathbf{0},\ \ t=1,\ldots,m-1.
+&amp;&amp;  \mathbf{w}_{t+1}-\mathbf{w}_{t}=\mathbf{0},\ \ t=1,\ldots,m-1.
 \end{align}</p>
 <p>The underlying probability model can  be written in the state space form with the
 identity state transition matrix,  no state transition noise and
@@ -392,16 +392,22 @@ redefined as follows:</p>
 X&rsquo;=\left[
 \begin{array}{cccccc}
 X_1&amp;  &amp;&amp;&amp;  \\\
--I&amp;\ \ I &amp;&amp;&amp;  \\\
+&amp; X_2 &amp;&amp;&amp; \\\
 &amp; &amp; \cdots&amp; &amp;\\\
-&amp; &amp;&amp;  -I&amp;I\\\
-&amp; &amp; &amp;&amp; X_m \end{array} \right], &amp; \  &amp;
+&amp; &amp;&amp;&amp; X_m\\\
+-I&amp;\ \ I &amp;&amp;&amp;  \\\
+&amp; -I&amp;\ \ I&amp;&amp;  \\\
+&amp; &amp; \cdots&amp; &amp;\\\
+&amp; &amp;&amp;  -I&amp;I \end{array} \right], &amp; \  &amp;
 \mathbf{y}&rsquo; = \left[ \begin{array}{l}
 \mathbf{y}_1\\\
-0\\\
+\mathbf{y}_2\\\
 \cdots \\\
-0\\\
-\mathbf{y}_m\end{array}\right],&amp; \  &amp;
+\mathbf{y}_m\\\
+\mathbf{0}\\\
+\mathbf{0}\\\
+\cdots \\\
+\mathbf{0}\end{array}\right],&amp; \  &amp;
 \mathbf{w} = \left[ \begin{array}{l}
 \mathbf{w}_1\\\
 \cdots \\\
@@ -431,8 +437,8 @@ general linear Gaussian state space model:</p>
 \boldsymbol{\nu}_t \sim \mathcal{N}(0,\Sigma_\nu),&amp;\quad\boldsymbol{\epsilon}_t \sim \mathcal{N}(0,\Sigma_\epsilon)
 \end{aligned}</p>
 <p>can also be expressed as a convex optimisation problem.
-Denoting \(\|\mathbf{a}\|_P=(\mathbf{a}^TP\mathbf{a})^{\frac{1}{2}}\),
-$P$-quadratic norm for a positive definite matrix \(P\), it is:</p>
+Denoting \(\|\mathbf{a}\|_P^2=\mathbf{a}^TP\mathbf{a}\),
+$P$-quadratic norm squared for a positive definite matrix \(P\), it is:</p>
 <p>\[\begin{aligned}
 \underset{\mathbf{w}_1,\ldots,\mathbf{w}_m}{\operatorname{minimise}} &amp;
 \ \ \sum^{m}_{t=1}
@@ -440,7 +446,7 @@ $P$-quadratic norm for a positive definite matrix \(P\), it is:</p>
 +\sum^{m-1}_{t=1}\|\mathbf{w}_{t+1}-F\mathbf{w}_{t}\|^2_{\Sigma_\nu^{-1}}.
 \end{aligned}
 \]</p>
-<p>We can easily recover Whittaker graduation (4) as state space models by  choosing  one a dimensional state vector \(w_t\)  with
+<p>We can easily recover Whittaker graduation (4) as state space models by choosing  a one-dimensional state vector \(w_t\)  with
 the observation matrix \(X_t\)  a constant vector \(\mathbf{1}\).</p>
 </section>
             <section>

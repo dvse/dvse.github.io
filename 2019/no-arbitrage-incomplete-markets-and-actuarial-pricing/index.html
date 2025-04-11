@@ -132,11 +132,11 @@ MathJax.Hub.Config({
 </section>
 
             <section style="padding-top:7px;"><p>In this post I&rsquo;ll explore the linear pricing model and its connection to actuarial pricing. I&rsquo;ll demystify &ldquo;risk-neutral probabilities&rdquo; - which aren&rsquo;t truly probabilities in any meaningful sense, but rather artifacts of optimal portfolio selection. My aim is to clarify these concepts which often remain poorly explained in standard textbooks, highlighting the surprising equivalence between financial and actuarial approaches to pricing.</p>
-<h2 id="two-stage-linear-pricing-model">Two stage linear pricing model</h2>
+<h2 id="two-stage-linear-pricing-model">Two-stage linear pricing model</h2>
 <p>Let&rsquo;s consider a two period model where the state of the world at $t=0$ is assumed known. At time $t=1$ there can be $n$ distinct states, $\omega_1,\omega_2, \ldots, \omega_n$ with an associated probabilities vector $\mathbf{p} \in \mathbb{R}^n$.</p>
 <p>We have $m$ available securities where the $i$-th security has a pay-off vector $\mathbf{s}^{(i)} \in \mathbb{R}^n$ at $t=1$ and a price $d^{(i)} \in \mathbb{R}$ at $t=0$.</p>
 <p>We can combine prices into a vector $\mathbf{d} \in \mathbb{R}^m$ with:
-$$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(n)} \right]^T$$</p>
+$$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(m)} \right]^T$$</p>
 <p>And pay-off vectors into a matrix $S \in \mathbb{R}^{n \times m}$ such that:
 $$S = \left[\mathbf{s}^{(1)}, \mathbf{s}^{(2)}, \ldots,\mathbf{s}^{(m)}\right]$$</p>
 <p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle">⊕</label>
@@ -181,7 +181,7 @@ $$\begin{eqnarray}
 <p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle"/>
 <span class="marginnote"> <img src="/img/financial_economics/state_prices.png" alt=""> <strong>Figure 3:</strong> State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs. </span></p>
-<p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbf{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
+<p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbb{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
 <p>If there is no arbitrage yet not every pay-off is attainable, there are (infinitely) many sets of state prices $\mathbf{\lambda}$ that satisfy $S^T\mathbf{\lambda} = \mathbf{d}$ - in this case the market is called <em>incomplete</em>.</p>
 <p>State prices are often normalized to sum to one and subsequently referred to as &ldquo;risk neutral probabilities&rdquo; - these do not seem to have a clear economic interpretation.</p>
 <p>Most of the classical results in financial economics concern <em>complete</em> markets, with completeness derived from extraordinarily strong assumptions about price dynamics. The insurance market is so far from being complete that the point is seldom brought up.</p>
@@ -219,7 +219,7 @@ $$\begin{eqnarray}
 \end{eqnarray}$$</p>
 <p>This is indeed equivalent to the venerable &ldquo;equivalent utility&rdquo; pricing principle from the actuarial literature:
 $$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
-<p>The approach also extends tho the multi-period settings:</p>
+<p>The approach also extends to the multi-period settings:</p>
 <p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle"/>
 <span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> <strong>Figure 4:</strong> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
