@@ -769,13 +769,69 @@ is the branch of philosophy concerned with the nature, sources, limits, and meth
 $$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(m)} \right]^T$$</p>
 <p>And pay-off vectors into a matrix $S \in \mathbb{R}^{n \times m}$ such that:
 $$S = \left[\mathbf{s}^{(1)}, \mathbf{s}^{(2)}, \ldots,\mathbf{s}^{(m)}\right]$$</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/linear_pricing.png" alt=""> <strong>Figure 1:</strong> Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/linear_pricing.png" alt="Linear pricing diagram">
+  
+
+
+
+</figure>
+
 <p>Here&rsquo;s how a very simple insurance problem might look in this setting:</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/insurance.png" alt=""> <strong>Figure 2:</strong> Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/insurance.png" alt="Insurance payouts example.">
+  
+
+
+
+</figure>
+
 <p>The key assumption is that the prices are &ldquo;linear&rdquo; i.e. if we purchase $\theta^{(i)}$ of the $i$-th asset at time $t=0$ the pay-off vector $\mathbf{s} \in \mathbb{R}^n$ at $t=1$ will be:
 $$\mathbf{s}=\sum_{i=1}^m \theta^{(i)}\mathbf{s}^{(i)} = S\mathbf{\theta}$$</p>
 <p>This is generally far from true - we can negotiate better unit prices for big orders, it&rsquo;s harder to insure large risks, etc. The assumption works well enough for trades in liquid securities, especially when there are no issues of control or revealing private information.</p>
@@ -808,9 +864,37 @@ $$\begin{eqnarray}
 \end{eqnarray}$$</p>
 <p>Therefore if we can exhibit $\mathbf{\lambda}^*$ satisfying the constraints of the second problem, we can certify that the structure of prices and pay-offs offers no arbitrage opportunities.</p>
 <p>The vector $\lambda$ has a natural interpretation as a vector of &ldquo;state prices&rdquo; e.g. prices of simple pay-off vectors $\mathbf{e}^{(i)}$ which return 1 in the $i$-th state and $0$ otherwise (these are known as Arrow-Debreu securities).</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/state_prices.png" alt=""> <strong>Figure 3:</strong> State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/state_prices.png" alt="State prices diagram">
+  
+
+
+
+</figure>
+
 <p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbb{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
 <p>If there is no arbitrage yet not every pay-off is attainable, there are (infinitely) many sets of state prices $\mathbf{\lambda}$ that satisfy $S^T\mathbf{\lambda} = \mathbf{d}$ - in this case the market is called <em>incomplete</em>.</p>
 <p>State prices are often normalized to sum to one and subsequently referred to as &ldquo;risk neutral probabilities&rdquo; - these do not seem to have a clear economic interpretation.</p>
@@ -852,7 +936,7 @@ $$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
 <p>The approach also extends to the multi-period settings:</p>
 <p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> <strong>Figure 4:</strong> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
+<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
 <p>$$\begin{eqnarray}
 &amp; \underset{\mathbf{\theta}_1, \ldots, \mathbf{\theta}_n}{\text{minimize}} &amp;&amp; S_0\mathbf{\theta}_0 \nonumber \\
 &amp; \text{subject to} &amp;&amp; S_n(\mathbf{\theta}_n - \mathbf{\theta}_{a(n)}) = 0,\ \ n \in \mathcal{N}_t,\ \ t \ge 1 \nonumber \\
@@ -862,942 +946,6 @@ $$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
 <p>Essentially all problems studied in financial economics can be reduced to maximizing the utility of consumption under a real world probability measure (see J. Cochrane, &ldquo;Asset Pricing&rdquo;). While financial engineering primarily deals with state prices, &ldquo;risk neutral&rdquo; probabilities, and pricing kernels, actuarial science approaches the same problems directly through utility theory.</p>
 <p>The key insight is that in incomplete markets, these seemingly different methods are formally related through Lagrange duality to the same fundamental problem: selecting expected utility maximizing portfolios under real world probability measures.</p>
 <p>The &ldquo;actuarial&rdquo; approach to pricing risks isn&rsquo;t fundamentally different from the &ldquo;financial engineering approach&rdquo; - it simply focuses explicitly on the more challenging and realistic setting of incomplete markets!</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2018/data-science-10-years-on/">Data Science 10 Years On</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Dec 28, 2018&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/data-science">data-science</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/rant">rant</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/connections">connections</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> &ldquo;Data science&rdquo;, in so far as the term is still meaningful today,</span></p>
-<p>roughly amounts to &ldquo;analytics at web companies&rdquo;<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-1" class="margin-toggle"/>
-<span class="sidenote"> And of course victims of management fads seeking to emulate said web companies. </span>
-. The
-particular setting of course has an impact on how the &ldquo;analytics&rdquo; are
-produced and consumed (primarily manifesting as greater degree of
-automation due to volumes of data and timescales to generate results).
-As more and more traditional industries adopt the software centric approach, however,
-only some high level patterns can be discerned.</p>
-<p>Specifically, &ldquo;analytics&rdquo; is the process where some manner of systematic
-measurements and observations are used as a presumably objective basis
-for making decisions, delivering process improvements or optimising
-(more or less abstract) performance metrics. The same theme is repeated
-with variations across a wide gamut of loosely associated disciplines.
-Exact definitions have proven notoriously elusive, with few convincing
-distinctions from the classical notions of rational or scientific
-inquiry other than through the domain of application.</p>
-<p>While even a few years ago there seemed to be a a good chance that &ldquo;data science&rdquo; might become an umbrella
-term<label for="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-5c6823f153e8f186f54dd27a929c2c77-2" class="margin-toggle"/>
-<span class="sidenote"> Donoho, D. (2015). <a href="http://courses.csail.mit.edu/18.337/2015/docs/50YearsDataScience.pdf">50 Years of Data Science</a>. Tukey Centennial Workshop, Princeton </span>
-for a partial rejoining of the many streams of analytics, separated
-in some cases by nearly a century, it appears increasingly unlikely.
-While the assessment is inherently subjective, it is difficult to detect intellectual undercurrents towards consolidation &ndash; certainly the academic world . It&rsquo;s indeed a challenge to figure out just who the intellectual &ldquo;authorities&rdquo; are. out a much stronger
-intellectual undercurrent. With the large influx and no aca. Gian-Carlo Rota rather droll quip comes to mind:</p>
-<blockquote>
-<p><em>&ldquo;When pygmies cast such long shadows, it must be very late in the
-day.&rdquo;</em></p></blockquote>
-<p>What will then remain when the tide of fashion goes out? Below is a very imperfect attempt at grouping together various academic
-sub-disciplines and professions (omitting actuaries) that could be
-broadly said to be involved in analytics or data science and are likely to remain independent for the foreseeable future.
-The association is through a subjective assessment of closeness of intellectual tradition.</p>
-<p><strong>Online advertising and website optimisation</strong> &ndash; online advertising has
-grown into a massive ecosystem over the last two decades providing
-revenue for the majority of online services. The nature of the medium is
-eminently accommodating of tracking and analytics, resulting in one of
-the more dramatic applications of &ldquo;data science&rdquo;. Most sophisticated
-solutions (e.g. Adwords) are deployed by inventory providers and
-aggregators, such as Google and Facebook. Live A/B testing is also
-prevalent among online businesses &ndash; something which is still a rarity
-in traditional enterprise. This is at present the biggest area of
-employment for &ldquo;data scientists&rdquo;.</p>
-<p><strong>Manufacturing quality control</strong>, statistical process control, lean
-manufacturing, six sigma &ndash; this is an area of analytics activity
-supporting manufacturing activities and has been progressively developed
-since at least 1930&rsquo;s. Among the main objectives is monitoring and
-elimination of variability in manufacturing processes (e.g. part
-dimensions), ensuring that defect rates are thereby controlled.</p>
-<p><strong>Scientific management</strong>, management consulting, management accounting &ndash;
-the broad idea of application of &ldquo;scientific&rdquo; principles to industrial
-management is well over 100 years old &ndash; ubiquitous proliferation of
-plans, budgets, KPIs and management reports is part of this tradition.
-Very little attention is usually paid to natural statistical variation
-in many metrics. Also while many controlled experimental studies have
-been documented in this setting they have never become a part of the
-standard methodology.</p>
-<p><strong>Operations research</strong>, industrial engineering, revenue management,
-mathematical optimisation, management science. Operations research began
-as scientific study of military operations (e.g. convoy composition,
-bomber interception protocols, logistics) during the second world war
-and the principles have been exported to many other industries in the
-following years. Main tools include mathematical optimisation,
-stochastic processes. Mathematical optimisation is a somewhat standalone
-area of research with many close connections to both computer science
-and statistics.</p>
-<p><strong>Statistics</strong>, - really requires no introduction, perhaps the main focus
-of interest in applications has been analysis of government data, polls
-and surveys and support for evaluation of experimental results in life
-sciences and medicine.</p>
-<p><strong>Engineering control</strong>, control theory, signal processing From
-fly-by-wire systems to cellular networks and synthetic aperture radar.
-Much less ambitious in scope than AI, but this systems work reliably and
-are by now absolutely ubiquitous.</p>
-<p><strong>Econometrics</strong>, mechanism design, causal inference (from observational
-data) &ndash; due to the difficulty and costs of real world experiments in
-economics, econometricians have developed tools and conceptual
-frameworks for causal inference with observational data. Furthermore
-mechanism design and the study of auctions have had significant impact
-on the design of online marketplaces.</p>
-<p><strong>Applied finance</strong>, financial engineering, algorithmic trading, HFT, risk
-management. There are close parallels between data science and
-quantitative finance in the 1980s and 1990s. This is not surprising,
-because in market execution is a key part of any model driven trading
-strategy, placing a premium on &ldquo;hacking skills&rdquo;. At present it is
-perhaps reasonable to view majority of &ldquo;data scientists&rdquo; as &ldquo;quants&rdquo; of
-digital advertising.</p>
-<p><strong>Business intelligence</strong>, database / warehouse design, dashboards
-&ndash;business intelligence is primarily IT vendor driven activity to
-support management reporting in traditional enterprise with perhaps
-strongest intellectual links to the academic databases research
-community. Traditionally little attention has been paid to statistical
-aspects of &ldquo;business intelligence&rdquo; or how it is to be actioned.</p>
-<p><strong>Machine learning</strong>, natural language processing, computer vision, data
-mining &ndash; machine learning is a branch of computer science that
-initially focused on more tractable aspects of artificial intelligence,
-primarily by constructing models from example data using statistical
-methods rather than designing them by hand from general principles. Two
-large application areas are computer vision and natural language
-processing, including machine translation. By now the differences
-between theoretical machine learning and statistics communities is
-largely superficial, amounting to little more than preferences for
-different styles of analysis of statistical procedures. Machine learning
-research has also provided many of the tools used in analytics for
-online advertising and algorithmic trading. Data mining has originated
-from the databases research community and by now has mostly converged
-with machine learning in terms of both objectives and methodologies.</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2017/basic-theory-of-entity-resolution/">Basic Theory of Entity Resolution</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Apr 10, 2017&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/entity-resolution">entity-resolution</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/record-linkage">record-linkage</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/data-science">data-science</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p>In this post I&rsquo;ll cover the classical record linkage formalism, key simplifying assumptions, and links to modern techniques.</p>
-<h2 id="a-model-for-independent-decisions">A model for independent decisions</h2>
-<p>Classical Fellegi-Sunter (1969) record linkage model is as follows — consider two sets of records $A$ and $B$, with elements denoted $a$ and $b$ respectively. Product set $A \times B$ is somehow partitioned into matches $M$ and non-matches $U$.</p>
-<p>Pairs $(a,b)$ in $M$ typically agree on attributes such as first name, last name, components of date of birth and address. Pairs in $U$ may have isolated random agreements on some of these. The aim is then to recover $M$ while only having access to record attributes.</p>
-<p>It should be noted that this set-up allows multiple matches between elements of $A$ and $B$ with uncertain interpretation. Further restrictions on the structure of $M$, however, require modifications to the basic &ldquo;theory&rdquo;.</p>
-<p>We denote the vector of &ldquo;agreement codes&rdquo; as:</p>
-<p>$$\gamma(a,b)=\big(\gamma_1(a,b),\gamma_2(a,b),\ldots,\gamma_n(a,b)\big)$$</p>
-<p>where $\gamma_i(a,b)$ might be an indicator corresponding to statements like &ldquo;name is the same&rdquo;, &ldquo;name is the same and is Brown&rdquo;, &ldquo;name disagrees&rdquo;, &ldquo;name missing on one record&rdquo;, &ldquo;agreement on city part of address but not the street&rdquo;.</p>
-<p>All possible realizations of agreement codes form the <em>comparison space</em> $\Gamma$, i.e. $\gamma(a,b) \in \Gamma$ for all $(a,b) \in A\times B$.</p>
-<p>A randomized <em>decision rule</em> or <em>linkage rule</em> is then the mapping:</p>
-<p>$$d\big(\gamma(a,b)\big): \Gamma \rightarrow \big\{ P \big( d_i,|,\gamma(a,b) \big) ,|, i=1,2,3 \big\}$$</p>
-<p>which assigns a distribution, i.e. $\sum_{i=1}^3 P\big(d_i,|,\gamma(a,b)\big)=1$, over three possible decisions ${d_1,d_2,d_3}$ to each element of $\Gamma$.</p>
-<p>Here $d_1$ denotes $(a,b) \in M$ (a <em>positive link</em>), $d_3$ denotes $(a,b) \in U$ (a <em>positive non-link</em>) and $d_2$ is a <em>possible link</em>.</p>
-<p>To reiterate this is not the right formalism if we want to impose restrictions on the structure of match set $M$ (e.g. one to one), as in these cases decisions can no longer be taken for individual pairs $(a,b)$ in isolation<label for="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-2" class="margin-toggle"/>
-<span class="sidenote">This limitation is significant in applications like identity resolution where one-to-one matching is often required.</span>
-.</p>
-<h2 id="constructing-the-optimal-decision-rule">Constructing the optimal decision rule</h2>
-<p>To construct the &ldquo;optimal&rdquo; decision rule we define the probabilities of observing $\gamma$ for a match $(a,b)\in M$:</p>
-<p>$$m\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in M\big)$$</p>
-<p>as well as a non-match $(a,b)\in U$:</p>
-<p>$$u\big(\gamma(a,b)\big)=P\big(\gamma(a,b),|,(a,b)\in U\big)$$</p>
-<p>It is a straightforward application of Neyman-Pearson theory to show that the &ldquo;optimal&rdquo; decision rule with respect to the usual objectives:</p>
-<p>$$P(d_1,|,U)=\sum_{(a,b)\in A\times B} u\big(\gamma(a,b)\big)P(d_1 ,|,\gamma(a,b)\big) \text{ and}$$</p>
-<p>$$P(d_3,|,M)=\sum_{(a,b)\in A\times B} m\big(\gamma(a,b)\big)P(d_3 ,|,\gamma(a,b)\big)$$</p>
-<p>namely one that generates fewest expected false matches for a given expected number of undetected matches (as we are dealing with a bivariate objective), is a function of the likelihood ratio $\frac{m(\gamma)}{u(\gamma)}$:</p>
-<p>$$d \big(\gamma(a,b)\big)= \left\{
-\begin{array}{ll}
-(1,0,0),&amp;\frac{m(\gamma)}{u(\gamma)}\ge T_1\\
-(0,1,0),&amp;T_2 &lt; \frac{m(\gamma)}{u(\gamma)} &lt; T_1\\
-(0,0,1),&amp;\frac{m(\gamma)}{u(\gamma)}\le T_2
-\end{array}\right.
-$$</p>
-<p>This is almost entirely unhelpful as we don&rsquo;t know probabilities $m$ or $u$. The original proposal of Newcombe et al. (1959) was to make some heroic independence assumptions<label for="sidenote-65eaa79f518ad6e203a341c755f13c46-8" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-65eaa79f518ad6e203a341c755f13c46-8" class="margin-toggle"/>
-<span class="sidenote">The independence assumption dramatically simplifies calculation but ignores correlations between attributes that often exist in real data.</span>
-about the structure of $P\big(\gamma(a,b),|,(a,b)\in M\big)$:</p>
-<p>$$m\big(\gamma(a,b)\big)=\prod_{i=1}^n P\big(\gamma_i(a,b),|,(a,b)\in M\big)$$</p>
-<p>where $\gamma_i(a,b)$ are individual components of the agreement vector and similarly for $u(\gamma)$.</p>
-<p>Notice that the log likelihood ratio can then be written as:</p>
-<p>$$\log\left(\frac{m(\gamma)}{u(\gamma)}\right) = \sum_{i=1}^n\log\big(m_i(\gamma_i(a,b))\big)-\sum_{i=1}^n\log\big(u_i(\gamma_i(a,b))\big)$$</p>
-<p>With some additional hand waving, you can convince yourself that if $\gamma_i$ is the simple agreement indicator for a certain binary attribute $\xi$, such as the presence of particular surname or a given month of birth:</p>
-<p>$$\gamma_i(a,b)= \left\{
-\begin{array}{ll}
-1,&amp;\text{if } \xi(a)=1 \text{ and } \xi(b)=1,\\
-0,&amp;\text{otherwise}
-\end{array}\right.
-$$</p>
-<p>it might be reasonable to expect that when $\gamma_i\big((a,b)\big)=1$:</p>
-<p>$$\log\big(m_i(1)\big)-\log\big(u_i(1)\big)\approx \log \big(\pi_\xi \big) - \log \big(\pi_\xi^2\big) = -\log\big(\pi_\xi\big)$$</p>
-<p>where $\pi_\xi$ is the proportion of the combined population where the attribute is present. This gives us an intuitive scheme to assign weights to different matches, where e.g. rare names would be considered more informative than common ones.</p>
-<h2 id="date-of-birth-distribution-patterns">Date of birth distribution patterns</h2>
-<p>Here is an example what this might mean in a real world dataset:</p>
-
-
-
-  
-    <figure  class="class param">
-  
-
-
-
-  <label for="" class="margin-toggle">⊕</label>
-  <input type="checkbox" id="" class="margin-toggle">
-  <span class="marginnote">
-  
-
-  
-  Date of birth frequencies showing lower birth rates on weekends and special dates. Notice particularly how weekends (especially Sundays) consistently show lower birth frequencies, demonstrating non-random patterns in date distributions that record linkage algorithms must account for.
-  
-  
-  
-
-  </span>
-
-
-  
-  <img src="/img/fellegi_sunter/age_distribution.png" alt="Date of birth log frequencies by day of the week">
-  
-
-
-
-</figure>
-
-<h2 id="connection-to-modern-methods">Connection to modern methods</h2>
-<p>Observe that the likelihood ratio can be approximated <em>directly</em>, i.e.:</p>
-<p>$$\frac{m(\gamma)}{u(\gamma)} \approx \frac{P\big((a,b)\in M,|,\gamma\big)}{P\big((a,b)\in U,|,\gamma\big)}\frac{|U|}{|M|}$$</p>
-<p>where the two components are estimated directly via probabilistic classifiers. Obvious downside of this is the hard requirement for &ldquo;training data&rdquo;.</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2016/blockchain-and-smart-contracts-in-insurance/">Blockchain and Smart Contracts in Insurance</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Dec 31, 2016&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/blockchain">blockchain</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/smart-contracts">smart-contracts</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/insurance">insurance</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> White papers talk about </span>
-&ldquo;automated audit&rdquo;, &ldquo;unprecedented financial services innovation&rdquo;,  &ldquo;sales disruption&rdquo; and the like, enabled by &ldquo;the blockchain&rdquo; &mdash; claims that are sure to leave a jaded practitioner skeptical.</p>
-<p>Public blockchain technology actually consists of three relatively independent components:</p>
-<ul>
-<li>direct application of public key cryptography and related ideas to the facilitation of financial transaction,</li>
-<li>a significant innovation in distributed consensus algorithms,</li>
-<li>smart contracts.</li>
-</ul>
-<h2 id="cryptographic-hash-functions">Cryptographic hash functions</h2>
-<p>The basic primitives underlying blockchain system, <em>cryptographic hash functions</em>, accept a string of characters of any length and return a fixed length output, e.g. $16$ bytes, while satisfying some additional properties:</p>
-<p><strong>Collision resistance</strong> means that it is difficult to find two such distinct values $x$ and $y$ that cause a &ldquo;collision&rdquo;, namely that $H(x)=H(y)$. While very many such pairs exist (by Dirichlet&rsquo;s principle), finding a collision for a given $x$ should be computationally infeasible.</p>
-<p><strong>Hiding</strong> property means that given the output $v$ of a hash function $v=H(r+x)$ it is impossible to discover what the input $x$ was, where $+$ denotes concatenation and $r \in$ $R$ is drawn uniformly at random from a sufficiently large set $R$.</p>
-<h2 id="blockchain-data-structure">Blockchain data structure</h2>
-<p>Cryptographic hash functions can be used to generate &ldquo;digests&rdquo; of arbitrary information, protecting the data against tampering &mdash; once the hash value of a file is computed, all one needs is this hash to verify the authenticity of the original file.</p>
-<p>A series of files or data blocks where each block contains data as well as a hash of the previous block is called a <em>blockchain</em>.</p>
-<p>This structure prevents tampering with any of the blocks as long as we know the hash of the latest block and new blocks can be added as required. Bitcoin uses blockchain to store its transaction history.</p>
-<h2 id="digital-signatures">Digital signatures</h2>
-<p>This is another essential component of public blockchain technology.</p>
-<p>The party that intends to digitally sign messages must generate a pair of values $(s, p)$ jointly satisfying certain properties. Here $s$ is the <em>secret key</em> that needs to be kept private and $p$ is the <em>public key</em> made known.</p>
-<ul>
-<li>$v = \operatorname{sign}(s, m)$ &mdash; signing function takes a message $m$ and a secret key $s$ and returns signature $v$.</li>
-<li>$\operatorname{validate}(p, m, v)$ &mdash; validation function takes a public key $p$, a message $m$, and a signature $v$ and evaluates to true if and only if the signature was indeed generated on the same message using the matching secret key.</li>
-</ul>
-<p>These functions then satisfy the condition:
-\[
-\operatorname{validate}\big(p, m, \operatorname{sign}(s, m)\big) = \operatorname{true}.<br>
-\]</p>
-<p>Final requirement is that it is not computationally feasible to fake signatures.</p>
-<p>Public keys can be used to <em>identify</em> a person &mdash; in order for someone to speak for that identity they must have access to the corresponding secret key. Identity creation in this situation is completely decentralized, anyone can create $(s, p)$ pairs at any time without notification.</p>
-<p>In Bitcoin and other similar system, public keys are used as payment <em>addresses</em> or account numbers.</p>
-<h2 id="cryptocurrency">Cryptocurrency</h2>
-<p>Let&rsquo;s consider how to implement a simple payment system using the ideas so far.</p>
-<p>We will need two types of transactions &mdash; one to <em>create</em> new &ldquo;coins&rdquo; by fiat and another to <em>pay</em> coins from an existing owner to a new owner. Transactions will be recorded in a blockchain data structure.</p>
-<p>Only the scheme operator is authorized to <em>create</em> new coins. To do so, they sign a transaction containing coin id, its value and public key to which the coin is assigned.</p>
-<p>Anyone who owns any coins is authorized to <em>pay</em> their coins to someone else. This transaction &ldquo;deletes&rdquo; some coins and creates new coins of the same total value assigned to a new set of public keys. The transaction is signed by the owner of the coins spent.</p>
-<p>Scheme operator recognizes the payment transaction as valid and appends it to the &ldquo;blockchain&rdquo; if the following conditions are satisfied:</p>
-<ul>
-<li>the deleted coins are active &mdash; they were created in a previous transaction and not already deleted,</li>
-<li>the value of the coins deleted equals to the value of coins created,</li>
-<li>the transaction is signed by the secret key corresponding to the private key to which the coins were previously assigned (only the operator can create new coins by fiat).</li>
-</ul>
-<p>The operator then publishes and signs the new block containing the transaction. The operator is unable to fake history of transactions as it would invalidate the blockchain or make payments on behalf of those public keys where they don&rsquo;t also control the secret key.</p>
-<h2 id="distributed-consensus">Distributed consensus</h2>
-<p>The major breakthrough of Bitcoin was the decentralised version of the procedure described in the previous section, eliminating the single point of failure in the operator.</p>
-<p>A simplified version of the Bitcoin consensus protocol for payment transactions (ignore coin creation for the moment) is as follows:</p>
-<ul>
-<li>new payment transactions are broadcast to all participants,</li>
-<li>each participant collects new valid transactions (in the sense described earlier) into a block,</li>
-<li>at regular intervals a randomly chosen participant broadcasts its block,</li>
-<li>other participants accept the block only if all transactions are valid,</li>
-<li>participants demonstrate that they have accepted the block by including it in their version of the blockchain (i.e. its hash will appear in the next block that they collect).</li>
-</ul>
-<p>This scheme eliminates the dependency on the central authority and has reasonable properties &mdash; invalid transaction blocks (e.g. someone trying to spend coins they don&rsquo;t own) get rejected by other (honest) participants, splits can be dealt with &amp;c.</p>
-<p>There are still two problems &mdash; we have no way to create new coins and in practice there is no reliable way to randomly choose a participant to nominate new block or to ascertain how many participants there actually are.</p>
-<h2 id="proof-of-work">Proof of work</h2>
-<p>Bitcoin offered yet another ingenious solution to both of the earlier questions.</p>
-<p>Instead of being chosen randomly to announce the next block, participants instead compete at solving cryptographic puzzles. This is called a <em>proof-of-work</em> scheme.</p>
-<p>For a new block to be valid, it must contain a fixed length number, called <em>nonce</em>, such as that the hash of the nonce appended to the rest of the block falls below certain target value:</p>
-<p>\[
-H(\operatorname{nonce} + \operatorname{new_block}) &lt; \operatorname{target}.
-\]</p>
-<p>Since there is no better known strategy for finding nonces than simple enumeration, the participants win the competition essentially randomly, with the chance of winning proportional to the computational power they can bring to the problem. Competing to find nonces is also called <em>mining</em>. This approach makes it much more costly for malicious players to subvert the system.</p>
-<p>Finally, to incentivize miners to solve hashing puzzles for new blocks, Bitcoin protocol allows them to include a transaction that <em>creates</em> coins of certain predefined value by fiat and assign it to the address of their choice.</p>
-<h2 id="smart-contracts">Smart contracts</h2>
-<p>Bitcoin does not simply store addresses of coin recipients for payment transactions but instead allows for small custom programs to be executed that check validity of a supplied public key.</p>
-<p>This is a very powerful idea as it makes transactions themselves programmable. Over time it was possible to use this functionality to implement new Bitcoin applications without changing the underlying protocol. Examples include schemes that allow funds only to be claimed if $k$ out of $n$ potential beneficiaries supply their signatures, decentralised lotteries and betting.</p>
-<p>More generally, these programmable transactions are known as <em>smart contracts</em>.</p>
-<h2 id="applications-of-blockchain---lotteries">Applications of blockchain - lotteries</h2>
-<p>A lottery is not dissimilar to an insurance pool &mdash; a large number of people deposit their money with a single counterparty who then disburses most of the money collected to a few randomly chosen individuals (after taking an often substantial fee).</p>
-<p>Bitcoin and similar public blockchain systems offer a fascinating way to implement reliable distributed lotteries without a trusted central party (and potentially at much lower cost).</p>
-<p>Let&rsquo;s say we have only $3$ participants, called $A$, $B$ and $C$. They send money to a specially crafted Bitcoin script which then pays out the total contribution back to one of them at random. The algorithm is as follows:</p>
-<ul>
-<li>Each participant picks a number &mdash; $A$ chooses $x$, $B$ chooses $y$ and $C$ chooses $z$. They then communicate $H(x)$, $H(y)$ and $H(z)$ together with their payment.</li>
-<li>$A$, $B$ and $C$ create a new transaction now incorporating $x$, $y$, and $z$. The payment is made to the $(x + y + z)\ % \ 3$ participant.</li>
-</ul>
-<p>This scheme has certain undesirable properties but rectifying them is quite involved. Much more realistic proposals already exist and it is likely we will see fully featured distributed cryptocurrency based lotteries before long.</p>
-<h2 id="applications-of-blockchain---prediction-markets">Applications of blockchain - prediction markets</h2>
-<p>Another significant area of interest are so called <em>prediction</em> or <em>betting markets</em>. These offer a way for people to place bets on outcomes of a diverse range of events, from sports to elections and corporate financial results. Prediction markets are also favoured by economists as a mechanism to efficiently aggregate information from multiple sources.</p>
-<p>Main components of a prediction market are as follows:</p>
-<ul>
-<li>A mechanism to accept funds into <em>escrow</em> and make payouts according to event outcome. This broadly corresponds to payment processing and treasury or capital management function of an insurance company.</li>
-<li>An <em>arbitration process</em> for determining the outcomes in question. Arbitration can be both decentralized (by consensus of market participants, another group such miners or even another market) and centralized, provided by a trusted third party (any signed data feed can ultimately be used). Further questions arise when the outcomes are ambiguous or not a matter of public record. In insurance context this would correspond to claims assessment.</li>
-<li>An <em>order book</em> or similar mechanism (such as a market maker relying on a <em>scoring rule</em>) for participants to find counterparties to trade with. An order book contains <em>bids</em> and <em>asks</em>. A bid is a buy order and ask is a sell order. Typically the ask price is higher than the bid, otherwise two participants are matched up and a trade occurs, eliminating one of the orders. This has no close analogue in insurance outside of risk securitasion.</li>
-</ul>
-<p>Following is an example of how a very simple bet can be implemented using the Bitcoin protocol:</p>
-<ul>
-<li>An arbitrator creates two pairs of keys $(s_0, p_0)$ and $(s_1, p_1)$ for &ldquo;No&rdquo; and &ldquo;Yes&rdquo; outcomes of a certain event and publishes the public keys. Once the outcome is known, they also publish the corresponding secret key.</li>
-<li>$A$ wishes to bet on a &ldquo;Yes&rdquo; outcome and $B$ on a &ldquo;No&rdquo; outcome. They deposit money to a bitcoin script from which payments can be withdrawn either using signatures from $A$ and &ldquo;Yes&rdquo; or $B$ and &ldquo;No&rdquo;.</li>
-</ul>
-<h2 id="potential-insurance-use-cases">Potential insurance use cases</h2>
-<p><strong>Digital certificates of insurance</strong> &mdash; using digital signatures on certificates of insurance to allow decentralised verification.</p>
-<p><strong>Insurance pools</strong> &mdash; these are very similar to decentralised lotteries just with a different set of rules to determine the beneficiaries, arbitration can be implemented either through vote of participants or a trusted third party.</p>
-<p><strong>Insurance markets</strong> &mdash; essentially the same as prediction markets (may need &ldquo;insurable interest&rdquo; constraints), insurance linked securities with parametric triggers already come very close.</p>
-<p><strong>Core systems for smart contracts</strong> &mdash; internal systems implementing a centralised version of blockchain can allow rapid innovation in product design.</p>
-<p>Many insurance use cases do not necessarily require full public blockchain. Early successes will likely be those that can leverage work in lotteries and prediction markets. Low friction automated outcome arbitration appears to be the key.</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2015/analytics-and-online-courses/">Analytics and Online Courses</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Apr 30, 2015&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/analytics">analytics</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/education">education</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/moocs">moocs</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> Many popular accounts of analytics and data science leave out the essential concepts </span>
-required to understand these systems from first principles. White papers talk about &ldquo;automated audit&rdquo;, &ldquo;unprecedented financial services innovation&rdquo;, &ldquo;sales disruption&rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle"/>
-<span class="marginnote"> You can download the <a href="/talks/analytics_moocs.pdf">complete slides</a> for this post. </span></p>
-<blockquote cite="">
-<p>&ldquo;Analytics&rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.</p>
-  <footer>A working definition</footer>
-</blockquote>
-<p>The same theme is repeated with variations across a wide gamut of loosely associated disciplines. Exact definitions have proven notoriously elusive (consider operations research or actuarial science), with few convincing distinctions from the classical notions of rational or scientific inquiry other than through the domain of application. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/deMoivre003.png" alt=""> Perhaps the first modern work on commercial mathematics.</span></p>
-<p>Analytics landscape is not easy to survey as many movements have overlapped in time and areas of practice, resulting in a layering of ideologies and ideas perhaps impossible to decisively disentangle.</p>
-<h2 id="analytics-self-education">Analytics (self) education</h2>
-<p>Mathematical modelling and computing could be argued to be core &ldquo;data science&rdquo; skills – increasing number of business processes and low-level operational decisions being subject to automation.</p>
-<p>Here I tried to stay away from &ldquo;flavour of the month&rdquo; or introductory &ldquo;data science&rdquo; offerings that by now unfortunately dominate, focussing instead on those courses where the professors, at times, provide unique perspective on fundamental topics across mathematical modelling and computing.</p>
-
-
-
-  
-    <figure >
-  
-
-
-
-  <label for="" class="margin-toggle">⊕</label>
-  <input type="checkbox" id="" class="margin-toggle">
-  <span class="marginnote">
-  
-
-  
-  Suggested curriculum for analytics education covering foundations, specializations, and applications.
-  
-  
-  
-
-  </span>
-
-
-  
-  <img src="/img/curriculum.png" alt="Analytics curriculum">
-  
-
-
-
-</figure>
-
-<p>It is generally a useful heuristic to seek out graduate level courses from reputable North American universities. Video or audio recordings of good lectures can significantly lower the (still considerable) effort required to become familiar with the material compared to self study from textbooks.</p>
-<h2 id="analytics-at-web-companies">Analytics at web companies</h2>
-<p>To get an impression of what the future of insurance analytics might look like, it is worthwhile to review some of the courses offered by people with experience implementing analytics solutions for the leading web companies.</p>
-<p>Examples include CS281B &ldquo;Scalable Machine Learning&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-5" class="margin-toggle"/>
-<span class="sidenote"><a href="http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP">http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP</a></span>
-at UC Berkeley by Alex Smola (formerly of Yahoo) and &ldquo;Big Data, Large Scale Machine Learning&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-6" class="margin-toggle"/>
-<span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start</a></span>
-at NYU by Yann LeCun (currently at Facebook). In particular the first course offers an interesting insight into the importance of understanding systems, numerical methods and statistics to develop analytics solutions at web scale.</p>
-<p>Prerequisites for this material include linear algebra, basic probability and statistics and, ideally, convex optimisation and an introduction to machine learning, as discussed next.</p>
-<h2 id="linear-algebra-and-numerical-computing">Linear algebra and numerical computing</h2>
-<p>Numerical linear algebra is the most essential tool in applied mathematics. The majority of computational procedures for solving mathematical models ultimately reduce to iteratively solving systems of linear equations.</p>
-<p>An excellent introductory treatment of linear algebra is given by Gilbert Strang in MIT 18.06<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-7" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/</a></span>
-. The material is further developed in MIT 18.085 and 18.086<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-8" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/">http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/</a></span>
-, demonstrating a very broad range of applications across engineering subfields.</p>
-<p>Another take on the material is given in Stanford EE263<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-9" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/EE263">https://see.stanford.edu/Course/EE263</a></span>
-taught by Stephen Boyd – in addition to basic linear algebra, the course gives highly intuitive exposition to least squares regression, regularisation, singular value decomposition and linear dynamical systems (which can be viewed as a generalisation of a wide class of time-series models in the actuarial syllabus).</p>
-<p>The Fourier transform is one of the most famous special cases of a linear operation – an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in Stanford EE261<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-10" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/EE261">https://see.stanford.edu/Course/EE261</a></span>
-.</p>
-<h2 id="optimisation">Optimisation</h2>
-<p>Optimisation based models are pervasive in analytics, whether it be maximum likelihood estimation, &ldquo;empirical risk minimisation&rdquo;, Neyman-Pearson hypothesis testing, optimal control, Markowitz portfolio theory or option pricing.</p>
-<p>Prof. Stephen Boyd&rsquo;s course EE364A Convex Optimization<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-11" class="margin-toggle"/>
-<span class="sidenote"><a href="https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about">https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about</a></span>
-not only gives a solid grounding in the theory but also considers many of the above-mentioned examples. Convex optimisation is widely seen as the foundation of modern statistics, machine learning and signal processing.</p>
-<p>There is also an interesting connection between mathematical optimisation and classical algorithms studied in undergraduate computer science courses – many of the problems such as sorting, shortest path, max flow etc turn out to be special cases of linear programming (itself a special case of convex optimisation).</p>
-<p>The follow up course EE364B<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-12" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/EE364B">https://see.stanford.edu/Course/EE364B</a></span>
-provides more detailed background on scalable and distributed optimization as well as the clearest introduction to the General Equilibrium theory of microeconomics you are likely to find.</p>
-<h2 id="machine-learning-information-theory-etc">Machine learning, information theory etc.</h2>
-<p>There are few unequivocally great introductory probability and statistics courses publicly available, at least at the moment. MIT 6.041<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-13" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/</a></span>
-is a useful probability refresher. A worthwhile follow up is MIT 6.262 &ldquo;Discrete Stochastic Processes&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-14" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/</a></span>
-.</p>
-<p>When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, Stanford Statistical Learning<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-15" class="margin-toggle"/>
-<span class="sidenote"><a href="https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about">https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about</a></span>
-is a solid introduction from the authors of the well-known book.</p>
-<p>A closely related subject area is machine learning, with the introductory course by Andrew Ng<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-16" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS229">https://see.stanford.edu/Course/CS229</a></span>
-and a much more in depth treatment by Alex Smola<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-17" class="margin-toggle"/>
-<span class="sidenote"><a href="http://alex.smola.org/teaching/cmu2013-10-701/">http://alex.smola.org/teaching/cmu2013-10-701/</a></span>
-. So called &ldquo;deep networks&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-18" class="margin-toggle"/>
-<span class="sidenote"><a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start">http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start</a></span>
-are a recent &ldquo;hot&rdquo; topic in machine learning, providing state of the art performance for many recognition tasks.</p>
-<p>Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation). MIT 6.450 &ldquo;Principles of Digital Communications I&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-19" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/</a></span>
-is an excellent course. Information theory is an essential foundation of all digital information processing technology.</p>
-<p>Another superb discussion of information theory is given in the course taught by the late David MacKay at Cambridge<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-20" class="margin-toggle"/>
-<span class="sidenote"><a href="http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml">http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml</a></span>
-, bringing together topics from coding theory, statistics and machine learning.</p>
-<h2 id="programming">Programming</h2>
-<p>There exists a very wide range of high quality introductory programming courses. Perhaps the Stanford sequence<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-21" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106A">https://see.stanford.edu/Course/CS106A</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-22" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS106B">https://see.stanford.edu/Course/CS106B</a></span>
-deserves a particular mention. Alternatives include the introductory courses at MIT<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-23" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-24" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/</a></span>
-.</p>
-<p>MIT 6.001<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-25" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/</a></span>
-is the most celebrated introductory programming course of all, with the textbook &ldquo;Structure and Interpretation of Computer Programs&rdquo; used in dozens of top universities.</p>
-<p>While Scheme, the language that it uses for teaching programming concepts, has for long time been considered less than practical, over the recent years there has been a dramatic resurgence of popularity of the related body of ideas called &ldquo;functional programming&rdquo;, underpinning many of the latest &ldquo;big data&rdquo; technologies.</p>
-<p>Beyond the introductory courses, &ldquo;Programming Paradigms&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-26" class="margin-toggle"/>
-<span class="sidenote"><a href="https://see.stanford.edu/Course/CS107">https://see.stanford.edu/Course/CS107</a></span>
-gives a useful overview of design choices behind a variety of programming languages. Finally, no such list would be complete without an algorithms class<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-27" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/</a></span>
-.</p>
-<h2 id="finance-economics-and-social-science">Finance, Economics and social science</h2>
-<p>While the exact relation between &ldquo;actuarial&rdquo; pricing and financial economics is not clearly set out in popular introductory textbooks, it has been understood in the academic literature for some time as the so called &ldquo;incomplete markets&rdquo; setting.</p>
-<p>An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane&rsquo;s (University of Chicago) class &ldquo;Asset Pricing&rdquo; on Coursera<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-28" class="margin-toggle"/>
-<span class="sidenote"><a href="http://www.coursera.org/course/assetpricing">http://www.coursera.org/course/assetpricing</a></span>
-.</p>
-<p>A useful generalisation of the concept of an optimisation problem is offered by game theory. Instead of considering a &ldquo;central planning&rdquo; problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-29" class="margin-toggle"/>
-<span class="sidenote"><a href="https://www.coursera.org/course/gametheory">https://www.coursera.org/course/gametheory</a></span>
-<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-30" class="margin-toggle"/>
-<span class="sidenote"><a href="https://www.coursera.org/course/gametheory2">https://www.coursera.org/course/gametheory2</a></span>
-provide an introduction to a range of topics, including auctions and mechanism design.</p>
-<p>Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course &ldquo;Public Economics&rdquo;<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-31" class="margin-toggle"/>
-<span class="sidenote"><a href="http://obs.rc.fas.harvard.edu/chetty/public_lecs.html">http://obs.rc.fas.harvard.edu/chetty/public_lecs.html</a></span>
-.</p>
-<p>One example in social science where large-scale experiments have been possible is &ldquo;development economics&rdquo;. The MIT course 14.73<label for="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-32" class="margin-toggle sidenote-number"></label>
-<input type="checkbox" id="sidenote-6b5e20f43ceec8c4caf512ee2045c1c2-32" class="margin-toggle"/>
-<span class="sidenote"><a href="http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/">http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/</a></span>
-offers an in depth discussion of considerations that go into designing a convincing experimental study.</p>
-<h2 id="but-will-this-be-useful-to-me">But will this be useful to me?</h2>
-<blockquote cite="">
-<p>You have to keep a dozen of your favorite problems constantly present in your mind, although by and large they will lay in a dormant state. Every time you hear or read a new trick or a new result, test it against each of your twelve problems to see whether it helps. Every once in a while there will be a hit, and people will say: &lsquo;How did he do it? He must be a genius!&rsquo;</p>
-  <footer>Richard Feynman via Gian-Carlo Rota</footer>
-</blockquote>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2015/the-logarithmic-market-scoring-rule/">The Logarithmic Market Scoring Rule</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Apr 10, 2015&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/betting-markets">betting-markets</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/insurance">insurance</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/risk-measures">risk-measures</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/probability">probability</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> The concept of subjective probabilities has deep implications </span>
-for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &ldquo;real&rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.</p>
-<blockquote cite="">
-<p>PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.</p>
-  <footer>Bruno de Finetti, Theory of Probability, 1974</footer>
-</blockquote>
-<h2 id="subjective-probabilities">Subjective Probabilities</h2>
-<p>De Finetti proposed defining &ldquo;probabilities&rdquo; as prices one would place on certain lottery tickets. Denote $p(E)$ as the price at which one is indifferent between buying and selling a lottery ticket that pays $\$1$ if the event $E$ occurred and $\$0$ otherwise. Similarly $p(E|F)$ is the indifference price for a ticket paying $\$1$ if $E \cap F$ occurs, $\$0$ if $F$ occurs without $E$ and $\$-1$ if $F$ does not occur.</p>
-<p>The following assumptions make the prices &ldquo;coherent,&rdquo; effectively eliminating arbitrage opportunities:</p>
-<ul>
-<li>$p(E) \ge \$0$</li>
-<li>$p(E) + p(E^C) = \$1$</li>
-<li>$p(E \cup F)=p(E)+p(F)$ if $E\cap F = \emptyset$</li>
-<li>$p(E \cap F) = p(E|F)p(F)$</li>
-</ul>
-<p>This framework is identical to the &ldquo;no arbitrage&rdquo; assumptions in finance.</p>
-<h2 id="betting-or-prediction-markets">Betting or Prediction Markets</h2>
-<p>While subjective probabilities are useful for individual decision-making, neither de Finetti&rsquo;s formalism nor classical Bayesian updating specify how to generate consensus estimates. An appealing approach is to defer to market mechanisms. Most popular mechanisms include:</p>
-<ul>
-<li><strong>Parimutuel betting</strong>: the total pool is allocated to participants betting on the winning outcome in proportion to the size of their original bets.</li>
-<li><strong>Fixed odds betting</strong>: a bookmaker is the counterparty in every transaction and is responsible for updating the odds.</li>
-<li><strong>Continuous double auction</strong>: every market participant can &ldquo;buy&rdquo; and &ldquo;sell&rdquo; bets, with transactions occurring when bid and ask prices overlap.</li>
-</ul>
-<p>Each of these traditional mechanisms has limitations. In parimutuel betting, the odds aren&rsquo;t known until betting concludes, which can discourage sophisticated participants from betting just before closure. Fixed odds betting requires a sophisticated bookmaker who might face unlimited losses. Double auction mechanisms often suffer from low liquidity.</p>
-<h2 id="an-automated-bookmaker">An Automated Bookmaker</h2>
-<p>Interestingly, it&rsquo;s possible to design a mechanism that&rsquo;s no more complicated than parimutuel betting yet both quotes odds at any time and limits worst-case losses.</p>
-<p>Consider a discrete space of events $\Omega$ with $n$ elements and assume that the bookmaker has an exponential utility function $u(x)=1 - e^{-\alpha x}, \alpha &gt;0$ and zero starting endowment. The bookmaker prices any proposed bet $\mathbf{q}\in \mathbb{R}^n$ using the zero utility premium principle by solving for $C$:</p>
-<p>$$\mathbb{E}\big(1-e^{-\alpha(C-\mathbf{q})}\big)=\sum_{i=1}^n p_i \left(1 - e^{-\alpha{C-q_i}}\right)=0$$</p>
-<p>We can rewrite this as:</p>
-<p>$$e^{-\alpha C}\sum_{i=1}^n p_i e^{\alpha q_i}=1$$</p>
-<p>And obtain an expression for the price of the bet $\mathbf{q}$ given an empty starting inventory:</p>
-<p>$$C(\mathbf{q})=\frac{1}{\alpha}\log\sum_{i=1}^n p_ie^{\alpha q_i}$$</p>
-<p>It&rsquo;s easy to verify that this cost function is <em>path independent</em>, meaning that the price charged for a bet doesn&rsquo;t depend on how it&rsquo;s split up. Denoting by $C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r})$ the price charged for the bet $\mathbf{q}$ by the bookmaker with inventory $\mathbf{r}\in \mathbb{R}^n$, we get:</p>
-<p>$$C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r}) = C(\mathbf{q+r}) - C(\mathbf{r})$$</p>
-<p>This implies that market participants don&rsquo;t gain by strategically splitting their bets.</p>
-<h2 id="the-logarithmic-market-scoring-rule">The Logarithmic Market Scoring Rule</h2>
-<p>The algorithm employed by the bookmaker following this &ldquo;logarithmic scoring rule&rdquo; is remarkably simple:</p>
-<ol>
-<li>Given the current inventory of bets $\mathbf{r}$, charge (or pay out) $C(\mathbf{q}+\mathbf{r}) - C(\mathbf{r})$ for the proposed bet $\mathbf{q}$.</li>
-<li>If the quote is accepted, update the inventory to be $\mathbf{q}+\mathbf{r}$ and wait for the next request.</li>
-</ol>
-<p>Assuming the relative size of the bet is small, we can approximate the price vector of $n$ bets paying $\$1$ in state $i$ by $\nabla_\mathbf{r} C(\mathbf{r})$:</p>
-<p>$$\frac{\partial C}{\partial r_i} =\frac{p_ie^{\alpha r_i}}{\sum_{j=1}^n p_je^{\alpha r_j}}$$</p>
-<p>This is an exponential family probability distribution with <em>carrier density</em> $\mathbf{p}$ or the Esscher transform of $\mathbf{p}$.</p>
-<h2 id="upper-bound-on-the-bookmakers-loss">Upper Bound on the Bookmaker&rsquo;s Loss</h2>
-<p>What makes this approach particularly interesting is that it guarantees a limit on the bookmaker&rsquo;s potential losses regardless of the bets accepted or the actual outcome $\omega\in \Omega$.</p>
-<p>We can write down the worst possible loss as:</p>
-<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\text{maximise}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0}))$$</p>
-<p>For a fixed $i$, the objective becomes:</p>
-<p>$$\begin{aligned}
-q_i - (C(\mathbf{q}) - C(\mathbf{0})) &amp;= \frac{1}{\alpha}\log p_i e^{\alpha q_i} - \frac{1}{\alpha}\log p_i - \bigg(\frac{1}{\alpha}\log\Big(\sum_{j=1}^np_je^{\alpha q_j}\Big) - C(\mathbf{0})\bigg)\
-&amp;=\frac{1}{\alpha}\log \bigg(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}} \bigg) - \frac{1}{\alpha}\log p_i
-\end{aligned}$$</p>
-<p>It&rsquo;s easy to see that $\frac{1}{\alpha}\log \Big(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}}\Big)$ is bounded from above by $0$ for any $\mathbf{q} \in \mathbb{R}^n$.</p>
-<p>This leaves us with $\max_i \frac{1}{\alpha}\log \frac{1}{p_i}$ as the upper bound on the bookmaker&rsquo;s loss.</p>
-<p>This upper bound is minimized if the bookmaker&rsquo;s subjective distribution $\mathbf{p}$ is uniform, resulting in a bound of $\frac{1}{\alpha}\log n$.</p>
-<h2 id="convex-premium-principles-as-cost-functions">Convex Premium Principles as Cost Functions</h2>
-<p>More generally, we can use any convex premium principle $C$ as the cost function, satisfying these properties:</p>
-<ul>
-<li><strong>Convexity</strong>: $C(\mathbf{q})$ is a convex function of $\mathbf{q}$</li>
-<li><strong>Increasing monotonicity</strong>: for any $\mathbf{q}$ and $\mathbf{r}$ if $\mathbf{q} \ge \mathbf{r}$ (entrywise), then $C(\mathbf{q}) \ge C(\mathbf{r})$</li>
-<li><strong>Translation invariance</strong>: for any $\mathbf{q}$ and $k$, $C(\mathbf{q}+k\mathbf{1}) = C(\mathbf{q})+k$</li>
-</ul>
-<p>This is identical, up to a minus sign, to the definition of <em>convex risk measures</em> (Föllmer and Schied, 2002). We can use their &ldquo;robust representation&rdquo;:</p>
-<p>$$C(\mathbf{r})= \underset{\mathbf{p}\in \boldsymbol{\Delta}}{\sup}\ \mathbf{p}^T\mathbf{r} - R(\mathbf{p})$$</p>
-<p>to derive worst-case loss bounds:</p>
-<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\operatorname{sup}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0})) = \underset{i \in \{1,\ldots,n\}}{\operatorname{max}}\ R(\mathbf{e}_i) + C(\mathbf{0})$$</p>
-<h2 id="implications-for-insurance">Implications for Insurance</h2>
-<p>These concepts have interesting implications for insurance markets. It may be desirable to limit risk concentration at the time premiums are quoted, effectively making pricing dependent on the existing portfolio.</p>
-<p>While the existing literature on premium principles and risk measures conceptually accommodates this, it typically assumes precise knowledge of cumulative loss distributions, making direct application difficult.</p>
-<p>The results from the logarithmic market scoring rule suggest that focusing on losses in a finite number of scenarios makes immunizing the portfolio against worst-case losses more tractable.</p>
-<p>Unlike the betting setting, each new member joining an insurance scheme usually results in the multiplicative growth of the relevant outcome space. However, it&rsquo;s possible to construct automatic safeguards against unanticipated or risky changes in portfolio composition by making quotes dependent on the current &ldquo;inventory,&rdquo; limiting exposure to certain risk cells, analogous to underwriting limits.</p>
-<p>It might also be possible to devise insurance products directly around this idea, especially in situations where diverse groups of agents have &ldquo;insurable interest&rdquo; in certain events (similar to catastrophe bonds).</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2013/decision-theory/">Decision Theory</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Apr 10, 2013&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/decision-theory">decision-theory</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> Let&rsquo;s revisit decision theory </span>
-from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.</p>
-<h2 id="stochastic-optimisation">Stochastic optimisation</h2>
-<p>Recall the standard stochastic optimisation problem:</p>
-<p>$$
-\begin{array}{ll}
-\underset{x\in\mathcal{X}}{\min} &amp; \mathbb{E}_{\theta}
-F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega
-\end{array}
-$$</p>
-<p>Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.</p>
-<h2 id="sample-average-approximation">Sample average approximation</h2>
-<p>Generate $n$ realisations $(\omega_1,\ldots,\omega_n)$ of &ldquo;scenarios&rdquo; or &ldquo;training data&rdquo;; we can now form sample average approximations of $\mathbb{E}_{\theta} F(x,\omega)$:</p>
-<p>$$\hat{F}(x,\omega_1,\ldots,\omega_n)=\frac{1}{n}\sum_{j=1}^{n}F(x,\omega_j).$$</p>
-<p>And solve the approximate problem:</p>
-<p>$$\begin{array}{l}
-\hat{x}(\omega_1,\ldots,\omega_n)=\underset{x\in\mathcal{X}}{\operatorname{argmin}} \ \hat{F}(x,\omega_1,\ldots,\omega_n)\
-\end{array}$$</p>
-<p>How to evaluate this procedure? Note that we at this point have neither the &ldquo;true solution&rdquo; nor can we evaluate the &ldquo;true&rdquo; objective value $\mathbb{E}_\theta F\big(\hat{x}(\omega_1,\ldots,\omega_n),\omega\big)$.</p>
-<h2 id="decision-theoretic-optimality-criteria-for-estimators">Decision theoretic optimality criteria for &ldquo;estimators&rdquo;</h2>
-<p>Also known as &ldquo;frequentist risk&rdquo;, $R_n$ measures &ldquo;average&rdquo; performance when trained on &ldquo;average&rdquo; data:
-$$
-\begin{aligned}R_n(\hat{x},\theta)&amp;=\textstyle\mathbb{E}_{\theta}
-F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})\\
-&amp;=\int_{\omega^{n+1}\in\Omega^{n+1}}
-F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})p(\omega_1,\ldots,\omega_{n+1};\theta);d\omega_1\ldots\omega_{n+1}
-\end{aligned}
-$$
-Note that $R_n$ depends on the distribution $p(\omega;\theta)$. Broadly, two ways to reduce this to a number from a function of $\theta$:</p>
-<p>$$R_n^{\text{worst}}(\hat{x},\Theta)=\underset{\theta \in
-\Theta}{\text{max}}\ R_n\ (\hat{x},\theta)
-$$
-or
-$$R_n^{\text{Bayes}}(\hat{x}, \pi)=  \textstyle{\mathbb{E}_\pi} R_n\ (\hat{x},\theta) = \displaystyle\int_{\theta\in\Theta}R_n(\hat{x},\theta)\pi(\theta);d\theta
-$$</p>
-<p>It is primarily a tool for analysis (e.g. let $n \rightarrow \infty$), but a few closed form or at least computationally tractable solutions exist (e.g. LQR theory in control, &ldquo;robust&rdquo; LPs).</p>
-<h2 id="relation-to-the-classical-decision-theory-problem">Relation to the classical decision theory problem</h2>
-<p>Potentially due to historical trajectory, textbook treatments of decision theory focus on the decision variables/parameters. In the stochastic optimisation setting this would look like:</p>
-<p>$$
-R_n(\hat{x},\theta)=\textstyle{\mathbb{E}_{\theta}}
-\ell(\hat{x}(\omega_1,\ldots,\omega_n), x^\star_\theta)
-$$</p>
-<p>With the focus on the differences between the estimates $\hat{x}$ and the &ldquo;true parameters&rdquo; $x^\star_\theta$.</p>
-<h2 id="statistical-learning-theory">Statistical learning theory</h2>
-<p>A way to enrich the basic decision theoretic criteria is to consider &ldquo;regret&rdquo; or &ldquo;excess loss&rdquo; with respect to the &ldquo;true&rdquo; solution over some constraint set $\mathcal{X}$:</p>
-<p>$$R_n^{\text{regret}}(\hat{x},\Theta,\mathcal{X})=\underset{\theta \in
-\Theta}{\text{max}; }\Big( R_n\ (\hat{x},\theta) - \underset{x \in
-\mathcal{X}}{\text{min}}; \textstyle\mathbb{E}_{\theta} F(x,\omega)\Big)
-$$</p>
-<p>Controlling the size/&ldquo;capacity&rdquo; of set $\mathcal{X}$ (complexity of schedules, smoothness of regression functions etc) allows to devise estimators/decision rules $\hat{x}$ that &ldquo;work&rdquo; over larger sets of distributions $\Theta$ with respect to this relativised objective.</p>
-<h2 id="example-regression">Example: regression</h2>
-<p>$(a,b) \in \mathbb{R}^k \times \mathbb{R}$ have some joint distribution $p\big((a,b);\theta\big)$. Find weight vector $x \in \mathbb{R}^k$ for which $x^Ta$ is a good estimator of $b$. Choose $x$ to minimize expected value of the squared loss:</p>
-<p>$$
-\textstyle\mathbb{E}_{\theta} F(x,(a,b)) =  \mathbb{E}_{\theta} (x^Ta-b)^2
-$$</p>
-<p>We have &ldquo;training data&rdquo; or &ldquo;scenarios&rdquo; from the joint distribution $(a_i,b_i),\ i=1,\ldots,n$. Form an approximate problem using &ldquo;training data&rdquo; and denote its solution by $\hat{x}\big((a_1,b_1),\ldots,(a_n,b_n)\big)$:</p>
-<p>$$
-\begin{array}{l}
-\hat{x}= \underset{x}{\operatorname{argmin}} \ \displaystyle\frac{1}{n}\sum_{i=1}^n (x^Ta_i-b_i)^2
-\end{array}
-$$</p>
-<p>Evaluate sample average approximation of the objective for the model $\hat{x}$ on a new set of $m$ samples $(a&rsquo;_i,b&rsquo;_i),\ i=1,\ldots,m$:</p>
-<p>$$
-\hat{F}\big(\hat{x}, (a&rsquo;_1,b&rsquo;_1),\ldots,(a&rsquo;_m,b&rsquo;_m)\big) =\frac{1}{m}\sum_{i=1}^m( \hat{x}^T a&rsquo;_i - b&rsquo;_i)^2
-$$</p>
-<p>This is essentially &ldquo;test set&rdquo; error in machine learning.</p>
-<p>It is helpful to attempt to describe the same procedures in different vocabularies, as this can reveal connections and insights not apparent from a single perspective.</p>
-<p>An important question emerges: when can we design &ldquo;optimal&rdquo; procedures by mechanically solving optimisation problems? Such an approach would necessitate explicit specification of (often unverifiable) assumptions, rather than relying on vague appeals to laws of large numbers and other asymptotic results. Another interesting avenue for future work is exploring natural ways to control the &ldquo;capacity&rdquo; of stochastic optimisation problems, analogous to how capacity is managed in statistical learning theory.</p>
-</section>
-            
-            <section style="padding-bottom:0px;">
-<h1 class="content-title" style="margin-bottom:0.5rem">
-  
-  <a href="/2013/operators-an-algorithm-toolkit/">Operators - an Algorithm Toolkit</a>
-  
-</h1>
-
-
-
-
-
-<span class="content-meta">
-    
-    
-    Mar 12, 2013&nbsp;&nbsp;
-    
-    
-    
-    <nav class="tags">
-        <ul>
-            
-            <li><a href="https://dvse.github.io/tags/functional-analysis">functional-analysis</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
-            
-            <li><a href="https://dvse.github.io/tags/optimization">optimization</a> </li>
-            
-        </ul>
-    </nav>
-    
-</span>
-
-
-
-</section>
-
-            <section><p><span class="newthought"> Operator theory provides a unified perspective </span>
-for understanding algorithms across domains including machine learning and actuarial science. This post explores connections between chain ladder methods, pricing models, and the functional analysis approach.</p>
-<h2 id="nonlinear-functional-analysis">Nonlinear Functional Analysis</h2>
-<p>Among the central topics in nonlinear functional analysis is the study of operator equations $T(x)=0$ (e.g., $Ax-b=0$, $\nabla f(x)=0$) and the associated questions:</p>
-<ul>
-<li>Existence of a solution</li>
-<li>Uniqueness of the solution</li>
-<li>Stability of the solutions under perturbation or noisy measurements</li>
-<li>Construction of approximation methods and estimation of their convergence</li>
-</ul>
-<p>While tools of functional analysis allow for uniform treatment of widely differing problems they do not eliminate the need for detailed examinations grounded in the problem specifics.</p>
-<h2 id="fixed-point-iterations">Fixed Point Iterations</h2>
-<p>Fixed point iterations are the main technique for devising numerical solution methods for operator equations. Some possibilities for $T(x)=0$ include:</p>
-<ul>
-<li>Basic iteration: $x=(I - T)(x)$</li>
-<li>Damped iteration: $x=(I - \lambda T)(x)$</li>
-<li>Newton&rsquo;s method: $x=\Big(I - \big(DT(x)\big)^{-1}\circ T\Big)(x)$</li>
-<li>Operator splitting: $x=F^{-1}\circ(T-G)(x)$ where $F + G = T$</li>
-</ul>
-<p>Key properties that guarantee convergence of these schemes and uniqueness of the solution are (local) <em>non-expansiveness</em> / <em>contractivity</em> of the iteration and <em>monotonicity</em> of $T$ respectively, the latter being essentially the operator version of convexity.</p>
-<h2 id="convex-optimization">Convex Optimization</h2>
-<p>Assume $f(x)=g(x)+h(x)$ is a convex function, then the subgradient $\partial f$ is a monotone operator. Some basic fixed point iterations for the operator equation $\partial f \ni 0$ include:</p>
-<ul>
-<li>Subgradient descent: $x\in(I-\lambda\partial f)x$</li>
-<li>Proximal point method: $x=(I+\lambda\partial f)^{-1}x$ (provided $h(x)$ is smooth)</li>
-<li>Proximal gradient algorithm: $x=(I+\lambda\partial g)^{-1}(I-\lambda\nabla h)x$</li>
-<li>Peaceman-Rachford splitting:</li>
-</ul>
-<p>$$
-\begin{aligned}
-z &amp;= \Big(2(I+\lambda\partial g)^{-1}-I\Big)\Big(2(I+\lambda\partial h)^{-1}-I\Big)z \\
-x &amp;= (I+\lambda\partial h)^{-1}z
-\end{aligned}
-$$</p>
-<h2 id="neural-networks">Neural Networks</h2>
-<p><label for="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-9923c29b793d688edd8ddbb03677d0c0-1" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/operator/operator_nn.png" alt=""> Neural networks can be viewed as a specific instance of operator iterations. </span></p>
-<p>Consider the $\ell_1$-norm regularized least squares regression and the corresponding proximal gradient fixed point iteration:</p>
-<p>$$
-\underset{\mathbf{x}}{\text{minimise}}\ \ |b - Ax|_2^2 + \alpha|x|_1\  = \ f(x) + g(x)
-$$</p>
-<p>$$
-\begin{aligned}
-x^{(k+1)} &amp;= \Big(I+\frac{\alpha}{\lambda}\partial g\Big)^{-1}\Big(I - \frac{1}{\lambda}\nabla_x f\Big)\Big(x^{(k)}\Big)\\
-&amp;= h_{\frac{\alpha}{\lambda}}\Big((I-\frac{1}{\lambda}A^TA)x^{(k)} + A^Tb\Big)
-\end{aligned}
-$$</p>
-<p>where $[h_{\frac{\alpha}{\lambda}}(x)]_i=\text{sign}(x_i)\big(|x_i|-\frac{\alpha}{\lambda}\big)_{+}$</p>
-<h2 id="markov-chain-monte-carlo">Markov Chain Monte Carlo</h2>
-<p>MCMC algorithms to generate samples from the target distribution $p^\star$ can be viewed as constructing an ergodic Markov chain transition operator $T$ which has $p^\star$ as the stationary distribution:</p>
-<p>$$
-p^\star=Tp^\star
-$$</p>
-<p>Popular schemes such as M-H are heuristics (i.e., the <em>detailed balance</em> condition is sufficient but not necessary) to build specific instances of such operators.</p>
-<p>We can arbitrarily split the operator $T$, where $T_1,\ldots,T_n$ need not be ergodic individually:</p>
-<p>$$
-p^\star=T_1\circ T_2\circ \ldots\circ T_np^\star
-$$</p>
-<p>This recovers e.g. Gibbs sampling.</p>
-<p>In summary:</p>
-<ul>
-<li>Operator notation can help to think about a large range of machine learning problems in a unified way</li>
-<li>Operator splitting in particular can be used to trivially generate custom algorithms that automatically provide certain (admittedly rather basic) guarantees</li>
-<li>Functional analysis perspective helps to find related problems in other fields</li>
-</ul>
 </section>
             
             

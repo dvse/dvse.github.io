@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on Certum ex Incertis</title>
+    <link>http://localhost:1313/tags/math/</link>
+    <description>Recent content in Math on Certum ex Incertis</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Apr 2025 13:04:00 +1100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Math Formatting Test</title>
+      <link>http://localhost:1313/2025/math-formatting-test/</link>
+      <pubDate>Sat, 12 Apr 2025 13:04:00 +1100</pubDate>
+      <guid>http://localhost:1313/2025/math-formatting-test/</guid>
+      <description>&lt;p&gt;&lt;span class=&#34;newthought&#34;&gt;This is a test post&lt;/span&gt;&#xA;for checking that mathematics formatting is working correctly.&lt;/p&gt;&#xA;&lt;h2 id=&#34;inline-math-examples&#34;&gt;Inline Math Examples&lt;/h2&gt;&#xA;&lt;p&gt;Here is an inline equation: \(a^2 + b^2 = c^2\). This is the Pythagorean theorem.&lt;/p&gt;&#xA;&lt;p&gt;The quadratic formula is \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\).&lt;/p&gt;&#xA;&lt;p&gt;Einstein&amp;rsquo;s famous equation is \(E = mc^2\).&lt;/p&gt;&#xA;&lt;h2 id=&#34;block-math-examples&#34;&gt;Block Math Examples&lt;/h2&gt;&#xA;&lt;p&gt;The Pythagorean theorem can also be written as:&lt;/p&gt;&#xA;\[&#xA;a^2 + b^2 = c^2&#xA;\]&lt;p&gt;Here&amp;rsquo;s a more complex equation using the block format:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

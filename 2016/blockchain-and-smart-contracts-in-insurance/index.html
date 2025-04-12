@@ -188,7 +188,7 @@ MathJax.Hub.Config({
 <p>Instead of being chosen randomly to announce the next block, participants instead compete at solving cryptographic puzzles. This is called a <em>proof-of-work</em> scheme.</p>
 <p>For a new block to be valid, it must contain a fixed length number, called <em>nonce</em>, such as that the hash of the nonce appended to the rest of the block falls below certain target value:</p>
 <p>\[
-H(\operatorname{nonce} + \operatorname{new_block}) &lt; \operatorname{target}.
+H(\operatorname{nonce} + \operatorname{new\_block}) &lt; \operatorname{target}.
 \]</p>
 <p>Since there is no better known strategy for finding nonces than simple enumeration, the participants win the competition essentially randomly, with the chance of winning proportional to the computational power they can bring to the problem. Competing to find nonces is also called <em>mining</em>. This approach makes it much more costly for malicious players to subvert the system.</p>
 <p>Finally, to incentivize miners to solve hashing puzzles for new blocks, Bitcoin protocol allows them to include a transaction that <em>creates</em> coins of certain predefined value by fiat and assign it to the address of their choice.</p>

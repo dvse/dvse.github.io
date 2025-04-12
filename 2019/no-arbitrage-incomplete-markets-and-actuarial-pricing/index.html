@@ -139,13 +139,69 @@ MathJax.Hub.Config({
 $$\mathbf{d} = \left[d^{(1)}, d^{(2)},\ldots,d^{(m)} \right]^T$$</p>
 <p>And pay-off vectors into a matrix $S \in \mathbb{R}^{n \times m}$ such that:
 $$S = \left[\mathbf{s}^{(1)}, \mathbf{s}^{(2)}, \ldots,\mathbf{s}^{(m)}\right]$$</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-0" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/linear_pricing.png" alt=""> <strong>Figure 1:</strong> Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Linear pricing diagram showing securities with prices at $t=0$ and their payoffs at $t=1$ across different states.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/linear_pricing.png" alt="Linear pricing diagram">
+  
+
+
+
+</figure>
+
 <p>Here&rsquo;s how a very simple insurance problem might look in this setting:</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-1" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/insurance.png" alt=""> <strong>Figure 2:</strong> Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Insurance example showing the premium payment at $t=0$ and the potential policy payoffs under different states at $t=1$.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/insurance.png" alt="Insurance payouts example.">
+  
+
+
+
+</figure>
+
 <p>The key assumption is that the prices are &ldquo;linear&rdquo; i.e. if we purchase $\theta^{(i)}$ of the $i$-th asset at time $t=0$ the pay-off vector $\mathbf{s} \in \mathbb{R}^n$ at $t=1$ will be:
 $$\mathbf{s}=\sum_{i=1}^m \theta^{(i)}\mathbf{s}^{(i)} = S\mathbf{\theta}$$</p>
 <p>This is generally far from true - we can negotiate better unit prices for big orders, it&rsquo;s harder to insure large risks, etc. The assumption works well enough for trades in liquid securities, especially when there are no issues of control or revealing private information.</p>
@@ -178,9 +234,37 @@ $$\begin{eqnarray}
 \end{eqnarray}$$</p>
 <p>Therefore if we can exhibit $\mathbf{\lambda}^*$ satisfying the constraints of the second problem, we can certify that the structure of prices and pay-offs offers no arbitrage opportunities.</p>
 <p>The vector $\lambda$ has a natural interpretation as a vector of &ldquo;state prices&rdquo; e.g. prices of simple pay-off vectors $\mathbf{e}^{(i)}$ which return 1 in the $i$-th state and $0$ otherwise (these are known as Arrow-Debreu securities).</p>
-<p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle">⊕</label>
-<input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-2" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/state_prices.png" alt=""> <strong>Figure 3:</strong> State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs. </span></p>
+
+
+
+  
+    <figure  class="class param">
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  State prices diagram showing how we can think of security prices in terms of the prices of their constituent Arrow-Debreu payoffs.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/financial_economics/state_prices.png" alt="State prices diagram">
+  
+
+
+
+</figure>
+
 <p>If every pay-off vector is attainable (and there is no arbitrage), state prices exist and are unique - this is called a <em>complete market</em>. Price of any pay-off vector $\mathbf{x} \in \mathbb{R}^n$ is given as $\mathbf{x}^T\mathbf{\lambda}^*$.</p>
 <p>If there is no arbitrage yet not every pay-off is attainable, there are (infinitely) many sets of state prices $\mathbf{\lambda}$ that satisfy $S^T\mathbf{\lambda} = \mathbf{d}$ - in this case the market is called <em>incomplete</em>.</p>
 <p>State prices are often normalized to sum to one and subsequently referred to as &ldquo;risk neutral probabilities&rdquo; - these do not seem to have a clear economic interpretation.</p>
@@ -222,7 +306,7 @@ $$u(0)=E\big(u(\theta \text{ - } \mathbf{x})\big)$$</p>
 <p>The approach also extends to the multi-period settings:</p>
 <p><label for="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle">⊕</label>
 <input type="checkbox" id="marginnote-58ee9cce768dae329b1207a903be93c8-3" class="margin-toggle"/>
-<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> <strong>Figure 4:</strong> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
+<span class="marginnote"> <img src="/img/financial_economics/binomial_lattice.png" alt=""> Binomial lattice model showing how asset prices and portfolio decisions evolve over time in a multi-period discrete-time setting. </span></p>
 <p>$$\begin{eqnarray}
 &amp; \underset{\mathbf{\theta}_1, \ldots, \mathbf{\theta}_n}{\text{minimize}} &amp;&amp; S_0\mathbf{\theta}_0 \nonumber \\
 &amp; \text{subject to} &amp;&amp; S_n(\mathbf{\theta}_n - \mathbf{\theta}_{a(n)}) = 0,\ \ n \in \mathcal{N}_t,\ \ t \ge 1 \nonumber \\

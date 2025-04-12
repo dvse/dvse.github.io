@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+    <title>Certum ex Incertis - Dimitri Semenovich</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Certum ex Incertis">
+<meta name="generator" content="Hugo 0.145.0">
+
+    
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    menuSettings: { zoom: "Double-Click" },
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  },
+     "HTML-CSS" : {
+         availableFonts : ["TeX"],
+         preferredFont : "TeX",
+         webFont : "TeX",
+         imageFont : null
+     }
+ });
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
+    <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="https://dvse.github.io/css/tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte.css">
+<link rel="stylesheet" href="https://dvse.github.io/css/hugo-tufte-override.css">
+
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="layout" class="pure-g">
+        <article class="pure-u-1">
+            <header class="brand">
+  <h1>Certum ex Incertis</h1>
+  <h2>Dimitri Semenovich</h2>
+  <nav class="menu">
+    <ul>
+    
+    
+        <li><a class='' href="/">Home</a></li>
+    
+        <li><a class='' href="/post/">Archive</a></li>
+    
+        <li><a class='' href="/talks/">Talks</a></li>
+    
+        <li><a class='' href="/papers/">Papers</a></li>
+    
+        <li><a class='' href="/about/">About</a></li>
+    
+    </ul>
+</nav>
+
+</header>
+
+            
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2015/analytics-and-online-courses/">Analytics and Online Courses</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 30, 2015&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/analytics">analytics</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/education">education</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/moocs">moocs</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> Many popular accounts </span>
+of analytics and data science leave out the essential concepts  required to understand these systems from first principles. White papers talk about &ldquo;automated audit&rdquo;, &ldquo;unprecedented financial services innovation&rdquo;, &ldquo;sales disruption&rdquo; and the like, claims that without sufficient details will leave a jaded practitioner at best skeptical. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-1" class="margin-toggle"/>
+<span class="marginnote"> You can download the <a href="/talks/analytics_moocs.pdf">complete slides</a> for this post. </span></p>
+<blockquote cite="">
+<p>&ldquo;Analytics&rdquo; is the process where some manner of systematic measurements and observations are used as a presumably objective basis for making decisions, process improvements or optimising (more or less abstract) performance metrics.</p>
+  <footer>A working definition</footer>
+</blockquote>
+<p>The same theme is repeated with variations across a wide gamut of loosely associated disciplines. Exact definitions have proven notoriously elusive (consider operations research or actuarial science), with few convincing distinctions from the classical notions of rational or scientific inquiry other than through the domain of application. <label for="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle">⊕</label>
+<input type="checkbox" id="marginnote-6b5e20f43ceec8c4caf512ee2045c1c2-3" class="margin-toggle"/>
+<span class="marginnote"> <img src="/img/deMoivre003.png" alt=""> Perhaps the first modern work on commercial mathematics.</span></p>
+<p>Analytics landscape is not easy to survey as many movements have overlapped in time and areas of practice, resulting in a layering of ideologies and ideas perhaps impossible to decisively disentangle.</p>
+<h2 id="analytics-self-education">Analytics (self) education</h2>
+<p>Mathematical modelling and computing could be argued to be core &ldquo;data science&rdquo; skills – increasing number of business processes and low-level operational decisions being subject to automation.</p>
+<p>Here I tried to stay away from &ldquo;flavour of the month&rdquo; or introductory &ldquo;data science&rdquo; offerings that by now unfortunately dominate, focussing instead on those courses where the professors, at times, provide unique perspective on fundamental topics across mathematical modelling and computing.</p>
+
+
+
+  
+    <figure >
+  
+
+
+
+  <label for="" class="margin-toggle">⊕</label>
+  <input type="checkbox" id="" class="margin-toggle">
+  <span class="marginnote">
+  
+
+  
+  Suggested curriculum for analytics education covering foundations, specializations, and applications.
+  
+  
+  
+
+  </span>
+
+
+  
+  <img src="/img/curriculum.png" alt="Analytics curriculum">
+  
+
+
+
+</figure>
+
+<p>It is generally a useful heuristic to seek out graduate level courses from reputable North American universities. Video or audio recordings of good lectures can significantly lower the (still considerable) effort required to become familiar with the material compared to self study from textbooks.</p>
+<h2 id="analytics-at-web-companies">Analytics at web companies</h2>
+<p>To get an impression of what the future of insurance analytics might look like, it is worthwhile to review some of the courses offered by people with experience implementing analytics solutions for the leading web companies.</p>
+<p>Examples include <a href="http://www.youtube.com/playlist?list=PLOxR6w3fIHWzljtDh7jKSx_cuSxEOCayP">CS281B &ldquo;Scalable Machine Learning&rdquo;</a> at UC Berkeley by Alex Smola (formerly of Yahoo) and <a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:bigdata:start">&ldquo;Big Data, Large Scale Machine Learning&rdquo;</a> at NYU by Yann LeCun (currently at Facebook). In particular the first course offers an interesting insight into the importance of understanding systems, numerical methods and statistics to develop analytics solutions at web scale.</p>
+<p>Prerequisites for this material include linear algebra, basic probability and statistics and, ideally, convex optimisation and an introduction to machine learning, as discussed next.</p>
+<h2 id="linear-algebra-and-numerical-computing">Linear algebra and numerical computing</h2>
+<p>Numerical linear algebra is the most essential tool in applied mathematics. The majority of computational procedures for solving mathematical models ultimately reduce to iteratively solving systems of linear equations.</p>
+<p>An excellent introductory treatment of linear algebra is given by Gilbert Strang in <a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/">MIT 18.06</a>. The material is further developed in <a href="http://ocw.mit.edu/courses/mathematics/18-086-mathematical-methods-for-engineers-ii-spring-2006/">MIT 18.085 and 18.086</a>, demonstrating a very broad range of applications across engineering subfields.</p>
+<p>Another take on the material is given in <a href="https://see.stanford.edu/Course/EE263">Stanford EE263</a> taught by Stephen Boyd – in addition to basic linear algebra, the course gives highly intuitive exposition to least squares regression, regularisation, singular value decomposition and linear dynamical systems (which can be viewed as a generalisation of a wide class of time-series models in the actuarial syllabus).</p>
+<p>The Fourier transform is one of the most famous special cases of a linear operation – an intuitive introduction to the subject and its multitude of applications, including the Central Limit Theorem, is given in <a href="https://see.stanford.edu/Course/EE261">Stanford EE261</a>.</p>
+<h2 id="optimisation">Optimisation</h2>
+<p>Optimisation based models are pervasive in analytics, whether it be maximum likelihood estimation, &ldquo;empirical risk minimisation&rdquo;, Neyman-Pearson hypothesis testing, optimal control, Markowitz portfolio theory or option pricing.</p>
+<p>Prof. Stephen Boyd&rsquo;s course <a href="https://class.stanford.edu/courses/Engineering/CVX101/Winter2014/about">EE364A Convex Optimization</a> not only gives a solid grounding in the theory but also considers many of the above-mentioned examples. Convex optimisation is widely seen as the foundation of modern statistics, machine learning and signal processing.</p>
+<p>There is also an interesting connection between mathematical optimisation and classical algorithms studied in undergraduate computer science courses – many of the problems such as sorting, shortest path, max flow etc turn out to be special cases of linear programming (itself a special case of convex optimisation).</p>
+<p>The follow up course <a href="https://see.stanford.edu/Course/EE364B">EE364B</a> provides more detailed background on scalable and distributed optimization as well as the clearest introduction to the General Equilibrium theory of microeconomics you are likely to find.</p>
+<h2 id="machine-learning-information-theory-etc">Machine learning, information theory etc.</h2>
+<p>There are few unequivocally great introductory probability and statistics courses publicly available, at least at the moment. <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/">MIT 6.041</a> is a useful probability refresher. A worthwhile follow up is <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-262-discrete-stochastic-processes-spring-2011/">MIT 6.262 &ldquo;Discrete Stochastic Processes&rdquo;</a>.</p>
+<p>When it comes to statistics, or at least a take on the topic that is more attuned to analytics applications, <a href="https://class.stanford.edu/courses/HumanitiesScience/StatLearning/Winter2014/about">Stanford Statistical Learning</a> is a solid introduction from the authors of the well-known book.</p>
+<p>A closely related subject area is machine learning, with the <a href="https://see.stanford.edu/Course/CS229">introductory course by Andrew Ng</a> and a much more in depth <a href="http://alex.smola.org/teaching/cmu2013-10-701/">treatment by Alex Smola</a>. So called <a href="http://cilvr.cs.nyu.edu/doku.php?id=courses:deeplearning:start">&ldquo;deep networks&rdquo;</a> are a recent &ldquo;hot&rdquo; topic in machine learning, providing state of the art performance for many recognition tasks.</p>
+<p>Information theory provides perhaps one of the most successful and widely used applications of probability. There are also important connections to statistics and machine learning (as efficient compression requires effective conditional probability estimation). <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-450-principles-of-digital-communications-i-fall-2006/">MIT 6.450 &ldquo;Principles of Digital Communications I&rdquo;</a> is an excellent course. Information theory is an essential foundation of all digital information processing technology.</p>
+<p>Another superb discussion of information theory is given in the <a href="http://www.inference.phy.cam.ac.uk/itprnn/Videos.shtml">course taught by the late David MacKay at Cambridge</a>, bringing together topics from coding theory, statistics and machine learning.</p>
+<h2 id="programming">Programming</h2>
+<p>There exists a very wide range of high quality introductory programming courses. Perhaps the Stanford sequence (<a href="https://see.stanford.edu/Course/CS106A">CS106A</a> and <a href="https://see.stanford.edu/Course/CS106B">CS106B</a>) deserves a particular mention. Alternatives include the introductory courses at MIT (<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00sc-introduction-to-computer-science-and-programming-spring-2011/">6.00SC</a> and <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/">6.01SC</a>).</p>
+<p><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/">MIT 6.001</a> is the most celebrated introductory programming course of all, with the textbook &ldquo;Structure and Interpretation of Computer Programs&rdquo; used in dozens of top universities.</p>
+<p>While Scheme, the language that it uses for teaching programming concepts, has for long time been considered less than practical, over the recent years there has been a dramatic resurgence of popularity of the related body of ideas called &ldquo;functional programming&rdquo;, underpinning many of the latest &ldquo;big data&rdquo; technologies.</p>
+<p>Beyond the introductory courses, <a href="https://see.stanford.edu/Course/CS107">&ldquo;Programming Paradigms&rdquo;</a> gives a useful overview of design choices behind a variety of programming languages. Finally, no such list would be complete without an <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/">algorithms class</a>.</p>
+<h2 id="finance-economics-and-social-science">Finance, Economics and social science</h2>
+<p>While the exact relation between &ldquo;actuarial&rdquo; pricing and financial economics is not clearly set out in popular introductory textbooks, it has been understood in the academic literature for some time as the so called &ldquo;incomplete markets&rdquo; setting.</p>
+<p>An introductory discussion of the modern theory of finance (CAPM, option pricing etc) from this more advanced point of view is given in John Cochrane&rsquo;s (University of Chicago) class <a href="http://www.coursera.org/course/assetpricing">&ldquo;Asset Pricing&rdquo; on Coursera</a>.</p>
+<p>A useful generalisation of the concept of an optimisation problem is offered by game theory. Instead of considering a &ldquo;central planning&rdquo; problem where all the decisions are taken by a single agent, game theory looks at situations where there are multiple self-interested parties involved. Coursera classes (<a href="https://www.coursera.org/course/gametheory">Game Theory</a> and <a href="https://www.coursera.org/course/gametheory2">Game Theory II</a>) provide an introduction to a range of topics, including auctions and mechanism design.</p>
+<p>Applications of game theoretic methods to the study of social insurance, optimal taxation and related ideas are given in the Harvard course <a href="http://obs.rc.fas.harvard.edu/chetty/public_lecs.html">&ldquo;Public Economics&rdquo;</a>.</p>
+<p>One example in social science where large-scale experiments have been possible is &ldquo;development economics&rdquo;. The <a href="http://ocw.mit.edu/courses/economics/14-73-the-challenge-of-world-poverty-spring-2011/">MIT course 14.73</a> offers an in depth discussion of considerations that go into designing a convincing experimental study.</p>
+<h2 id="but-will-this-be-useful-to-me">But will this be useful to me?</h2>
+<blockquote cite="">
+<p>You have to keep a dozen of your favorite problems constantly present in your mind, although by and large they will lay in a dormant state. Every time you hear or read a new trick or a new result, test it against each of your twelve problems to see whether it helps. Every once in a while there will be a hit, and people will say: &lsquo;How did he do it? He must be a genius!&rsquo;</p>
+  <footer>Richard Feynman via Gian-Carlo Rota</footer>
+</blockquote>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2015/the-logarithmic-market-scoring-rule/">The Logarithmic Market Scoring Rule</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2015&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/betting-markets">betting-markets</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/insurance">insurance</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/risk-measures">risk-measures</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/probability">probability</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> The concept of subjective probabilities has deep implications </span>
+for how we think about betting markets, prediction markets, and even insurance. Rather than treating probabilities as objective entities with &ldquo;real&rdquo; existence, we can view them more pragmatically as prices one would place on certain lottery tickets.</p>
+<blockquote cite="">
+<p>PROBABILITY DOES NOT EXIST. The abandonment of superstitious beliefs about the existence of Phlogiston, the Cosmic Ether, Absolute Space and Time&hellip;or Fairies and Witches, was an essential step along the road to scientific thinking. Probability, too, if regarded as something endowed with some kind of objective existence, is no less a misleading conception, an illusory attempt to exteriorize or materialize our true probabilistic beliefs.</p>
+  <footer>Bruno de Finetti, Theory of Probability, 1974</footer>
+</blockquote>
+<h2 id="subjective-probabilities">Subjective Probabilities</h2>
+<p>De Finetti proposed defining &ldquo;probabilities&rdquo; as prices one would place on certain lottery tickets. Denote $p(E)$ as the price at which one is indifferent between buying and selling a lottery ticket that pays $\$1$ if the event $E$ occurred and $\$0$ otherwise. Similarly $p(E|F)$ is the indifference price for a ticket paying $\$1$ if $E \cap F$ occurs, $\$0$ if $F$ occurs without $E$ and $\$-1$ if $F$ does not occur.</p>
+<p>The following assumptions make the prices &ldquo;coherent,&rdquo; effectively eliminating arbitrage opportunities:</p>
+<ul>
+<li>$p(E) \ge \$0$</li>
+<li>$p(E) + p(E^C) = \$1$</li>
+<li>$p(E \cup F)=p(E)+p(F)$ if $E\cap F = \emptyset$</li>
+<li>$p(E \cap F) = p(E|F)p(F)$</li>
+</ul>
+<p>This framework is identical to the &ldquo;no arbitrage&rdquo; assumptions in finance.</p>
+<h2 id="betting-or-prediction-markets">Betting or Prediction Markets</h2>
+<p>While subjective probabilities are useful for individual decision-making, neither de Finetti&rsquo;s formalism nor classical Bayesian updating specify how to generate consensus estimates. An appealing approach is to defer to market mechanisms. Most popular mechanisms include:</p>
+<ul>
+<li><strong>Parimutuel betting</strong>: the total pool is allocated to participants betting on the winning outcome in proportion to the size of their original bets.</li>
+<li><strong>Fixed odds betting</strong>: a bookmaker is the counterparty in every transaction and is responsible for updating the odds.</li>
+<li><strong>Continuous double auction</strong>: every market participant can &ldquo;buy&rdquo; and &ldquo;sell&rdquo; bets, with transactions occurring when bid and ask prices overlap.</li>
+</ul>
+<p>Each of these traditional mechanisms has limitations. In parimutuel betting, the odds aren&rsquo;t known until betting concludes, which can discourage sophisticated participants from betting just before closure. Fixed odds betting requires a sophisticated bookmaker who might face unlimited losses. Double auction mechanisms often suffer from low liquidity.</p>
+<h2 id="an-automated-bookmaker">An Automated Bookmaker</h2>
+<p>Interestingly, it&rsquo;s possible to design a mechanism that&rsquo;s no more complicated than parimutuel betting yet both quotes odds at any time and limits worst-case losses.</p>
+<p>Consider a discrete space of events $\Omega$ with $n$ elements and assume that the bookmaker has an exponential utility function $u(x)=1 - e^{-\alpha x}, \alpha &gt;0$ and zero starting endowment. The bookmaker prices any proposed bet $\mathbf{q}\in \mathbb{R}^n$ using the zero utility premium principle by solving for $C$:</p>
+<p>$$\mathbb{E}\big(1-e^{-\alpha(C-\mathbf{q})}\big)=\sum_{i=1}^n p_i \left(1 - e^{-\alpha{C-q_i}}\right)=0$$</p>
+<p>We can rewrite this as:</p>
+<p>$$e^{-\alpha C}\sum_{i=1}^n p_i e^{\alpha q_i}=1$$</p>
+<p>And obtain an expression for the price of the bet $\mathbf{q}$ given an empty starting inventory:</p>
+<p>$$C(\mathbf{q})=\frac{1}{\alpha}\log\sum_{i=1}^n p_ie^{\alpha q_i}$$</p>
+<p>It&rsquo;s easy to verify that this cost function is <em>path independent</em>, meaning that the price charged for a bet doesn&rsquo;t depend on how it&rsquo;s split up. Denoting by $C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r})$ the price charged for the bet $\mathbf{q}$ by the bookmaker with inventory $\mathbf{r}\in \mathbb{R}^n$, we get:</p>
+<p>$$C(\mathbf{q}+\mathbf{r}\,|\,\mathbf{r}) = C(\mathbf{q+r}) - C(\mathbf{r})$$</p>
+<p>This implies that market participants don&rsquo;t gain by strategically splitting their bets.</p>
+<h2 id="the-logarithmic-market-scoring-rule">The Logarithmic Market Scoring Rule</h2>
+<p>The algorithm employed by the bookmaker following this &ldquo;logarithmic scoring rule&rdquo; is remarkably simple:</p>
+<ol>
+<li>Given the current inventory of bets $\mathbf{r}$, charge (or pay out) $C(\mathbf{q}+\mathbf{r}) - C(\mathbf{r})$ for the proposed bet $\mathbf{q}$.</li>
+<li>If the quote is accepted, update the inventory to be $\mathbf{q}+\mathbf{r}$ and wait for the next request.</li>
+</ol>
+<p>Assuming the relative size of the bet is small, we can approximate the price vector of $n$ bets paying $\$1$ in state $i$ by $\nabla_\mathbf{r} C(\mathbf{r})$:</p>
+<p>$$\frac{\partial C}{\partial r_i} =\frac{p_ie^{\alpha r_i}}{\sum_{j=1}^n p_je^{\alpha r_j}}$$</p>
+<p>This is an exponential family probability distribution with <em>carrier density</em> $\mathbf{p}$ or the Esscher transform of $\mathbf{p}$.</p>
+<h2 id="upper-bound-on-the-bookmakers-loss">Upper Bound on the Bookmaker&rsquo;s Loss</h2>
+<p>What makes this approach particularly interesting is that it guarantees a limit on the bookmaker&rsquo;s potential losses regardless of the bets accepted or the actual outcome $\omega\in \Omega$.</p>
+<p>We can write down the worst possible loss as:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\text{maximise}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0}))$$</p>
+<p>For a fixed $i$, the objective becomes:</p>
+<p>$$\begin{aligned}
+q_i - (C(\mathbf{q}) - C(\mathbf{0})) &amp;= \frac{1}{\alpha}\log p_i e^{\alpha q_i} - \frac{1}{\alpha}\log p_i - \bigg(\frac{1}{\alpha}\log\Big(\sum_{j=1}^np_je^{\alpha q_j}\Big) - C(\mathbf{0})\bigg)\
+&amp;=\frac{1}{\alpha}\log \bigg(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}} \bigg) - \frac{1}{\alpha}\log p_i
+\end{aligned}$$</p>
+<p>It&rsquo;s easy to see that $\frac{1}{\alpha}\log \Big(\frac{p_ie^{\alpha q_i}}{\sum_{j=1}^n p_je^{\alpha q_j}}\Big)$ is bounded from above by $0$ for any $\mathbf{q} \in \mathbb{R}^n$.</p>
+<p>This leaves us with $\max_i \frac{1}{\alpha}\log \frac{1}{p_i}$ as the upper bound on the bookmaker&rsquo;s loss.</p>
+<p>This upper bound is minimized if the bookmaker&rsquo;s subjective distribution $\mathbf{p}$ is uniform, resulting in a bound of $\frac{1}{\alpha}\log n$.</p>
+<h2 id="convex-premium-principles-as-cost-functions">Convex Premium Principles as Cost Functions</h2>
+<p>More generally, we can use any convex premium principle $C$ as the cost function, satisfying these properties:</p>
+<ul>
+<li><strong>Convexity</strong>: $C(\mathbf{q})$ is a convex function of $\mathbf{q}$</li>
+<li><strong>Increasing monotonicity</strong>: for any $\mathbf{q}$ and $\mathbf{r}$ if $\mathbf{q} \ge \mathbf{r}$ (entrywise), then $C(\mathbf{q}) \ge C(\mathbf{r})$</li>
+<li><strong>Translation invariance</strong>: for any $\mathbf{q}$ and $k$, $C(\mathbf{q}+k\mathbf{1}) = C(\mathbf{q})+k$</li>
+</ul>
+<p>This is identical, up to a minus sign, to the definition of <em>convex risk measures</em> (Föllmer and Schied, 2002). We can use their &ldquo;robust representation&rdquo;:</p>
+<p>$$C(\mathbf{r})= \underset{\mathbf{p}\in \boldsymbol{\Delta}}{\sup}\ \mathbf{p}^T\mathbf{r} - R(\mathbf{p})$$</p>
+<p>to derive worst-case loss bounds:</p>
+<p>$$\underset{\mathbf{q}, i \in \{1,\ldots,n\}}{\operatorname{sup}}\ \ q_i - (C(\mathbf{q}) - C(\mathbf{0})) = \underset{i \in \{1,\ldots,n\}}{\operatorname{max}}\ R(\mathbf{e}_i) + C(\mathbf{0})$$</p>
+<h2 id="implications-for-insurance">Implications for Insurance</h2>
+<p>These concepts have interesting implications for insurance markets. It may be desirable to limit risk concentration at the time premiums are quoted, effectively making pricing dependent on the existing portfolio.</p>
+<p>While the existing literature on premium principles and risk measures conceptually accommodates this, it typically assumes precise knowledge of cumulative loss distributions, making direct application difficult.</p>
+<p>The results from the logarithmic market scoring rule suggest that focusing on losses in a finite number of scenarios makes immunizing the portfolio against worst-case losses more tractable.</p>
+<p>Unlike the betting setting, each new member joining an insurance scheme usually results in the multiplicative growth of the relevant outcome space. However, it&rsquo;s possible to construct automatic safeguards against unanticipated or risky changes in portfolio composition by making quotes dependent on the current &ldquo;inventory,&rdquo; limiting exposure to certain risk cells, analogous to underwriting limits.</p>
+<p>It might also be possible to devise insurance products directly around this idea, especially in situations where diverse groups of agents have &ldquo;insurable interest&rdquo; in certain events (similar to catastrophe bonds).</p>
+</section>
+            
+            <section style="padding-bottom:0px;">
+<h1 class="content-title" style="margin-bottom:0.5rem">
+  
+  <a href="/2013/decision-theory/">Decision Theory</a>
+  
+</h1>
+
+
+
+
+
+<span class="content-meta">
+    
+    
+    Apr 10, 2013&nbsp;&nbsp;
+    
+    
+    
+    <nav class="tags">
+        <ul>
+            
+            <li><a href="https://dvse.github.io/tags/optimisation">optimisation</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/machine-learning">machine-learning</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/statistics">statistics</a> </li>
+            
+            <li><a href="https://dvse.github.io/tags/decision-theory">decision-theory</a> </li>
+            
+        </ul>
+    </nav>
+    
+</span>
+
+
+
+</section>
+
+            <section><p><span class="newthought"> Let&rsquo;s revisit decision theory </span>
+from the point of view of stochastic optimisation. This post explores how the same fundamental problems have been studied in different times and communities.</p>
+<h2 id="stochastic-optimisation">Stochastic optimisation</h2>
+<p>Recall the standard stochastic optimisation problem:</p>
+<p>$$
+\begin{array}{ll}
+\underset{x\in\mathcal{X}}{\min} &amp; \mathbb{E}_{\theta}
+F(x,\omega)=\displaystyle\int_{\omega\in \Omega} F(x,\omega) p(\omega;\theta) \; d\omega
+\end{array}
+$$</p>
+<p>Objective function $F(x,\omega)$ depends on the random variable $\omega$ with known distribution $p(\omega; \theta)$, representing uncertainty in measurement, operation or manufacturing processes, computational difficulties. Denote a solution of the problem as $x^{\star}_\theta$ as it depends on the distribution $p(\omega;\theta)$. Constraint set $\mathcal{X}$ can also depend on $\omega$, but I omit this for simplicity.</p>
+<h2 id="sample-average-approximation">Sample average approximation</h2>
+<p>Generate $n$ realisations $(\omega_1,\ldots,\omega_n)$ of &ldquo;scenarios&rdquo; or &ldquo;training data&rdquo;; we can now form sample average approximations of $\mathbb{E}_{\theta} F(x,\omega)$:</p>
+<p>$$\hat{F}(x,\omega_1,\ldots,\omega_n)=\frac{1}{n}\sum_{j=1}^{n}F(x,\omega_j).$$</p>
+<p>And solve the approximate problem:</p>
+<p>$$\begin{array}{l}
+\hat{x}(\omega_1,\ldots,\omega_n)=\underset{x\in\mathcal{X}}{\operatorname{argmin}} \ \hat{F}(x,\omega_1,\ldots,\omega_n)\
+\end{array}$$</p>
+<p>How to evaluate this procedure? Note that we at this point have neither the &ldquo;true solution&rdquo; nor can we evaluate the &ldquo;true&rdquo; objective value $\mathbb{E}_\theta F\big(\hat{x}(\omega_1,\ldots,\omega_n),\omega\big)$.</p>
+<h2 id="decision-theoretic-optimality-criteria-for-estimators">Decision theoretic optimality criteria for &ldquo;estimators&rdquo;</h2>
+<p>Also known as &ldquo;frequentist risk&rdquo;, $R_n$ measures &ldquo;average&rdquo; performance when trained on &ldquo;average&rdquo; data:
+$$
+\begin{aligned}R_n(\hat{x},\theta)&amp;=\textstyle\mathbb{E}_{\theta}
+F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})\\
+&amp;=\int_{\omega^{n+1}\in\Omega^{n+1}}
+F(\hat{x}(\omega_1,\ldots,\omega_n),\omega_{n+1})p(\omega_1,\ldots,\omega_{n+1};\theta);d\omega_1\ldots\omega_{n+1}
+\end{aligned}
+$$
+Note that $R_n$ depends on the distribution $p(\omega;\theta)$. Broadly, two ways to reduce this to a number from a function of $\theta$:</p>
+<p>$$R_n^{\text{worst}}(\hat{x},\Theta)=\underset{\theta \in
+\Theta}{\text{max}}\ R_n\ (\hat{x},\theta)
+$$
+or
+$$R_n^{\text{Bayes}}(\hat{x}, \pi)=  \textstyle{\mathbb{E}_\pi} R_n\ (\hat{x},\theta) = \displaystyle\int_{\theta\in\Theta}R_n(\hat{x},\theta)\pi(\theta);d\theta
+$$</p>
+<p>It is primarily a tool for analysis (e.g. let $n \rightarrow \infty$), but a few closed form or at least computationally tractable solutions exist (e.g. LQR theory in control, &ldquo;robust&rdquo; LPs).</p>
+<h2 id="relation-to-the-classical-decision-theory-problem">Relation to the classical decision theory problem</h2>
+<p>Potentially due to historical trajectory, textbook treatments of decision theory focus on the decision variables/parameters. In the stochastic optimisation setting this would look like:</p>
+<p>$$
+R_n(\hat{x},\theta)=\textstyle{\mathbb{E}_{\theta}}
+\ell(\hat{x}(\omega_1,\ldots,\omega_n), x^\star_\theta)
+$$</p>
+<p>With the focus on the differences between the estimates $\hat{x}$ and the &ldquo;true parameters&rdquo; $x^\star_\theta$.</p>
+<h2 id="statistical-learning-theory">Statistical learning theory</h2>
+<p>A way to enrich the basic decision theoretic criteria is to consider &ldquo;regret&rdquo; or &ldquo;excess loss&rdquo; with respect to the &ldquo;true&rdquo; solution over some constraint set $\mathcal{X}$:</p>
+<p>$$R_n^{\text{regret}}(\hat{x},\Theta,\mathcal{X})=\underset{\theta \in
+\Theta}{\text{max}; }\Big( R_n\ (\hat{x},\theta) - \underset{x \in
+\mathcal{X}}{\text{min}}; \textstyle\mathbb{E}_{\theta} F(x,\omega)\Big)
+$$</p>
+<p>Controlling the size/&ldquo;capacity&rdquo; of set $\mathcal{X}$ (complexity of schedules, smoothness of regression functions etc) allows to devise estimators/decision rules $\hat{x}$ that &ldquo;work&rdquo; over larger sets of distributions $\Theta$ with respect to this relativised objective.</p>
+<h2 id="example-regression">Example: regression</h2>
+<p>$(a,b) \in \mathbb{R}^k \times \mathbb{R}$ have some joint distribution $p\big((a,b);\theta\big)$. Find weight vector $x \in \mathbb{R}^k$ for which $x^Ta$ is a good estimator of $b$. Choose $x$ to minimize expected value of the squared loss:</p>
+<p>$$
+\textstyle\mathbb{E}_{\theta} F(x,(a,b)) =  \mathbb{E}_{\theta} (x^Ta-b)^2
+$$</p>
+<p>We have &ldquo;training data&rdquo; or &ldquo;scenarios&rdquo; from the joint distribution $(a_i,b_i),\ i=1,\ldots,n$. Form an approximate problem using &ldquo;training data&rdquo; and denote its solution by $\hat{x}\big((a_1,b_1),\ldots,(a_n,b_n)\big)$:</p>
+<p>$$
+\begin{array}{l}
+\hat{x}= \underset{x}{\operatorname{argmin}} \ \displaystyle\frac{1}{n}\sum_{i=1}^n (x^Ta_i-b_i)^2
+\end{array}
+$$</p>
+<p>Evaluate sample average approximation of the objective for the model $\hat{x}$ on a new set of $m$ samples $(a&rsquo;_i,b&rsquo;_i),\ i=1,\ldots,m$:</p>
+<p>$$
+\hat{F}\big(\hat{x}, (a&rsquo;_1,b&rsquo;_1),\ldots,(a&rsquo;_m,b&rsquo;_m)\big) =\frac{1}{m}\sum_{i=1}^m( \hat{x}^T a&rsquo;_i - b&rsquo;_i)^2
+$$</p>
+<p>This is essentially &ldquo;test set&rdquo; error in machine learning.</p>
+<p>It is helpful to attempt to describe the same procedures in different vocabularies, as this can reveal connections and insights not apparent from a single perspective.</p>
+<p>An important question emerges: when can we design &ldquo;optimal&rdquo; procedures by mechanically solving optimisation problems? Such an approach would necessitate explicit specification of (often unverifiable) assumptions, rather than relying on vague appeals to laws of large numbers and other asymptotic results. Another interesting avenue for future work is exploring natural ways to control the &ldquo;capacity&rdquo; of stochastic optimisation problems, analogous to how capacity is managed in statistical learning theory.</p>
+</section>
+            
+            
+
+
+<nav class="menu" style="margin-top:5rem">
+    <ul style="display: flex;
+               align-items: stretch;
+               justify-content: space-between;">
+    
+        <li>
+            <a href="/page/2/">&larr; Newer Posts</a>  
+
+    </li>
+    
+    <li>
+        <a href="/page/4/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+</nav>
+
+
+            <footer class="page-footer">
+		<hr>
+		<ul class="page-footer-menu">
+		
+		</ul>
+
+  
+
+	<div class="copyright">
+	<p>
+    
+      &copy; 2025
+    Dimitri Semenovich.
+    All rights reserved.
+    
+  </p>
+</div>
+</footer>
+
+
+
+        </article>
+    </div>
+</body>
+</html>
